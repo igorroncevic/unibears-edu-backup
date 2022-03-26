@@ -1,6 +1,6 @@
 {
 	"name": "unibears-edu",
-	"version": "1.4.0",
+	"version": "1.0.0",
 	"description": "Unibears EDU - Learn all about the NFT world",
 	"main": "index.js",
 	"scripts": {
@@ -25,7 +25,7 @@
 		"cors": "^2.8.5",
 		"js-cookie": "^2.2.1",
 		"jsonwebtoken": "^8.5.1",
-		"next": "^11.1.2",
+		"next": "^12.1.1",
 		"next-pwa": "^3.1.5",
 		"next-redux-wrapper": "^7.0.5",
 		"nookies": "^2.5.0",
