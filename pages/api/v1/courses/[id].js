@@ -12,22 +12,23 @@ const cors = initMiddleware(
     })
 )
 
-export default async (req, res) => {
+const findOne = async (req, res) => {
     await cors(req, res)
-    if(!("authorization" in req.headers)){
-        return res.status(401).json({message: "No autorization token"});
+    if (!("authorization" in req.headers)) {
+        return res.status(401).json({ message: "No autorization token" });
     }
 
     const { id } = req.query
 
     try {
         const existingData = await Course.findOne({
-            where: {id: id}
+            where: { id: id }
         })
 
-        res.send({existingData})
+        res.send({ existingData })
     } catch (error) {
         console.log(error)
     }
-
 }
+
+export default findOne;
