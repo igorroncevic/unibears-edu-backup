@@ -7,9 +7,10 @@ import CoursesDetailsSidebar from '@/components/Courses/CoursesDetailsSidebar';
 import baseUrl from '@/utils/baseUrl';
 import CoursesCurriculum from '@/components/Courses/CoursesCurriculum';
 import { defaultMetadata, getMetadata, PathNames } from '@/utils/routing';
+import Preloader from '@/components/_App/Preloader';
 resetIdCounter();
 
-const Details = ({ course, user }) => {
+const Details = ({ course }) => {
     const [metadata, setMetadata] = useState(defaultMetadata)
 
     useEffect(() => {
@@ -22,6 +23,11 @@ const Details = ({ course, user }) => {
         setMetadata({ title, description });
     }, [course])
 
+    console.log(course);
+    if (!course) {
+        return <Preloader />
+    }
+
     return (
         <div className="courses-details-area pb-100">
             <Head
@@ -29,7 +35,7 @@ const Details = ({ course, user }) => {
                 description={metadata.description}
             />
 
-            <Image src={course.coverPhoto} alt={course.title} />
+            <Image src={course.coverPhoto ? course.coverPhoto : ""} alt={course.title} />
 
             <div className="container">
                 <div className="row">

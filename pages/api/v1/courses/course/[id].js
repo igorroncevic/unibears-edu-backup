@@ -1,7 +1,7 @@
 import Cors from 'cors'
 import initMiddleware from '@/lib/init-middleware'
-import { 
-    courses as Course, 
+import {
+    courses as Course,
     users as User,
     videos as Video
 } from '@/models/index'
@@ -15,7 +15,7 @@ const cors = initMiddleware(
     })
 )
 
-export default async (req, res) => {
+const findOne = async (req, res) => {
     await cors(req, res)
     const { id } = req.query
 
@@ -26,7 +26,7 @@ export default async (req, res) => {
 
             include: [{
                 model: User, as: 'user'
-            },{
+            }, {
                 model: Video, as: 'videos',
                 attributes: ['name'],
                 order: [
@@ -43,3 +43,5 @@ export default async (req, res) => {
         res.send(error.message)
     }
 }
+
+export default findOne;

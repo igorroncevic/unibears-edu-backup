@@ -1,6 +1,6 @@
 import Cors from 'cors'
 import initMiddleware from '@/lib/init-middleware'
-import { 
+import {
     courses as Course,
     users as User,
     enroled_courses as Enroled_courses
@@ -15,7 +15,7 @@ const cors = initMiddleware(
     })
 )
 
-export default async (req, res) => {
+const homepageCourses = async (req, res) => {
     await cors(req, res)
 
     try {
@@ -27,15 +27,16 @@ export default async (req, res) => {
             include: [{
                 model: User, as: 'user',
                 attributes: ['name', 'profilePhoto']
-            },{
+            }, {
                 model: Enroled_courses, as: 'enroled_courses',
                 attributes: ['courseId']
             }],
         })
 
-        res.send({courses})
+        res.send({ courses })
     } catch (error) {
         console.log(error)
     }
-
 }
+
+export default homepageCourses;
