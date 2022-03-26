@@ -1,10 +1,9 @@
 import React from "react";
 import dynamic from "next/dynamic";
 const ModalVideo = dynamic(import("react-modal-video"));
+import Image from '@/components/Common/CustomImage';
 
 const CoursesDetailsSidebar = ({
-	id,
-	price,
 	user,
 	profilePhoto,
 	lessons,
@@ -38,7 +37,7 @@ const CoursesDetailsSidebar = ({
 
 			<div className="courses-details-info">
 				<div className="image">
-					<img src={profilePhoto} alt={title} />
+					<Image src={profilePhoto} alt={title} />
 
 					<div
 						onClick={(e) => {

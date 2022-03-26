@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from '@/components/Common/CustomImage';
 
 import { PathNames } from '@/utils/routing'
 
@@ -12,14 +13,18 @@ const CourseCard = ({
                 <div className="courses-image">
                     <Link href={PathNames.CoursesId} as={PathNames.CoursesIdFilled(id)}>
                         <a className="d-block image">
-                            <img src={profilePhoto} alt={title} />
+                            <Image src={profilePhoto} alt={title} />
                         </a>
                     </Link>
                 </div>
                 <div className="courses-content">
                     <div className="course-author d-flex align-items-center">
-                        <img src={`${user.profilePhoto ? user.profilePhoto : "/images/user1.jpg"}`} className="rounded-circle" alt={user.name} />
-                        <span>{user.name}</span>
+                        <Image
+                            src={`${user.profilePhoto ? user.profilePhoto : "/images/user1.jpg"}`}
+                            className="rounded-circle"
+                            alt={user.name}
+                        />
+                        <span className="course-author-name">{user.name}</span>
                     </div>
 
                     <h3>

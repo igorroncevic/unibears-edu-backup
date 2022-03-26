@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from '@/components/Common/CustomImage';
 import CoursesDetailsSidebar from '@/components/Courses/CoursesDetailsSidebar'
 import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 resetIdCounter()
@@ -9,9 +10,7 @@ import CoursesCurriculum from '@/components/Courses/CoursesCurriculum'
 const Details = ({ course, user }) => {
     return (
         <div className="courses-details-area pb-100">
-            <div className="courses-details-image">
-                <img src={course.coverPhoto} alt={course.title} />
-            </div>
+            <Image src={course.coverPhoto} alt={course.title} />
 
             <div className="container">
                 <div className="row">
@@ -42,7 +41,7 @@ const Details = ({ course, user }) => {
                                             <div className="row align-items-center">
                                                 <div className="col-lg-4 col-md-4">
                                                     <div className="advisor-image">
-                                                        <img src={`${course.user.profilePhoto ? course.user.profilePhoto : "/images/advisor/advisor2.jpg"}`} alt={course.user.name} />
+                                                        <Image src={`${course.user.profilePhoto ? course.user.profilePhoto : "/images/advisor/advisor2.jpg"}`} alt={course.user.name} />
                                                     </div>
                                                 </div>
 
@@ -97,17 +96,36 @@ Details.auth = {
     role: 'smh'
 };
 
-Details.getInitialProps = async (ctx) => {
-    const { id } = ctx.query
+export async function getStaticPaths() {
+    const url = `${baseUrl}/api/v1/courses`
+    const response = await axios.get(url)
+    const paths = response.data.courses.map(course => ({
+        params: { id: course.id },
+    }));
+
+    return {
+        paths,
+        fallback: true // If page was not pre-rendered at build time, Next.js will generate that page.
+    }
+}
+
+export async function getStaticProps({ params }) {
+    const { id } = params // matching what's returned in getStaticPaths
     const url = `${baseUrl}/api/v1/courses/course/${id}`
     const response = await axios.get(url);
+    console.log(response.data);
     // TODO Here you can attach unibears count required for this course
     // Details.auth.count = 10;
     Details.metadata = {
         title: response.data.course.title || "",
         description: response.data.course.overview || "",
     };
-    return response.data
+    return {
+        props: {
+            course: response.data.course,
+        },
+        revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often. 
+    }
 }
 
 export default Details

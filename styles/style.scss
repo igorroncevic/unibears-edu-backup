@@ -1000,9 +1000,8 @@ Courses Area CSS
             margin-bottom: 15px;
 
             img {
-                width: 35px;
-                height: 35px;
-                margin-right: 10px;
+                width: 35px !important;
+                height: 35px !important;
             }
             span {
                 color: $main-color;
@@ -1010,6 +1009,10 @@ Courses Area CSS
                     weight: 600;
                     size: 15px;
                 };
+            }
+
+            .course-author-name{
+                margin-left: 10px;
             }
         }
         h3 {

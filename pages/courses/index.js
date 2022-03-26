@@ -4,9 +4,7 @@ import PageBanner from '@/components/Common/PageBanner'
 import baseUrl from '@/utils/baseUrl'
 import CourseCard from '@/components/Courses/CourseCard'
 
-const Index = ({ courses }) => {
-    // console.log(courses);
-
+const Index = (props) => {
     return (
         <React.Fragment>
             <PageBanner
@@ -17,13 +15,13 @@ const Index = ({ courses }) => {
                 <div className="container">
                     <div className="edemy-grid-sorting row align-items-center">
                         <div className="col-lg-8 col-md-6 result-count">
-                            <p>We found <span className="count">{courses && courses.length}</span> courses available for you</p>
+                            <p>We found <span className="count">{props.courses && props.courses.length}</span> courses available for you</p>
                         </div>
                     </div>
 
                     <div className="row">
 
-                        {courses.length ? courses.map(course => (
+                        {props.courses.length ? props.courses.map(course => (
                             <CourseCard {...course} key={course.id} />
                         )) : (
                             <h1>Not Found</h1>
@@ -36,10 +34,15 @@ const Index = ({ courses }) => {
     )
 }
 
-Index.getInitialProps = async () => {
+export async function getStaticProps() {
     const url = `${baseUrl}/api/v1/courses`
     const response = await axios.get(url)
-    return response.data
+    return {
+        props: {
+            courses: response.data.courses
+        },
+        revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often.
+    }
 }
 
 export default Index;

@@ -1340,15 +1340,18 @@ Courses Area CSS
 }
 
 .single-courses-box .courses-content .course-author img {
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
+  width: 35px !important;
+  height: 35px !important;
 }
 
 .single-courses-box .courses-content .course-author span {
   color: #fe4a55;
   font-weight: 600;
   font-size: 15px;
+}
+
+.single-courses-box .courses-content .course-author .course-author-name{
+  margin-left: 10px;
 }
 
 .single-courses-box .courses-content h3 {
@@ -2645,4 +2648,24 @@ Main Banner Area CSS - Keep
 .nopadding {
   padding: 0 !important;
 }
+
+
+/* My Custom Image */
+.customImageContainer {
+  width: auto;
+  height: auto;
+}
+
+.customImageContainer > span {
+  position: unset !important;
+  overflow: inherit !important;
+}
+
+.customImageContainer .image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,22 +1,23 @@
 import React from 'react';
 import PageBanner from '../components/Common/PageBanner';
+import Image from '@/components/Common/CustomImage';
 
 const PrivacyPolicy = () => {
     return (
         <React.Fragment>
-            <PageBanner 
-                pageTitle="Privacy Policy" 
-                homePageUrl="/" 
-                homePageText="Home" 
-                activePageText="Privacy Privacy" 
-            />  
+            <PageBanner
+                pageTitle="Privacy Policy"
+                homePageUrl="/"
+                homePageText="Home"
+                activePageText="Privacy Privacy"
+            />
 
             <div className="privacy-policy-area ptb-100">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-12">
                             <div className="privacy-policy-content">
-                                <img src="/images/courses/courses1.jpg" alt="image" />
+                                <Image src="/images/courses/courses1.jpg" alt="image" />
                                 <p><i>This Privacy Policy was last updated on January 1, 2020.</i></p>
                                 <h3>1. What Data We Get</h3>
 

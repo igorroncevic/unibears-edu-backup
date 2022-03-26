@@ -4,9 +4,7 @@ import '../styles/boxicons.min.css'
 import '../styles/meanmenu.min.css'
 import '../styles/flaticon.css'
 import '../node_modules/react-modal-video/css/modal-video.min.css'
-import 'react-accessible-accordion/dist/fancy-example.css'
 import 'react-tabs/style/react-tabs.css'
-import 'react-image-lightbox/style.css'
 import '../styles/style.css'
 import '../styles/overrides.css'
 import '../styles/responsive.css'
@@ -77,7 +75,7 @@ const MyApp = ({ Component, pageProps }) => {
             new SolletWalletAdapter({ network }),
             new SolletExtensionWalletAdapter({ network }),
         ],
-        [network]
+        []
     );
 
     return (
@@ -107,7 +105,7 @@ const MyApp = ({ Component, pageProps }) => {
     )
 }
 
-MyApp.getInitialProps = async ({ Component, ctx }) => {
+/* MyApp.getInitialProps = async ({ Component, ctx }) => {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -119,6 +117,6 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     return {
         pageProps
     }
-}
+} */
 
 export default wrapper.withRedux(MyApp);

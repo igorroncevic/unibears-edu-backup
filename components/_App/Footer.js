@@ -5,14 +5,14 @@ import { PathNames } from '@/utils/routing';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
- 
+
     return (
         <footer className="footer-area">
             <div className="container">
                 <div className="footer-bottom-area">
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-6">
-                            <p><i className='bx bx-copyright'></i>{currentYear} Unibears EDU by <a target="_blank" href="https://envytheme.com/">EnvyTheme</a></p>
+                            <p><i className='bx bx-copyright'></i>{currentYear} Unibears EDU by <a target="_blank" rel="noreferrer" href="https://envytheme.com/">EnvyTheme</a></p>
                         </div>
 
                         <div className="col-lg-6 col-md-6">
