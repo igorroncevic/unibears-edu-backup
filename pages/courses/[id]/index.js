@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import Head from '@/components/_App/CustomHead';
+import axios from 'axios';
+import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Image from '@/components/Common/CustomImage';
-import CoursesDetailsSidebar from '@/components/Courses/CoursesDetailsSidebar'
-import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-resetIdCounter()
-import axios from 'axios'
-import baseUrl from '@/utils/baseUrl'
-import CoursesCurriculum from '@/components/Courses/CoursesCurriculum'
+import CoursesDetailsSidebar from '@/components/Courses/CoursesDetailsSidebar';
+import baseUrl from '@/utils/baseUrl';
+import CoursesCurriculum from '@/components/Courses/CoursesCurriculum';
+import { defaultMetadata, getMetadata, PathNames } from '@/utils/routing';
+resetIdCounter();
 
 const Details = ({ course, user }) => {
+    const [metadata, setMetadata] = useState(defaultMetadata)
+
+    useEffect(() => {
+        const componentMetadata = {
+            title: course.title,
+            description: course.overview
+        };
+
+        const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
+        setMetadata({ title, description });
+    }, [course])
+
     return (
         <div className="courses-details-area pb-100">
+            <Head
+                title={metadata.title}
+                description={metadata.description}
+            />
+
             <Image src={course.coverPhoto} alt={course.title} />
 
             <div className="container">
@@ -84,7 +103,7 @@ const Details = ({ course, user }) => {
                     </div>
 
                     <div className="col-lg-4 col-md-12">
-                        <CoursesDetailsSidebar {...course} loggedInUser={user} />
+                        <CoursesDetailsSidebar {...course} />
                     </div>
                 </div>
             </div>
@@ -113,13 +132,9 @@ export async function getStaticProps({ params }) {
     const { id } = params // matching what's returned in getStaticPaths
     const url = `${baseUrl}/api/v1/courses/course/${id}`
     const response = await axios.get(url);
-    console.log(response.data);
+    // console.log(response.data);
     // TODO Here you can attach unibears count required for this course
     // Details.auth.count = 10;
-    Details.metadata = {
-        title: response.data.course.title || "",
-        description: response.data.course.overview || "",
-    };
     return {
         props: {
             course: response.data.course,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Head from "next/head"
+import Head from "@/components/_App/CustomHead";
 import { ToastProvider } from 'react-toast-notifications'
 import { Toaster } from 'react-hot-toast'
 import Router, { useRouter } from 'next/router'
@@ -17,9 +17,6 @@ const Layout = ({ children, componentMetadata }) => {
     useEffect(() => {
         const { title, description } = getMetadata(router.pathname, componentMetadata);
         setMetadata({ title, description });
-
-        console.log(title);
-        console.log(componentMetadata);
 
         setTimeout(() => {
             setLoader(false)
@@ -51,17 +48,11 @@ const Layout = ({ children, componentMetadata }) => {
 
     return (
         <>
-            <Head>
-                <title>{metadata.title}</title>
-                <meta name="description" content={metadata.description} />
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <meta name="og:title" property="og:title" content={APP_NAME}></meta>
-                <meta name="twitter:card" content={APP_NAME}></meta>
-                <link rel="canonical" href="https://www.unibears.edu/"></link>
-            </Head>
-
+            <Head
+                title={metadata.title}
+                description={metadata.description}
+            />
             {loader && <Preloader />}
-
             <Toaster
                 position="bottom-right"
                 reverseOrder={false}
