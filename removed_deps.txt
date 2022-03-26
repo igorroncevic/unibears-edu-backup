@@ -1,0 +1,18 @@
+"bcrypt": "^5.0.0",
+"cloudinary-react": "^1.6.8",
+"markdown-it": "^12.2.0",
+"nodemailer": "^6.6.3",
+"nodemailer-sendgrid-transport": "^0.2.0",
+"react-hook-form": "^6.12.0",
+"react-owl-carousel3": "^2.2.5",
+"react-select": "^3.1.1",
+"react-stripe-checkout": "^2.6.3",
+"reactstrap": "^8.10.0",
+"stripe": "^8.176.0",
+"sweetalert2": "^10.10.4",
+"sweetalert2-react-content": "^3.2.2",
+"validator": "^13.1.17"
+"uuid-validate": "0.0.3"
+
+dev-deps
+"sequelize-cli": "^6.2.0"
