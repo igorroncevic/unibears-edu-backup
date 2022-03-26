@@ -6,61 +6,46 @@ import Router, { useRouter } from 'next/router'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Preloader from './Preloader'
-import { APP_NAME, PathNames, PageMetadata } from '@/utils/routing';
-
-const defaultMetadata = {
-    title: PageMetadata.pages[PathNames.Index].title,
-    description: PageMetadata.pages[PathNames.Index].description
-}
+import { APP_NAME, defaultMetadata, getMetadata } from '@/utils/routing';
 
 const Layout = ({ children, componentMetadata }) => {
     const router = useRouter();
     const [metadata, setMetadata] = useState(defaultMetadata);
-
-    useEffect(() => {
-        let title = "", description = "";
-        if (PageMetadata.pages[router.pathname]) {
-            const getTitle = PageMetadata.pages[router.pathname].title || defaultMetadata.title;
-            const getDescription = PageMetadata.pages[router.pathname].description || defaultMetadata.description;
-
-            if (typeof getTitle === 'function') {
-                const titleParam = componentMetadata && componentMetadata.title ? componentMetadata.title : "";
-                title = getTitle(titleParam);
-            } else {
-                title = getTitle;
-            }
-
-            if (typeof getDescription === 'function') {
-                const descriptionParam = componentMetadata && componentMetadata.title ? componentMetadata.title : "";
-                description = getDescription(descriptionParam);
-            } else {
-                description = getDescription;
-            }
-        }else{
-            title = defaultMetadata.title;
-            description = defaultMetadata.description;
-        }
-
-        setMetadata({
-            title: title,
-            description: description,
-        })
-    }, [router.pathname])
+    const [previousMetadata, setPreviousMetadata] = useState(defaultMetadata);
 
     const [loader, setLoader] = useState(true)
     useEffect(() => {
+        const { title, description } = getMetadata(router.pathname, componentMetadata);
+        setMetadata({ title, description });
+
+        console.log(title);
+        console.log(componentMetadata);
+
         setTimeout(() => {
             setLoader(false)
         }, 1000);
-    }, [])
+    }, [componentMetadata, router])
 
     Router.events.on('routeChangeStart', () => {
         setLoader(true)
     })
     Router.events.on('routeChangeComplete', () => {
+        setPreviousMetadata({
+            title: metadata.title,
+            description: metadata.description
+        })
+
+        const { title, description } = getMetadata(router.pathname, componentMetadata);
+        setMetadata({ title, description });
+
         setLoader(false)
     })
     Router.events.on('routeChangeError', () => {
+        setMetadata({
+            title: previousMetadata.title,
+            description: previousMetadata.description
+        });
+
         setLoader(false)
     })
 

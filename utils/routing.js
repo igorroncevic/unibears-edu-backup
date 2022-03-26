@@ -33,3 +33,35 @@ export const PageMetadata = {
         }
     }
 };
+
+export const defaultMetadata = {
+    title: PageMetadata.pages[PathNames.Index].title,
+    description: PageMetadata.pages[PathNames.Index].description
+}
+
+export const getMetadata = (path, componentMetadata = {}) => {
+    let title = "", description = "";
+    if (PageMetadata.pages[path]) {
+        const getTitle = PageMetadata.pages[path].title || defaultMetadata.title;
+        const getDescription = PageMetadata.pages[path].description || defaultMetadata.description;
+
+        if (typeof getTitle === 'function') {
+            const titleParam = componentMetadata && componentMetadata.title ? componentMetadata.title : "";
+            title = getTitle(titleParam);
+        } else {
+            title = getTitle;
+        }
+
+        if (typeof getDescription === 'function') {
+            const descriptionParam = componentMetadata && componentMetadata.title ? componentMetadata.title : "";
+            description = getDescription(descriptionParam);
+        } else {
+            description = getDescription;
+        }
+    } else {
+        title = defaultMetadata.title;
+        description = defaultMetadata.description;
+    }
+
+    return { title, description };
+}
