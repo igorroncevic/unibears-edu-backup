@@ -87,7 +87,9 @@
   .banner-image {
     margin-top: 30px;
   }
-  .banner-shape1, .banner-shape2, .banner-shape3 {
+  .banner-shape1,
+  .banner-shape2,
+  .banner-shape3 {
     display: none;
   }
   .banner-wrapper {
@@ -139,7 +141,7 @@
   }
   .single-courses-box.without-boxshadow {
     -webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-            box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
   }
   .single-advisor-box .advisor-image {
     top: 0;
@@ -187,10 +189,12 @@
     margin-bottom: 12px;
     font-size: 18px;
   }
-  .privacy-policy-content ul li, .privacy-policy-content ol li {
+  .privacy-policy-content ul li,
+  .privacy-policy-content ol li {
     font-size: 14.5px;
   }
-  .privacy-policy-content .blockquote p, .privacy-policy-content blockquote p {
+  .privacy-policy-content .blockquote p,
+  .privacy-policy-content blockquote p {
     font-size: 15px !important;
   }
   .terms-of-service-content img {
@@ -200,10 +204,12 @@
     margin-bottom: 12px;
     font-size: 18px;
   }
-  .terms-of-service-content ul li, .terms-of-service-content ol li {
+  .terms-of-service-content ul li,
+  .terms-of-service-content ol li {
     font-size: 14.5px;
   }
-  .terms-of-service-content .blockquote p, .terms-of-service-content blockquote p {
+  .terms-of-service-content .blockquote p,
+  .terms-of-service-content blockquote p {
     font-size: 15px !important;
   }
   .edemy-grid-sorting {
@@ -271,37 +277,88 @@
     margin-left: -20px;
     margin-right: -20px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a::before {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a::before {
     left: 20px;
     top: 13px;
     font-size: 15px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-name {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a
+    .courses-name {
     font-size: 15px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a
+    .courses-meta {
     text-align: left;
     margin-top: 5px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .questions {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a
+    .courses-meta
+    .questions {
     font-size: 13.5px;
     margin-top: 7px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .duration {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a
+    .courses-meta
+    .duration {
     font-size: 13.5px;
     margin-top: 7px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a
+    .courses-meta
+    .status {
     font-size: 13.5px;
     margin-top: 7px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-image {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-instructor
+    .single-advisor-box
+    .advisor-image {
     text-align: left;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-image img {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-instructor
+    .single-advisor-box
+    .advisor-image
+    img {
     width: auto;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-instructor
+    .single-advisor-box
+    .advisor-content {
     padding: 25px 0 0 0;
   }
   .courses-details-desc .react-tabs__tab-panel .courses-reviews h3 {
@@ -368,16 +425,18 @@
     opacity: 1;
     visibility: visible;
   }
-  blockquote, .blockquote {
+  blockquote,
+  .blockquote {
     padding: 20px !important;
   }
-  blockquote p, .blockquote p {
+  blockquote p,
+  .blockquote p {
     font-size: 17px !important;
   }
   .prev-link-wrapper {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
     max-width: 100%;
     padding-right: 0;
   }
@@ -389,8 +448,8 @@
   }
   .next-link-wrapper {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
     max-width: 100%;
     padding-left: 0;
     margin-top: 30px;
@@ -443,7 +502,7 @@
   .edemy-nav .navbar .navbar-nav .nav-item .col {
     width: 100%;
     -ms-flex-preferred-size: inherit;
-        flex-basis: inherit;
+    flex-basis: inherit;
   }
   .border-box {
     padding: 20px;
@@ -488,22 +547,35 @@
   .edemy-nav .navbar .navbar-nav .nav-item .col {
     width: 50%;
     -ms-flex-preferred-size: inherit;
-        flex-basis: inherit;
+    flex-basis: inherit;
   }
   .container {
     max-width: 540px;
   }
-  .edemy-responsive-nav .edemy-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .nav-item .row {
+  .edemy-responsive-nav
+    .edemy-responsive-menu.mean-container
+    .navbar-nav
+    .nav-item.megamenu
+    .dropdown-menu
+    .nav-item
+    .row {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .edemy-responsive-nav .edemy-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .nav-item .row .col {
+  .edemy-responsive-nav
+    .edemy-responsive-menu.mean-container
+    .navbar-nav
+    .nav-item.megamenu
+    .dropdown-menu
+    .nav-item
+    .row
+    .col {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
     max-width: 50%;
   }
   .main-banner .container-fluid {
@@ -512,6 +584,17 @@
   /*new-css*/
   .main-banner-area .container-fluid {
     max-width: 540px;
+  }
+
+  .accordion-grid-item {
+    max-width: 450px;
+  }
+}
+
+/* Min width 618px Max width 768px */
+@media only screen and (min-width: 618px) and (max-width: 768px) {
+  .accordion-grid-item {
+    min-width: 500px !important;
   }
 }
 
@@ -575,7 +658,9 @@
     font-size: 15px;
     margin: 0 auto 10px;
   }
-  .banner-shape1, .banner-shape2, .banner-shape3 {
+  .banner-shape1,
+  .banner-shape2,
+  .banner-shape3 {
     display: none;
   }
   .banner-content {
@@ -611,7 +696,7 @@
   }
   .single-courses-box.without-boxshadow {
     -webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-            box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
   }
   .single-box-item {
     padding: 60px 25px 30px;
@@ -649,10 +734,12 @@
     margin-left: 0;
     margin-top: 30px;
   }
-  blockquote, .blockquote {
+  blockquote,
+  .blockquote {
     padding: 30px !important;
   }
-  blockquote p, .blockquote p {
+  blockquote p,
+  .blockquote p {
     font-size: 19px !important;
   }
   .prev-link-wrapper .prev-title {
@@ -733,6 +820,9 @@
   .bulb {
     display: none;
   }
+  .accordion-grid-item {
+    min-width: 700px !important;
+  }
 }
 
 /* Min width 992px Max width 1199px */
@@ -753,7 +843,13 @@
   .edemy-responsive-nav .edemy-responsive-menu.mean-container .mean-nav ul {
     font-size: 16px;
   }
-  .edemy-responsive-nav .edemy-responsive-menu.mean-container .mean-nav ul li li a {
+  .edemy-responsive-nav
+    .edemy-responsive-menu.mean-container
+    .mean-nav
+    ul
+    li
+    li
+    a {
     font-size: 15.5px;
   }
   .edemy-responsive-nav .edemy-responsive-menu.mean-container .navbar-nav {
@@ -768,25 +864,44 @@
     display: -ms-flexbox !important;
     display: flex !important;
   }
-  .edemy-responsive-nav .edemy-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .nav-item .row {
+  .edemy-responsive-nav
+    .edemy-responsive-menu.mean-container
+    .navbar-nav
+    .nav-item.megamenu
+    .dropdown-menu
+    .nav-item
+    .row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     max-width: 83%;
     margin-left: auto;
     margin-right: auto;
   }
-  .edemy-responsive-nav .edemy-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .nav-item .row .col {
+  .edemy-responsive-nav
+    .edemy-responsive-menu.mean-container
+    .navbar-nav
+    .nav-item.megamenu
+    .dropdown-menu
+    .nav-item
+    .row
+    .col {
     -ms-flex-preferred-size: 0;
-        flex-basis: 0;
+    flex-basis: 0;
     -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
     max-width: 100%;
   }
-  .edemy-responsive-nav .edemy-responsive-menu.mean-container .navbar-nav .nav-item.megamenu .dropdown-menu .nav-item .row:nth-child(2) {
+  .edemy-responsive-nav
+    .edemy-responsive-menu.mean-container
+    .navbar-nav
+    .nav-item.megamenu
+    .dropdown-menu
+    .nav-item
+    .row:nth-child(2) {
     max-width: 100%;
   }
   .navbar-area {
@@ -801,8 +916,8 @@
   }
   .main-banner .col-lg-6 {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
     max-width: 100%;
   }
   .main-banner-content {
@@ -820,7 +935,8 @@
   .single-advisor-box .advisor-content p {
     display: none;
   }
-  .single-footer-widget.pl-5, .single-footer-widget.px-5 {
+  .single-footer-widget.pl-5,
+  .single-footer-widget.px-5 {
     padding-left: 0 !important;
   }
   .single-box-item {
@@ -845,14 +961,29 @@
   .courses-details-desc .react-tabs__tab-panel .courses-curriculum h3 {
     font-size: 18px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-name {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a
+    .courses-name {
     font-size: 14px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a::before {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-curriculum
+    ul
+    li
+    a::before {
     top: 15px;
     font-size: 17px;
   }
-  .courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
+  .courses-details-desc
+    .react-tabs__tab-panel
+    .courses-instructor
+    .single-advisor-box
+    .advisor-content {
     padding: 0 0 0 20px;
   }
   .courses-details-desc .react-tabs__tab-panel .courses-reviews h3 {
@@ -872,10 +1003,12 @@
   .courses-details-info .info li.price {
     font-size: 25px;
   }
-  blockquote, .blockquote {
+  blockquote,
+  .blockquote {
     padding: 40px !important;
   }
-  blockquote p, .blockquote p {
+  blockquote p,
+  .blockquote p {
     font-size: 20px !important;
   }
   .prev-link-wrapper .prev-title {
@@ -933,6 +1066,10 @@
   .bulb {
     display: none;
   }
+
+  .accordion-grid-item {
+    max-width: 300px;
+  }
 }
 
 /* Min width 1200px Max width 1355px */
@@ -940,7 +1077,8 @@
   .container {
     max-width: 1140px;
   }
-  .edemy-nav .container-fluid {
+  .edemy-nav .container-fluid,
+  .breadcrumb .container-fluid {
     max-width: 1200px;
     padding-left: 15px;
     padding-right: 60px;
@@ -958,19 +1096,79 @@
     left: -250px;
     right: auto;
   }
-  .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu {
+  .edemy-nav
+    .navbar
+    .navbar-nav
+    .nav-item
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu {
     left: 250px;
   }
-  .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+  .edemy-nav
+    .navbar
+    .navbar-nav
+    .nav-item
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu {
     left: -250px;
   }
-  .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+  .edemy-nav
+    .navbar
+    .navbar-nav
+    .nav-item
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu {
     left: 250px;
   }
-  .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+  .edemy-nav
+    .navbar
+    .navbar-nav
+    .nav-item
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu {
     left: -250px;
   }
-  .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+  .edemy-nav
+    .navbar
+    .navbar-nav
+    .nav-item
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu
+    li
+    .dropdown-menu {
     left: 250px;
   }
   .main-banner .container-fluid {
@@ -981,11 +1179,16 @@
     display: -ms-flexbox !important;
     display: flex !important;
   }
+
+  .accordion-grid-item {
+    max-width: 300px;
+  }
 }
 
 /* Min width 1550px */
 @media only screen and (min-width: 1550px) {
-  .edemy-nav .container-fluid {
+  .edemy-nav .container-fluid,
+  .breadcrumb .container-fluid {
     padding-left: 120px;
     padding-right: 120px;
   }
@@ -1002,7 +1205,8 @@
 }
 
 @media only screen and (max-width: 991px) {
-  .edemy-nav .container-fluid {
+  .edemy-nav .container-fluid,
+  .breadcrumb .container-fluid {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -1079,7 +1283,12 @@
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
   }
-  .edemy-nav .navbar .navbar-nav .nav-item.megamenu .dropdown-menu .mobile-none {
+  .edemy-nav
+    .navbar
+    .navbar-nav
+    .nav-item.megamenu
+    .dropdown-menu
+    .mobile-none {
     display: none;
   }
   .edemy-nav .navbar .navbar-nav .nav-item .col {
