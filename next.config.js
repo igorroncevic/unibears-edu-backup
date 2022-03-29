@@ -24,7 +24,7 @@ module.exports = withPWA({
         REACT_APP_SOLANA_RPC_HOST: "https://explorer-api.devnet.solana.com"
     },
     images: {
-        domains: ["res.cloudinary.com", "localhost"],
+        domains: ["res.cloudinary.com", "cdn.sanity.io", "localhost"],
     },
     reactStrictMode: true,
     staticPageGenerationTimeout: 120,

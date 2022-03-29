@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import PageBanner from '@/components/Common/PageBanner'
-import baseUrl from '@/utils/baseUrl'
 import CourseCard from '@/components/Courses/CourseCard'
+import { findAllCourses } from 'services/course.service'
 
 const Index = (props) => {
     return (
@@ -15,14 +14,14 @@ const Index = (props) => {
                 <div className="container">
                     <div className="edemy-grid-sorting row align-items-center">
                         <div className="col-lg-8 col-md-6 result-count">
-                            <p>We found <span className="count">{props.courses && props.courses.length}</span> courses available for you</p>
+                            <p>We found <span className="count">{props.courses && props.courses.length ? props.courses.length : 0}</span> courses available for you</p>
                         </div>
                     </div>
 
                     <div className="row">
 
                         {props.courses.length ? props.courses.map(course => (
-                            <CourseCard {...course} key={course.id} />
+                            <CourseCard course={course} key={course.id} />
                         )) : (
                             <h1>Not Found</h1>
                         )}
@@ -35,11 +34,11 @@ const Index = (props) => {
 }
 
 export async function getStaticProps() {
-    const url = `${baseUrl}/api/v1/courses`
-    const response = await axios.get(url)
+    const coursesSanity = await findAllCourses();
+
     return {
         props: {
-            courses: response.data.courses
+            courses: coursesSanity
         },
         revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often.
     }
