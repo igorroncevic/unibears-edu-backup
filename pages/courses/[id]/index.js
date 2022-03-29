@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import Head from '@/components/_App/CustomHead';
-import axios from 'axios';
 import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import Image from '@/components/Common/CustomImage';
-import CoursesDetailsSidebar from '@/components/Courses/CoursesDetailsSidebar';
-import baseUrl from '@/utils/baseUrl';
-import CoursesCurriculum from '@/components/Courses/CoursesCurriculum';
-import { defaultMetadata, getMetadata, PathNames } from '@/utils/routing';
 resetIdCounter();
 
-const Details = ({ course, user }) => {
+import Head from '@/components/_App/CustomHead';
+import Image from '@/components/Common/CustomImage';
+import PortableText from '@/components/Common/CustomPortableText';
+import CoursesDetailsSidebar from '@/components/Courses/CoursesDetailsSidebar';
+import CoursesCurriculum from '@/components/Courses/CoursesCurriculum';
+import Preloader from '@/components/_App/Preloader';
+
+import { defaultMetadata, getMetadata, PathNames } from '@/utils/routing';
+import { getCoursePaths, findCourseBySlug } from '@/services/course.service';
+import { blockContentToPlainText } from 'react-portable-text';
+import AuthorSocials from '@/components/Courses/AuthorSocials';
+
+const Details = ({ course }) => {
     const [metadata, setMetadata] = useState(defaultMetadata)
 
     useEffect(() => {
         const componentMetadata = {
             title: course.title,
-            description: course.overview
+            description: blockContentToPlainText(course.overview)
         };
 
         const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
         setMetadata({ title, description });
     }, [course])
+
+    if (!course) {
+        return <Preloader />
+    }
 
     return (
         <div className="courses-details-area pb-100">
@@ -29,7 +38,9 @@ const Details = ({ course, user }) => {
                 description={metadata.description}
             />
 
-            <Image src={course.coverPhoto} alt={course.title} />
+            <div className="course-details-banner">
+                <Image src={course.bannerPhoto ? course.bannerPhoto : ""} alt={course.title} />
+            </div>
 
             <div className="container">
                 <div className="row">
@@ -45,12 +56,12 @@ const Details = ({ course, user }) => {
                                 <TabPanel>
                                     <div className="courses-overview">
                                         <h3>Course Description</h3>
-                                        <p>{course.overview}</p>
+                                        <PortableText content={course.overview} />
                                     </div>
                                 </TabPanel>
 
                                 <TabPanel>
-                                    <CoursesCurriculum videos={course.videos} />
+                                    <CoursesCurriculum lectures={course.lectures} />
                                 </TabPanel>
 
                                 {/* Instructor info */}
@@ -60,38 +71,19 @@ const Details = ({ course, user }) => {
                                             <div className="row align-items-center">
                                                 <div className="col-lg-4 col-md-4">
                                                     <div className="advisor-image">
-                                                        <Image src={`${course.user.profilePhoto ? course.user.profilePhoto : "/images/advisor/advisor2.jpg"}`} alt={course.user.name} />
+                                                        <Image src={`${course.author.profilePhoto ? course.author.profilePhoto : "/images/advisor/advisor2.jpg"}`} alt={course.author.name} />
                                                     </div>
                                                 </div>
 
                                                 <div className="col-lg-8 col-md-8">
                                                     <div className="advisor-content">
-                                                        <h3>{course.user.name}</h3>
-                                                        <span className="sub-title">{course.user.designation || "Empty"}</span>
-                                                        <p>{course.user.about || "Empty"}</p>
+                                                        <h3>{course.author.name}</h3>
+                                                        <span className="sub-title">{course.author.title || ""}</span>
+                                                        <PortableText
+                                                            content={course.author.bio}
+                                                        />
 
-                                                        <ul className="social-link">
-                                                            <li>
-                                                                <a href={course.user.fb_url || '#'} className="d-block" rel='noreferrer' target="_blank">
-                                                                    <i className='bx bxl-facebook'></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href={course.user.tw_url || '#'} className="d-block" rel='noreferrer' target="_blank">
-                                                                    <i className='bx bxl-twitter'></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href={course.user.insta_url || '#'} className="d-block" rel='noreferrer' target="_blank">
-                                                                    <i className='bx bxl-instagram'></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href={course.user.in_url || '#'} className="d-block" rel='noreferrer' target="_blank">
-                                                                    <i className='bx bxl-linkedin'></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                        {/* <AuthorSocials/> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,7 +95,7 @@ const Details = ({ course, user }) => {
                     </div>
 
                     <div className="col-lg-4 col-md-12">
-                        <CoursesDetailsSidebar {...course} />
+                        <CoursesDetailsSidebar course={course} />
                     </div>
                 </div>
             </div>
@@ -116,10 +108,10 @@ Details.auth = {
 };
 
 export async function getStaticPaths() {
-    const url = `${baseUrl}/api/v1/courses`
-    const response = await axios.get(url)
-    const paths = response.data.courses.map(course => ({
-        params: { id: course.id },
+    const slugs = await getCoursePaths();
+
+    const paths = slugs.map(slug => ({
+        params: { id: slug },
     }));
 
     return {
@@ -129,16 +121,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const { id } = params // matching what's returned in getStaticPaths
-    const url = `${baseUrl}/api/v1/courses/course/${id}`
-    const response = await axios.get(url);
-    // console.log(response.data);
+    const course = await findCourseBySlug(params.id);
+
     // TODO Here you can attach unibears count required for this course
     // Details.auth.count = 10;
     return {
-        props: {
-            course: response.data.course,
-        },
+        props: { course },
         revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often. 
     }
 }

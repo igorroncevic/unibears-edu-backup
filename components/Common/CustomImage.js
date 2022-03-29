@@ -1,10 +1,11 @@
 import NextImage from 'next/image';
 
 // Thanks to https://www.youtube.com/watch?v=P7i5YIJRJew
-const Image = ({ src, alt, width, maxWidth, className, ...rest }) => {
-    let widths = {};
-    width ? widths["width"] = width : "100%";
-    maxWidth ? widths["maxWidth"] = maxWidth : "100%";
+const Image = ({ src, alt, width, maxWidth, height, className, ...rest }) => {
+    let additionalStyle = {};
+    width ? additionalStyle["width"] = width : "100%";
+    maxWidth ? additionalStyle["maxWidth"] = maxWidth : "100%";
+    height ? additionalStyle["height"] = height : "100%";
 
     return (
         <div className="customImageContainer">

@@ -34,7 +34,6 @@ const Navbar = () => {
         let elementId = document.getElementById("navbar");
 
         const addSticky = () => {
-            // console.log(window.scrollY);
             if (window.scrollY > 140) {
                 elementId.classList.add("is-sticky");
             } else {

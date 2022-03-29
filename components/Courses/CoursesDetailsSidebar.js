@@ -1,18 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 const ModalVideo = dynamic(import("react-modal-video"));
 import Image from '@/components/Common/CustomImage';
 
-const CoursesDetailsSidebar = ({
-	user,
-	profilePhoto,
-	lessons,
-	duration,
-	title,
-}) => {
+const CoursesDetailsSidebar = ({ course }) => {
 	const [display, setDisplay] = React.useState(false);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setDisplay(true);
 	}, []);
 
@@ -23,7 +17,7 @@ const CoursesDetailsSidebar = ({
 
 	return (
 		<React.Fragment>
-			{/* If you want to change the video need to update videoID */}
+			{/* TODO: If you want to change the video need to update videoID */}
 			{display ? (
 				<ModalVideo
 					channel="youtube"
@@ -37,8 +31,7 @@ const CoursesDetailsSidebar = ({
 
 			<div className="courses-details-info">
 				<div className="image">
-					<Image src={profilePhoto} alt={title} />
-
+					<Image src={course.thumbnail ? course.thumbnail : ""} alt={course.title} />
 					<div
 						onClick={(e) => {
 							e.preventDefault();
@@ -56,7 +49,7 @@ const CoursesDetailsSidebar = ({
 				<ul className="info">
 					<li className="price">
 						<div className="d-flex justify-content-between align-items-center">
-							{title}
+							{course.title}
 						</div>
 					</li>
 					<li>
@@ -64,7 +57,7 @@ const CoursesDetailsSidebar = ({
 							<span>
 								<i className="flaticon-teacher"></i> Instructor
 							</span>
-							{user.name}
+							{course.author.name}
 						</div>
 					</li>
 					<li>
@@ -72,16 +65,26 @@ const CoursesDetailsSidebar = ({
 							<span>
 								<i className="flaticon-time"></i> Duration
 							</span>
-							{duration}
+							{course.duration}
 						</div>
 					</li>
 					<li>
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
+								{/* TODO: Maybe change the icon to fit in with others */}
+								<i className="flaticon-calendar"></i> Published
+							</span>
+							{course.publishedAt}
+						</div>
+					</li>
+					<li>
+						<div className="d-flex justify-content-between align-items-center">
+							<span>
+								{/* TODO: Maybe put category instead of number of lectures */}
 								<i className="flaticon-distance-learning"></i>{" "}
 								Lessons
 							</span>
-							{parseInt(lessons)}
+							{parseInt(course.lectures.length)}
 						</div>
 					</li>
 				</ul>
