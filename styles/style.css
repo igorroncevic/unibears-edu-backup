@@ -34,13 +34,35 @@ p:last-child {
   outline: 0 !important;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #221638;
   font-family: "Nunito", sans-serif;
 }
 
 .container {
   max-width: 1230px;
+}
+
+.lectures-container {
+  max-width: 100%;
 }
 
 .d-table {
@@ -107,6 +129,18 @@ p:last-child {
   margin-right: 5px;
 }
 
+.topic {
+  text-align: center;
+  background-color: #fe4a55;
+  color: white;
+  padding: 10px;
+  margin: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 a {
   color: #221638;
   -webkit-transition: 0.5s;
@@ -117,6 +151,98 @@ a {
 a:hover {
   color: #fe4a55;
   text-decoration: none;
+}
+
+.accordion-item {
+  border: 1px solid white;
+}
+
+.accordion-button {
+  background-color: #ffc7ca !important;
+  color: black !important;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.accordion-button:after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23black'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: unset;
+}
+
+.accordion-button:focus {
+  box-shadow: unset;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lectures-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.accordion-grid-item {
+  flex-grow: 1;
+  min-width: 260px;
+  max-width: 420px;
+}
+
+.lecture-grid-item {
+  flex-grow: 1;
+  min-width: 300px;
+}
+
+.lecture-name-duration:hover {
+  color: #fe4a55;
+  font-weight: 800;
+}
+
+.active-lecture,
+.active-lecture:hover {
+  background-color: #fff2f2;
+  color: black;
+  font-weight: unset;
+}
+
+.lecture-name-duration {
+  padding: 15px 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.accordion-body {
+  padding: 0;
+}
+
+.embed-container {
+  /* set video width and height */
+  --video--width: 1296;
+  --video--height: 700;
+
+  position: relative;
+  padding-bottom: calc(
+    var(--video--height) / var(--video--width) * 100%
+  ); /* 41.66666667% */
+  overflow: hidden;
+  max-width: 100%;
+  background: white;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .d-table {
@@ -132,7 +258,8 @@ a:hover {
   text-align: center;
 }
 
-.vertical-align-top td, .vertical-align-top th {
+.vertical-align-top td,
+.vertical-align-top th {
   vertical-align: middle;
 }
 
@@ -171,7 +298,7 @@ a:hover {
   -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
   transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: -1;
   border-radius: 5px;
 }
@@ -219,7 +346,7 @@ a:hover {
 }
 
 .default-btn-style-two::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -229,8 +356,8 @@ a:hover {
   z-index: -1;
   border-radius: 30px;
   margin: 4px;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .default-btn-style-two:hover {
@@ -244,7 +371,8 @@ a:hover {
 /*================================================
 Navbar Area CSS
 =================================================*/
-.edemy-nav .container-fluid {
+.edemy-nav .container-fluid,
+.breadcrumb .container-fluid {
   padding-left: 40px;
   padding-right: 40px;
 }
@@ -301,7 +429,9 @@ Navbar Area CSS
   margin-right: -3px;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item a:hover, .edemy-nav .navbar .navbar-nav .nav-item a:focus, .edemy-nav .navbar .navbar-nav .nav-item a.active {
+.edemy-nav .navbar .navbar-nav .nav-item a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item a.active {
   color: #fe4a55;
 }
 
@@ -313,7 +443,8 @@ Navbar Area CSS
   margin-left: 0;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item:hover a, .edemy-nav .navbar .navbar-nav .nav-item.active a {
+.edemy-nav .navbar .navbar-nav .nav-item:hover a,
+.edemy-nav .navbar .navbar-nav .nav-item.active a {
   color: #fe4a55;
 }
 
@@ -335,7 +466,7 @@ Navbar Area CSS
   transition: all 0.2s ease-in-out;
   border-top: 3px solid #fe4a55;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a {
@@ -354,11 +485,13 @@ Navbar Area CSS
   top: 50%;
   font-size: 20px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   right: 15px;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
@@ -374,130 +507,626 @@ Navbar Area CSS
   color: #221638;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:hover,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:focus,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a.active {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu {
   top: 0;
   opacity: 0;
   left: 100%;
   visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a {
   color: #221638;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:hover,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:focus,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a.active {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu {
   top: 0;
   opacity: 0;
   left: -100%;
   visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a {
   color: #221638;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:hover,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:focus,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a.active {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu {
   top: 0;
   opacity: 0;
   left: 100%;
   visibility: hidden;
   -webkit-transform: scaleY(0);
-          transform: scaleY(0);
+  transform: scaleY(0);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a {
   color: #221638;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:hover,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:focus,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a.active {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu {
   top: 0;
   opacity: 0;
   left: -100%;
   visibility: hidden;
   -webkit-transform: scaleY(0);
-          transform: scaleY(0);
+  transform: scaleY(0);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a {
   color: #221638;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:hover,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:focus,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a.active {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu {
   top: 0;
   opacity: 0;
   left: 100%;
   visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a {
   color: #221638;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus, .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:hover,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a:focus,
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  a.active {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li.active
+  a {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li:hover
+  .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li.active
+  a {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li:hover
+  .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li.active
+  a {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li:hover
+  .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li.active
+  a {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li:hover
+  .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li.active a {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li.active
+  a {
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li
+  .dropdown-menu
+  li:hover
+  .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
@@ -506,7 +1135,13 @@ Navbar Area CSS
   color: #fe4a55;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li:hover .dropdown-menu {
+.edemy-nav
+  .navbar
+  .navbar-nav
+  .nav-item
+  .dropdown-menu
+  li:hover
+  .dropdown-menu {
   opacity: 1;
   visibility: visible;
   margin-top: 0;
@@ -525,13 +1160,13 @@ Navbar Area CSS
 .edemy-nav .navbar .navbar-nav .nav-item.megamenu .container {
   display: block;
   -ms-flex-wrap: unset;
-      flex-wrap: unset;
+  flex-wrap: unset;
   -webkit-box-align: unset;
-      -ms-flex-align: unset;
-          align-items: unset;
+  -ms-flex-align: unset;
+  align-items: unset;
   -webkit-box-pack: unset;
-      -ms-flex-pack: unset;
-          justify-content: unset;
+  -ms-flex-pack: unset;
+  justify-content: unset;
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item.megamenu .dropdown-menu {
@@ -542,7 +1177,7 @@ Navbar Area CSS
   padding: 30px 0;
   position: absolute;
   -webkit-transform: unset !important;
-          transform: unset !important;
+  transform: unset !important;
 }
 
 .edemy-nav .navbar .others-option {
@@ -580,7 +1215,7 @@ Navbar Area CSS
   transition: all 0.2s ease-in-out;
   border-top: 3px solid #fe4a55;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
 .edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a {
@@ -599,11 +1234,13 @@ Navbar Area CSS
   top: 50%;
   font-size: 20px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   right: 15px;
 }
 
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:hover, .edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:focus, .edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a.active {
+.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:hover,
+.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:focus,
+.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
@@ -627,10 +1264,10 @@ Navbar Area CSS
   width: 100%;
   z-index: 999;
   -webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
-          box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
   background-color: #ffffff !important;
   -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-          animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
 
 .navbar-area.is-sticky.pb-0 {
@@ -646,7 +1283,7 @@ Navbar Area CSS
 
 .navbar-toggler:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .navbar-toggler .icon-bar {
@@ -661,9 +1298,9 @@ Navbar Area CSS
 
 .navbar-toggler .top-bar {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transform-origin: 10% 10%;
-          transform-origin: 10% 10%;
+  transform-origin: 10% 10%;
   left: 4px;
   position: relative;
 }
@@ -675,16 +1312,16 @@ Navbar Area CSS
 
 .navbar-toggler .bottom-bar {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   -webkit-transform-origin: 10% 90%;
-          transform-origin: 10% 90%;
+  transform-origin: 10% 90%;
   left: 4px;
   position: relative;
 }
 
 .navbar-toggler.collapsed .top-bar {
   -webkit-transform: rotate(0);
-          transform: rotate(0);
+  transform: rotate(0);
   left: 0;
 }
 
@@ -694,7 +1331,7 @@ Navbar Area CSS
 
 .navbar-toggler.collapsed .bottom-bar {
   -webkit-transform: rotate(0);
-          transform: rotate(0);
+  transform: rotate(0);
   left: 0;
 }
 
@@ -767,7 +1404,7 @@ Main Banner Area CSS
 
 .banner-shape1 img {
   -webkit-animation: moveleftbounce 4s linear infinite;
-          animation: moveleftbounce 4s linear infinite;
+  animation: moveleftbounce 4s linear infinite;
 }
 
 .banner-shape2 {
@@ -781,7 +1418,7 @@ Main Banner Area CSS
 
 .banner-shape2 img {
   -webkit-animation: movebounce 5s linear infinite;
-          animation: movebounce 5s linear infinite;
+  animation: movebounce 5s linear infinite;
 }
 
 .banner-shape3 {
@@ -795,13 +1432,13 @@ Main Banner Area CSS
 
 .banner-shape3 img {
   -webkit-animation-name: rotateme;
-          animation-name: rotateme;
+  animation-name: rotateme;
   -webkit-animation-duration: 50s;
-          animation-duration: 50s;
+  animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .banner-content h1 {
@@ -850,7 +1487,7 @@ Main Banner Area CSS
   height: 512px;
   width: 100%;
   position: absolute;
-  content: '';
+  content: "";
   left: 0;
   bottom: 0;
   z-index: 1;
@@ -870,7 +1507,7 @@ Main Banner Area CSS
 
 .shape1 img {
   -webkit-animation: moveleftbounce 4s linear infinite;
-          animation: moveleftbounce 4s linear infinite;
+  animation: moveleftbounce 4s linear infinite;
 }
 
 .shape2 {
@@ -882,7 +1519,7 @@ Main Banner Area CSS
 
 .shape2 img {
   -webkit-animation: movebounce 5s linear infinite;
-          animation: movebounce 5s linear infinite;
+  animation: movebounce 5s linear infinite;
 }
 
 .shape3 {
@@ -894,13 +1531,13 @@ Main Banner Area CSS
 
 .shape3 img {
   -webkit-animation-name: rotateme;
-          animation-name: rotateme;
+  animation-name: rotateme;
   -webkit-animation-duration: 100s;
-          animation-duration: 100s;
+  animation-duration: 100s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .shape4 {
@@ -912,7 +1549,7 @@ Main Banner Area CSS
 
 .shape4 img {
   -webkit-animation: movescale 4s linear infinite;
-          animation: movescale 4s linear infinite;
+  animation: movescale 4s linear infinite;
 }
 
 .shape17 {
@@ -926,7 +1563,7 @@ Main Banner Area CSS
 
 .shape17 img {
   -webkit-animation: moveleftbounce 4s linear infinite;
-          animation: moveleftbounce 4s linear infinite;
+  animation: moveleftbounce 4s linear infinite;
 }
 
 .shape18 {
@@ -940,13 +1577,13 @@ Main Banner Area CSS
 
 .shape18 img {
   -webkit-animation-name: rotateme;
-          animation-name: rotateme;
+  animation-name: rotateme;
   -webkit-animation-duration: 100s;
-          animation-duration: 100s;
+  animation-duration: 100s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .shape19 {
@@ -957,7 +1594,7 @@ Main Banner Area CSS
 
 .shape19 img {
   -webkit-animation: movescale 4s linear infinite;
-          animation: movescale 4s linear infinite;
+  animation: movescale 4s linear infinite;
 }
 
 .shape20 {
@@ -969,7 +1606,7 @@ Main Banner Area CSS
 
 .shape20 img {
   -webkit-animation: movescale 4s linear infinite;
-          animation: movescale 4s linear infinite;
+  animation: movescale 4s linear infinite;
 }
 
 .shape21 {
@@ -981,7 +1618,7 @@ Main Banner Area CSS
 
 .shape21 img {
   -webkit-animation: movebounce 5s linear infinite;
-          animation: movebounce 5s linear infinite;
+  animation: movebounce 5s linear infinite;
 }
 
 .shape22 {
@@ -993,13 +1630,13 @@ Main Banner Area CSS
 
 .shape22 img {
   -webkit-animation-name: rotateme;
-          animation-name: rotateme;
+  animation-name: rotateme;
   -webkit-animation-duration: 50s;
-          animation-duration: 50s;
+  animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .shape23 {
@@ -1011,124 +1648,124 @@ Main Banner Area CSS
 
 .shape23 img {
   -webkit-animation-name: rotateme;
-          animation-name: rotateme;
+  animation-name: rotateme;
   -webkit-animation-duration: 100s;
-          animation-duration: 100s;
+  animation-duration: 100s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 @-webkit-keyframes movebounce {
   0% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
   50% {
     -webkit-transform: translateY(20px);
-            transform: translateY(20px);
+    transform: translateY(20px);
   }
   100% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
 }
 
 @keyframes movebounce {
   0% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
   50% {
     -webkit-transform: translateY(20px);
-            transform: translateY(20px);
+    transform: translateY(20px);
   }
   100% {
     -webkit-transform: translateY(0px);
-            transform: translateY(0px);
+    transform: translateY(0px);
   }
 }
 
 @-webkit-keyframes moveleftbounce {
   0% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
     -webkit-transform: translateX(20px);
-            transform: translateX(20px);
+    transform: translateX(20px);
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
 @keyframes moveleftbounce {
   0% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
     -webkit-transform: translateX(20px);
-            transform: translateX(20px);
+    transform: translateX(20px);
   }
   100% {
     -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
 @-webkit-keyframes rotateme {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes rotateme {
   from {
     -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @-webkit-keyframes movescale {
   0% {
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
   50% {
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
   }
   100% {
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
 }
 
 @keyframes movescale {
   0% {
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
   50% {
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
   }
   100% {
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
 }
 
@@ -1139,7 +1776,7 @@ Main Banner Area CSS
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-bottom: 0;
   margin-top: -5px;
   margin-left: -8px;
@@ -1148,8 +1785,8 @@ Main Banner Area CSS
 
 .about-content .about-list li {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
   max-width: 50%;
   padding-left: 8px;
   padding-right: 8px;
@@ -1182,7 +1819,7 @@ Main Banner Area CSS
 }
 
 .about-content .about-list li span i::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -1223,7 +1860,7 @@ Courses Area CSS
   border-radius: 5px;
   background-color: #ffffff;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 }
 
 .single-courses-box .courses-image {
@@ -1290,7 +1927,7 @@ Courses Area CSS
   font-size: 15px;
 }
 
-.single-courses-box .courses-content .course-author .course-author-name{
+.single-courses-box .courses-content .course-author .course-author-name {
   margin-left: 10px;
 }
 
@@ -1337,7 +1974,7 @@ Courses Area CSS
 .single-courses-box.bg-color {
   background-color: #fffaf3;
   -webkit-box-shadow: unset;
-          box-shadow: unset;
+  box-shadow: unset;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -1349,13 +1986,13 @@ Courses Area CSS
 .single-courses-box.bg-color:hover {
   background-color: #ffffff;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 }
 
 .single-courses-box.without-boxshadow {
   background-color: #ffffff;
   -webkit-box-shadow: unset;
-          box-shadow: unset;
+  box-shadow: unset;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -1364,9 +2001,10 @@ Courses Area CSS
   margin-bottom: 10px;
 }
 
-.single-courses-box.without-boxshadow:hover, .single-courses-box.without-boxshadow.active {
+.single-courses-box.without-boxshadow:hover,
+.single-courses-box.without-boxshadow.active {
   -webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 }
 
 .edemy-grid-sorting {
@@ -1410,7 +2048,7 @@ Courses Area CSS
   background-color: #ffffff;
   border-radius: 5px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   list-style-type: none;
   border: none;
   width: 100%;
@@ -1443,7 +2081,8 @@ Courses Area CSS
   color: #ffffff;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option.focus, .edemy-grid-sorting .ordering .nice-select .list .option.selected.focus {
+.edemy-grid-sorting .ordering .nice-select .list .option.focus,
+.edemy-grid-sorting .ordering .nice-select .list .option.selected.focus {
   background-color: transparent !important;
   color: #221638;
 }
@@ -1472,7 +2111,11 @@ Courses Area CSS
   color: #ffffff;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option.selected:hover::before {
+.edemy-grid-sorting
+  .ordering
+  .nice-select
+  .list
+  .option.selected:hover::before {
   color: #ffffff;
 }
 
@@ -1512,7 +2155,7 @@ Courses Area CSS
   top: 50%;
   font-size: 18px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .load-more-btn .load-more:hover {
@@ -1579,7 +2222,7 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab::before {
-  content: '';
+  content: "";
   bottom: 1px;
   height: 2px;
   background-color: #fe4a55;
@@ -1589,16 +2232,22 @@ Courses Details Area CSS - Keep
   left: 0;
   width: 100%;
   -webkit-transform: scaleX(0);
-          transform: scaleX(0);
+  transform: scaleX(0);
 }
 
-.courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover, .courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected {
+.courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover,
+.courses-details-desc
+  .react-tabs__tab-list
+  .react-tabs__tab.react-tabs__tab--selected {
   color: #221638;
 }
 
-.courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover::before, .courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected::before {
+.courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover::before,
+.courses-details-desc
+  .react-tabs__tab-list
+  .react-tabs__tab.react-tabs__tab--selected::before {
   -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:last-child {
@@ -1617,7 +2266,10 @@ Courses Details Area CSS - Keep
   font-weight: 800;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-overview h3:not(:first-child) {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-overview
+  h3:not(:first-child) {
   margin-top: 30px;
 }
 
@@ -1635,7 +2287,10 @@ Courses Details Area CSS - Keep
   font-weight: 800;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum h3:not(:first-child) {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  h3:not(:first-child) {
   margin-top: 30px;
 }
 
@@ -1661,7 +2316,12 @@ Courses Details Area CSS - Keep
   margin-right: -30px;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a::before {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a::before {
   content: "\f104";
   position: absolute;
   left: 30px;
@@ -1671,16 +2331,35 @@ Courses Details Area CSS - Keep
   font-family: Flaticon;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-name {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a
+  .courses-name {
   font-size: 14.5px;
   font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a
+  .courses-meta {
   text-align: right;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .questions {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a
+  .courses-meta
+  .questions {
   display: inline-block;
   background: #e3f1f2;
   color: #2dbbc4;
@@ -1692,7 +2371,14 @@ Courses Details Area CSS - Keep
   font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .duration {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a
+  .courses-meta
+  .duration {
   display: inline-block;
   background: #f7e7e8;
   color: #fe4a55;
@@ -1703,7 +2389,14 @@ Courses Details Area CSS - Keep
   font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a
+  .courses-meta
+  .status {
   display: inline-block;
   background: #221638;
   color: #ffffff;
@@ -1714,7 +2407,14 @@ Courses Details Area CSS - Keep
   font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status.locked {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li
+  a
+  .courses-meta
+  .status.locked {
   color: #221638;
   background-color: transparent;
   padding: 0;
@@ -1730,20 +2430,330 @@ Courses Details Area CSS - Keep
   color: #fe4a55;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(2) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(4) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(6) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(8) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(10) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(12) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(14) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(16) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(18) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(20) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(22) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(24) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(26) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(28) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(30) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(32) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(34) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(36) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(38) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(40) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(42) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(44) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(46) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(48) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(50) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(52) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(54) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(56) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(58) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(60) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(62) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(64) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(66) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(68) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(70) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(72) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(74) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(76) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(78) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(80) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(82) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(84) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(86) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(88) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(90) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(92) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(94) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(96) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(98) a, .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(100) a {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(2)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(4)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(6)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(8)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(10)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(12)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(14)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(16)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(18)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(20)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(22)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(24)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(26)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(28)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(30)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(32)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(34)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(36)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(38)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(40)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(42)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(44)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(46)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(48)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(50)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(52)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(54)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(56)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(58)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(60)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(62)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(64)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(66)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(68)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(70)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(72)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(74)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(76)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(78)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(80)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(82)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(84)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(86)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(88)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(90)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(92)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(94)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(96)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(98)
+  a,
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-curriculum
+  ul
+  li:nth-child(100)
+  a {
   background-color: #ffffff;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-instructor
+  .single-advisor-box {
   margin-bottom: 0;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-image {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-instructor
+  .single-advisor-box
+  .advisor-image {
   top: 0;
   margin-bottom: 0;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-instructor
+  .single-advisor-box
+  .advisor-content {
   padding: 0 0 0 20px;
 }
 
@@ -1767,7 +2777,11 @@ Courses Details Area CSS - Keep
   margin-right: 2px;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-reviews .rating span.checked {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-reviews
+  .rating
+  span.checked {
   color: orange;
 }
 
@@ -1776,7 +2790,11 @@ Courses Details Area CSS - Keep
   margin-bottom: 20px;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-reviews .rating-count span {
+.courses-details-desc
+  .react-tabs__tab-panel
+  .courses-reviews
+  .rating-count
+  span {
   display: block;
   font-size: 16px;
   color: #606060;
@@ -1820,14 +2838,14 @@ Courses Details Area CSS - Keep
 .courses-details-desc .react-tabs__tab-panel .courses-reviews .bar-5 {
   width: 100%;
   height: 18px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border-radius: 5px;
 }
 
 .courses-details-desc .react-tabs__tab-panel .courses-reviews .bar-4 {
   width: 75%;
   height: 18px;
-  background-color: #2196F3;
+  background-color: #2196f3;
   border-radius: 5px;
   border-radius: 5px;
 }
@@ -1884,7 +2902,7 @@ Courses Details Area CSS - Keep
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .courses-details-info .image .content i {
@@ -1912,7 +2930,7 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-info .image::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -2075,7 +3093,7 @@ Courses Details Area CSS - Keep
   top: 50%;
   right: 0;
   -webkit-transform: translateY(-48%);
-          transform: translateY(-48%);
+  transform: translateY(-48%);
 }
 
 .courses-details-info .courses-share .share-info .social-link li a:hover {
@@ -2102,7 +3120,8 @@ Advisor Area CSS - Keep
   margin-right: 0;
 }
 
-.single-advisor-box .row .col-lg-4, .single-advisor-box .row .col-lg-8 {
+.single-advisor-box .row .col-lg-4,
+.single-advisor-box .row .col-lg-8 {
   padding-left: 0;
   padding-right: 0;
 }
@@ -2175,7 +3194,7 @@ Advisor Area CSS - Keep
   top: 50%;
   right: 0;
   -webkit-transform: translateY(-48%);
-          transform: translateY(-48%);
+  transform: translateY(-48%);
 }
 
 .single-advisor-box .advisor-content .social-link li a:hover {
@@ -2186,16 +3205,16 @@ Advisor Area CSS - Keep
 @-webkit-keyframes ripple {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   75% {
     -webkit-transform: scale(1.75);
-            transform: scale(1.75);
+    transform: scale(1.75);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
     opacity: 0;
   }
 }
@@ -2203,16 +3222,16 @@ Advisor Area CSS - Keep
 @keyframes ripple {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   75% {
     -webkit-transform: scale(1.75);
-            transform: scale(1.75);
+    transform: scale(1.75);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(2);
-            transform: scale(2);
+    transform: scale(2);
     opacity: 0;
   }
 }
@@ -2272,33 +3291,39 @@ Privacy Policy Area CSS - Keep
   font-weight: 800;
 }
 
-.privacy-policy-content .blockquote, .privacy-policy-content blockquote {
+.privacy-policy-content .blockquote,
+.privacy-policy-content blockquote {
   margin-bottom: 30px;
   background-color: #e6f2f5;
   text-align: left !important;
   padding: 25px !important;
 }
 
-.privacy-policy-content .blockquote p, .privacy-policy-content blockquote p {
+.privacy-policy-content .blockquote p,
+.privacy-policy-content blockquote p {
   margin-bottom: 0;
   line-height: 1.8;
   font-size: 16px !important;
   font-weight: normal;
 }
 
-.privacy-policy-content .blockquote::after, .privacy-policy-content blockquote::after {
+.privacy-policy-content .blockquote::after,
+.privacy-policy-content blockquote::after {
   display: none;
 }
 
-.privacy-policy-content .blockquote::before, .privacy-policy-content blockquote::before {
+.privacy-policy-content .blockquote::before,
+.privacy-policy-content blockquote::before {
   display: none;
 }
 
-.privacy-policy-content ol, .privacy-policy-content ul {
+.privacy-policy-content ol,
+.privacy-policy-content ul {
   margin-top: 20px;
 }
 
-.privacy-policy-content ol li, .privacy-policy-content ul li {
+.privacy-policy-content ol li,
+.privacy-policy-content ul li {
   margin-bottom: 10px;
   color: #606060;
   font-size: 16px;
@@ -2322,33 +3347,39 @@ Terms of Service Area CSS - Keep
   font-weight: 800;
 }
 
-.terms-of-service-content .blockquote, .terms-of-service-content blockquote {
+.terms-of-service-content .blockquote,
+.terms-of-service-content blockquote {
   margin-bottom: 30px;
   background-color: #e6f2f5;
   text-align: left !important;
   padding: 25px !important;
 }
 
-.terms-of-service-content .blockquote p, .terms-of-service-content blockquote p {
+.terms-of-service-content .blockquote p,
+.terms-of-service-content blockquote p {
   margin-bottom: 0;
   line-height: 1.8;
   font-size: 16px !important;
   font-weight: normal;
 }
 
-.terms-of-service-content .blockquote::after, .terms-of-service-content blockquote::after {
+.terms-of-service-content .blockquote::after,
+.terms-of-service-content blockquote::after {
   display: none;
 }
 
-.terms-of-service-content .blockquote::before, .terms-of-service-content blockquote::before {
+.terms-of-service-content .blockquote::before,
+.terms-of-service-content blockquote::before {
   display: none;
 }
 
-.terms-of-service-content ol, .terms-of-service-content ul {
+.terms-of-service-content ol,
+.terms-of-service-content ul {
   margin-top: 20px;
 }
 
-.terms-of-service-content ol li, .terms-of-service-content ul li {
+.terms-of-service-content ol li,
+.terms-of-service-content ul li {
   margin-bottom: 10px;
   color: #606060;
   font-size: 16px;
@@ -2458,7 +3489,7 @@ Footer Area CSS - Keep
 }
 
 .footer-bottom-area ul li::before {
-  content: '';
+  content: "";
   position: absolute;
   right: -12px;
   top: 5.5px;
@@ -2569,19 +3600,19 @@ Main Banner Area CSS - Keep
 
 .bulb img {
   -webkit-animation: moveleftbounce 4s linear infinite;
-          animation: moveleftbounce 4s linear infinite;
+  animation: moveleftbounce 4s linear infinite;
 }
 
 /*
   Layout Flex 
 */
-.layout-wrapper-flex{
+.layout-wrapper-flex {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.layout-main-flex{
+.layout-main-flex {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -2594,7 +3625,6 @@ Main Banner Area CSS - Keep
 .nopadding {
   padding: 0 !important;
 }
-
 
 /* My Custom Image */
 .customImageContainer {
