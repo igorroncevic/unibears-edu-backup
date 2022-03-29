@@ -3,20 +3,20 @@ import Link from 'next/link'
 
 import { PathNames } from '@/utils/routing'
 
-const CoursesCurriculum = ({ videos }) => {
+const CoursesCurriculum = ({ lectures }) => {
     return (
         <div className="courses-curriculum">
-            <h3>Course Videos</h3>
-            {videos ? (
+            <h3>Lectures</h3>
+            {lectures ? (
                 <ul>
-                    {videos.map(video => (
-                        <li key={video.id}>
+                    {lectures.map(lecture => (
+                        <li key={lecture.id}>
                             <Link href={PathNames.CoursesIndex}>
                                 <a
                                     className="d-flex justify-content-between align-items-center"
                                     onClick={e => e.preventDefault()}
                                 >
-                                    <span className="courses-name">{video.name}</span>
+                                    <span className="courses-name">{lecture.title}</span>
                                     <div className="courses-meta">
                                         <span className="status locked"><i className="flaticon-password"></i></span>
                                     </div>
@@ -26,7 +26,7 @@ const CoursesCurriculum = ({ videos }) => {
                     ))}
                 </ul>
             ) : (
-                <h3>No Videos</h3>
+                <h3>No Lectures</h3>
             )}
 
         </div>

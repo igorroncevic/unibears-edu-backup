@@ -1,63 +1,3 @@
-/*
-@File: eDemy Template Styles
-
-* This file contains the styling for the actual template, this
-is the file you need to edit to change the look of the
-template.
-
-This files table contents are outlined below>>>>>
-
-*******************************************
-*******************************************
-
-** - Default CSS
-** - Navbar Area CSS
-** - Main Banner Area CSS
-** - Partner Area CSS
-** - Boxes Area CSS
-** - About Area CSS
-** - Language Courses Area CSS
-** - Success Story Area CSS
-** - Our Story Area CSS
-** - Courses Area CSS
-** - Courses Details Area CSS
-** - Categories Area CSS
-** - Advisor Area CSS
-** - Start With Success Area CSS
-** - Feedback Area CSS
-** - Profile Area CSS
-** - Video Area CSS
-** - Get Instant Courses Area CSS
-** - Events Area CSS
-** - Events Details Area CSS
-** - Blog Area CSS
-** - Blog Details Area CSS
-** - Become Instructor & Partner CSS
-** - View All Courses Area CSS
-** - Information Area CSS
-** - Free Trial Area CSS
-** - Newsletter Modal CSS
-** - Teacher Register Area CSS
-** - Premium Access Area CSS
-** - Apply Instructor Area CSS
-** - Page Title Area CSS
-** - Subscribe Area CSS
-** - Gallery Area CSS
-** - Products Area CSS
-** - Products Details Area CSS
-** - Cart Area CSS
-** - Checkout Area CSS
-** - Widget Sidebar CSS
-** - Privacy Policy Area CSS
-** - Terms of Service Area CSS
-** - Purchase Guide Area CSS
-** - Pagination CSS
-** - 404 Error Area CSS
-** - Coming Soon Area CSS
-** - Profile Authentication Area CSS
-** - Footer Area CSS
-** - Go Top CSS
-*/
 /*================================================
 Default CSS
 =================================================*/
@@ -1601,6 +1541,12 @@ Courses Area CSS
 /*================================================
 Courses Details Area CSS - Keep
 =================================================*/
+.course-details-banner{
+  width: 100%;
+  height: 500px !important;
+  max-height: 500px !important;
+}
+
 .courses-details-desc {
   margin-top: 60px;
   padding-right: 15px;
