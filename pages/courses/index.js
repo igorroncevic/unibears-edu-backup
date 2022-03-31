@@ -34,12 +34,10 @@ const Index = (props) => {
 }
 
 export async function getStaticProps() {
-    const coursesSanity = await findAllCourses();
+    const courses = await findAllCourses();
 
     return {
-        props: {
-            courses: coursesSanity
-        },
+        props: { courses },
         revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often.
     }
 }

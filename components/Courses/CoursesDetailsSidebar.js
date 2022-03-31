@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 const ModalVideo = dynamic(import("react-modal-video"));
 import Image from '@/components/Common/CustomImage';
 
 const CoursesDetailsSidebar = ({ course }) => {
-	const [display, setDisplay] = React.useState(false);
+	const [display, setDisplay] = useState(false);
 
 	useEffect(() => {
 		setDisplay(true);
 	}, []);
 
-	const [isOpen, setIsOpen] = React.useState(true);
+	const [isOpen, setIsOpen] = useState(true);
 	const openModal = () => {
 		setIsOpen(!isOpen);
 	};
 
 	return (
-		<React.Fragment>
+		<>
 			{/* TODO: If you want to change the video need to update videoID */}
 			{display ? (
 				<ModalVideo
@@ -82,23 +82,22 @@ const CoursesDetailsSidebar = ({ course }) => {
 							<span>
 								{/* TODO: Maybe put category instead of number of lectures */}
 								<i className="flaticon-distance-learning"></i>{" "}
-								Lessons
+								Lectures
 							</span>
-							{parseInt(course.lectures.length)}
+							{/* TODO: Maybe put this in useState? If we won't use categories (which we probably will) */}
+							{parseInt(course.topics.reduce((prev, curr) => prev + curr.lectures.length, 0))}
 						</div>
 					</li>
 				</ul>
 
 				<div className="btn-box">
-					<button
-						className="default-btn"
-					>
+					<button className="default-btn">
 						<i className="flaticon-tag"></i> Start Course
 						<span></span>
 					</button>
 				</div>
 			</div>
-		</React.Fragment>
+		</>
 	);
 };
 

@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Accordion from "@/components/Common/Accordion";
 import Lecture from "@/components/Lectures/Lecture";
 import { PathNames } from "@/utils/routing";
+import { getCoursePaths, getCourseLectures } from '@/services/course.service';
 
 function Lectures({ course }) {
   const [show, setShow] = useState(true);
   const [activeTopicIndex, setActiveTopicIndex] = useState(0);
-  const [active, setActive] = useState({});
+  const [active, setActive] = useState(course.topics[0].lectures[0]);
 
   const router = useRouter()
 
-  useEffect(() => {
+  /* useEffect(() => {
+    if (!router.isReady) return;
+
+    console.log(router.isReady);
     const { active: id } = router.query;
+
+    console.log("Active lecture: ", id);
 
     let activeLecture = {};
     let activeTopicIndex = 0;
@@ -48,26 +55,29 @@ function Lectures({ course }) {
       setActive(activeLecture);
       setActiveTopicIndex(activeTopicIndex);
     }
-  }, [router, course])
+  }, [router.isReady]); */ // Intentionally only running this on load, onLectureClick will handle intra-page navigation.
 
   const showHandler = () => {
     setShow((prevState) => !prevState);
   };
 
   const onLectureClick = (lecture) => {
+    console.log("OnLectureClick: ", lecture);
     setActive(lecture);
     // https://stackoverflow.com/a/64337902
-    router.push(
+    /* router.push(
       {
         pathname: PathNames.LecturesId,
         query: {
           slug: course.slug,
           active: active.id
         },
-      }
-        `${PathNames.LecturesIdFilled(course.slug)}?active=${active.id}`,
+      },
+      PathNames.LecturesIdFilled(course.slug, active.id),
       { shallow: true }
-    );
+    ); */
+
+    router.push(PathNames.LecturesIdFilled(course.slug, lecture.id), undefined, { shallow: true });
   }
 
   return (
@@ -100,6 +110,19 @@ function Lectures({ course }) {
       </div>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  const slugs = await getCoursePaths();
+
+  const paths = slugs.map(slug => ({
+    params: { slug },
+  }));
+
+  return {
+    paths,
+    fallback: true // If page was not pre-rendered at build time, Next.js will generate that page.
+  }
 }
 
 export async function getStaticProps({ params }) {

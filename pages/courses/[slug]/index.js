@@ -61,7 +61,8 @@ const Details = ({ course }) => {
                                 </TabPanel>
 
                                 <TabPanel>
-                                    <CoursesCurriculum lectures={course.lectures} />
+                                    {/* TODO: Now model uses topics, that have lectures combined. Fix this. */}
+                                    <CoursesCurriculum courseSlug={course.slug} lectures={course.topics} />
                                 </TabPanel>
 
                                 {/* Instructor info */}

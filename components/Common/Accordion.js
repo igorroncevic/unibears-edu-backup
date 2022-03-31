@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Accordion({ topics, active, openTopicIndex, onLectureClick }) {
   const [openTopics, setOpenTopics] = useState([openTopicIndex]);
@@ -57,7 +57,7 @@ function Accordion({ topics, active, openTopicIndex, onLectureClick }) {
                               ${active.id == lecture.id ? "active-lecture" : ""}`}
                               onClick={() => onLectureClick(lecture)}
                             >
-                              <span>{lecture.name}</span>
+                              <span>{lecture.title}</span>
                               <span>{lecture.duration}</span>
                             </a>
                           );

@@ -5,7 +5,7 @@ import { sanityClient, urlFor } from 'sanity.config';
 const courseFields = `'id': _id, 'slug': slug.current, title, bannerPhoto, thumbnail, coursePreview, publishedAt, overview, duration, lectures`;
 const coursePreviewFields = `'id': _id, 'slug': slug.current, title, thumbnail, overview, "numLectures": count(lectures)`;
 const authorFields = `name, profilePhoto`;
-const courseLecturesFields = `'id': _id, 'slug': slug.current, title`;
+const courseLecturesFields = `'id': _id, 'slug': slug.current, title, overview`;
 const lectureFields = `'id': _key, title, overview, source`;
 const topicFields = `'id': _key, title`;
 
@@ -36,14 +36,16 @@ export const getCoursePaths = async () => {
         'slug': slug.current
     }`;
 
-    return await sanityClient.fetch(query);
+    const paths = await sanityClient.fetch(query);
+
+    return paths.map(slug => slug.slug);
 }
 
 export const getCourseLectures = async (slug) => {
     const query = `*[_type == "course" && slug.current == $slug][0]{
         ${courseLecturesFields}, 
         topics[]{
-            ${topicFields}
+            ${topicFields},
             lectures[]{${lectureFields}}
         },
         author -> {${authorFields}}

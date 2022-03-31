@@ -2,6 +2,10 @@ import ReactPortableText from "react-portable-text";
 import { blockContentToPlainText } from "react-portable-text";
 
 const PortableText = ({ content, plain, shortenTo }) => {
+    if (!content) {
+        return "";
+    }
+
     let contentFormatted = content;
     if (plain) {
         contentFormatted = blockContentToPlainText(content);
