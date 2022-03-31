@@ -55,10 +55,10 @@ export default {
       type: 'blockContent',
     },
     {
-      name: 'lectures',
-      title: 'Lectures',
+      name: 'topics',
+      title: 'Topics',
       type: 'array',
-      of: [{ type: 'lecture' }]
+      of: [{ type: 'topic' }]
     },
     {
       name: 'duration',

@@ -111,7 +111,7 @@ export async function getStaticPaths() {
     const slugs = await getCoursePaths();
 
     const paths = slugs.map(slug => ({
-        params: { id: slug },
+        params: { slug },
     }));
 
     return {
@@ -121,7 +121,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const course = await findCourseBySlug(params.id);
+    const course = await findCourseBySlug(params.slug);
 
     // TODO Here you can attach unibears count required for this course
     // Details.auth.count = 10;

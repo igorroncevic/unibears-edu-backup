@@ -3,11 +3,10 @@ export const APP_NAME = "Unibears EDU";
 export const PathNames = {
   Index: "/",
   CoursesIndex: "/courses",
-  CoursesId: "/courses/[id]",
-  LecturesId: "/courses/[courseId]/lectures/[lectureId]",
-  CoursesIdFilled: (id) => `/courses/${id}`,
-  LecturesIdFilled: (courseId, lectureId) =>
-    `/courses/${courseId}/lectures/${lectureId}`,
+  CoursesId: "/courses/[slug]",
+  LecturesId: "/courses/[slug]/lectures",
+  CoursesIdFilled: (slug) => `/courses/${slug}`,
+  LecturesIdFilled: (slug) => `/courses/${slug}/lectures`,
   PrivacyPolicy: "/privacy-policy",
   TermsOfService: "/terms-of-service",
 };
@@ -23,7 +22,14 @@ export const PageMetadata = {
       title: `Courses | ${APP_NAME}`,
       description: `${APP_NAME} courses on various subjects.`,
     },
-    "/courses/[id]": {
+    "/courses/[slug]": {
+      title: (name) => (name ? `${name} | ${APP_NAME}` : APP_NAME),
+      description: (description) =>
+        description
+          ? description
+          : "Learn about all about NFTs and their use cases in the real world!",
+    },
+    "/courses/[slug]/lectures": {
       title: (name) => (name ? `${name} | ${APP_NAME}` : APP_NAME),
       description: (description) =>
         description

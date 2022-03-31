@@ -2,9 +2,12 @@ import moment from 'moment';
 
 import { sanityClient, urlFor } from 'sanity.config';
 
-const coursePreviewFields = `'id': _id, slug, title, thumbnail, overview, "numLectures": count(lectures)`
-const courseFields = `'id': _id, slug, title, bannerPhoto, thumbnail, coursePreview, publishedAt, overview, duration, lectures`
-const authorFields = `name, profilePhoto`
+const courseFields = `'id': _id, 'slug': slug.current, title, bannerPhoto, thumbnail, coursePreview, publishedAt, overview, duration, lectures`;
+const coursePreviewFields = `'id': _id, 'slug': slug.current, title, thumbnail, overview, "numLectures": count(lectures)`;
+const authorFields = `name, profilePhoto`;
+const courseLecturesFields = `'id': _id, 'slug': slug.current, title`;
+const lectureFields = `'id': _key, title, overview, source`;
+const topicFields = `'id': _key, title`;
 
 export const findAllCourses = async () => {
     const query = `*[_type == "course"]{
@@ -18,25 +21,37 @@ export const findAllCourses = async () => {
 }
 
 export const findCourseBySlug = async (slug) => {
-    const query = `*[_type == "course" && slug.current == "${slug}"][0]{
+    const query = `*[_type == "course" && slug.current == $slug][0]{
         ${courseFields},
         author -> {${authorFields}, title, bio}
     }`;
 
-    const course = await sanityClient.fetch(query);
+    const course = await sanityClient.fetch(query, { slug });
 
     return _transformCourse(course);
 }
 
 export const getCoursePaths = async () => {
     const query = `*[_type == "course"]{
-        slug
+        'slug': slug.current
     }`;
 
-    const slugs = await sanityClient.fetch(query);
+    return await sanityClient.fetch(query);
+}
 
-    // Because it is nested like [{ slug: {...} }, ...]
-    return slugs.map(slug => slug.slug.current);
+export const getCourseLectures = async (slug) => {
+    const query = `*[_type == "course" && slug.current == $slug][0]{
+        ${courseLecturesFields}, 
+        topics[]{
+            ${topicFields}
+            lectures[]{${lectureFields}}
+        },
+        author -> {${authorFields}}
+     }`;
+
+    const course = await sanityClient.fetch(query, { slug });
+
+    return _transformCourse(course);
 }
 
 const _transformCourse = (course) => {
@@ -52,10 +67,6 @@ const _transformCourse = (course) => {
 
     if (course.author && course.author.profilePhoto) {
         course.author.profilePhoto = urlFor(course.author.profilePhoto).url();
-    }
-
-    if (course.slug) {
-        course.slug = course.slug.current;
     }
 
     // TODO: Standardize this format.
