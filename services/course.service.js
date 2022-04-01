@@ -5,7 +5,6 @@ import { sanityClient, urlFor } from 'sanity.config';
 const courseFields = `'id': _id, 'slug': slug.current, title, bannerPhoto, thumbnail, coursePreview, publishedAt, overview, duration, lectures`;
 const coursePreviewFields = `'id': _id, 'slug': slug.current, title, thumbnail, overview, "numLectures": count(lectures)`;
 const authorFields = `name, profilePhoto`;
-const categoriesFields = `'id': _id, name`;
 const courseLecturesFields = `'id': _id, 'slug': slug.current, title, overview`;
 const lectureFields = `'id': _key, title, overview, source`;
 const topicFields = `'id': _key, title`;
@@ -16,7 +15,7 @@ export const findAllCourses = async () => {
     const query = `*[_type == "course"]{
         ${coursePreviewFields},
         author -> {${authorFields}},
-        categories[] -> {${categoriesFields}}
+        categories[] -> { name }
       }`
 
     const courses = await sanityClient.fetch(query);
@@ -28,7 +27,7 @@ export const findCourseBySlug = async (slug) => {
     const query = `*[_type == "course" && slug.current == $slug][0]{
         ${courseFields},
         author -> {${authorFields}, title, bio},
-        categories[] -> {${categoriesFields}}
+        categories[] -> { name }
     }`;
 
     const course = await sanityClient.fetch(query, { slug });
@@ -82,6 +81,8 @@ const _transformCourse = (course) => {
     }
 
     if (course.categories && Array.isArray(course.categories)) {
+        course.categoriesFilter = course.categories.map(category => category.name); // Retain this for filtering purposes.
+
         let categories = "";
         for (let i = 0; i < course.categories.length; i++) {
             const categoryName = course.categories[i].name;
@@ -91,6 +92,7 @@ const _transformCourse = (course) => {
             }
             categories += `, ${categoryName}`;
         }
+
         course.categories = categories;
     }
 

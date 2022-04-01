@@ -1,9 +1,34 @@
-import React from 'react'
-import PageBanner from '@/components/Common/PageBanner'
-import CourseCard from '@/components/Courses/CourseCard'
-import { findAllCourses } from 'services/course.service'
+import React, { useState, useEffect } from 'react';
+import PageBanner from '@/components/Common/PageBanner';
+import CourseCard from '@/components/Courses/CourseCard';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { findAllCourses } from 'services/course.service';
+import { findAllCategories } from 'services/category.service';
 
-const Index = (props) => {
+const Index = ({ courses, categories }) => {
+    const [allCourses, setAllCourses] = useState(courses);
+    const [displayCourses, setDisplayCourses] = useState(courses);
+
+    const [allCategories, setAllCategories] = useState(["All", ...categories]);
+    const [categoryFilter, setCategoryFilter] = useState("All");
+
+    useEffect(() => {
+        switch (categoryFilter) {
+            case "All":
+                setDisplayCourses(allCourses);
+                break;
+            default:
+                console.log(allCourses);
+                const filtered = allCourses.filter(course => course.categoriesFilter.includes(categoryFilter));
+                setDisplayCourses(filtered);
+                break;
+        }
+    }, [categoryFilter]);
+
+    const handleCategorySelect = (e) => {
+        setCategoryFilter(e);
+    }
+
     return (
         <React.Fragment>
             <PageBanner
@@ -14,19 +39,30 @@ const Index = (props) => {
                 <div className="container">
                     <div className="edemy-grid-sorting row align-items-center">
                         <div className="col-lg-8 col-md-6 result-count">
-                            <p>We found <span className="count">{props.courses && props.courses.length ? props.courses.length : 0}</span> courses available for you</p>
+                            <p>We found <span className="count">{displayCourses && displayCourses.length ? displayCourses.length : 0}</span> courses available for you</p>
+                        </div>
+                        <div className="col-lg-4 col-md-6 categories-filter">
+                            {/* TODO: Check styling for the container and add new ones to DropdownButton, which is super basic now. */}
+                            <DropdownButton
+                                title={categoryFilter}
+                                onSelect={handleCategorySelect}
+                                id="dropdown-menu-align-right">
+                                {allCategories.map(category => (
+                                    <Dropdown.Item key={category} eventKey={category}>
+                                        {category}
+                                    </Dropdown.Item>
+                                ))}
+                            </DropdownButton>
                         </div>
                     </div>
 
-                    {/* TODO: Implement filtering by categories 
-                    Snippet: https://www.sanity.io/schemas/sanity-groq-filter-by-category-or-tags-in-array-68dd555e */}
+                    {/* TODO: Implement filtering by categories */}
                     <div className="row">
-                        {props.courses.length ? props.courses.map(course => (
+                        {displayCourses.length ? displayCourses.map(course => (
                             <CourseCard course={course} key={course.id} />
                         )) : (
                             <h1>Not Found</h1>
                         )}
-
                     </div>
                 </div>
             </div>
@@ -36,9 +72,10 @@ const Index = (props) => {
 
 export async function getStaticProps() {
     const courses = await findAllCourses();
+    const categories = await findAllCategories();
 
     return {
-        props: { courses },
+        props: { courses, categories },
         revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often.
     }
 }
