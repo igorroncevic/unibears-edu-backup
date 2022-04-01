@@ -39,7 +39,12 @@ const CourseCard = ({ course }) => {
                     <PortableText content={course.overview} />
                     <ul className="courses-box-footer d-flex justify-content-between align-items-center">
                         <li>
-                            <i className='flaticon-agenda'></i> {parseInt(course.numLectures)} Lessons
+                            {/* TODO: Add appropriate icon */}
+                            <i className='flaticon-agenda'></i> {course.categories}
+                        </li>
+                        <li>
+                            {/* TODO: Add some more data to make design look nicer */}
+                            <i className='flaticon-agenda'></i> {course.categories}
                         </li>
                     </ul>
                 </div>

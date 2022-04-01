@@ -38,6 +38,7 @@ const Details = ({ course }) => {
                 description={metadata.description}
             />
 
+            {/* TODO: Maybe reduce required photo height from 500px to 400px? To make more info on the page visible. */}
             <div className="course-details-banner">
                 <Image src={course.bannerPhoto ? course.bannerPhoto : ""} alt={course.title} />
             </div>
@@ -65,7 +66,7 @@ const Details = ({ course }) => {
                                     <CoursesCurriculum courseSlug={course.slug} lectures={course.topics} />
                                 </TabPanel>
 
-                                {/* Instructor info */}
+                                {/* TODO: Extract Instructor info to a separate component */}
                                 <TabPanel>
                                     <div className="courses-instructor">
                                         <div className="single-advisor-box">

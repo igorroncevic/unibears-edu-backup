@@ -4,14 +4,10 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'name',
+      title: 'Name',
       type: 'string',
     },
-    {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    },
+    // TODO: Maybe add a preview icon to make it nicer in Sanity studio
   ],
 }

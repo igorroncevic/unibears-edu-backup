@@ -24,6 +24,12 @@ export default {
       to: { type: 'author' },
     },
     {
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'category' } }],
+    },
+    {
       name: 'bannerPhoto',
       title: 'Course Banner (1920x500)',
       type: 'image',

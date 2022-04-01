@@ -5,14 +5,18 @@ import { sanityClient, urlFor } from 'sanity.config';
 const courseFields = `'id': _id, 'slug': slug.current, title, bannerPhoto, thumbnail, coursePreview, publishedAt, overview, duration, lectures`;
 const coursePreviewFields = `'id': _id, 'slug': slug.current, title, thumbnail, overview, "numLectures": count(lectures)`;
 const authorFields = `name, profilePhoto`;
+const categoriesFields = `'id': _id, name`;
 const courseLecturesFields = `'id': _id, 'slug': slug.current, title, overview`;
 const lectureFields = `'id': _key, title, overview, source`;
 const topicFields = `'id': _key, title`;
 
+// TODO: Add sorting to queries
+
 export const findAllCourses = async () => {
     const query = `*[_type == "course"]{
         ${coursePreviewFields},
-        author -> {${authorFields}}
+        author -> {${authorFields}},
+        categories[] -> {${categoriesFields}}
       }`
 
     const courses = await sanityClient.fetch(query);
@@ -23,7 +27,8 @@ export const findAllCourses = async () => {
 export const findCourseBySlug = async (slug) => {
     const query = `*[_type == "course" && slug.current == $slug][0]{
         ${courseFields},
-        author -> {${authorFields}, title, bio}
+        author -> {${authorFields}, title, bio},
+        categories[] -> {${categoriesFields}}
     }`;
 
     const course = await sanityClient.fetch(query, { slug });
@@ -74,6 +79,19 @@ const _transformCourse = (course) => {
     // TODO: Standardize this format.
     if (course.publishedAt) {
         course.publishedAt = moment(course.publishedAt).format("Do MMM YYYY");
+    }
+
+    if (course.categories && Array.isArray(course.categories)) {
+        let categories = "";
+        for (let i = 0; i < course.categories.length; i++) {
+            const categoryName = course.categories[i].name;
+            if (i == 0) {
+                categories = categoryName;
+                continue;
+            }
+            categories += `, ${categoryName}`;
+        }
+        course.categories = categories;
     }
 
     // TODO: Standardize this format.

@@ -80,18 +80,18 @@ const CoursesDetailsSidebar = ({ course }) => {
 					<li>
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
-								{/* TODO: Maybe put category instead of number of lectures */}
+								{/* TODO: Add a proper icon for categories */}
 								<i className="flaticon-distance-learning"></i>{" "}
-								Lectures
+								Categories
 							</span>
-							{/* TODO: Maybe put this in useState? If we won't use categories (which we probably will) */}
-							{parseInt(course.topics.reduce((prev, curr) => prev + curr.lectures.length, 0))}
+							{course.categories}
 						</div>
 					</li>
 				</ul>
 
 				<div className="btn-box">
 					<button className="default-btn">
+						{/* TODO: Use this button to navigate to first lesson if user has enough Unibears? */}
 						<i className="flaticon-tag"></i> Start Course
 						<span></span>
 					</button>

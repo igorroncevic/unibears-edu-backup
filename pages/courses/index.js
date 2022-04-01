@@ -18,8 +18,9 @@ const Index = (props) => {
                         </div>
                     </div>
 
+                    {/* TODO: Implement filtering by categories 
+                    Snippet: https://www.sanity.io/schemas/sanity-groq-filter-by-category-or-tags-in-array-68dd555e */}
                     <div className="row">
-
                         {props.courses.length ? props.courses.map(course => (
                             <CourseCard course={course} key={course.id} />
                         )) : (
