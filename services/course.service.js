@@ -12,7 +12,7 @@ const topicFields = `'id': _key, title`;
 // TODO: Add sorting to queries
 
 export const findAllCourses = async () => {
-    const query = `*[_type == "course"]{
+    const query = `*[_type == "course"] | order(_createdAt desc) {
         ${coursePreviewFields},
         author -> {${authorFields}},
         categories[] -> { name }
@@ -48,9 +48,9 @@ export const getCoursePaths = async () => {
 export const getCourseLectures = async (slug) => {
     const query = `*[_type == "course" && slug.current == $slug][0]{
         ${courseLecturesFields}, 
-        topics[]{
+        topics[] | order(_createdAt desc) {
             ${topicFields},
-            lectures[]{${lectureFields}}
+            lectures[] | order(_createdAt desc) {${lectureFields}}
         },
         author -> {${authorFields}}
      }`;
