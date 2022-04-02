@@ -3,6 +3,7 @@ Default CSS
 =================================================*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   scroll-behavior: initial;
 }
@@ -227,9 +228,8 @@ a:hover {
   --video--height: 700;
 
   position: relative;
-  padding-bottom: calc(
-    var(--video--height) / var(--video--width) * 100%
-  ); /* 41.66666667% */
+  padding-bottom: calc(var(--video--height) / var(--video--width) * 100%);
+  /* 41.66666667% */
   overflow: hidden;
   max-width: 100%;
   background: white;
@@ -507,189 +507,47 @@ Navbar Area CSS
   color: #221638;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:hover,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:focus,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu {
   top: 0;
   opacity: 0;
   left: 100%;
   visibility: hidden;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
   color: #221638;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:hover,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:focus,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
   top: 0;
   opacity: 0;
   left: -100%;
   visibility: hidden;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
   color: #221638;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:hover,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:focus,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
   top: 0;
   opacity: 0;
   left: 100%;
@@ -698,87 +556,17 @@ Navbar Area CSS
   transform: scaleY(0);
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
   color: #221638;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:hover,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:focus,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
   top: 0;
   opacity: 0;
   left: -100%;
@@ -787,346 +575,74 @@ Navbar Area CSS
   transform: scaleY(0);
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
   color: #221638;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:hover,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:focus,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
   top: 0;
   opacity: 0;
   left: 100%;
   visibility: hidden;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
   color: #221638;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:hover,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a:focus,
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  a.active {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li.active
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li:hover
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li.active
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li:hover
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li.active
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li:hover
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li.active
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li:hover
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li.active
-  a {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li.active a {
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li
-  .dropdown-menu
-  li:hover
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
 }
@@ -1135,13 +651,7 @@ Navbar Area CSS
   color: #fe4a55;
 }
 
-.edemy-nav
-  .navbar
-  .navbar-nav
-  .nav-item
-  .dropdown-menu
-  li:hover
-  .dropdown-menu {
+.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   margin-top: 0;
@@ -1662,10 +1172,12 @@ Main Banner Area CSS
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
+
   50% {
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
   }
+
   100% {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
@@ -1677,10 +1189,12 @@ Main Banner Area CSS
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
+
   50% {
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
   }
+
   100% {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
@@ -1692,10 +1206,12 @@ Main Banner Area CSS
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
   }
+
   50% {
     -webkit-transform: translateX(20px);
     transform: translateX(20px);
   }
+
   100% {
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
@@ -1707,10 +1223,12 @@ Main Banner Area CSS
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
   }
+
   50% {
     -webkit-transform: translateX(20px);
     transform: translateX(20px);
   }
+
   100% {
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
@@ -1722,6 +1240,7 @@ Main Banner Area CSS
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -1733,6 +1252,7 @@ Main Banner Area CSS
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -1744,10 +1264,12 @@ Main Banner Area CSS
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
   }
+
   50% {
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
   }
+
   100% {
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
@@ -1759,10 +1281,12 @@ Main Banner Area CSS
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
   }
+
   50% {
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
   }
+
   100% {
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
@@ -2111,11 +1635,7 @@ Courses Area CSS
   color: #ffffff;
 }
 
-.edemy-grid-sorting
-  .ordering
-  .nice-select
-  .list
-  .option.selected:hover::before {
+.edemy-grid-sorting .ordering .nice-select .list .option.selected:hover::before {
   color: #ffffff;
 }
 
@@ -2184,7 +1704,7 @@ Courses Area CSS
 /*================================================
 Courses Details Area CSS - Keep
 =================================================*/
-.course-details-banner{
+.course-details-banner {
   width: 100%;
   height: 500px !important;
   max-height: 500px !important;
@@ -2236,16 +1756,12 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover,
-.courses-details-desc
-  .react-tabs__tab-list
-  .react-tabs__tab.react-tabs__tab--selected {
+.courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected {
   color: #221638;
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover::before,
-.courses-details-desc
-  .react-tabs__tab-list
-  .react-tabs__tab.react-tabs__tab--selected::before {
+.courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected::before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
@@ -2266,10 +1782,7 @@ Courses Details Area CSS - Keep
   font-weight: 800;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-overview
-  h3:not(:first-child) {
+.courses-details-desc .react-tabs__tab-panel .courses-overview h3:not(:first-child) {
   margin-top: 30px;
 }
 
@@ -2287,10 +1800,7 @@ Courses Details Area CSS - Keep
   font-weight: 800;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  h3:not(:first-child) {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum h3:not(:first-child) {
   margin-top: 30px;
 }
 
@@ -2316,12 +1826,7 @@ Courses Details Area CSS - Keep
   margin-right: -30px;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a::before {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a::before {
   content: "\f104";
   position: absolute;
   left: 30px;
@@ -2331,35 +1836,16 @@ Courses Details Area CSS - Keep
   font-family: Flaticon;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a
-  .courses-name {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-name {
   font-size: 14.5px;
   font-weight: 700;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a
-  .courses-meta {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta {
   text-align: right;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a
-  .courses-meta
-  .questions {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .questions {
   display: inline-block;
   background: #e3f1f2;
   color: #2dbbc4;
@@ -2371,14 +1857,7 @@ Courses Details Area CSS - Keep
   font-weight: 700;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a
-  .courses-meta
-  .duration {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .duration {
   display: inline-block;
   background: #f7e7e8;
   color: #fe4a55;
@@ -2389,14 +1868,7 @@ Courses Details Area CSS - Keep
   font-weight: 700;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a
-  .courses-meta
-  .status {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status {
   display: inline-block;
   background: #221638;
   color: #ffffff;
@@ -2407,14 +1879,7 @@ Courses Details Area CSS - Keep
   font-weight: 700;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li
-  a
-  .courses-meta
-  .status.locked {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status.locked {
   color: #221638;
   background-color: transparent;
   padding: 0;
@@ -2430,330 +1895,69 @@ Courses Details Area CSS - Keep
   color: #fe4a55;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(2)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(4)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(6)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(8)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(10)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(12)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(14)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(16)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(18)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(20)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(22)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(24)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(26)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(28)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(30)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(32)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(34)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(36)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(38)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(40)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(42)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(44)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(46)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(48)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(50)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(52)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(54)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(56)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(58)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(60)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(62)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(64)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(66)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(68)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(70)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(72)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(74)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(76)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(78)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(80)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(82)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(84)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(86)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(88)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(90)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(92)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(94)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(96)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(98)
-  a,
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-curriculum
-  ul
-  li:nth-child(100)
-  a {
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(2) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(4) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(6) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(8) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(10) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(12) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(14) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(16) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(18) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(20) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(22) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(24) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(26) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(28) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(30) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(32) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(34) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(36) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(38) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(40) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(42) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(44) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(46) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(48) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(50) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(52) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(54) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(56) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(58) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(60) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(62) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(64) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(66) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(68) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(70) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(72) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(74) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(76) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(78) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(80) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(82) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(84) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(86) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(88) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(90) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(92) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(94) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(96) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(98) a,
+.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(100) a {
   background-color: #ffffff;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-instructor
-  .single-advisor-box {
+.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box {
   margin-bottom: 0;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-instructor
-  .single-advisor-box
-  .advisor-image {
+.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-image {
   top: 0;
   margin-bottom: 0;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-instructor
-  .single-advisor-box
-  .advisor-content {
+.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
   padding: 0 0 0 20px;
 }
 
@@ -2777,11 +1981,7 @@ Courses Details Area CSS - Keep
   margin-right: 2px;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-reviews
-  .rating
-  span.checked {
+.courses-details-desc .react-tabs__tab-panel .courses-reviews .rating span.checked {
   color: orange;
 }
 
@@ -2790,11 +1990,7 @@ Courses Details Area CSS - Keep
   margin-bottom: 20px;
 }
 
-.courses-details-desc
-  .react-tabs__tab-panel
-  .courses-reviews
-  .rating-count
-  span {
+.courses-details-desc .react-tabs__tab-panel .courses-reviews .rating-count span {
   display: block;
   font-size: 16px;
   color: #606060;
@@ -3207,11 +2403,13 @@ Advisor Area CSS - Keep
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   75% {
     -webkit-transform: scale(1.75);
     transform: scale(1.75);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(2);
     transform: scale(2);
@@ -3224,11 +2422,13 @@ Advisor Area CSS - Keep
     -webkit-transform: scale(1);
     transform: scale(1);
   }
+
   75% {
     -webkit-transform: scale(1.75);
     transform: scale(1.75);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(2);
     transform: scale(2);
@@ -3511,6 +2711,7 @@ Footer Area CSS - Keep
   0% {
     top: -50%;
   }
+
   100% {
     top: 110%;
   }
@@ -3520,6 +2721,7 @@ Footer Area CSS - Keep
   0% {
     top: -50%;
   }
+
   100% {
     top: 110%;
   }
@@ -3632,7 +2834,7 @@ Main Banner Area CSS - Keep
   height: auto;
 }
 
-.customImageContainer > span {
+.customImageContainer>span {
   position: unset !important;
   overflow: inherit !important;
 }
@@ -3642,6 +2844,37 @@ Main Banner Area CSS - Keep
   width: 100% !important;
   position: relative !important;
   height: unset !important;
+}
+
+/* Categories Filter */
+.categories-filter {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-filter .dropdown-button-custom>* {
+  border: none !important;
+  font-size: 16px !important;
+  color: #221638 !important;
+  background-color: white;
+  box-shadow: none !important;
+  min-width: 150px;
+}
+
+.dropdown-button-custom button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* TODO: Add line when hovering (like in Tab section on Course Index) */
+.dropdown-button-custom button:hover,
+.dropdown-button-custom button:active {
+  background-color: #ffdadc !important;
 }
 
 /*# sourceMappingURL=style.css.map */

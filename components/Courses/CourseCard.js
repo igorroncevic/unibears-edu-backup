@@ -12,7 +12,6 @@ const CourseCard = ({ course }) => {
                 <div className="courses-image">
                     <Link href={PathNames.CoursesId} as={PathNames.CoursesIdFilled(course.slug)}>
                         <a className="d-block image">
-                            {/* TODO: As 1920x500 is needed for /courses/[slug], have a different field for preview image. */}
                             <Image
                                 src={course.thumbnail ? course.thumbnail : ""}
                                 alt={course.title}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PageBanner from '@/components/Common/PageBanner';
 import CourseCard from '@/components/Courses/CourseCard';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import { findAllCourses } from 'services/course.service';
 import { findAllCategories } from 'services/category.service';
 
@@ -42,21 +42,20 @@ const Index = ({ courses, categories }) => {
                             <p>We found <span className="count">{displayCourses && displayCourses.length ? displayCourses.length : 0}</span> courses available for you</p>
                         </div>
                         <div className="col-lg-4 col-md-6 categories-filter">
-                            {/* TODO: Check styling for the container and add new ones to DropdownButton, which is super basic now. */}
-                            <DropdownButton
-                                title={categoryFilter}
-                                onSelect={handleCategorySelect}
-                                id="dropdown-menu-align-right">
-                                {allCategories.map(category => (
-                                    <Dropdown.Item key={category} eventKey={category}>
-                                        {category}
-                                    </Dropdown.Item>
-                                ))}
-                            </DropdownButton>
+                            <span>Category:</span>
+                            <Dropdown className="dropdown-button-custom" onSelect={handleCategorySelect}>
+                                <Dropdown.Toggle>{categoryFilter}</Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    {allCategories.map(category => (
+                                        <Dropdown.Item key={category} eventKey={category}>
+                                            {category}
+                                        </Dropdown.Item>
+                                    ))}
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </div>
                     </div>
 
-                    {/* TODO: Implement filtering by categories */}
                     <div className="row">
                         {displayCourses.length ? displayCourses.map(course => (
                             <CourseCard course={course} key={course.id} />
