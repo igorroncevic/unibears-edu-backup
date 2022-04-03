@@ -1,14 +1,24 @@
+import {
+  findTopicAndLectureIndex,
+  setNextAndPreviousLecture,
+} from "@/utils/common";
 import { PathNames } from "@/utils/routing";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { Accordion } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  lectureChange,
+  updatePreviousAndNextLecture,
+} from "../../redux/actions/course.actions";
 
-function Accordionv({ course, onLectureClick }) {
+function AccordionComponent({ course }) {
   const [topics, setTopics] = useState(course.topics);
   const [openTopics, setOpenTopics] = useState([]);
   const [active, setActive] = useState();
   const router = useRouter();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setTopics(course.topics);
@@ -18,7 +28,7 @@ function Accordionv({ course, onLectureClick }) {
     if (lecture) {
       setActive(lecture);
       setOpenTopics([...openTopics, activeTopic]);
-      onLectureClick(lecture);
+      dispatch(lectureChange(lecture));
     }
   };
 
@@ -31,19 +41,20 @@ function Accordionv({ course, onLectureClick }) {
         topics[0].lectures?.length > 0
       ) {
         handleActiveLecture(topics[0].id, topics[0].lectures[0]);
-        return;
+        setPreviousAndNextLecture(0, 0);
       }
 
       // read the router active value
       if (router.isReady && active?.id !== router.query.active) {
-        let lecture;
-        const topic = topics.find(
-          (topic) =>
-            (lecture = topic.lectures.find(
-              (lecture) => lecture.id === router.query.active
-            ))
+        const { topicIndex, lectureIndex } = findTopicAndLectureIndex(
+          topics,
+          router.query.active
         );
-        handleActiveLecture(topic.id, lecture);
+        handleActiveLecture(
+          topics[topicIndex].id,
+          topics[topicIndex].lectures[lectureIndex]
+        );
+        setPreviousAndNextLecture(topicIndex, lectureIndex);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,17 +74,27 @@ function Accordionv({ course, onLectureClick }) {
       ${router.query.active === lecture.id ? "active-lecture" : ""}`;
   };
 
+  const setPreviousAndNextLecture = (topicIndex, lectureIndex) => {
+    const data = setNextAndPreviousLecture(topics, topicIndex, lectureIndex);
+    dispatch(updatePreviousAndNextLecture(data));
+  };
+
+  const onLectureClick = (lecture, topicIndex, lectureIndex) => {
+    dispatch(lectureChange(lecture));
+    setPreviousAndNextLecture(topicIndex, lectureIndex);
+  };
+
   return (
     <div className="accordion-wrapper">
       {topics.length > 0 && active && (
         <Accordion defaultActiveKey={openTopics} alwaysOpen>
-          {topics.map((topic) => (
+          {topics.map((topic, topicIndex) => (
             <Accordion.Item eventKey={topic.id} key={topic.id}>
               <Accordion.Header onClick={() => handleTopicClick(topic.id)}>
                 {topic.title}
               </Accordion.Header>
               <Accordion.Body>
-                {topic.lectures.map((lecture) => {
+                {topic.lectures.map((lecture, lectureIndex) => {
                   return (
                     <Link
                       key={lecture.id}
@@ -85,7 +106,9 @@ function Accordionv({ course, onLectureClick }) {
                     >
                       <a
                         className={getLectureClassname(lecture)}
-                        onClick={() => onLectureClick(lecture)}
+                        onClick={() =>
+                          onLectureClick(lecture, topicIndex, lectureIndex)
+                        }
                       >
                         <span>{lecture.title}</span>
                         <span>{lecture.duration}</span>
@@ -102,4 +125,4 @@ function Accordionv({ course, onLectureClick }) {
   );
 }
 
-export default Accordionv;
+export default AccordionComponent;

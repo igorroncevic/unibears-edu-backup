@@ -1,33 +1,22 @@
-import React, { useState, useEffect } from "react";
-import Accordion from "@/components/Common/Accordion";
+import React, { useState } from "react";
+import Accordion from "@/components/Accordion/Accordion";
 import Lecture from "@/components/Lectures/Lecture";
 import { getCoursePaths, getCourseLectures } from "@/services/course.service";
 
 function Lectures({ course }) {
   const [show, setShow] = useState(true);
-  const [active, setActive] = useState();
-
-  const showHandler = () => {
-    setShow((prevState) => !prevState);
-  };
-
-  const onLectureClick = (lecture) => {
-    setActive(lecture);
-  };
-
-  return (
+  return course ? (
     <>
       <div className="lectures-grid shadow min-vh-100 nomargin nopadding bg-light">
-        <div className="accordion-grid-item min-w-400">
-          <Accordion
-            course={course}
-            onLectureClick={(lecture) => onLectureClick(lecture)}
-          />
-        </div>
+        {show && (
+          <div className="accordion-grid-item min-w-400">
+            <Accordion course={course} />
+          </div>
+        )}
         <div className="nopadding">
           <div style={{ transform: `rotate(${show ? "180deg" : "0deg"})` }}>
             <button
-              onClick={showHandler}
+              onClick={() => setShow((prevState) => !prevState)}
               className="btn btn-light"
               type="button"
             >
@@ -35,13 +24,13 @@ function Lectures({ course }) {
             </button>
           </div>
         </div>
-        {active && (
-          <div className="lecture-grid-item">
-            <Lecture lecture={active} />
-          </div>
-        )}
+        <div className="lecture-grid-item">
+          <Lecture topics={course.topics} />
+        </div>
       </div>
     </>
+  ) : (
+    <>Loading...</>
   );
 }
 
