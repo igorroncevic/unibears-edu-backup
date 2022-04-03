@@ -15,7 +15,6 @@ function Accordionv({ course, onLectureClick }) {
   }, [course]);
 
   const handleActiveLecture = (activeTopic, lecture) => {
-    console.log(lecture);
     if (lecture) {
       setActive(lecture);
       setOpenTopics([...openTopics, activeTopic]);
@@ -24,8 +23,8 @@ function Accordionv({ course, onLectureClick }) {
   };
 
   useEffect(() => {
-    // if router.query.active does not exist, set first lecture from first topic as active
     if (router.isReady) {
+      // if router.query.active does not exist, set first lecture from first topic as active
       if (
         !router.query.active &&
         topics.length > 0 &&
