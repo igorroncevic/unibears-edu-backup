@@ -1,78 +1,106 @@
+import { PathNames } from "@/utils/routing";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
+import { Accordion } from "react-bootstrap";
 
-function Accordion({ topics, active, openTopicIndex, onLectureClick }) {
-  const [openTopics, setOpenTopics] = useState([openTopicIndex]);
+function Accordionv({ course, onLectureClick }) {
+  const [topics, setTopics] = useState(course.topics);
+  const [openTopics, setOpenTopics] = useState([]);
+  const [active, setActive] = useState();
+  const router = useRouter();
 
   useEffect(() => {
-    handleTopicClick(openTopicIndex);
-  }, [openTopicIndex])
+    setTopics(course.topics);
+  }, [course]);
 
-  const handleTopicClick = (index) => {
-    if (openTopics.includes(index)) {
-      const topicsFiltered = openTopics.filter(topicIndex => topicIndex != index);
+  const handleActiveLecture = (activeTopic, lecture) => {
+    console.log(lecture);
+    if (lecture) {
+      setActive(lecture);
+      setOpenTopics([...openTopics, activeTopic]);
+      onLectureClick(lecture);
+    }
+  };
+
+  useEffect(() => {
+    // if router.query.active does not exist, set first lecture from first topic as active
+    if (router.isReady) {
+      if (
+        !router.query.active &&
+        topics.length > 0 &&
+        topics[0].lectures?.length > 0
+      ) {
+        handleActiveLecture(topics[0].id, topics[0].lectures[0]);
+        return;
+      }
+
+      // read the router active value
+      if (router.isReady && active?.id !== router.query.active) {
+        let lecture;
+        const topic = topics.find(
+          (topic) =>
+            (lecture = topic.lectures.find(
+              (lecture) => lecture.id === router.query.active
+            ))
+        );
+        handleActiveLecture(topic.id, lecture);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]);
+
+  const handleTopicClick = (id) => {
+    if (openTopics.includes(id)) {
+      const topicsFiltered = openTopics.filter((topicId) => topicId !== id);
       setOpenTopics(topicsFiltered);
     } else {
-      setOpenTopics([...openTopics, index])
+      setOpenTopics([...openTopics, id]);
     }
-  }
+  };
+
+  const getLectureClassname = (lecture) => {
+    return `lecture-name-duration d-flex justify-content-between
+      ${router.query.active === lecture.id ? "active-lecture" : ""}`;
+  };
 
   return (
     <div className="accordion-wrapper">
-      <h3 className="topic">
-        <i className="flaticon-webinar"></i> Topics list
-      </h3>
-      <div className="lectures-container nopadding">
-        <div className="row nomargin">
-          <div className="col nopadding">
-            <div className="accordion shadow">
-              {topics.map((topic, topicInd) => {
-                return (
-                  <div
-                    className="accordion-item"
-                    key={"accordition-item-" + topicInd}
-                  >
-                    <h2 className="accordion-header" id={"heading-" + topicInd}>
-                      <button
-                        className="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target={"#collapse-" + topicInd}
-                        aria-expanded={openTopics.includes(topicInd) ? true : false}
-                        aria-controls={"collapse-" + topicInd}
-                        onClick={(topicInd) => handleTopicClick(topicInd)}
-                      >
-                        {topic.title}
-                      </button>
-                    </h2>
-                    <div
-                      id={"collapse-" + topicInd}
-                      className={`accordion-collapse collapse ${openTopics.includes(topicInd) ? "show" : ""}`}
-                      aria-labelledby={"heading-" + topicInd}
+      {topics.length > 0 && active && (
+        <Accordion defaultActiveKey={openTopics} alwaysOpen>
+          {topics.map((topic) => (
+            <Accordion.Item eventKey={topic.id} key={topic.id}>
+              <Accordion.Header onClick={() => handleTopicClick(topic.id)}>
+                {topic.title}
+              </Accordion.Header>
+              <Accordion.Body>
+                {topic.lectures.map((lecture) => {
+                  return (
+                    <Link
+                      key={lecture.id}
+                      href={{
+                        pathname: PathNames.LectureCoursesIdFilled(course.slug),
+                        query: { active: lecture.id },
+                      }}
+                      replace
                     >
-                      <div className="accordion-body">
-                        {topic.lectures.map((lecture, lecInd) => {
-                          return (
-                            <a key={lecInd}
-                              className={`lecture-name-duration d-flex justify-content-between 
-                              ${active.id == lecture.id ? "active-lecture" : ""}`}
-                              onClick={() => onLectureClick(lecture)}
-                            >
-                              <span>{lecture.title}</span>
-                              <span>{lecture.duration}</span>
-                            </a>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div >
+                      <a
+                        className={getLectureClassname(lecture)}
+                        onClick={() => onLectureClick(lecture)}
+                      >
+                        <span>{lecture.title}</span>
+                        <span>{lecture.duration}</span>
+                      </a>
+                    </Link>
+                  );
+                })}
+              </Accordion.Body>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      )}
+    </div>
   );
 }
 
-export default Accordion;
+export default Accordionv;
