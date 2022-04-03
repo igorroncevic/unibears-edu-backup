@@ -1706,8 +1706,6 @@ Courses Details Area CSS - Keep
 =================================================*/
 .course-details-banner {
   width: 100%;
-  height: 500px !important;
-  max-height: 500px !important;
 }
 
 .courses-details-desc {

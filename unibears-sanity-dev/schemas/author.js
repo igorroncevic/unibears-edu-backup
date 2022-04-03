@@ -7,21 +7,21 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: Rule => [
+        Rule.required().min(6).warning("Your name is too short (<6 characters)."),
+        Rule.required().max(60).error("Your name is too long (>60 characters)."),
+      ]
     },
     {
       // Profession (e.g. Head of Data Science, Pierian Data Inc.)
       name: 'title',
       title: 'Title',
       type: 'string',
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 96,
-      },
+      validation: Rule => [
+        // TODO: Check how this length (6-100) applies to Instructor info in /courses/[slug]
+        Rule.required().min(6).warning("Your title is too short (<6 characters)."),
+        Rule.required().max(100).error("Your name is too long (>100 characters)."),
+      ]
     },
     {
       name: 'profilePhoto',
@@ -30,6 +30,7 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: Rule => Rule.required().error("Author's profile photo is required.")
     },
     // TODO: Add length validation for Author's bio.
     // TODO: Experiment with blockcontent, make it as minimal as possible.
@@ -43,6 +44,7 @@ export default {
     select: {
       title: 'name',
       media: 'profilePhoto',
+      subtitle: 'title'
     },
   },
 }
