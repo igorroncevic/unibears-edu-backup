@@ -20,9 +20,9 @@ const CoursesDetailsSidebar = ({ course }) => {
 			{/* TODO: If you want to change the video need to update videoID */}
 			{display ? (
 				<ModalVideo
-					channel="youtube"
+					channel="vimeo"
 					isOpen={!isOpen}
-					videoId="bk7McNUjWgw"
+					videoId={course.coursePreview ? course.coursePreview : "293581795"}
 					onClose={() => setIsOpen(!isOpen)}
 				/>
 			) : (

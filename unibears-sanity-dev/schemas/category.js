@@ -6,6 +6,7 @@ export default {
     {
       name: 'name',
       title: 'Name',
+      description: 'Name should be something clear and concise (3-15 letters).',
       type: 'string',
       validation: Rule => [
         // TODO: Check how ultra long names fit in CourseDetailsSidebar

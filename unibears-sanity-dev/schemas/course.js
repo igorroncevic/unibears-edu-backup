@@ -16,11 +16,14 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
+      description: 'Slugs can be customized too, but it\'s not recommended for uniqueness purposes. Example: this-is-a-slug',
       type: 'slug',
       options: {
         source: 'title',
         maxLength: 96,
       },
+      // TODO: Add uniqueness checks. Not required this early tho.
+      // https://www.sanity.io/docs/slug-type#isUnique-3dd89e75a768
       validation: Rule => Rule.required().error("Course must have a slug."),
     },
     {
@@ -33,13 +36,15 @@ export default {
     {
       name: 'categories',
       title: 'Categories',
+      description: 'Course should have 1-2 categories, 3 at most.',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
-      validation: Rule => Rule.required().error("Course must have at least 1 category."),
+      validation: Rule => Rule.required().max(3).error("Course must have at least 1 and up to 3 categories."),
     },
     {
       name: 'bannerPhoto',
       title: 'Course Banner (1920x500)',
+      description: 'Recommended banner dimensions are 1920x500, as of right now.',
       type: 'image',
       options: {
         hotspot: true,
@@ -49,6 +54,7 @@ export default {
     {
       name: 'thumbnail',
       title: 'Course Thumbnail',
+      description: 'Course thumbnail does not have dimension requirements, as of right now.',
       type: 'image',
       options: {
         hotspot: true,
@@ -58,12 +64,14 @@ export default {
     {
       name: 'coursePreview',
       title: 'Course Preview',
+      description: 'Important: Only insert video id ({video_id} in example) and not the full link. Example: vimeo.com/{video_id}, vimeo.com/{channel_id}/{video_id}',
       type: 'string', // link to video
       validation: Rule => Rule.required().error("Course must have a trailer video link."),
     },
     {
       name: 'publishedAt',
       title: 'Published at',
+      description: 'Course will be visible only after this time.',
       type: 'datetime',
       validation: Rule => Rule.required().error("Course must have a set publish date."),
     },
@@ -75,6 +83,7 @@ export default {
     {
       name: 'topics',
       title: 'Topics',
+      description: 'Topics are used to group lectures under a similar theme.',
       type: 'array',
       of: [{ type: 'topic' }],
       validation: Rule => Rule.required().error("Course must have at least 1 topic."),
@@ -82,6 +91,7 @@ export default {
     {
       name: 'duration',
       title: 'Duration (minutes)',
+      description: 'Used for displaying course length in the details page.',
       type: 'number',
       validation: Rule => Rule.required().min(0).max(3000).error("Course must have a set duration in minutes.")
     }

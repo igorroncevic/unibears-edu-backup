@@ -6,6 +6,7 @@ export default {
     {
       name: 'name',
       title: 'Name',
+      description: 'Author\'s full name.',
       type: 'string',
       validation: Rule => [
         Rule.required().min(6).warning("Your name is too short (<6 characters)."),
@@ -13,9 +14,9 @@ export default {
       ]
     },
     {
-      // Profession (e.g. Head of Data Science, Pierian Data Inc.)
       name: 'title',
       title: 'Title',
+      description: 'Author\'s position within the organization. Example: Profession (e.g. Head of Data Science, Pierian Data Inc.)',
       type: 'string',
       validation: Rule => [
         // TODO: Check how this length (6-100) applies to Instructor info in /courses/[slug]
@@ -26,6 +27,7 @@ export default {
     {
       name: 'profilePhoto',
       title: 'Profile Photo',
+      description: "Recommended dimensions are 500x500 pixels.",
       type: 'image',
       options: {
         hotspot: true,

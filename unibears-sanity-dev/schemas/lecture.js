@@ -15,6 +15,7 @@ export default {
         {
             name: 'source',
             title: 'Video Content',
+            description: "Full link to Vimeo video content.",
             type: 'string',
             validation: Rule => Rule.required().error("Course must have video content."),
         },
