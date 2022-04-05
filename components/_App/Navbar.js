@@ -8,25 +8,29 @@ import { shortenAddress } from '@/utils/blockchain';
 import Link from 'next/link';
 import Image from '@/components/Common/CustomImage';
 
-import { authSuccess } from '@/redux/actions/auth.actions.js';
+import { authSuccess, setUnibearsCount } from '@/redux/actions/auth.actions.js';
 import { toastSuccess } from '@/utils/toasts';
 import { PathNames } from '@/utils/routing';
+import solanaService from '@/services/solana.service';
 
 const Navbar = () => {
     const dispatch = useDispatch();
-    const { address, errorMessage } = useSelector(state => state.auth);
+    const { address, unibearsCount } = useSelector(state => state.auth);
 
     const [menu, setMenu] = useState(true);
     const wallet = useAnchorWallet();
 
-    const toggleNavbar = () => {
-        setMenu(!menu)
-    }
-
     useEffect(() => {
         if (wallet) {
-            dispatch(authSuccess({ address: wallet.publicKey.toBase58() }));
-            toastSuccess('Successfully logged in.');
+            (async function () {
+                const walletAddress = wallet.publicKey.toBase58();
+
+                const count = await solanaService.getUnibearsCount(address)
+
+                dispatch(setUnibearsCount({ count: count }));
+                dispatch(authSuccess({ address: walletAddress }));
+                toastSuccess('Successfully logged in.\nYou own ' + count + " Unibears.");
+            })()
         }
     }, [wallet, dispatch]);
 
@@ -49,6 +53,10 @@ const Navbar = () => {
 
     const displayWalletAddress = () => {
         return <p>Wallet {shortenAddress(address || "")}</p>
+    }
+
+    const toggleNavbar = () => {
+        setMenu(!menu)
     }
 
     const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';

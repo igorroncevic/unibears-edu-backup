@@ -13,6 +13,11 @@
 "sweetalert2-react-content": "^3.2.2",
 "validator": "^13.1.17"
 "uuid-validate": "0.0.3"
+"nookies": "^2.5.0",
+"pg": "^8.7.1",
+"pg-hstore": "^2.3.3",
+"js-cookie": "^2.2.1",
+"jsonwebtoken": "^8.5.1",
 
 dev-deps
 "sequelize-cli": "^6.2.0"

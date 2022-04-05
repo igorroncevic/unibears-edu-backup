@@ -8,7 +8,7 @@ import { getCoursePaths, getCourseLectures } from '@/services/course.service';
 function Lectures({ course }) {
   const [show, setShow] = useState(true);
   const [activeTopicIndex, setActiveTopicIndex] = useState(0);
-  const [active, setActive] = useState(course.topics[0].lectures[0]);
+  const [active, setActive] = useState(course?.topics[0]?.lectures[0]);
 
   const router = useRouter()
 

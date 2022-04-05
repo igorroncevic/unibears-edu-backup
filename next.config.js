@@ -20,8 +20,8 @@ module.exports = withPWA({
     },
     env: {
         JWT_SECRET: "djhfghbdsgrasklkajsdgf",
-        REACT_APP_SOLANA_NETWORK: "devnet",
-        REACT_APP_SOLANA_RPC_HOST: "https://explorer-api.devnet.solana.com"
+        REACT_APP_SOLANA_NETWORK: "mainnet-beta",
+        SOLANA_RPC_HOST: "https://solana-api.projectserum.com",
     },
     images: {
         domains: ["res.cloudinary.com", "cdn.sanity.io", "localhost"],
