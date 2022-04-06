@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
+
 import { shortenAddress } from '@/utils/blockchain';
-
-// import Link from '@/utils/ActiveLink'; // Doesn't work well with Auth redirection
-import Link from 'next/link';
-import Image from '@/components/Common/CustomImage';
-
-import { authSuccess } from '@/redux/actions/auth.actions.js';
+import { authSuccess, setUnibearsCount } from '@/redux/actions/auth.actions.js';
 import { toastSuccess } from '@/utils/toasts';
 import { PathNames } from '@/utils/routing';
+import solanaService from '@/services/solana.service';
+
+import Image from '@/components/Common/CustomImage';
 
 const Navbar = () => {
     const dispatch = useDispatch();
-    const { address, errorMessage } = useSelector(state => state.auth);
+    const { address } = useSelector(state => state.auth);
 
     const [menu, setMenu] = useState(true);
     const wallet = useAnchorWallet();
 
-    const toggleNavbar = () => {
-        setMenu(!menu)
-    }
-
     useEffect(() => {
         if (wallet) {
-            dispatch(authSuccess({ address: wallet.publicKey.toBase58() }));
-            toastSuccess('Successfully logged in.');
+            (async function () {
+                const walletAddress = wallet.publicKey.toBase58();
+
+                const count = await solanaService.getUnibearsCount(walletAddress)
+
+                dispatch(setUnibearsCount({ count: count }));
+                dispatch(authSuccess({ address: walletAddress }));
+                toastSuccess('Successfully logged in.\nYou own ' + count + " Unibears.");
+            })()
         }
     }, [wallet, dispatch]);
 
@@ -49,6 +52,10 @@ const Navbar = () => {
 
     const displayWalletAddress = () => {
         return <p>Wallet {shortenAddress(address || "")}</p>
+    }
+
+    const toggleNavbar = () => {
+        setMenu(!menu)
     }
 
     const classOne = menu ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
@@ -85,7 +92,7 @@ const Navbar = () => {
                                 <li className="nav-item">
                                     <Link href={PathNames.Index}>
                                         <a onClick={e => e.preventDefault()} className="nav-link">
-                                            Buy Unibear {/* If user is not logged in, show this to him */}
+                                            Buy Unibear
                                         </a>
                                     </Link>
                                 </li>
@@ -105,7 +112,6 @@ const Navbar = () => {
                                         <div className="user-dropdown">
                                             <Link href={PathNames.Index}>
                                                 <a onClick={e => e.preventDefault()} className="default-btn">
-                                                    {/* TODO: Show user wallet address */}
                                                     <i className="flaticon-user"></i> {displayWalletAddress()} <span></span>
                                                 </a>
                                             </Link>

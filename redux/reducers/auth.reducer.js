@@ -1,8 +1,7 @@
 import {
     WEB3_AUTH_SUCCESS,
     WEB3_AUTH_FAIL,
-    UNIBEARS_COUNT_REQUEST_SUCCESS,
-    UNIBEARS_COUNT_REQUEST_FAIL,
+    SET_UNIBEARS_COUNT,
 } from '../constants/constants';
 
 const initialState = {
@@ -23,18 +22,10 @@ export const authReducer = (state = initialState, action) => {
                 ...state,
                 errorMessage: 'Could not authenticate user. Please try again.',
             }
-        case UNIBEARS_COUNT_REQUEST_SUCCESS: {
-            return { 
+        case SET_UNIBEARS_COUNT: {
+            return {
                 ...state,
                 unibearsCount: action.payload.count,
-                errorMessage: '',
-            }
-        }
-        case UNIBEARS_COUNT_REQUEST_FAIL: {
-            return { 
-                ...state,
-                unibearsCount: 0,
-                errorMessage: "Could not get number of user's Unibears. Please try again.",
             }
         }
         default:

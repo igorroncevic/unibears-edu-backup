@@ -41,6 +41,7 @@ import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
 */
 const network = process.env.REACT_APP_SOLANA_NETWORK || "devnet";
 
+// TODO: Remove?
 const theme = createTheme({
   overrides: {
     MuiButtonBase: {

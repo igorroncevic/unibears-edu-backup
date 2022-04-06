@@ -5,6 +5,7 @@ import { getCoursePaths, getCourseLectures } from "@/services/course.service";
 
 function Lectures({ course }) {
   const [show, setShow] = useState(true);
+
   return course ? (
     <>
       <div className="lectures-grid shadow min-vh-100 nomargin nopadding bg-light">

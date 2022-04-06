@@ -75,26 +75,5 @@ const Layout = ({ children, componentMetadata }) => {
         </>
     );
 }
-/* Move this logic to Auth.js
-Layout.getInitialProps = wrapper.getInitialAppProps({}) => {
-    // TODO: Check user's wallet address from Redux 
-    if (!token) {
-        // if a user not logged in then user can't access those pages
-        const isProtectedRoute = ctx.pathname === '/become-a-teacher'
-            || ctx.pathname === '/my-courses'
-            || ctx.pathname === '/teacher/courses'
-
-        if (isProtectedRoute) {
-            redirectUser(ctx, '/authentication');
-        }
-    } else {
-        // if a user logged in then user can't access those pages
-        const ifLoggedIn = ctx.pathname === '/authentication'
-            || ctx.pathname === '/reset-password'
-        if (ifLoggedIn) {
-            redirectUser(ctx, '/')
-        }
-    }
-} */
 
 export default Layout;
