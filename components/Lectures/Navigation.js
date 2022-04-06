@@ -1,4 +1,7 @@
-import { updatePreviousAndNextLecture } from "@/redux/actions/course.actions";
+import {
+  lectureChange,
+  updatePreviousAndNextLecture,
+} from "@/redux/actions/course.actions";
 import {
   findTopicAndLectureIndex,
   setNextAndPreviousLecture,
@@ -19,6 +22,7 @@ function Navigation({ topics }) {
       topics,
       lecture.id
     );
+    dispatch(lectureChange(topics[topicIndex].lectures[lectureIndex]));
     const data = setNextAndPreviousLecture(topics, topicIndex, lectureIndex);
     dispatch(updatePreviousAndNextLecture(data));
   };
