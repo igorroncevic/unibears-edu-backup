@@ -6,7 +6,7 @@ export const PathNames = {
   CoursesId: "/courses/[slug]",
   LecturesId: "/courses/[slug]/lectures",
   CoursesIdFilled: (slug) => `/courses/${slug}`,
-  LecturesIdFilled: (slug, activeId) => `/courses/${slug}/lectures?active=${activeId}`,
+  LectureCoursesIdFilled: (slug) => `/courses/${slug}/lectures`,
   PrivacyPolicy: "/privacy-policy",
   TermsOfService: "/terms-of-service",
 };
