@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react"
 
 const Preloader = () => {
-    return (
-        <>
-            <div className="preloader">
-                <div className="loader">
-                    <div className="loadingio-spinner-reload">
-                        <div className="ldio">
-                            <div><div></div><div></div><div></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	return (
+		<>
+			<div className="preloader">
+				<div className="loader">
+					<div className="loadingio-spinner-reload">
+						<div className="ldio">
+							<div><div></div><div></div><div></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <style jsx>{`
+			<style jsx>{`
                 .preloader {
                     top: 0;
                     left: 0;
@@ -118,8 +118,8 @@ const Preloader = () => {
                     }
                 }
             `}</style>
-        </>
-    )
+		</>
+	)
 }
 
 export default Preloader

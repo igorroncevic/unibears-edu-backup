@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 const ModalVideo = dynamic(import("react-modal-video"));
-import Image from '@/components/Common/CustomImage';
+import Image from "@/components/Common/CustomImage";
 
 const CoursesDetailsSidebar = ({ course }) => {
 	const [display, setDisplay] = useState(false);
@@ -31,7 +31,10 @@ const CoursesDetailsSidebar = ({ course }) => {
 
 			<div className="courses-details-info">
 				<div className="image">
-					<Image src={course.thumbnail ? course.thumbnail : ""} alt={course.title} />
+					<Image
+						src={course.thumbnail ? course.thumbnail : ""}
+						alt={course.title}
+					/>
 					<div
 						onClick={(e) => {
 							e.preventDefault();
@@ -81,8 +84,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
 								{/* TODO: Add a proper icon for categories */}
-								<i className="flaticon-distance-learning"></i>{" "}
-								Categories
+								<i className="flaticon-distance-learning"></i> Categories
 							</span>
 							{course.categories}
 						</div>
