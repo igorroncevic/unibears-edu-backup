@@ -1,6 +1,6 @@
 import {
-  lectureChange,
-  updatePreviousAndNextLecture,
+	lectureChange,
+	updatePreviousAndNextLecture,
 } from "@/redux/actions/course.actions";
 import {
 	findTopicAndLectureIndex,
@@ -17,15 +17,15 @@ function Navigation({ topics }) {
 
 	const dispatch = useDispatch();
 
-  const onNavigationClick = (lecture) => {
-    const { topicIndex, lectureIndex } = findTopicAndLectureIndex(
-      topics,
-      lecture.id
-    );
-    dispatch(lectureChange(topics[topicIndex].lectures[lectureIndex]));
-    const data = setNextAndPreviousLecture(topics, topicIndex, lectureIndex);
-    dispatch(updatePreviousAndNextLecture(data));
-  };
+	const onNavigationClick = (lecture) => {
+		const { topicIndex, lectureIndex } = findTopicAndLectureIndex(
+			topics,
+			lecture.id
+		);
+		dispatch(lectureChange(topics[topicIndex].lectures[lectureIndex]));
+		const data = setNextAndPreviousLecture(topics, topicIndex, lectureIndex);
+		dispatch(updatePreviousAndNextLecture(data));
+	};
 
 	return (
 		previous &&
