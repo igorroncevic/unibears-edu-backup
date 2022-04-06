@@ -24,13 +24,17 @@ function AccordionComponent({ course }) {
 		setTopics(course.topics);
 	}, [course]);
 
-	const handleActiveLecture = (activeTopic, lecture) => {
-		if (lecture) {
-			setActive(lecture);
-			setOpenTopics([...openTopics, activeTopic]);
-			dispatch(lectureChange(lecture));
-		}
-	};
+  const handleActiveLecture = (activeTopic, lecture) => {
+    if (lecture) {
+      setActive(lecture);
+      setOpenTopics([...openTopics, activeTopic]);
+      dispatch(lectureChange(lecture));
+      router.push({
+        pathname: PathNames.LectureCoursesIdFilled(course.slug),
+        query: { active: lecture.id },
+      });
+    }
+  };
 
 	useEffect(() => {
 		if (router.isReady) {
@@ -44,21 +48,22 @@ function AccordionComponent({ course }) {
 				setPreviousAndNextLecture(0, 0);
 			}
 
-			// read the router active value
-			if (router.isReady && active?.id !== router.query.active) {
-				const { topicIndex, lectureIndex } = findTopicAndLectureIndex(
-					topics,
-					router.query.active
-				);
-				handleActiveLecture(
-					topics[topicIndex].id,
-					topics[topicIndex].lectures[lectureIndex]
-				);
-				setPreviousAndNextLecture(topicIndex, lectureIndex);
-			}
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [router.isReady]);
+      // read the router active value
+      if (active?.id !== router.query.active) {
+        const { topicIndex, lectureIndex } = findTopicAndLectureIndex(
+          topics,
+          router.query.active
+        );
+        handleActiveLecture(
+          topics[topicIndex].id,
+          topics[topicIndex].lectures[lectureIndex]
+        );
+        setPreviousAndNextLecture(topicIndex, lectureIndex);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady]);
+
 
 	const handleTopicClick = (id) => {
 		if (openTopics.includes(id)) {
@@ -69,10 +74,14 @@ function AccordionComponent({ course }) {
 		}
 	};
 
-	const getLectureClassname = (lecture) => {
-		return `lecture-name-duration d-flex justify-content-between
-      ${router.query.active === lecture.id ? "active-lecture" : ""}`;
-	};
+  const getLectureClassname = (lecture) => {
+    return `lecture-name-duration d-flex justify-content-between
+      ${
+        (router.query.active || active.id) === lecture.id
+          ? "active-lecture"
+          : ""
+      }`;
+  };
 
 	const setPreviousAndNextLecture = (topicIndex, lectureIndex) => {
 		const data = setNextAndPreviousLecture(topics, topicIndex, lectureIndex);
