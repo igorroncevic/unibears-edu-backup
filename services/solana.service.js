@@ -7,8 +7,6 @@ class SolanaService {
         const payload = { pubKey: address };
         const response = await axios.post(url, payload);
 
-        console.log(response.data);
-
         if (response.status === 200) {
             return response.data?.length ? response.data.length : 0;
         } else {

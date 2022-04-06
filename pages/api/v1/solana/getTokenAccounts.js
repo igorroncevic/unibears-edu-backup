@@ -25,7 +25,6 @@ const getTokenMetadata = async (req, res) => {
     //get accounts
     let accounts = await tokenService.getTokenAccounts(connection, pubKey);
 
-    console.log(accounts);
     if (accounts?.length > 0) {
         //reformat the account with only token information.
         let tokenList = accounts.map(accountInfo => accountInfo?.account?.data?.parsed?.info);
@@ -52,11 +51,6 @@ const getTokenMetadata = async (req, res) => {
         }
         // console.log(`Found ${metaDataList?.length} metaData for pubKey ${pubKey}.`);
 
-        console.log(metaDataList);
-        metaDataList.forEach(metadata => {
-            console.log(metadata.properties.creators);
-        })
-
         const metadataMinimized = metaDataList
             .filter(metadata => {
                 const creator = metadata.properties?.creators[0]?.address;
@@ -68,8 +62,10 @@ const getTokenMetadata = async (req, res) => {
                 }
             })
 
+        // console.log(pubKey + " owns " + metadataMinimized.length + " Unibears.")
         res.status(200).send(metadataMinimized);
     } else {
+        console.log("Found no accounts for " + pubKey + ".")
         res.status(200).send([]);
     }
 }
