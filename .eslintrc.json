@@ -1,17 +1,20 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "quotes": [
-      "error",
-      "double",
-      {
-        "allowTemplateLiterals": true
-      }
-    ],
-    "prefer-const": "error",
-    "indent": [
-      "error",
-      "tab"
-    ]
-  }
+	"extends": "next/core-web-vitals",
+	"rules": {
+		"quotes": [
+			"error",
+			"double",
+			{
+				"allowTemplateLiterals": true
+			}
+		],
+		"prefer-const": "error",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		]
+	}
 }
