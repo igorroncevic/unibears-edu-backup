@@ -6,15 +6,20 @@ import { PathNames } from "@/utils/routing";
 
 const Auth = ({ children, auth }) => {
 	const router = useRouter()
-	const { address } = useSelector(state => state.auth);
-	// console.log(auth);
+	const { address, unibearsCount } = useSelector(state => state.auth);
 
-	// useEffect(() => {
-	//     if (!address) {
-	//         toastError("You are not authorized to view this page. Please connect your wallet.");
-	//         router.push(PathNames.Index);
-	//     }
-	// }, [])
+	console.log(auth);
+
+	useEffect(() => {
+		/* if (!address) {
+			toastError("You are not authorized to view this page. Please connect your wallet.");
+			router.back();
+		} */
+		if (unibearsCount < auth.requiredUnibearsCount) {
+			toastError("You do not have enough Unibears to access this course.");
+			router.back(); // TODO: Check if user can route twice to a course and then go back to it. Perhaps route him to CourseIndex
+		}
+	}, [])
 
 	return children
 }

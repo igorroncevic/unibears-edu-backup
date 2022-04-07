@@ -35,9 +35,9 @@ import {
 import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
 
 /*
-    Mainnet = "mainnet-beta",
-    Testnet = "testnet",
-    Devnet = "devnet"
+	Mainnet = "mainnet-beta",
+	Testnet = "testnet",
+	Devnet = "devnet"
 */
 const network = process.env.REACT_APP_SOLANA_NETWORK || "devnet";
 
@@ -94,8 +94,8 @@ const MyApp = ({ Component, pageProps }) => {
 							<Layout {...pageProps} componentMetadata={Component.metadata}>
 								{
 									// If component requires auth, check it.
-									Component.auth ? (
-										<Auth {...pageProps} auth={Component.auth}>
+									pageProps.auth ? (
+										<Auth {...pageProps}>
 											<Component {...pageProps} />
 										</Auth>
 									) : (
@@ -112,17 +112,17 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 /* MyApp.getInitialProps = async ({ Component, ctx }) => {
-    let pageProps = {};
+	let pageProps = {};
 
-    if (Component.getInitialProps) {
-        pageProps = await Component.getInitialProps(ctx)
-    }
+	if (Component.getInitialProps) {
+		pageProps = await Component.getInitialProps(ctx)
+	}
 
-    // By returning { props: posts }, the Blog component
-    // will receive `posts` as a prop at build time
-    return {
-        pageProps
-    }
+	// By returning { props: posts }, the Blog component
+	// will receive `posts` as a prop at build time
+	return {
+		pageProps
+	}
 } */
 
 export default wrapper.withRedux(MyApp);

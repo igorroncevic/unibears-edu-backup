@@ -43,7 +43,7 @@ const CourseCard = ({ course }) => {
 						</li>
 						<li>
 							{/* TODO: Add some more data to make design look nicer */}
-							<i className='flaticon-agenda'></i> {course.categories}
+							<i className='flaticon-agenda'></i> Required Unibears: {course.requiredUnibearsCount}
 						</li>
 					</ul>
 				</div>

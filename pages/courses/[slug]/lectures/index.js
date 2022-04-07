@@ -3,7 +3,7 @@ import Accordion from "@/components/Accordion/Accordion";
 import Lecture from "@/components/Lectures/Lecture";
 import { getCoursePaths, getCourseLectures } from "@/services/course.service";
 
-function Lectures({ course }) {
+const Lectures = ({ course }) => {
 	const [show, setShow] = useState(true);
 
 	return course ? (
@@ -51,7 +51,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	const course = await getCourseLectures(params.slug);
 
-	return { props: { course } };
+	const auth = {
+		requiredUnibearsCount: course.requiredUnibearsCount,
+	};
+
+	return { props: { course, auth } };
 }
 
 export default Lectures;

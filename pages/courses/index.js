@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useState, useEffect } from "react";
 import PageBanner from "@/components/Common/PageBanner";
 import CourseCard from "@/components/Courses/CourseCard";
@@ -14,14 +15,13 @@ const Index = ({ courses, categories }) => {
 
 	useEffect(() => {
 		switch (categoryFilter) {
-		case "All":
-			setDisplayCourses(allCourses);
-			break;
-		default:
-			console.log(allCourses);
-			const filtered = allCourses.filter(course => course.categoriesFilter.includes(categoryFilter));
-			setDisplayCourses(filtered);
-			break;
+			case "All":
+				setDisplayCourses(allCourses);
+				break;
+			default:
+				const filtered = allCourses.filter(course => course.categoriesFilter.includes(categoryFilter));
+				setDisplayCourses(filtered);
+				break;
 		}
 	}, [categoryFilter]);
 

@@ -94,6 +94,13 @@ export default {
       description: 'Used for displaying course length in the details page.',
       type: 'number',
       validation: Rule => Rule.required().min(0).max(3000).error("Course must have a set duration in minutes.")
+    },
+    {
+      name: 'requiredUnibearsCount',
+      title: 'Required amount of Unibears',
+      description: 'Amount of Unibear NFTs user needs to own in order to access this course.',
+      type: 'number',
+      validation: Rule => Rule.required().min(0).max(10).error("Course must have a number of required Unibears.")
     }
   ],
 
