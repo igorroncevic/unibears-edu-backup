@@ -19,6 +19,7 @@ const Navbar = () => {
 	const [menu, setMenu] = useState(true);
 	const wallet = useAnchorWallet();
 
+	// TODO: This is triggered very often, check if it can be optimized.
 	useEffect(() => {
 		if (wallet) {
 			(async function () {
@@ -92,7 +93,7 @@ const Navbar = () => {
 								<li className="nav-item">
 									<Link href={PathNames.Index}>
 										<a onClick={e => e.preventDefault()} className="nav-link">
-                                            Buy Unibear
+											Buy Unibear
 										</a>
 									</Link>
 								</li>
@@ -100,7 +101,7 @@ const Navbar = () => {
 								<li className="nav-item megamenu">
 									<Link href={PathNames.CoursesIndex}>
 										<a className="nav-link">
-                                            Courses
+											Courses
 										</a>
 									</Link>
 								</li>
@@ -120,7 +121,7 @@ const Navbar = () => {
 												<li className="nav-item">
 													<Link href={PathNames.Index}>
 														<a className="nav-link" onClick={e => { e.preventDefault() }}>
-                                                            Logout
+															Logout
 														</a>
 													</Link>
 												</li>

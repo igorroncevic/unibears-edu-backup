@@ -5,5 +5,5 @@ export const toastSuccess = (message) => {
 }
 
 export const toastError = (message) => {
-	toast.error(message);
+	toast.error(message, { duration: 5000 });
 }

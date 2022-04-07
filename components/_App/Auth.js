@@ -17,7 +17,7 @@ const Auth = ({ children, auth }) => {
 		} */
 		if (unibearsCount < auth.requiredUnibearsCount) {
 			toastError("You do not have enough Unibears to access this course.");
-			router.back(); // TODO: Check if user can route twice to a course and then go back to it. Perhaps route him to CourseIndex
+			router.push(PathNames.CoursesIndex);
 		}
 	}, [])
 

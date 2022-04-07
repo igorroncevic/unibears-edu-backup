@@ -89,14 +89,23 @@ const CoursesDetailsSidebar = ({ course }) => {
 							{course.categories}
 						</div>
 					</li>
+					<li>
+						<div className="d-flex justify-content-between align-items-center">
+							<span>
+								{/* TODO: Add a proper icon for Unibears count */}
+								<i className="flaticon-distance-learning"></i> Required Unibears
+							</span>
+							{course.requiredUnibearsCount}
+						</div>
+					</li>
 				</ul>
 
 				<div className="btn-box">
-					<Link href={PathNames.LectureCoursesIdFilled(course.slug)}>
+					<Link href={PathNames.LectureCoursesIdFilled(course.slug)} passHref>
 						<button className="default-btn">
 							{/* TODO: Use this button to navigate to first lesson if user has enough Unibears? */}
 							<i className="flaticon-tag"></i>
-              Start Course
+							Start Course
 						</button>
 					</Link>
 				</div>
