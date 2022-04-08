@@ -1,11 +1,16 @@
-import React from "react"
-import Link from "next/link"
-import Image from "@/components/Common/CustomImage";
+import React from "react";
+import { useSelector } from "react-redux";
+import Link from "next/link";
 
-import { PathNames } from "@/utils/routing"
+import Image from "@/components/Common/CustomImage";
 import PortableText from "@/components/Common/CustomPortableText";
 
+import { PathNames } from "@/utils/routing"
+import { displayCategories } from "@/services/category.service";
+
 const CourseCard = ({ course }) => {
+	const { langCode } = useSelector(state => state.user);
+
 	return (
 		<div className="col-lg-6 col-md-12">
 			<div className="single-courses-box">
@@ -14,7 +19,7 @@ const CourseCard = ({ course }) => {
 						<a className="d-block image">
 							<Image
 								src={course.thumbnail ? course.thumbnail : ""}
-								alt={course.title}
+								alt={course.title[langCode]}
 							/>
 						</a>
 					</Link>
@@ -31,15 +36,15 @@ const CourseCard = ({ course }) => {
 
 					<h3>
 						<Link href={PathNames.CoursesId} as={PathNames.CoursesIdFilled(course.slug)}>
-							<a>{course.title}</a>
+							<a>{course.title[langCode]}</a>
 						</Link>
 					</h3>
 
-					<PortableText content={course.overview} />
+					<PortableText content={course.overview ? course.overview[langCode] : ""} />
 					<ul className="courses-box-footer d-flex justify-content-between align-items-center">
 						<li>
 							{/* TODO: Add appropriate icon */}
-							<i className='flaticon-agenda'></i> {course.categories}
+							<i className='flaticon-agenda'></i> {course.categories ? displayCategories(course.categories, langCode) : ""}
 						</li>
 						<li>
 							{/* TODO: Add some more data to make design look nicer */}

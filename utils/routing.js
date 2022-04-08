@@ -14,13 +14,24 @@ export const PathNames = {
 export const PageMetadata = {
 	pages: {
 		"/": {
-			title: APP_NAME,
-			description:
-        "Learn about all about NFTs and their use cases in the real world!",
+			title: {
+				en: APP_NAME,
+				sr: APP_NAME,
+			},
+			description: {
+				en: "Learn about all about NFTs and their use cases in the real world!",
+				sr: "Naučite sve o NFT-ovima i njihovoj primeni u stvarnom svetu!",
+			},
 		},
 		"/courses": {
-			title: `Courses | ${APP_NAME}`,
-			description: `${APP_NAME} courses on various subjects.`,
+			title: {
+				en: `Courses | ${APP_NAME}`,
+				sr: `Kursevi | ${APP_NAME}`,
+			},
+			description: {
+				en: `${APP_NAME} courses on various subjects.`,
+				sr: `${APP_NAME} kursevi o različitim temama.`,
+			}
 		},
 		"/courses/[slug]": {
 			title: (name) => (name ? `${name} | ${APP_NAME}` : APP_NAME),
@@ -37,47 +48,59 @@ export const PageMetadata = {
 					: "Learn about all about NFTs and their use cases in the real world!",
 		},
 		"/privacy-policy": {
-			title: `Privacy Policy | ${APP_NAME}`,
-			description: `${APP_NAME} Privacy Policy`,
+			title: {
+				en: `Privacy Policy | ${APP_NAME}`,
+				sr: `Polisa Privatnosti | ${APP_NAME}`,
+			},
+			description: {
+				en: `${APP_NAME} Privacy Policy`,
+				sr: `${APP_NAME} Polisa Privatnosti`,
+			}
 		},
 		"/terms-of-service": {
-			title: `Terms of Service | ${APP_NAME}`,
-			description: `${APP_NAME} Terms of Service`,
+			title: {
+				en: `Terms of Service | ${APP_NAME}`,
+				sr: `Uslovi Korišćenja | ${APP_NAME}`,
+			},
+			description: {
+				en: `${APP_NAME} Terms of Service`,
+				sr: `${APP_NAME} Uslovi Korišćenja`,
+			}
 		},
 	},
 };
 
 export const defaultMetadata = {
-	title: PageMetadata.pages[PathNames.Index].title,
-	description: PageMetadata.pages[PathNames.Index].description,
+	title: PageMetadata.pages[PathNames.Index].title["en"],
+	description: PageMetadata.pages[PathNames.Index].description["en"],
 };
 
-export const getMetadata = (path, componentMetadata = {}) => {
+export const getMetadata = (path, componentMetadata = {}, langCode) => {
 	let title = "",
 		description = "";
 	if (PageMetadata.pages[path]) {
 		const getTitle = PageMetadata.pages[path].title || defaultMetadata.title;
 		const getDescription =
-      PageMetadata.pages[path].description || defaultMetadata.description;
+			PageMetadata.pages[path].description || defaultMetadata.description;
 
 		if (typeof getTitle === "function") {
 			const titleParam =
-        componentMetadata && componentMetadata.title
-        	? componentMetadata.title
-        	: "";
+				componentMetadata && componentMetadata.title
+					? componentMetadata.title
+					: "";
 			title = getTitle(titleParam);
 		} else {
-			title = getTitle;
+			title = getTitle[langCode];
 		}
 
 		if (typeof getDescription === "function") {
 			const descriptionParam =
-        componentMetadata && componentMetadata.title
-        	? componentMetadata.title
-        	: "";
+				componentMetadata && componentMetadata.title
+					? componentMetadata.title
+					: "";
 			description = getDescription(descriptionParam);
 		} else {
-			description = getDescription;
+			description = getDescription[langCode];
 		}
 	} else {
 		title = defaultMetadata.title;

@@ -1,25 +1,39 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Dropdown } from "react-bootstrap";
+
 import PageBanner from "@/components/Common/PageBanner";
 import CourseCard from "@/components/Courses/CourseCard";
-import { Dropdown } from "react-bootstrap";
+
 import { findAllCourses } from "services/course.service";
-import { findAllCategories } from "services/category.service";
+import { findAllCategories, categoriesFilterTranslated, allCategoriesFilterTranslated } from "services/category.service";
 
 const Index = ({ courses, categories }) => {
+	const { langCode } = useSelector(state => state.user);
+
 	const [allCourses, setAllCourses] = useState(courses);
 	const [displayCourses, setDisplayCourses] = useState(courses);
 
-	const [allCategories, setAllCategories] = useState(["All", ...categories]);
+	const [allCategories, setAllCategories] = useState(["All", ...categoriesFilterTranslated(categories, langCode)]);
 	const [categoryFilter, setCategoryFilter] = useState("All");
 
 	useEffect(() => {
+		const allCategoriesFilterTemp = allCategoriesFilterTranslated(langCode);
+
+		const allCategoriesTemp = [allCategoriesFilterTemp, ...categoriesFilterTranslated(categories, langCode)];
+
+		setAllCategories([...allCategoriesTemp]);
+		setCategoryFilter(allCategoriesFilterTemp);
+	}, []);
+
+	useEffect(() => {
 		switch (categoryFilter) {
-			case "All":
+			case allCategoriesFilterTranslated(langCode):
 				setDisplayCourses(allCourses);
 				break;
 			default:
-				const filtered = allCourses.filter(course => course.categoriesFilter.includes(categoryFilter));
+				const filtered = allCourses.filter(course => course.categories.some(category => category[langCode] == categoryFilter));
 				setDisplayCourses(filtered);
 				break;
 		}

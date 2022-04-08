@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import dynamic from "next/dynamic";
 const ModalVideo = dynamic(import("react-modal-video"));
 import Image from "@/components/Common/CustomImage";
 import Link from "next/link";
+
 import { PathNames } from "@/utils/routing";
+import { displayCategories } from "@/services/category.service";
 
 const CoursesDetailsSidebar = ({ course }) => {
+	const { langCode } = useSelector(state => state.user);
+
 	const [display, setDisplay] = useState(false);
 
 	useEffect(() => {
@@ -34,7 +39,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 				<div className="image">
 					<Image
 						src={course.thumbnail ? course.thumbnail : ""}
-						alt={course.title}
+						alt={course.title[langCode]}
 					/>
 					<div
 						onClick={(e) => {
@@ -52,7 +57,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 				<ul className="info">
 					<li className="price">
 						<div className="d-flex justify-content-between align-items-center">
-							{course.title}
+							{course.title[langCode]}
 						</div>
 					</li>
 					<li>
@@ -86,7 +91,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 								{/* TODO: Add a proper icon for categories */}
 								<i className="flaticon-distance-learning"></i> Categories
 							</span>
-							{course.categories}
+							{displayCategories(course.categories, langCode)}
 						</div>
 					</li>
 					<li>

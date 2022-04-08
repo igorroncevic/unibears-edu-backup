@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from "react"
-import Head from "@/components/_App/CustomHead";
-import { ToastProvider } from "react-toast-notifications"
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Toaster } from "react-hot-toast"
+import { ToastProvider } from "react-toast-notifications"
 import Router, { useRouter } from "next/router"
+
+import Head from "@/components/_App/CustomHead";
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import Preloader from "./Preloader"
-import { APP_NAME, defaultMetadata, getMetadata } from "@/utils/routing";
+
+import { defaultMetadata, getMetadata } from "@/utils/routing";
 
 const Layout = ({ children, componentMetadata }) => {
 	const router = useRouter();
+
+	const { langCode } = useSelector(state => state.user);
+
 	const [metadata, setMetadata] = useState(defaultMetadata);
 	const [previousMetadata, setPreviousMetadata] = useState(defaultMetadata);
-
 	const [loader, setLoader] = useState(true)
+
 	useEffect(() => {
-		const { title, description } = getMetadata(router.pathname, componentMetadata);
+		const { title, description } = getMetadata(router.pathname, componentMetadata, langCode);
 		setMetadata({ title, description });
 
 		setTimeout(() => {
 			setLoader(false)
 		}, 1000);
-	}, [componentMetadata, router])
+	}, [componentMetadata, router, langCode])
 
 	Router.events.on("routeChangeStart", () => {
 		setLoader(true)

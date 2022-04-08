@@ -1,24 +1,27 @@
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { Accordion } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
+
 import {
 	findTopicAndLectureIndex,
 	setNextAndPreviousLecture,
 } from "@/utils/common";
 import { PathNames } from "@/utils/routing";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
-import { Accordion } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import {
 	lectureChange,
 	updatePreviousAndNextLecture,
 } from "../../redux/actions/course.actions";
 
 function AccordionComponent({ course }) {
+	const { langCode } = useSelector(state => state.user);
+	const router = useRouter();
+	const dispatch = useDispatch();
+
 	const [topics, setTopics] = useState(course.topics);
 	const [openTopics, setOpenTopics] = useState([]);
 	const [active, setActive] = useState();
-	const router = useRouter();
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		setTopics(course.topics);
@@ -41,8 +44,8 @@ function AccordionComponent({ course }) {
 			// if router.query.active does not exist, set first lecture from first topic as active
 			if (
 				!router.query.active &&
-        topics.length > 0 &&
-        topics[0].lectures?.length > 0
+				topics.length > 0 &&
+				topics[0].lectures?.length > 0
 			) {
 				handleActiveLecture(topics[0].id, topics[0].lectures[0]);
 				setPreviousAndNextLecture(0, 0);
@@ -76,11 +79,7 @@ function AccordionComponent({ course }) {
 
 	const getLectureClassname = (lecture) => {
 		return `lecture-name-duration d-flex justify-content-between
-      ${
-	(router.query.active || active.id) === lecture.id
-		? "active-lecture"
-		: ""
-}`;
+      ${(router.query.active || active.id) === lecture.id ? "active-lecture" : ""}`;
 	};
 
 	const setPreviousAndNextLecture = (topicIndex, lectureIndex) => {
@@ -100,7 +99,7 @@ function AccordionComponent({ course }) {
 					{topics.map((topic, topicIndex) => (
 						<Accordion.Item eventKey={topic.id} key={topic.id}>
 							<Accordion.Header onClick={() => handleTopicClick(topic.id)}>
-								{topic.title}
+								{topic.title[langCode]}
 							</Accordion.Header>
 							<Accordion.Body>
 								{topic.lectures.map((lecture, lectureIndex) => {
@@ -119,7 +118,7 @@ function AccordionComponent({ course }) {
 													onLectureClick(lecture, topicIndex, lectureIndex)
 												}
 											>
-												<span>{lecture.title}</span>
+												<span>{lecture.title[langCode]}</span>
 												<span>{lecture.duration}</span>
 											</a>
 										</Link>

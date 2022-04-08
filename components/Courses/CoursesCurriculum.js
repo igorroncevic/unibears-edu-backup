@@ -17,7 +17,7 @@ const CoursesCurriculum = ({ courseSlug, lectures }) => {
 									className="d-flex justify-content-between align-items-center"
 									onClick={e => e.preventDefault()}
 								>
-									<span className="courses-name">{lecture.title}</span>
+									<span className="courses-name">{lecture.title[langCode]}</span>
 									<div className="courses-meta">
 										<span className="status locked"><i className="flaticon-password"></i></span>
 									</div>

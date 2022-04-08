@@ -79,19 +79,7 @@ const _transformCourse = (course) => {
 	}
 
 	if (course.categories && Array.isArray(course.categories)) {
-		course.categoriesFilter = course.categories.map(category => category.name); // Retain this for filtering purposes.
-
-		let categories = "";
-		for (let i = 0; i < course.categories.length; i++) {
-			const categoryName = course.categories[i].name;
-			if (i == 0) {
-				categories = categoryName;
-				continue;
-			}
-			categories += `, ${categoryName}`;
-		}
-
-		course.categories = categories;
+		course.categories = course.categories.map(category => category.name); // Retain this for filtering purposes.
 	}
 
 	// TODO: Standardize this format.

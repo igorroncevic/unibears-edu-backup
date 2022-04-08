@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+
 import { toastError } from "@/utils/toasts";
 import { PathNames } from "@/utils/routing";
 
 const Auth = ({ children, auth }) => {
 	const router = useRouter()
 	const { address, unibearsCount } = useSelector(state => state.auth);
-
-	console.log(auth);
 
 	useEffect(() => {
 		/* if (!address) {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from "react-tabs";
 resetIdCounter();
 
@@ -8,24 +9,26 @@ import PortableText from "@/components/Common/CustomPortableText";
 import CoursesDetailsSidebar from "@/components/Courses/CoursesDetailsSidebar";
 import CoursesCurriculum from "@/components/Courses/CoursesCurriculum";
 import Preloader from "@/components/_App/Preloader";
-
-import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
-import { getCoursePaths, findCourseBySlug } from "@/services/course.service";
-import { blockContentToPlainText } from "react-portable-text";
 import AuthorSocials from "@/components/Courses/AuthorSocials";
 
+import { blockContentToPlainText } from "react-portable-text";
+import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
+import { getCoursePaths, findCourseBySlug } from "@/services/course.service";
+
 const Details = ({ course }) => {
+	const { langCode } = useSelector(state => state.user);
+
 	const [metadata, setMetadata] = useState(defaultMetadata)
 
 	useEffect(() => {
 		const componentMetadata = {
-			title: course.title,
-			description: blockContentToPlainText(course.overview)
+			title: course.title[langCode],
+			description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
 		};
 
 		const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
 		setMetadata({ title, description });
-	}, [course])
+	}, [course, langCode])
 
 	if (!course) {
 		return <Preloader />
@@ -40,7 +43,7 @@ const Details = ({ course }) => {
 
 			{/* TODO: Maybe reduce required photo height from 500px to 400px? To make more info on the page visible. */}
 			<div className="course-details-banner">
-				<Image src={course.bannerPhoto ? course.bannerPhoto : ""} alt={course.title} />
+				<Image src={course.bannerPhoto ? course.bannerPhoto : ""} alt={course.title[langCode]} />
 			</div>
 
 			<div className="container">
@@ -57,7 +60,7 @@ const Details = ({ course }) => {
 								<TabPanel>
 									<div className="courses-overview">
 										<h3>Course Description</h3>
-										<PortableText content={course.overview} />
+										<PortableText content={course.overview ? course.overview[langCode] : ""} />
 									</div>
 								</TabPanel>
 
@@ -82,7 +85,7 @@ const Details = ({ course }) => {
 														<h3>{course.author.name}</h3>
 														<span className="sub-title">{course.author.title || ""}</span>
 														<PortableText
-															content={course.author.bio}
+															content={course.author.bio[langCode]}
 														/>
 
 														{/* <AuthorSocials/> */}
