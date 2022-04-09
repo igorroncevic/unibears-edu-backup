@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Toaster } from "react-hot-toast"
-import { ToastProvider } from "react-toast-notifications"
 import Router, { useRouter } from "next/router"
 
 import Head from "@/components/_App/CustomHead";
@@ -60,24 +59,15 @@ const Layout = ({ children, componentMetadata }) => {
 			/>
 			{loader && <Preloader />}
 			<Toaster
-				position="bottom-right"
 				reverseOrder={false}
 			/>
-
-			<ToastProvider
-				placement='bottom-right'
-				autoDismissTimeout={10000}
-				autoDismiss
-			>
-
-				<div className="layout-wrapper-flex">
-					<Navbar />
-					<main className="layout-main-flex">
-						{children}
-					</main>
-					<Footer />
-				</div>
-			</ToastProvider>
+			<div className="layout-wrapper-flex">
+				<Navbar />
+				<main className="layout-main-flex">
+					{children}
+				</main>
+				<Footer />
+			</div>
 		</>
 	);
 }

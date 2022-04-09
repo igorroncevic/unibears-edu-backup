@@ -14,13 +14,15 @@ i18n.use(Backend)
 			en: {
 				common: require("./en/common.json"),
 				courses: require("./en/courses.json"),
+				toasts: require("./en/toasts.json"),
 			},
 			sr: {
 				common: require("./sr/common.json"),
 				courses: require("./sr/courses.json"),
+				toasts: require("./sr/toasts.json"),
 			},
 		},
-		ns: ["common", "courses"],
+		ns: ["common", "courses", "toasts"],
 		defaultNS: "common",
 	});
 

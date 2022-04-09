@@ -9,8 +9,16 @@ const courseLecturesFields = `'id': _id, 'slug': slug.current, title, overview, 
 const lectureFields = `'id': _key, title, overview, source`;
 const topicFields = `'id': _key, title`;
 
+export const courseNotFound = {
+	title: "Not Found",
+	author: { bio: {} },
+	topics: [{ overview: {}, lectures: [{ overview: {} }] }],
+	categories: [],
+	requiredUnibearsCount: 0
+};
+
 export const findAllCourses = async () => {
-	const query = `*[_type == "course"] | order(_createdAt desc) {
+	const query = `*[_type == "course" && dateTime(now()) > dateTime(publishedAt)] | order(_createdAt desc) {
         ${coursePreviewFields},
         author -> {${authorFields}},
         categories[] -> { name }
@@ -22,7 +30,7 @@ export const findAllCourses = async () => {
 }
 
 export const findCourseBySlug = async (slug) => {
-	const query = `*[_type == "course" && slug.current == $slug][0]{
+	const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
         ${courseFields},
         author -> {${authorFields}, title, bio},
         categories[] -> { name }
@@ -34,7 +42,7 @@ export const findCourseBySlug = async (slug) => {
 }
 
 export const getCoursePaths = async () => {
-	const query = `*[_type == "course"]{
+	const query = `*[_type == "course" && dateTime(now()) > dateTime(publishedAt)]{
         'slug': slug.current
     }`;
 
@@ -44,7 +52,7 @@ export const getCoursePaths = async () => {
 }
 
 export const getCourseLectures = async (slug) => {
-	const query = `*[_type == "course" && slug.current == $slug][0]{
+	const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
         ${courseLecturesFields}, 
         topics[] | order(_createdAt desc) {
             ${topicFields},
@@ -59,7 +67,10 @@ export const getCourseLectures = async (slug) => {
 }
 
 const _transformCourse = (course) => {
-	if (!course) return {};
+	// Course was not found
+	if (!course) {
+		return courseNotFound;
+	}
 
 	if (course.thumbnail) {
 		course.thumbnail = urlFor(course.thumbnail).url();

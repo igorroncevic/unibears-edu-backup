@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 import Head from "@/components/_App/CustomHead";
 import Accordion from "@/components/Accordion/Accordion";
 import Lecture from "@/components/Lectures/Lecture";
+import Preloader from "@/components/_App/Preloader";
 
 import { blockContentToPlainText } from "react-portable-text";
-import { getCoursePaths, getCourseLectures } from "@/services/course.service";
+import { getCoursePaths, getCourseLectures, courseNotFound } from "@/services/course.service";
 import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
+import { toastErrorImportant } from "@/utils/toasts";
 
 const Lectures = ({ course }) => {
+	const router = useRouter();
+	const [t] = useTranslation("toasts");
 	const { langCode } = useSelector(state => state.user);
 
 	const [show, setShow] = useState(true);
@@ -17,16 +23,29 @@ const Lectures = ({ course }) => {
 
 	// TODO: Perhaps set title to be current lecture title? A bit complicated because active lecture is set in a component.
 	useEffect(() => {
-		const componentMetadata = {
-			title: course.title[langCode],
-			description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
-		};
+		if (course) {
+			if (course.title === courseNotFound.title) {
+				if (router.isReady) {
+					toastErrorImportant(t("error.courseUnavailable", { ns: "toasts" }));
+					router.push(PathNames.CoursesIndex);
+				}
+			} else {
+				const componentMetadata = {
+					title: course.title[langCode],
+					description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
+				};
 
-		const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
-		setMetadata({ title, description });
-	}, [course])
+				const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
+				setMetadata({ title, description });
+			}
+		}
+	}, [course, langCode, router])
 
-	return course ? (
+	if (!course || (course && course.title === courseNotFound.title)) {
+		return <Preloader />
+	}
+
+	return (
 		<>
 			<Head
 				title={metadata.title}
@@ -54,9 +73,7 @@ const Lectures = ({ course }) => {
 				</div>
 			</div>
 		</>
-	) : (
-		<>Loading...</>
-	);
+	)
 }
 
 export async function getStaticPaths() {

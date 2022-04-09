@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 
 import { toastError } from "@/utils/toasts";
 import { PathNames } from "@/utils/routing";
 
 const Auth = ({ children, auth }) => {
+	const [t] = useTranslation("toasts");
 	const router = useRouter()
 	const { address, unibearsCount } = useSelector(state => state.auth);
 
@@ -15,7 +17,7 @@ const Auth = ({ children, auth }) => {
 			router.back();
 		} */
 		if (unibearsCount < auth.requiredUnibearsCount) {
-			toastError("You do not have enough Unibears to access this course.");
+			toastError(t("error.notEnoughUnibears"), { id: "notEnough" });
 			router.push(PathNames.CoursesIndex);
 		}
 	}, [])

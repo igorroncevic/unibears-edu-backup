@@ -15,7 +15,7 @@ import Image from "@/components/Common/CustomImage";
 import Language from "./Language";
 
 const Navbar = () => {
-	const [t] = useTranslation("common");
+	const [t] = useTranslation(["common", "toasts"]);
 	const dispatch = useDispatch();
 	const { address } = useSelector(state => state.auth);
 
@@ -32,7 +32,7 @@ const Navbar = () => {
 
 				dispatch(setUnibearsCount({ count: count }));
 				dispatch(authSuccess({ address: walletAddress }));
-				toastSuccess("Successfully logged in.\nYou own " + count + " Unibears.");
+				toastSuccess(t("success.login", { ns: "toasts" }), { id: "login" });
 			})()
 		}
 	}, [wallet, dispatch]);

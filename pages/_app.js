@@ -113,18 +113,4 @@ const MyApp = ({ Component, pageProps }) => {
 	);
 };
 
-/* MyApp.getInitialProps = async ({ Component, ctx }) => {
-	let pageProps = {};
-
-	if (Component.getInitialProps) {
-		pageProps = await Component.getInitialProps(ctx)
-	}
-
-	// By returning { props: posts }, the Blog component
-	// will receive `posts` as a prop at build time
-	return {
-		pageProps
-	}
-} */
-
 export default wrapper.withRedux(MyApp);

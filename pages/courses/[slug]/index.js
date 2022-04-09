@@ -14,25 +14,38 @@ import AuthorSocials from "@/components/Courses/AuthorSocials";
 
 import { blockContentToPlainText } from "react-portable-text";
 import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
-import { getCoursePaths, findCourseBySlug } from "@/services/course.service";
+import { getCoursePaths, findCourseBySlug, courseNotFound } from "@/services/course.service";
+import { toastErrorImportant } from "@/utils/toasts";
+import { useRouter } from "next/router";
 
 const Details = ({ course }) => {
-	const [t] = useTranslation("courses");
+	const router = useRouter();
+	const [t] = useTranslation(["courses", "toasts"]);
 	const { langCode } = useSelector(state => state.user);
 
-	const [metadata, setMetadata] = useState(defaultMetadata)
+	const [metadata, setMetadata] = useState(defaultMetadata);
 
+	// TODO: Perhaps do redirects like this: https://stackoverflow.com/questions/65709378/how-to-redirect-using-getstaticprops
 	useEffect(() => {
-		const componentMetadata = {
-			title: course.title[langCode],
-			description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
-		};
+		if (course) {
+			if (course.title === courseNotFound.title) {
+				if (router.isReady) {
+					toastErrorImportant(t("error.courseUnavailable", { ns: "toasts" }));
+					router.push(PathNames.CoursesIndex);
+				}
+			} else {
+				const componentMetadata = {
+					title: course.title[langCode],
+					description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
+				};
 
-		const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
-		setMetadata({ title, description });
-	}, [course, langCode])
+				const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
+				setMetadata({ title, description });
+			}
+		}
+	}, [course, langCode, router])
 
-	if (!course) {
+	if (!course || (course && course.title === courseNotFound.title)) {
 		return <Preloader />
 	}
 
@@ -110,10 +123,6 @@ const Details = ({ course }) => {
 	)
 }
 
-Details.auth = {
-	role: "smh"
-};
-
 export async function getStaticPaths() {
 	const slugs = await getCoursePaths();
 
@@ -123,6 +132,7 @@ export async function getStaticPaths() {
 
 	return {
 		paths,
+		// TODO: Consider switching to blocking: https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-blocking
 		fallback: true // If page was not pre-rendered at build time, Next.js will generate that page.
 	}
 }
@@ -130,8 +140,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	const course = await findCourseBySlug(params.slug);
 
-	// TODO Here you can attach unibears count required for this course
-	// Details.auth.count = 10;
 	return {
 		props: { course },
 		revalidate: 10 * 60 // Regenerate page every 10 minutes, since it won't update that often. 
