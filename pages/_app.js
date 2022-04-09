@@ -10,6 +10,8 @@ import "../styles/style.css";
 import "../styles/overrides.css";
 import "../styles/responsive.css";
 
+import "../translations/config.js"; // init translation
+
 import { useMemo, useEffect } from "react";
 import Layout from "../components/_App/Layout";
 import Auth from "@/components/_App/Auth";

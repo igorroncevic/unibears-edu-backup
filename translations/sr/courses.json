@@ -1,0 +1,21 @@
+{
+	"coursesTitle": "Kursevi",
+	"categories": "Kategorije",
+	"notFound": "Nije pronađeno",
+	"weFound": "Pronašli smo",
+	"coursesAvailableForYou": "kurs(a) dostupnih za tebe",
+	"requiredUnibears": "Potrebno Unibeara",
+	"all": "Sve",
+	"overview": "Opis",
+	"curriculum": "Sadržaj",
+	"instructor": "Predavač",
+	"courseDescription": "Opis Kursa",
+	"lectures": "Lekcije",
+	"noLectures": "Nema lekcija",
+	"coursePreview": "Kratak pregled kursa",
+	"duration": "Trajanje",
+	"published": "Objavljen",
+	"startCourse": "Počni kurs",
+	"next": "Naredna",
+	"previous": "Prethodna"
+}

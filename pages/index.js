@@ -1,19 +1,23 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Link from "next/link"
+
 import Image from "@/components/Common/CustomImage";
 
 const Index = () => {
+	const [t] = useTranslation("common");
+
 	return (
 		<div className="main-banner-area">
 			<div className="container-fluid">
 				<div className="row align-items-center">
 					<div className="col-lg-6 col-md-12">
 						<div className="main-banner-content-style-two">
-							<h1>The World&quot;s Leading Distance-Learning Provider</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse.</p>
+							<h1>{t("home.title")}</h1>
+							<p>{t("home.subtitle")}</p>
 							<Link href="/authentication">
 								<a className="default-btn">
-									<i className="flaticon-user"></i>Join For Free<span></span>
+									<i className="flaticon-user"></i>{t("home.joinForFree")}<span></span>
 								</a>
 							</Link>
 						</div>

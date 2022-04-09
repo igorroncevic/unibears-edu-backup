@@ -1,0 +1,21 @@
+{
+	"home": {
+		"title": "The World's Leading Distance-Learning Provider",
+		"subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse.",
+		"joinForFree": "Join For Free"
+	},
+	"navbar": {
+		"buyUnibear": "Buy Unibear",
+		"courses": "Courses",
+		"connect": "Connect",
+		"wallet": "Wallet"
+	},
+	"footer": {
+		"privacyPolicy": "Privacy Policy",
+		"tos": "Terms & Conditions"
+	},
+	"language": {
+		"en": "English",
+		"sr": "Serbian"
+	}
+}

@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Dropdown } from "react-bootstrap";
 
@@ -10,13 +11,14 @@ import { findAllCourses } from "services/course.service";
 import { findAllCategories, categoriesFilterTranslated, allCategoriesFilterTranslated } from "services/category.service";
 
 const Index = ({ courses, categories }) => {
+	const [t] = useTranslation("courses");
 	const { langCode } = useSelector(state => state.user);
 
 	const [allCourses, setAllCourses] = useState(courses);
 	const [displayCourses, setDisplayCourses] = useState(courses);
 
-	const [allCategories, setAllCategories] = useState(["All", ...categoriesFilterTranslated(categories, langCode)]);
-	const [categoryFilter, setCategoryFilter] = useState("All");
+	const [allCategories, setAllCategories] = useState([t("all"), ...categoriesFilterTranslated(categories, langCode)]);
+	const [categoryFilter, setCategoryFilter] = useState(t("all"));
 
 	useEffect(() => {
 		const allCategoriesFilterTemp = allCategoriesFilterTranslated(langCode);
@@ -25,7 +27,7 @@ const Index = ({ courses, categories }) => {
 
 		setAllCategories([...allCategoriesTemp]);
 		setCategoryFilter(allCategoriesFilterTemp);
-	}, []);
+	}, [categories, langCode]);
 
 	useEffect(() => {
 		switch (categoryFilter) {
@@ -37,7 +39,7 @@ const Index = ({ courses, categories }) => {
 				setDisplayCourses(filtered);
 				break;
 		}
-	}, [categoryFilter]);
+	}, [allCourses, langCode, categoryFilter]);
 
 	const handleCategorySelect = (e) => {
 		setCategoryFilter(e);
@@ -46,17 +48,17 @@ const Index = ({ courses, categories }) => {
 	return (
 		<React.Fragment>
 			<PageBanner
-				pageTitle="Courses"
+				pageTitle={t("coursesTitle")}
 			/>
 
 			<div className="courses-area courses-section pt-100 pb-70">
 				<div className="container">
 					<div className="edemy-grid-sorting row align-items-center">
 						<div className="col-lg-8 col-md-6 result-count">
-							<p>We found <span className="count">{displayCourses && displayCourses.length ? displayCourses.length : 0}</span> courses available for you</p>
+							<p>{t("weFound")} <span className="count">{displayCourses && displayCourses.length ? displayCourses.length : 0}</span> {t("coursesAvailableForYou")}.</p>
 						</div>
 						<div className="col-lg-4 col-md-6 categories-filter">
-							<span>Category:</span>
+							<span>{t("categories")}</span>
 							<Dropdown className="dropdown-button-custom" onSelect={handleCategorySelect}>
 								<Dropdown.Toggle>{categoryFilter}</Dropdown.Toggle>
 								<Dropdown.Menu>
@@ -74,7 +76,7 @@ const Index = ({ courses, categories }) => {
 						{displayCourses.length ? displayCourses.map(course => (
 							<CourseCard course={course} key={course.id} />
 						)) : (
-							<h1>Not Found</h1>
+							<h1>{t("notFound")}</h1>
 						)}
 					</div>
 				</div>

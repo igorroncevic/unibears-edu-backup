@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
@@ -11,8 +12,10 @@ import { PathNames } from "@/utils/routing";
 import solanaService from "@/services/solana.service";
 
 import Image from "@/components/Common/CustomImage";
+import Language from "./Language";
 
 const Navbar = () => {
+	const [t] = useTranslation("common");
 	const dispatch = useDispatch();
 	const { address } = useSelector(state => state.auth);
 
@@ -52,7 +55,7 @@ const Navbar = () => {
 	}, [])
 
 	const displayWalletAddress = () => {
-		return <p>Wallet {shortenAddress(address || "")}</p>
+		return <p>{shortenAddress(address || "")}</p>
 	}
 
 	const toggleNavbar = () => {
@@ -91,9 +94,13 @@ const Navbar = () => {
 
 							<ul className="navbar-nav">
 								<li className="nav-item">
+									<Language />
+								</li>
+
+								<li className="nav-item">
 									<Link href={PathNames.Index}>
 										<a onClick={e => e.preventDefault()} className="nav-link">
-											Buy Unibear
+											{t("navbar.buyUnibear")}
 										</a>
 									</Link>
 								</li>
@@ -101,7 +108,7 @@ const Navbar = () => {
 								<li className="nav-item megamenu">
 									<Link href={PathNames.CoursesIndex}>
 										<a className="nav-link">
-											Courses
+											{t("navbar.courses")}
 										</a>
 									</Link>
 								</li>
@@ -130,7 +137,7 @@ const Navbar = () => {
 									) : (
 										<WalletDialogButton>
 											<div className="default-btn">
-												<i className="flaticon-user"></i> Connect Wallet
+												<i className="flaticon-user"></i> {`${t("navbar.connect")} ${t("navbar.wallet")}`}
 											</div>
 										</WalletDialogButton>
 									)}

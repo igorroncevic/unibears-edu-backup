@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 
 import Image from "@/components/Common/CustomImage";
@@ -9,6 +10,7 @@ import { PathNames } from "@/utils/routing"
 import { displayCategories } from "@/services/category.service";
 
 const CourseCard = ({ course }) => {
+	const [t] = useTranslation("courses");
 	const { langCode } = useSelector(state => state.user);
 
 	return (
@@ -48,7 +50,7 @@ const CourseCard = ({ course }) => {
 						</li>
 						<li>
 							{/* TODO: Add some more data to make design look nicer */}
-							<i className='flaticon-agenda'></i> Required Unibears: {course.requiredUnibearsCount}
+							<i className='flaticon-agenda'></i> {t("requiredUnibears")}: {course.requiredUnibearsCount}
 						</li>
 					</ul>
 				</div>

@@ -2875,4 +2875,76 @@ Main Banner Area CSS - Keep
   background-color: #ffdadc !important;
 }
 
+/* Languages */
+.language_wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80px;
+	width: 50px;
+}
+
+.language_wrapper .box {
+	margin-left: 2px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.language_wrapper .box .languageName {
+	visibility: hidden;
+}
+
+.language_wrapper .box img {
+	object-fit: cover;
+	width: 30px;
+	height: 20px;
+}
+
+.language_wrapper .languages {
+	position: absolute;
+	top: 50px;
+	right: 6px;
+	background-color: rgba(#fff, 0.3);
+	padding: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	z-index: 10;
+}
+
+.language_wrapper .languages ul {
+	margin: 0;
+}
+
+.language_wrapper .languages ul li {
+	position: relative;
+	list-style-type: none;
+}
+
+.language_wrapper .languages ul li img {
+	object-fit: cover;
+	width: 30px;
+	height: 20px;
+}
+
+.language_wrapper .languages ul li img:hover {
+	box-shadow: 0 0 2px 2px rgba(#100f1f, 0.5);
+}
+
+.language_wrapper .languages ul li .languageName {
+	position: absolute;
+	top: 10px;
+	visibility: hidden;
+	opacity: 0;
+	font-size: small;
+	color: #100f1f;
+}
+
+.language_wrapper .languages ul li li:hover .languageName {
+	visibility: visible;
+	opacity: 1;
+}
+
 /*# sourceMappingURL=style.css.map */

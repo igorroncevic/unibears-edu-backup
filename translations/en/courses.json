@@ -1,0 +1,21 @@
+{
+	"coursesTitle": "Courses",
+	"categories": "Categories",
+	"notFound": "Not Found",
+	"weFound": "We found",
+	"coursesAvailableForYou": "courses available for you",
+	"requiredUnibears": "Required Unibears",
+	"all": "All",
+	"overview": "Overview",
+	"curriculum": "Curriculum",
+	"instructor": "Instructor",
+	"courseDescription": "Course Description",
+	"lectures": "Lectures",
+	"noLectures": "No Lectures",
+	"coursePreview": "Course Preview",
+	"duration": "Duration",
+	"published": "Published",
+	"startCourse": "Start Course",
+	"next": "Next",
+	"previous": "Previous"
+}

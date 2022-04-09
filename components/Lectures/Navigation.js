@@ -1,3 +1,8 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import Link from "next/link";
+
 import {
 	lectureChange,
 	updatePreviousAndNextLecture,
@@ -7,11 +12,9 @@ import {
 	setNextAndPreviousLecture,
 } from "@/utils/common";
 import { PathNames } from "@/utils/routing";
-import Link from "next/link";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 function Navigation({ topics }) {
+	const [t] = useTranslation("courses");
 	const previous = useSelector((state) => state.course.activeLecture?.previous);
 	const next = useSelector((state) => state.course.activeLecture?.next);
 
@@ -29,10 +32,10 @@ function Navigation({ topics }) {
 
 	return (
 		previous &&
-    next && (
+		next && (
 			<div className="container d-flex justify-content-between">
 				<button
-					onClick={() => {}}
+					onClick={() => { }}
 					className="btn btn-light d-flex flex-row"
 					type="button"
 					disabled={!previous.lecture}
@@ -46,11 +49,11 @@ function Navigation({ topics }) {
 							query: { active: previous.lecture && previous.lecture.id },
 						}}
 					>
-						<a onClick={() => onNavigationClick(previous.lecture)}>Previous</a>
+						<a onClick={() => onNavigationClick(previous.lecture)}>{t("previous")}</a>
 					</Link>
 				</button>
 				<button
-					onClick={() => {}}
+					onClick={() => { }}
 					className="btn btn-light d-flex flex-row"
 					type="button"
 					disabled={!next.lecture}
@@ -61,7 +64,7 @@ function Navigation({ topics }) {
 							query: { active: next.lecture && next.lecture.id },
 						}}
 					>
-						<a onClick={() => onNavigationClick(next.lecture)}>Next</a>
+						<a onClick={() => onNavigationClick(next.lecture)}>{t("next")}</a>
 					</Link>
 					<div style={{ paddingLeft: "5px" }}>
 						<i className="flaticon-right-chevron"></i>

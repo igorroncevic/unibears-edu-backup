@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import dynamic from "next/dynamic";
 const ModalVideo = dynamic(import("react-modal-video"));
 import Image from "@/components/Common/CustomImage";
@@ -9,6 +10,7 @@ import { PathNames } from "@/utils/routing";
 import { displayCategories } from "@/services/category.service";
 
 const CoursesDetailsSidebar = ({ course }) => {
+	const [t] = useTranslation("courses");
 	const { langCode } = useSelector(state => state.user);
 
 	const [display, setDisplay] = useState(false);
@@ -51,7 +53,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 
 					<div className="content">
 						<i className="flaticon-play"></i>
-						<span>Course Preview</span>
+						<span>{t("coursePreview")}</span>
 					</div>
 				</div>
 				<ul className="info">
@@ -63,7 +65,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 					<li>
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
-								<i className="flaticon-teacher"></i> Instructor
+								<i className="flaticon-teacher"></i> {t("instructor")}
 							</span>
 							{course.author.name}
 						</div>
@@ -71,7 +73,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 					<li>
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
-								<i className="flaticon-time"></i> Duration
+								<i className="flaticon-time"></i> {t("duration")}
 							</span>
 							{course.duration}
 						</div>
@@ -80,7 +82,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
 								{/* TODO: Maybe change the icon to fit in with others */}
-								<i className="flaticon-calendar"></i> Published
+								<i className="flaticon-calendar"></i> {t("published")}
 							</span>
 							{course.publishedAt}
 						</div>
@@ -89,7 +91,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
 								{/* TODO: Add a proper icon for categories */}
-								<i className="flaticon-distance-learning"></i> Categories
+								<i className="flaticon-distance-learning"></i> {t("categories")}
 							</span>
 							{displayCategories(course.categories, langCode)}
 						</div>
@@ -98,7 +100,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
 								{/* TODO: Add a proper icon for Unibears count */}
-								<i className="flaticon-distance-learning"></i> Required Unibears
+								<i className="flaticon-distance-learning"></i> {t("requiredUnibears")}
 							</span>
 							{course.requiredUnibearsCount}
 						</div>
@@ -110,7 +112,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<button className="default-btn">
 							{/* TODO: Use this button to navigate to first lesson if user has enough Unibears? */}
 							<i className="flaticon-tag"></i>
-							Start Course
+							{t("startCourse")}
 						</button>
 					</Link>
 				</div>

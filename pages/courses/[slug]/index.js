@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from "react-tabs";
 resetIdCounter();
 
@@ -16,6 +17,7 @@ import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
 import { getCoursePaths, findCourseBySlug } from "@/services/course.service";
 
 const Details = ({ course }) => {
+	const [t] = useTranslation("courses");
 	const { langCode } = useSelector(state => state.user);
 
 	const [metadata, setMetadata] = useState(defaultMetadata)
@@ -52,14 +54,14 @@ const Details = ({ course }) => {
 						<div className="courses-details-desc">
 							<Tabs>
 								<TabList>
-									<Tab>Overview</Tab>
-									<Tab>Curriculum</Tab>
-									<Tab>Instructor</Tab>
+									<Tab>{t("overview")}</Tab>
+									<Tab>{t("curriculum")}</Tab>
+									<Tab>{t("instructor")}</Tab>
 								</TabList>
 
 								<TabPanel>
 									<div className="courses-overview">
-										<h3>Course Description</h3>
+										<h3>{t("courseDescription")}</h3>
 										<PortableText content={course.overview ? course.overview[langCode] : ""} />
 									</div>
 								</TabPanel>
