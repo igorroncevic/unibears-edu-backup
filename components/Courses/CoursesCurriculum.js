@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const CoursesCurriculum = ({ course }) => {
 	const [t] = useTranslation("courses");
-	console.log(course)
 	const { langCode } = useSelector((state) => state.user);
 	const { unibersCount } = useSelector((state) => state.auth);
 
