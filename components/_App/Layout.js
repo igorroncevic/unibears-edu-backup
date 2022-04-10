@@ -20,28 +20,18 @@ const Layout = ({ children }) => {
 	const [loader, setLoader] = useState(true)
 
 	useEffect(() => {
+		const { title, description } = getMetadata(router.pathname, {}, langCode);
+		setMetadata({ title, description });
+
 		const routeChangeStart = () => {
 			setLoader(true)
 		}
 
 		const routeChangeComplete = () => {
-			setPreviousMetadata({
-				title: metadata.title,
-				description: metadata.description
-			})
-
-			const { title, description } = getMetadata(router.pathname, {}, langCode);
-			setMetadata({ title, description });
-
 			setLoader(false);
 		}
 
 		const routeChangeError = () => {
-			setMetadata({
-				title: previousMetadata.title,
-				description: previousMetadata.description
-			});
-
 			setLoader(false)
 		}
 
@@ -65,7 +55,7 @@ const Layout = ({ children }) => {
 		setTimeout(() => {
 			setLoader(false)
 		}, 1000);
-	}, [router, langCode])
+	}, [router.pathname, langCode])
 
 	return (
 		<>
