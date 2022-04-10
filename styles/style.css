@@ -2911,6 +2911,7 @@ Main Banner Area CSS - Keep
 
 .language_wrapper .box {
 	margin-left: 2px;
+  padding-top: 2px;
 	position: absolute;
 	display: flex;
 	justify-content: center;
