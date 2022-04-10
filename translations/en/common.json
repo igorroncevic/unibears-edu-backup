@@ -17,5 +17,13 @@
 	"language": {
 		"en": "English",
 		"sr": "Serbian"
-	}
+	},
+	"404": {
+		"title": "Error 404 : Page Not Found",
+		"description": {
+			"paragraph1": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable.",
+			"paragraph2": "You will be redirected to the home page shortly."
+		}
+	},
+	"homePage": "Home page"
 }

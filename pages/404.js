@@ -4,9 +4,11 @@ import Link from "next/link";
 import Image from "@/components/Common/CustomImage";
 
 import { PathNames } from "@/utils/routing";
+import { useTranslation } from "react-i18next";
 
 const Custom404 = () => {
 	const router = useRouter()
+	const [t] = useTranslation("common");
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -22,20 +24,15 @@ const Custom404 = () => {
 				<div className="d-table-cell">
 					<div className="container">
 						<div className="error-content">
-							<Image src="/images/error.png" alt="image" />
-							<h3>Error 404 : Page Not Found</h3>
-							<p>The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
-							<p>You will be redirected to the home page shortly.</p>
+							{/* <Image src="/images/error.png" alt="image" /> */}
+							<h3>{t("404.title")}</h3>
+							<p>{t("404.description.paragraph1")}</p>
+							<p>{t("404.description.paragraph2")}</p>
 
 							<div className="btn-box">
 								<Link href={PathNames.CoursesIndex}>
 									<a className="default-btn">
-										<i className="flaticon-history"></i> Go Back <span></span>
-									</a>
-								</Link>
-								<Link href={PathNames.CoursesIndex}>
-									<a className="default-btn">
-										<i className="flaticon-home"></i> Homepage <span></span>
+										<i className="flaticon-home"></i> {t("homePage")} <span></span>
 									</a>
 								</Link>
 							</div>
