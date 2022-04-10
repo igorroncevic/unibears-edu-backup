@@ -13,1598 +13,1888 @@ $value_nine: 1550px;
 
 /* Max width 767px */
 @media only #{$media} and ($feature_max : $value_two) {
-    body {
-        font-size: 14.5px;
-    }
-    .container {
-        max-width: 100%;
-    }
-    p {
-        font-size: 14.5px;
-        line-height: 1.7;
-    }
-    .ptb-100 {
-        padding: {
-            top: 60px;
-            bottom: 60px;
-        };
-    }
-    .pt-100 {
-        padding-top: 60px;
-    }
-    .pb-100 {
-        padding-bottom: 60px;
-    }
-    .ptb-70 {
-        padding: {
-            top: 30px;
-            bottom: 30px;
-        };
-    }
-    .pt-70 {
-        padding-top: 30px;
-    }
-    .pb-70 {
-        padding-bottom: 30px;
-    }
-    .default-btn {
-        font-size: 13px;
-        padding-left: 45px;
-        padding-right: 20px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        i {
-            left: 20px;
-        }
-    }
-    .mtb-100 {
-        margin: {
-            top: 0;
-            bottom: 0;
-        };
-    }
-    .main-banner {
-        padding-top: 70px;
-        .container-fluid {
-            max-width: 100%;
-        }
-    }
-    .main-banner-content {
-        max-width: 100%;
-        text-align: center;
-        top: 0;
-        padding-right: 0;
+	body {
+		font-size: 14.5px;
+	}
 
-        p {
-            max-width: 100%;
-            font: {
-                weight: 500;
-                size: 15px;
-            };
-        }
-        h1 {
-            margin-bottom: 15px;
-            font-size: 28px;
-        }
-        .default-btn {
-            margin-top: 5px;
-        }
-    }
-    .banner-content {
-        text-align: center;
+	.container {
+		max-width: 100%;
+	}
 
-        p {
-            max-width: 100%;
-            font: {
-                weight: 500;
-                size: 15px;
-            };
-        }
-        h1 {
-            margin-bottom: 12px;
-            font-size: 28px;
-            line-height: 1.4;
-        }
-        .default-btn {
-            margin-top: 5px;
-        }
-    }
-    .banner-image {
-        margin-top: 30px;
-    }
-    .banner-shape1, .banner-shape2, .banner-shape3 {
-        display: none;
-    }
-    .banner-wrapper {
-        height: auto;
-        padding: {
-            top: 120px;
-            bottom: 100px;
-        };
-        &::before {
-            display: none;
-        }
-    }
+	p {
+		font-size: 14.5px;
+		line-height: 1.7;
+	}
 
-    .single-box-item {
-        top: 0;
-        padding: 55px 20px 25px;
-        margin: {
-            bottom: 0;
-            top: 30px;
-        };
-        .icon {
-            font-size: 50px;
-            margin-bottom: 50px;
-        }
-        h3 {
-            font-size: 18px;
-        }
-    }
+	.ptb-100 {
+		padding: {
+			top: 60px;
+			bottom: 60px;
+		}
 
-    .partner-area {
-        padding-bottom: 20px;
+		;
+	}
 
-        &.ptb-70 {
-            padding-top: 50px;
-        }
-    }
+	.pt-100 {
+		padding-top: 60px;
+	}
 
-    .courses-area {
-        &.pt-100 {
-            &.pb-70 {
-                padding-bottom: 60px;
-            }
-        }
-    }
-    .single-courses-box {
-        .courses-image {
-            .price {
-                width: 50px;
-                height: 50px;
-                right: 15px;
-                bottom: -25px;
-                line-height: 52px;
-                font-size: 18px;
-            }
-        }
-        .courses-content {
-            padding: 20px;
+	.pb-100 {
+		padding-bottom: 60px;
+	}
 
-            h3 {
-                font-size: 18px;
-            }
-            .courses-box-footer {
-                li {
-                    font-size: 14px;
-                }
-            }
-        }
-        &.without-boxshadow {
-            box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-        }
-    }
-    .single-advisor-box {
-        .advisor-image {
-            top: 0;
-            margin-bottom: 0;
+	.ptb-70 {
+		padding: {
+			top: 30px;
+			bottom: 30px;
+		}
 
-            img {
-                width: 100%;
-                display: inline-block !important;
-            }
-        }
-        .advisor-content {
-            padding: 25px 20px;
+		;
+	}
 
-            h3 {
-                font-size: 18px;
-            }
-            .sub-title {
-                font-size: 13.5px;
-            }
-        }
-    }
-    .page-title-area {
-        padding: {
-            top: 15px;
-            bottom: 50px;
-        };
-    }
-    .page-title-content {
-        ul {
-            li {
-                margin-right: 17px;
-                font-size: 14px;
-                margin: {
-                    right: 17px;
-                    bottom: 8px;
-                };
-                &::before {
-                    right: -11px;
-                    top: 4px;
-                    height: 13px;
-                }
-            }
-        }
-        h2 {
-            max-width: 100%;
-            margin-top: 50px;
-            font-size: 26px;
-        }
-    }
+	.pt-70 {
+		padding-top: 30px;
+	}
 
-    .error-area {
-        height: auto;
-        padding: {
-            top: 150px;
-            bottom: 150px;
-        };
-    }
-    .error-content {
-        h3 {
-            font-size: 25px;
-        }
-        p {
-            max-width: 100%;
-        }
-        .btn-box {
-            .default-btn {
-                margin: {
-                    left: 3px;
-                    right: 3px;
-                };
-            }
-        }
-    }
+	.pb-70 {
+		padding-bottom: 30px;
+	}
 
-    .privacy-policy-content {
-        img {
-            margin-bottom: 25px;
-        }
-        h3 {
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
-        ul, ol {
-            li {
-                font-size: 14.5px;
-            }
-        }
-        .blockquote, blockquote {
-            p {
-                font-size: 15px !important;
-            }
-        }
-    }
+	.default-btn {
+		font-size: 13px;
+		padding-left: 45px;
+		padding-right: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 
-    .terms-of-service-content {
-        img {
-            margin-bottom: 25px;
-        }
-        h3 {
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
-        ul, ol {
-            li {
-                font-size: 14.5px;
-            }
-        }
-        .blockquote, blockquote {
-            p {
-                font-size: 15px !important;
-            }
-        }
-    }
+		i {
+			left: 20px;
+		}
+	}
 
-    .edemy-grid-sorting {
-        text-align: center;
+	.mtb-100 {
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
 
-        .result-count {
-            margin-bottom: 13px;
-        }
-        .ordering {
-            text-align: center;
+		;
+	}
 
-            label {
-                font-size: 14px;
-            }
-        }
-    }
+	.main-banner {
+		padding-top: 70px;
 
-    .pagination-area {
-        margin-top: 20px;
-    }
+		.container-fluid {
+			max-width: 100%;
+		}
+	}
 
-    .load-more-btn {
-        margin: {
-            top: 20px;
-            bottom: 0;
-        };
-        .load-more {
-            padding: 12px 55px 12px 30px;
-            font-size: 15px;
+	.main-banner-content {
+		max-width: 100%;
+		text-align: center;
+		top: 0;
+		padding-right: 0;
 
-            i {
-                right: 30px;
-                font-size: 16px;
-            }
-        }
-    }
+		p {
+			max-width: 100%;
 
-    .courses-details-desc {
-        .react-tabs__tab-list {
-            padding: {
-                left: 15px;
-                right: 15px;
-                top: 10px;
-                bottom: 0;
-            };
-            .react-tabs__tab {
-                margin: {
-                    right: 20px;
-                    bottom: 10px;
-                };
-            
-                padding: 5px 0;
-                font-size: 15px;
-            }
-        }
-        .react-tabs__tab-panel {
-            padding: {
-                left: 0;
-                right: 0;
-                top: 30px;
-            };
-            .courses-overview {
-                h3 {
-                    font-size: 18px;
-                }
-            }
-            .courses-curriculum {
-                padding: 20px;
-                margin: {
-                    left: 0;
-                    right: 0;
-                };
-                h3 {
-                    font-size: 16px;
-                    margin-bottom: 15px;
-                }
-                ul {
-                    li {
-                        a {
-                            display: block !important;
-                            padding: {
-                                left: 45px;
-                                right: 20px;
-                                top: 13px;
-                                bottom: 13px;
-                            };
-                            margin: {
-                                left: -20px;
-                                right: -20px;
-                            };
-                            &::before {
-                                left: 20px;
-                                top: 13px;
-                                font-size: 15px;
-                            }
-                            .courses-name {
-                                font-size: 15px;
-                            }
-                            .courses-meta {
-                                text-align: left;
-                                margin-top: 5px;
+			font: {
+				weight: 500;
+				size: 15px;
+			}
 
-                                .questions {
-                                    font-size: 13.5px;
-                                    margin-top: 7px;
-                                }
-                                .duration {
-                                    font-size: 13.5px;
-                                    margin-top: 7px;
-                                }
-                                .status {
-                                    font-size: 13.5px;
-                                    margin-top: 7px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .courses-instructor {
-                .single-advisor-box {
-                    .advisor-image {
-                        text-align: left;
+			;
+		}
 
-                        img {
-                            width: auto;
-                        }
-                    }
-                    .advisor-content {
-                        padding: 25px 0 0 0;
-                    }
-                }
-            }
-            .courses-reviews {
-                h3 {
-                    font-size: 18px;
-                }
-                .rating {
-                    top: 2px;
+		h1 {
+			margin-bottom: 15px;
+			font-size: 28px;
+		}
 
-                    span {
-                        font-size: 17px;
-                    }
-                }
-                .side {
-                    width: 20%;
+		.default-btn {
+			margin-top: 5px;
+		}
+	}
 
-                    div {
-                        font-size: 15px;
-                    }
-                }
-                .middle {
-                    width: 60%;
-                }
-            }
-        }
-    }
-    .courses-details-info {
-        margin: {
-            left: 0;
-            top: 30px;
-        };
-        .image {
-            .content {
-                i {
-                    width: 50px;
-                    height: 50px;
-                    line-height: 50px;
-                    font-size: 20px;
-                }
-                span {
-                    font-size: 14.5px;
-                }
-            }
-        }
-        .info {
-            padding: {
-                left: 10px;
-                right: 10px;
-                top: 30px;
-            };
-            li {
-                font-size: 15px;
-                padding: {
-                    top: 13px;
-                    bottom: 12px;
-                };
-                &.price {
-                    font-size: 20px;
+	.banner-content {
+		text-align: center;
 
-                    span {
-                        font-size: 15px;
-                    }
-                }
-            }
-        }
-        .btn-box {
-            margin-top: 30px;
-            padding: {
-                left: 10px;
-                right: 10px;
-            };
-        }
-        .courses-share {
-            padding: {
-                left: 10px;
-                right: 10px;
-            };
-            .share-info {
-                span {
-                    font-size: 15px;
-                }
-                .social-link {
-                    bottom: -44px;
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-        }
-    }
+		p {
+			max-width: 100%;
 
-    blockquote, .blockquote {
-        padding: 20px !important;
+			font: {
+				weight: 500;
+				size: 15px;
+			}
 
-        p {
-            font-size: 17px !important;
-        }
-    }
-    .prev-link-wrapper {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding-right: 0;
+			;
+		}
 
-        .prev-title {
-            font-size: 15px;
-        }
-        .meta-wrapper {
-            font-size: 13px;
-        }
-    }
-    .next-link-wrapper {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding-left: 0;
-        margin-top: 30px;
+		h1 {
+			margin-bottom: 12px;
+			font-size: 28px;
+			line-height: 1.4;
+		}
 
-        .next-title {
-            font-size: 15px;
-        }
-        .meta-wrapper {
-            font-size: 13px;
-        }
-    }
-    .footer-bottom-area {
-        margin-top: 30px;
-        text-align: center;
-        padding: {
-            top: 20px;
-            bottom: 20px;
-        };
-        ul {
-            text-align: center;
-            margin-top: 15px;
+		.default-btn {
+			margin-top: 5px;
+		}
+	}
 
-            li {
-                &::before {
-                    top: 3px;
-                }
-            }
-        }
-    }
+	.banner-image {
+		margin-top: 30px;
+	}
 
-    .go-top {
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        font-size: 35px;
-    }
+	.banner-shape1,
+	.banner-shape2,
+	.banner-shape3 {
+		display: none;
+	}
 
-    .single-training-box {
-        h3 {
-            margin-bottom: 13px;
-            font-size: 19px;
-        }
-    }
- 
-    .navbar-area {
-        &.is-sticky {
-            &.pb-0 {
-                padding-bottom: 20px !important;
-            }
-        }
-    }
+	.banner-wrapper {
+		height: auto;
 
-    .default-btn-style-two {
-        font-size: 14px;
-        padding: {
-            left: 50px;
-            right: 25px;
-            top: 13px;
-            bottom: 13px;
-        };
-        i {
-            left: 25px;
-            top: 13px;
-        }
-        &::before {
-            margin: 2px;
-        }
-    }
+		padding: {
+			top: 120px;
+			bottom: 100px;
+		}
 
-    .edemy-nav {
-        .navbar {
-            .navbar-nav {
-                .nav-item {
-                    .col {
-                        width: 100%;
-                        flex-basis: inherit;
-                    }
-                }
-            }
-        }
-    }
-    .border-box {
-        padding: 20px;
-    }
+		;
 
-    /*new-css*/
-    .main-banner-area {
-        border-top: 1px solid #eeeeee;
-        padding: {
-            top: 60px;
-            bottom: 60px;
-        };
-        .container-fluid {
-            max-width: 100%;
-        }
-    }
-    .main-banner-content-style-two {
-        text-align: center;;
+		&::before {
+			display: none;
+		}
+	}
 
-        h1 {
-            margin-bottom: 15px;
-            font-size: 28px;
-        }
-        p {
-            max-width: 100%;
-            font: {
-                weight: 500;
-                size: 15px;
-            };
-        }
-        .default-btn {
-            margin-top: 5px;
-        }
-    }
-    .main-banner-image-style-two {
-        margin-top: 30px;
-    }
-    .bulb {
-        display: none;
-    }
+	.single-box-item {
+		top: 0;
+		padding: 55px 20px 25px;
 
-    .features-box {
-        text-align: center;
-        padding: 20px 15px;
+		margin: {
+			bottom: 0;
+			top: 30px;
+		}
 
-        h3 {
-            font-size: 17px;
-            margin-bottom: 12px;
-        }
-        .icon {
-            font-size: 40px;
-        }
-        .link-btn {
-            font-size: 14px;
-        }
-    }
+		;
 
-    .partner-area {
-        &.ptb-100 {
-            padding-bottom: 60px;
-        }
-    }
+		.icon {
+			font-size: 50px;
+			margin-bottom: 50px;
+		}
+
+		h3 {
+			font-size: 18px;
+		}
+	}
+
+	.partner-area {
+		padding-bottom: 20px;
+
+		&.ptb-70 {
+			padding-top: 50px;
+		}
+	}
+
+	.courses-area {
+		&.pt-100 {
+			&.pb-70 {
+				padding-bottom: 60px;
+			}
+		}
+	}
+
+	.single-courses-box {
+		.courses-image {
+			.price {
+				width: 50px;
+				height: 50px;
+				right: 15px;
+				bottom: -25px;
+				line-height: 52px;
+				font-size: 18px;
+			}
+		}
+
+		.courses-content {
+			padding: 20px;
+
+			h3 {
+				font-size: 18px;
+			}
+
+			.courses-box-footer {
+				li {
+					font-size: 14px;
+				}
+			}
+		}
+
+		&.without-boxshadow {
+			box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+		}
+	}
+
+	.single-advisor-box {
+		.advisor-image {
+			top: 0;
+			margin-bottom: 0;
+
+			img {
+				width: 100%;
+				display: inline-block !important;
+			}
+		}
+
+		.advisor-content {
+			padding: 25px 20px;
+
+			h3 {
+				font-size: 18px;
+			}
+
+			.sub-title {
+				font-size: 13.5px;
+			}
+		}
+	}
+
+	.page-title-area {
+		padding: {
+			top: 15px;
+			bottom: 50px;
+		}
+
+		;
+	}
+
+	.page-title-content {
+		ul {
+			li {
+				margin-right: 17px;
+				font-size: 14px;
+
+				margin: {
+					right: 17px;
+					bottom: 8px;
+				}
+
+				;
+
+				&::before {
+					right: -11px;
+					top: 4px;
+					height: 13px;
+				}
+			}
+		}
+
+		h2 {
+			max-width: 100%;
+			margin-top: 50px;
+			font-size: 26px;
+		}
+	}
+
+	.error-area {
+		height: auto;
+
+		padding: {
+			top: 150px;
+			bottom: 150px;
+		}
+
+		;
+	}
+
+	.error-content {
+		h3 {
+			font-size: 25px;
+		}
+
+		p {
+			max-width: 100%;
+		}
+
+		.btn-box {
+			.default-btn {
+				margin: {
+					left: 3px;
+					right: 3px;
+				}
+
+				;
+			}
+		}
+	}
+
+	.privacy-policy-content {
+		img {
+			margin-bottom: 25px;
+		}
+
+		h3 {
+			margin-bottom: 12px;
+			font-size: 18px;
+		}
+
+		ul,
+		ol {
+			li {
+				font-size: 14.5px;
+			}
+		}
+
+		.blockquote,
+		blockquote {
+			p {
+				font-size: 15px !important;
+			}
+		}
+	}
+
+	.terms-of-service-content {
+		img {
+			margin-bottom: 25px;
+		}
+
+		h3 {
+			margin-bottom: 12px;
+			font-size: 18px;
+		}
+
+		ul,
+		ol {
+			li {
+				font-size: 14.5px;
+			}
+		}
+
+		.blockquote,
+		blockquote {
+			p {
+				font-size: 15px !important;
+			}
+		}
+	}
+
+	.edemy-grid-sorting {
+		text-align: center;
+
+		.result-count {
+			margin-bottom: 13px;
+		}
+
+		.ordering {
+			text-align: center;
+
+			label {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.pagination-area {
+		margin-top: 20px;
+	}
+
+	.load-more-btn {
+		margin: {
+			top: 20px;
+			bottom: 0;
+		}
+
+		;
+
+		.load-more {
+			padding: 12px 55px 12px 30px;
+			font-size: 15px;
+
+			i {
+				right: 30px;
+				font-size: 16px;
+			}
+		}
+	}
+
+	.courses-details-desc {
+		.react-tabs__tab-list {
+			padding: {
+				left: 15px;
+				right: 15px;
+				top: 10px;
+				bottom: 0;
+			}
+
+			;
+
+			.react-tabs__tab {
+				margin: {
+					right: 20px;
+					bottom: 10px;
+				}
+
+				;
+
+				padding: 5px 0;
+				font-size: 15px;
+			}
+		}
+
+		.react-tabs__tab-panel {
+			padding: {
+				left: 0;
+				right: 0;
+				top: 30px;
+			}
+
+			;
+
+			.courses-overview {
+				h3 {
+					font-size: 18px;
+				}
+			}
+
+			.courses-curriculum {
+				padding: 20px;
+
+				margin: {
+					left: 0;
+					right: 0;
+				}
+
+				;
+
+				h3 {
+					font-size: 16px;
+					margin-bottom: 15px;
+				}
+
+				ul {
+					li {
+						a {
+							display: block !important;
+
+							padding: {
+								left: 45px;
+								right: 20px;
+								top: 13px;
+								bottom: 13px;
+							}
+
+							;
+
+							margin: {
+								left: -20px;
+								right: -20px;
+							}
+
+							;
+
+							&::before {
+								left: 20px;
+								top: 13px;
+								font-size: 15px;
+							}
+
+							.courses-name {
+								font-size: 15px;
+							}
+
+							.courses-meta {
+								text-align: left;
+								margin-top: 5px;
+
+								.questions {
+									font-size: 13.5px;
+									margin-top: 7px;
+								}
+
+								.duration {
+									font-size: 13.5px;
+									margin-top: 7px;
+								}
+
+								.status {
+									font-size: 13.5px;
+									margin-top: 7px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.courses-instructor {
+				.single-advisor-box {
+					.advisor-image {
+						text-align: left;
+
+						img {
+							width: auto;
+						}
+					}
+
+					.advisor-content {
+						padding: 25px 0 0 0;
+					}
+				}
+			}
+
+			.courses-reviews {
+				h3 {
+					font-size: 18px;
+				}
+
+				.rating {
+					top: 2px;
+
+					span {
+						font-size: 17px;
+					}
+				}
+
+				.side {
+					width: 20%;
+
+					div {
+						font-size: 15px;
+					}
+				}
+
+				.middle {
+					width: 60%;
+				}
+			}
+		}
+	}
+
+	.courses-details-info {
+		margin: {
+			left: 0;
+			top: 30px;
+		}
+
+		;
+
+		.image {
+			.content {
+				i {
+					width: 50px;
+					height: 50px;
+					line-height: 50px;
+					font-size: 20px;
+				}
+
+				span {
+					font-size: 14.5px;
+				}
+			}
+		}
+
+		.info {
+			padding: {
+				left: 10px;
+				right: 10px;
+				top: 30px;
+			}
+
+			;
+
+			li {
+				font-size: 15px;
+
+				padding: {
+					top: 13px;
+					bottom: 12px;
+				}
+
+				;
+
+				&.price {
+					font-size: 20px;
+
+					span {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+
+		.btn-box {
+			margin-top: 30px;
+
+			padding: {
+				left: 10px;
+				right: 10px;
+			}
+
+			;
+		}
+
+		.courses-share {
+			padding: {
+				left: 10px;
+				right: 10px;
+			}
+
+			;
+
+			.share-info {
+				span {
+					font-size: 15px;
+				}
+
+				.social-link {
+					bottom: -44px;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	blockquote,
+	.blockquote {
+		padding: 20px !important;
+
+		p {
+			font-size: 17px !important;
+		}
+	}
+
+	.prev-link-wrapper {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding-right: 0;
+
+		.prev-title {
+			font-size: 15px;
+		}
+
+		.meta-wrapper {
+			font-size: 13px;
+		}
+	}
+
+	.next-link-wrapper {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding-left: 0;
+		margin-top: 30px;
+
+		.next-title {
+			font-size: 15px;
+		}
+
+		.meta-wrapper {
+			font-size: 13px;
+		}
+	}
+
+	.footer-bottom-area {
+		margin-top: 30px;
+		text-align: center;
+
+		padding: {
+			top: 20px;
+			bottom: 20px;
+		}
+
+		;
+
+		ul {
+			text-align: center;
+			margin-top: 15px;
+
+			li {
+				&::before {
+					top: 3px;
+				}
+			}
+		}
+	}
+
+	.go-top {
+		right: 15px;
+		width: 40px;
+		height: 40px;
+		font-size: 35px;
+	}
+
+	.single-training-box {
+		h3 {
+			margin-bottom: 13px;
+			font-size: 19px;
+		}
+	}
+
+	.navbar-area {
+		&.is-sticky {
+			&.pb-0 {
+				padding-bottom: 20px !important;
+			}
+		}
+	}
+
+	.default-btn-style-two {
+		font-size: 14px;
+
+		padding: {
+			left: 50px;
+			right: 25px;
+			top: 13px;
+			bottom: 13px;
+		}
+
+		;
+
+		i {
+			left: 25px;
+			top: 13px;
+		}
+
+		&::before {
+			margin: 2px;
+		}
+	}
+
+	.edemy-nav {
+		.navbar {
+			.navbar-nav {
+				.nav-item {
+					.col {
+						width: 100%;
+						flex-basis: inherit;
+					}
+				}
+			}
+		}
+	}
+
+	.border-box {
+		padding: 20px;
+	}
+
+	/*new-css*/
+	.main-banner-area {
+		border-top: 1px solid #eeeeee;
+
+		padding: {
+			top: 60px;
+			bottom: 60px;
+		}
+
+		;
+
+		.container-fluid {
+			max-width: 100%;
+		}
+	}
+
+	.main-banner-content-style-two {
+		text-align: center;
+		;
+
+		h1 {
+			margin-bottom: 15px;
+			font-size: 28px;
+		}
+
+		p {
+			max-width: 100%;
+
+			font: {
+				weight: 500;
+				size: 15px;
+			}
+
+			;
+		}
+
+		.default-btn {
+			margin-top: 5px;
+		}
+	}
+
+	.main-banner-image-style-two {
+		margin-top: 30px;
+	}
+
+	.bulb {
+		display: none;
+	}
+
+	.features-box {
+		text-align: center;
+		padding: 20px 15px;
+
+		h3 {
+			font-size: 17px;
+			margin-bottom: 12px;
+		}
+
+		.icon {
+			font-size: 40px;
+		}
+
+		.link-btn {
+			font-size: 14px;
+		}
+	}
+
+	.partner-area {
+		&.ptb-100 {
+			padding-bottom: 60px;
+		}
+	}
 }
 
 /* Min width 576px Max width 767px */
 @media only #{$media} and ($feature_min : $value_one) and ($feature_max : $value_two) {
-    .edemy-nav {
-        .navbar {
-            .navbar-nav {
-                .nav-item {
-                    .col {
-                        width: 50%;
-                        flex-basis: inherit;
-                    }
-                }
-            }
-        }
-    }
+	.edemy-nav {
+		.navbar {
+			.navbar-nav {
+				.nav-item {
+					.col {
+						width: 50%;
+						flex-basis: inherit;
+					}
+				}
+			}
+		}
+	}
 
-    .container {
-        max-width: 540px;
-    }
+	.container {
+		max-width: 540px;
+	}
 
-    .edemy-responsive-nav {
-        .edemy-responsive-menu {
-            &.mean-container {
-                .navbar-nav {
-                    .nav-item {
-                        &.megamenu {
-                            .dropdown-menu {
-                                .nav-item {
-                                    .row {
-                                        flex-wrap: wrap;
-                                        display: flex;
+	.edemy-responsive-nav {
+		.edemy-responsive-menu {
+			&.mean-container {
+				.navbar-nav {
+					.nav-item {
+						&.megamenu {
+							.dropdown-menu {
+								.nav-item {
+									.row {
+										flex-wrap: wrap;
+										display: flex;
 
-                                        .col {
-                                            flex: 0 0 50%;
-                                            max-width: 50%;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+										.col {
+											flex: 0 0 50%;
+											max-width: 50%;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-    .main-banner {
-        .container-fluid {
-            max-width: 540px;
-        }
-    }
+	.main-banner {
+		.container-fluid {
+			max-width: 540px;
+		}
+	}
 
-    /*new-css*/
-    .main-banner-area {
-        .container-fluid {
-            max-width: 540px;
-        }
-    }
+	/*new-css*/
+	.main-banner-area {
+		.container-fluid {
+			max-width: 540px;
+		}
+	}
 
 }
 
 /* Min width 768px Max width 991px */
 @media only #{$media} and ($feature_min : $value_three) and ($feature_max : $value_four) {
 
-    body {
-        font-size: 15px;
-    }
-    p {
-        font-size: 15px;
-    }
-    .ptb-100 {
-        padding: {
-            top: 80px;
-            bottom: 80px;
-        };
-    }
-    .pt-100 {
-        padding-top: 80px;
-    }
-    .pb-100 {
-        padding-bottom: 80px;
-    }
-    .ptb-70 {
-        padding: {
-            top: 50px;
-            bottom: 50px;
-        };
-    }
-    .pt-70 {
-        padding-top: 50px;
-    }
-    .pb-70 {
-        padding-bottom: 50px;
-    }
-    .container {
-        max-width: 720px;
-    }
-    .default-btn {
-        font-size: 15px;
+	body {
+		font-size: 15px;
+	}
 
-        i {
-            top: 11px;
-        }
-    }
-    .mtb-100 {
-        margin: {
-            top: 0;
-            bottom: 0;
-        };
-    }
- 
-    .main-banner {
-        .container-fluid {
-            max-width: 720px;
-        }
-    }
-    .main-banner-content {
-        max-width: 595px;
-        top: 0;
-        padding-right: 0;
-        text-align: center;
-        margin: 0 auto;
+	p {
+		font-size: 15px;
+	}
 
-        h1 {
-            margin-bottom: 15px;
-            font-size: 35px;
-        }
-        p {
-            max-width: 515px;
-            font-size: 15px;
-            margin: 0 auto 10px;
-        }
-    }
-    .banner-shape1, .banner-shape2, .banner-shape3 {
-        display: none;
-    }
-    .banner-content {
-        text-align: center;
+	.ptb-100 {
+		padding: {
+			top: 80px;
+			bottom: 80px;
+		}
 
-        h1 {
-            font-size: 35px;
-        }
-        p {
-            font-size: 16px;
-            max-width: 535px;
-            margin: {
-                left: auto;
-                right: auto;
-            };
-        }
-    }
-    .banner-image {
-        margin-top: 30px;
-    }
-    .banner-wrapper {
-        height: 920px;
-    }
+		;
+	}
 
-    .partner-area {
-        padding-bottom: 50px;
+	.pt-100 {
+		padding-top: 80px;
+	}
 
-        &.ptb-70 {
-            padding-top: 80px;
-        }
-    }
+	.pb-100 {
+		padding-bottom: 80px;
+	}
 
-    .courses-area {
-        &.pt-100 {
-            &.pb-70 {
-                .courses-info {
-                    margin-bottom: 30px;
-                }
-            }
-        }
-    }
-    .single-courses-box {
-        .courses-content {
-            padding: 20px;
+	.ptb-70 {
+		padding: {
+			top: 50px;
+			bottom: 50px;
+		}
 
-            h3 {
-                margin-bottom: 12px;
-                font-size: 19px;
-            }
-        }
-        &.without-boxshadow {
-            box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
-        }
-    }
+		;
+	}
 
-    .single-box-item {
-        padding: 60px 25px 30px;
-        top: 0;
-        margin: {
-            bottom: 0;
-            top: 30px;
-        };
-        .icon {
-            font-size: 55px;
-            margin-bottom: 45px;
+	.pt-70 {
+		padding-top: 50px;
+	}
 
-            img {
-                top: -25px;
-            }
-        }
-        h3 {
-            font-size: 19px;
-        }
-    }
+	.pb-70 {
+		padding-bottom: 50px;
+	}
 
-    .single-advisor-box {
-        .advisor-content {
-            h3 {
-                font-size: 19px;
-            }
-            .sub-title {
-                font-size: 14px;
-            }
-        }
-    }
+	.container {
+		max-width: 720px;
+	}
 
-    .page-title-content {
-        h2 {
-            max-width: 720px;
-            font-size: 30px;
-        }
-    }
+	.default-btn {
+		font-size: 15px;
 
-    .courses-details-desc {
-        .react-tabs__tab-panel {
-            .courses-overview {
-                h3 {
-                    font-size: 20px;
-                }
-            }
-            .courses-curriculum {
-                h3 {
-                    font-size: 19px;
-                }
-            }
-        }
-    }
-    .courses-details-info {
-        margin: {
-            left: 0;
-            top: 30px;
-        };
-    }
+		i {
+			top: 11px;
+		}
+	}
 
-    blockquote, .blockquote {
-        padding: 30px !important;
+	.mtb-100 {
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
 
-        p {
-            font-size: 19px !important;
-        }
-    }
-    .prev-link-wrapper {
-        .prev-title {
-            font-size: 15px;
-        }
-    }
-    .next-link-wrapper {
-        .next-title {
-            font-size: 15px;
-        }
-    }
+		;
+	}
 
-    .privacy-policy-content {
-        h3 {
-            font-size: 19px;
-        }
-    }
+	.main-banner {
+		.container-fluid {
+			max-width: 720px;
+		}
+	}
 
-    .terms-of-service-content {
-        h3 {
-            font-size: 19px;
-        }
-    }
+	.main-banner-content {
+		max-width: 595px;
+		top: 0;
+		padding-right: 0;
+		text-align: center;
+		margin: 0 auto;
 
-    .error-content {
-        h3 {
-            font-size: 36px;
-        }
-    }
+		h1 {
+			margin-bottom: 15px;
+			font-size: 35px;
+		}
 
-    .login-form {
-        margin-right: 0;
+		p {
+			max-width: 515px;
+			font-size: 15px;
+			margin: 0 auto 10px;
+		}
+	}
 
-        h2 {
-            font-size: 30px;
-        }
-    }
-    .register-form {
-        margin-top: 40px;
-        padding: {
-            top: 0;
-            left: 0;
-        };
-        h2 {
-            font-size: 30px;
-        }
-    }
+	.banner-shape1,
+	.banner-shape2,
+	.banner-shape3 {
+		display: none;
+	}
 
-    .footer-area {
-        /* position: fixed; */
-        bottom: 0px;
-        width: 100%;
-    }
-    .footer-bottom-area {
-        margin-top: 0px;
-    }
+	.banner-content {
+		text-align: center;
 
-    .single-training-box {
-        h3 {
-            font-size: 19px;
-        }
-    }
+		h1 {
+			font-size: 35px;
+		}
 
-    .default-btn-style-two {
-        font-size: 15px;
+		p {
+			font-size: 16px;
+			max-width: 535px;
 
-        i {
-            left: 35px;
-            top: 15px;
-        }
-    }
+			margin: {
+				left: auto;
+				right: auto;
+			}
 
-    .navbar-area.is-sticky {
-        &.pb-0 {
-            padding-bottom: 20px !important;
-        }
-    }
-   
-    /*new-css*/
-    .main-banner-area {
-        border-top: 1px solid #eeeeee;
-        padding: {
-            top: 80px;
-            bottom: 80px;
-        };
-        .container-fluid {
-            max-width: 720px;
-        }
-    }
-    .main-banner-content-style-two {
-        text-align: center;
+			;
+		}
+	}
 
-        h1 {
-            margin-bottom: 15px;
-            font-size: 37px;
-        }
-        p {
-            margin: 0 auto 10px;
-            max-width: 515px;
-            font-size: 15px;
-        }
-    }
-    .main-banner-image-style-two {
-        text-align: center;
-        margin-top: 30px;
-    }
-    .bulb {
-        display: none;
-    }
+	.banner-image {
+		margin-top: 30px;
+	}
 
-    .features-box {
-        padding: 30px;
+	.banner-wrapper {
+		height: 920px;
+	}
 
-        h3 {
-            font-size: 19px;
-        }
-    }
+	.partner-area {
+		padding-bottom: 50px;
+
+		&.ptb-70 {
+			padding-top: 80px;
+		}
+	}
+
+	.courses-area {
+		&.pt-100 {
+			&.pb-70 {
+				.courses-info {
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+
+	.single-courses-box {
+		.courses-content {
+			padding: 20px;
+
+			h3 {
+				margin-bottom: 12px;
+				font-size: 19px;
+			}
+		}
+
+		&.without-boxshadow {
+			box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+		}
+	}
+
+	.single-box-item {
+		padding: 60px 25px 30px;
+		top: 0;
+
+		margin: {
+			bottom: 0;
+			top: 30px;
+		}
+
+		;
+
+		.icon {
+			font-size: 55px;
+			margin-bottom: 45px;
+
+			img {
+				top: -25px;
+			}
+		}
+
+		h3 {
+			font-size: 19px;
+		}
+	}
+
+	.single-advisor-box {
+		.advisor-content {
+			h3 {
+				font-size: 19px;
+			}
+
+			.sub-title {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.page-title-content {
+		h2 {
+			max-width: 720px;
+			font-size: 30px;
+		}
+	}
+
+	.courses-details-desc {
+		.react-tabs__tab-panel {
+			.courses-overview {
+				h3 {
+					font-size: 20px;
+				}
+			}
+
+			.courses-curriculum {
+				h3 {
+					font-size: 19px;
+				}
+			}
+		}
+	}
+
+	.courses-details-info {
+		margin: {
+			left: 0;
+			top: 30px;
+		}
+
+		;
+	}
+
+	blockquote,
+	.blockquote {
+		padding: 30px !important;
+
+		p {
+			font-size: 19px !important;
+		}
+	}
+
+	.prev-link-wrapper {
+		.prev-title {
+			font-size: 15px;
+		}
+	}
+
+	.next-link-wrapper {
+		.next-title {
+			font-size: 15px;
+		}
+	}
+
+	.privacy-policy-content {
+		h3 {
+			font-size: 19px;
+		}
+	}
+
+	.terms-of-service-content {
+		h3 {
+			font-size: 19px;
+		}
+	}
+
+	.error-content {
+		h3 {
+			font-size: 36px;
+		}
+	}
+
+	.login-form {
+		margin-right: 0;
+
+		h2 {
+			font-size: 30px;
+		}
+	}
+
+	.register-form {
+		margin-top: 40px;
+
+		padding: {
+			top: 0;
+			left: 0;
+		}
+
+		;
+
+		h2 {
+			font-size: 30px;
+		}
+	}
+
+	.footer-area {
+		/* position: fixed; */
+		bottom: 0px;
+		width: 100%;
+	}
+
+	.footer-bottom-area {
+		margin-top: 0px;
+	}
+
+	.single-training-box {
+		h3 {
+			font-size: 19px;
+		}
+	}
+
+	.default-btn-style-two {
+		font-size: 15px;
+
+		i {
+			left: 35px;
+			top: 15px;
+		}
+	}
+
+	.navbar-area.is-sticky {
+		&.pb-0 {
+			padding-bottom: 20px !important;
+		}
+	}
+
+	/*new-css*/
+	.main-banner-area {
+		border-top: 1px solid #eeeeee;
+
+		padding: {
+			top: 80px;
+			bottom: 80px;
+		}
+
+		;
+
+		.container-fluid {
+			max-width: 720px;
+		}
+	}
+
+	.main-banner-content-style-two {
+		text-align: center;
+
+		h1 {
+			margin-bottom: 15px;
+			font-size: 37px;
+		}
+
+		p {
+			margin: 0 auto 10px;
+			max-width: 515px;
+			font-size: 15px;
+		}
+	}
+
+	.main-banner-image-style-two {
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.bulb {
+		display: none;
+	}
+
+	.features-box {
+		padding: 30px;
+
+		h3 {
+			font-size: 19px;
+		}
+	}
 }
 
 /* Min width 992px Max width 1199px */
 @media only #{$media} and ($feature_min : $value_five) and ($feature_max : $value_six) {
 
-    .container {
-        max-width: 960px;
-    }
-    .mtb-100 {
-        margin: {
-            top: 0;
-            bottom: 0;
-        };
-    }
+	.container {
+		max-width: 960px;
+	}
 
-    .edemy-responsive-nav {
-        .logo {
-            width: 25%;
-        }
-        .edemy-responsive-menu {
-            &.mean-container {
-                .mean-nav {
-                    margin-top: 51px;
+	.mtb-100 {
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
 
-                    ul {
-                        font-size: 16px;
+		;
+	}
 
-                        li {
-                            li {
-                                a {
-                                    font-size: 15.5px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .navbar-nav {
-                    overflow-y: scroll;
-                    height: 325px;
-                }
-                .mean-nav {
-                    margin-top: 50px;
-                }
-                .others-option {
-                    display: flex !important;
-                }
-                .navbar-nav {
-                    .nav-item {
-                        &.megamenu {
-                            .dropdown-menu {
-                                .nav-item {
-                                    .row {
-                                        display: flex;
-                                        flex-wrap: wrap;
-                                        max-width: 83%;
-                                        margin: {
-                                            left: auto;
-                                            right: auto;
-                                        };
-                                        .col {
-                                            flex-basis: 0;
-                                            flex-grow: 1;
-                                            max-width: 100%;
-                                        }
-                                        &:nth-child(2) {
-                                            max-width: 100%;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .navbar-area {
-        padding: {
-            top: 25px;
-            bottom: 25px;
-        };
-    }
+	.edemy-responsive-nav {
+		.logo {
+			width: 25%;
+		}
 
-    .main-banner {
-        padding-top: 170px;
+		.edemy-responsive-menu {
+			&.mean-container {
+				.mean-nav {
+					margin-top: 51px;
 
-        .container-fluid {
-            max-width: 850px;
-        }
-        .col-lg-6 {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-    }
-    .main-banner-content {
-        top: 0;
-        padding-right: 0;
-        margin-bottom: 60px;
-        max-width: 605px;
+					ul {
+						font-size: 16px;
 
-        p {
-            max-width: 565px;
-        }
-    }
+						li {
+							li {
+								a {
+									font-size: 15.5px;
+								}
+							}
+						}
+					}
+				}
 
-    .single-courses-box {
-        .courses-content {
-            h3 {
-                font-size: 20px;
-            }
-        }
-    }
-    .single-advisor-box {
-        .advisor-content {
-            p {
-                display: none;
-            }
-        }
-    }
+				.navbar-nav {
+					overflow-y: scroll;
+					height: 325px;
+				}
 
-    .single-footer-widget {
-        &.pl-5, &.px-5 {
-            padding-left: 0 !important;
-        }
-    }
+				.mean-nav {
+					margin-top: 50px;
+				}
 
-    .single-box-item {
-        padding: 60px 15px 30px;
+				.others-option {
+					display: flex !important;
+				}
 
-        h3 {
-            font-size: 20px;
-        }
-    }
+				.navbar-nav {
+					.nav-item {
+						&.megamenu {
+							.dropdown-menu {
+								.nav-item {
+									.row {
+										display: flex;
+										flex-wrap: wrap;
+										max-width: 83%;
 
-    .privacy-policy-content {
-        h3 {
-            font-size: 20px;
-        }
-    }
-    .terms-of-service-content {
-        h3 {
-            font-size: 20px;
-        }
-    }
+										margin: {
+											left: auto;
+											right: auto;
+										}
 
-    .courses-details-desc {
-        .react-tabs__tab-list {
-            .react-tabs__tab {
-                padding: 12px 0;
-                font-size: 17px;
-            }
-        }
-        .react-tabs__tab-panel {
-            .courses-overview {
-                h3 {
-                    font-size: 21px;
-                }
-            }
-            .courses-curriculum {
-                h3 {
-                    font-size: 18px;
-                }
-                ul {
-                    li {
-                        a {
-                            .courses-name {
-                                font-size: 14px;
-                            }
-                            &::before {
-                                top: 15px;
-                                font-size: 17px;
-                            }
-                        }
-                    }
-                }
-            }
-            .courses-instructor {
-                .single-advisor-box {
-                    .advisor-content {
-                        padding: 0 0 0 20px;
-                    }
-                }
-            }
-            .courses-reviews {
-                h3 {
-                    font-size: 20px;
-                }
-            }
-        }
-    }
-    .courses-details-info {
-        margin-left: 0;
-        margin-top: -190px;
+										;
 
-        .info {
-            padding: {
-                left: 15px;
-                right: 15px;
-            };
-            li {
-                font-size: 16px;
+										.col {
+											flex-basis: 0;
+											flex-grow: 1;
+											max-width: 100%;
+										}
 
-                &.price {
-                    font-size: 25px;
-                }
-            }
-        }
-    }
+										&:nth-child(2) {
+											max-width: 100%;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-    blockquote, .blockquote {
-        padding: 40px !important;
+	.navbar-area {
+		padding: {
+			top: 25px;
+			bottom: 25px;
+		}
 
-        p {
-            font-size: 20px !important;
-        }
-    }
-    .prev-link-wrapper {
-        .prev-title {
-            font-size: 16px;
-        }
-    }
-    .next-link-wrapper {
-        .next-title {
-            font-size: 16px;
-        }
-    }
+		;
+	}
 
-    .single-training-box {
-        h3 {
-            margin-bottom: 12px;
-            font-size: 22px;
-        }
-    }
+	.main-banner {
+		padding-top: 170px;
 
-    .navbar-area {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
+		.container-fluid {
+			max-width: 850px;
+		}
 
-    .edemy-nav {
-        .navbar {
-            .navbar-nav {
-                .nav-item {
-                    a {
-                        font-size: 15px;
-                        margin-left: 8px;
-                        margin-right: 8px;
-                        padding-top: 15px;
-                        padding-bottom: 15px;
-                    }
+		.col-lg-6 {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+	}
 
-                    &:hover {
-                        .dropdown-menu {
-                            margin-top: 0;
-                            width: 250px;
-                            li {
-                                a {
-                                    font-size: 14px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+	.main-banner-content {
+		top: 0;
+		padding-right: 0;
+		margin-bottom: 60px;
+		max-width: 605px;
 
-            .others-option {
-                margin-left: 15px;
-                .option-item {
-                    margin-left: 25px;
-                }
-                .default-btn {
-                    font-size: 13px;
-                    padding-left: 40px;
-                    padding-right: 15px;
-                    i {
-                        left: 20px;
-                    }
-                }
-            }
-        }
-    }
-    /*new-css*/
-    .main-banner-area {
-        .container-fluid {
-            max-width: 960px;
-        }
-    }
-    /* Keep */
-    .main-banner-content-style-two {
-        h1 {
-            font-size: 45px;
-        }
-        p {
-            max-width: 100%;
-        }
-    }
-    .bulb {
-        display: none;
-    }
+		p {
+			max-width: 565px;
+		}
+	}
+
+	.single-courses-box {
+		.courses-content {
+			h3 {
+				font-size: 20px;
+			}
+		}
+	}
+
+	.single-advisor-box {
+		.advisor-content {
+			p {
+				display: none;
+			}
+		}
+	}
+
+	.single-footer-widget {
+
+		&.pl-5,
+		&.px-5 {
+			padding-left: 0 !important;
+		}
+	}
+
+	.single-box-item {
+		padding: 60px 15px 30px;
+
+		h3 {
+			font-size: 20px;
+		}
+	}
+
+	.privacy-policy-content {
+		h3 {
+			font-size: 20px;
+		}
+	}
+
+	.terms-of-service-content {
+		h3 {
+			font-size: 20px;
+		}
+	}
+
+	.courses-details-desc {
+		.react-tabs__tab-list {
+			.react-tabs__tab {
+				padding: 12px 0;
+				font-size: 17px;
+			}
+		}
+
+		.react-tabs__tab-panel {
+			.courses-overview {
+				h3 {
+					font-size: 21px;
+				}
+			}
+
+			.courses-curriculum {
+				h3 {
+					font-size: 18px;
+				}
+
+				ul {
+					li {
+						a {
+							.courses-name {
+								font-size: 14px;
+							}
+
+							&::before {
+								top: 15px;
+								font-size: 17px;
+							}
+						}
+					}
+				}
+			}
+
+			.courses-instructor {
+				.single-advisor-box {
+					.advisor-content {
+						padding: 0 0 0 20px;
+					}
+				}
+			}
+
+			.courses-reviews {
+				h3 {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.courses-details-info {
+		margin-left: 0;
+		margin-top: -190px;
+
+		.info {
+			padding: {
+				left: 15px;
+				right: 15px;
+			}
+
+			;
+
+			li {
+				font-size: 16px;
+
+				&.price {
+					font-size: 25px;
+				}
+			}
+		}
+	}
+
+	blockquote,
+	.blockquote {
+		padding: 40px !important;
+
+		p {
+			font-size: 20px !important;
+		}
+	}
+
+	.prev-link-wrapper {
+		.prev-title {
+			font-size: 16px;
+		}
+	}
+
+	.next-link-wrapper {
+		.next-title {
+			font-size: 16px;
+		}
+	}
+
+	.single-training-box {
+		h3 {
+			margin-bottom: 12px;
+			font-size: 22px;
+		}
+	}
+
+	.navbar-area {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	.edemy-nav {
+		.navbar {
+			.navbar-nav {
+				.nav-item {
+					a {
+						font-size: 15px;
+						margin-left: 8px;
+						margin-right: 8px;
+						padding-top: 15px;
+						padding-bottom: 15px;
+					}
+
+					&:hover {
+						.dropdown-menu {
+							margin-top: 0;
+							width: 250px;
+
+							li {
+								a {
+									font-size: 14px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.others-option {
+				margin-left: 15px;
+
+				.option-item {
+					margin-left: 25px;
+				}
+
+				.default-btn {
+					font-size: 13px;
+					padding-left: 40px;
+					padding-right: 15px;
+
+					i {
+						left: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	/*new-css*/
+	.main-banner-area {
+		.container-fluid {
+			max-width: 960px;
+		}
+	}
+
+	/* Keep */
+	.main-banner-content-style-two {
+		h1 {
+			font-size: 45px;
+		}
+
+		p {
+			max-width: 100%;
+		}
+	}
+
+	.bulb {
+		display: none;
+	}
 }
 
 /* Min width 1200px Max width 1355px */
 @media only #{$media} and ($feature_min : $value_seven) and ($feature_max : $value_eight) {
 
-    .container {
-        max-width: 1140px;
-    }
+	.container {
+		max-width: 1140px;
+	}
 
-    .edemy-nav {
-        .container-fluid {
-            max-width: 1200px;
-            padding: {
-                left: 15px;
-                right: 60px;
-            };
-        }
-        .navbar {
-            .others-option {
-                display: flex !important;
-            }
-            .navbar-nav {
-                .nav-item {
-                    .dropdown-menu {
-                        left: auto;
-                        right: 0;
-    
-                        li {
-                            .dropdown-menu {
-                                left: -250px;
-                                right: auto;
-                                
-                                li {
-                                    .dropdown-menu {
-                                        left: 250px;
-            
-                                        li {
-                                            .dropdown-menu {
-                                                left: -250px;
-                    
-                                                li {
-                                                    .dropdown-menu {
-                                                        left: 250px;
-                            
-                                                        li {
-                                                            .dropdown-menu {
-                                                                left: -250px;
-                                    
-                                                                li {
-                                                                    .dropdown-menu {
-                                                                        left: 250px;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .main-banner {
-        .container-fluid {
-            max-width: 1165px;
-        }
-    }
+	.edemy-nav {
+		.container-fluid {
+			max-width: 1200px;
 
-    .admin-nav {
-        .navbar {
-            .others-option {
-                display: flex !important;
-            }
-        }
-    }
+			padding: {
+				left: 15px;
+				right: 60px;
+			}
+
+			;
+		}
+
+		.navbar {
+			.others-option {
+				display: flex !important;
+			}
+
+			.navbar-nav {
+				.nav-item {
+					.dropdown-menu {
+						left: auto;
+						right: 0;
+
+						li {
+							.dropdown-menu {
+								left: -250px;
+								right: auto;
+
+								li {
+									.dropdown-menu {
+										left: 250px;
+
+										li {
+											.dropdown-menu {
+												left: -250px;
+
+												li {
+													.dropdown-menu {
+														left: 250px;
+
+														li {
+															.dropdown-menu {
+																left: -250px;
+
+																li {
+																	.dropdown-menu {
+																		left: 250px;
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.main-banner {
+		.container-fluid {
+			max-width: 1165px;
+		}
+	}
+
+	.admin-nav {
+		.navbar {
+			.others-option {
+				display: flex !important;
+			}
+		}
+	}
 }
 
 /* Min width 1550px */
 @media only #{$media} and ($feature_min : $value_nine) {
 
-    .edemy-nav {
-        .container-fluid {
-            padding: {
-                left: 120px;
-                right: 120px;
-            };
-        }
-    }
+	.edemy-nav {
+		.container-fluid {
+			padding: {
+				left: 120px;
+				right: 120px;
+			}
 
-    .main-banner {
-        .container-fluid {
-            max-width: 1480px;
-        }
-    }
-    /*new-css*/
-    .main-banner-area {
-        .container-fluid {
-            max-width: 1480px;
-        }
-    }
-    .bulb {
-        left: 20%;
-    }
+			;
+		}
+	}
+
+	.main-banner {
+		.container-fluid {
+			max-width: 1480px;
+		}
+	}
+
+	/*new-css*/
+	.main-banner-area {
+		.container-fluid {
+			max-width: 1480px;
+		}
+	}
+
+	.bulb {
+		left: 20%;
+	}
 }
 
 @media only screen and (max-width : 991px) {
-    .edemy-nav {
-        .container-fluid {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-        .navbar {
-            .navbar-collapse {
-                max-height: 70vh;
-                overflow-y: scroll;
-                margin-top: 20px;
-                padding-right: 15px;
+	.edemy-nav {
+		.container-fluid {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
 
-                &::-webkit-scrollbar {
-                    width: 10px;
-                }
-                &::-webkit-scrollbar-track {
-                    background: #f1f1f1; 
-                }
-                &::-webkit-scrollbar-thumb {
-                    background: #888; 
-                }
-                &::-webkit-scrollbar-thumb:hover {
-                    background: #555; 
-                }
-            }
-            .navbar-nav {
-                .nav-item {
-                    a {
-                        font-size: 15px;
-                        padding-left: 0;
-                        padding-right: 0;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                        margin-left: 0;
-                        margin-right: 0;
-                        i {
-                            display: none;
-                        }
-                    }
-                    .dropdown-menu {
-                        border: none;
-                        top: 0;
-                        border-top: 1px solid #fe4a55;
-                        position: relative;
-                        opacity: 1;
-                        visibility: visible;
-                        margin-top: 0;
-                        width: 100%;
-                        border-left: 1px solid #eee;
-                        border-right: 1px solid #eee;
-                        border-bottom: 1px solid #eee;
+		.navbar {
+			.navbar-collapse {
+				max-height: 70vh;
+				overflow-y: scroll;
+				margin-top: 20px;
+				padding-right: 15px;
 
-                        li {
-                            a {
-                                padding: 6px 20px;
-                                font-size: 14px;
-                            }
-                            .dropdown-menu {
-                                left: 20px;
-                                border: none;
-                                top: 0;
-                                border-top: 1px solid #fe4a55;
-                                position: relative;
-                                opacity: 1;
-                                visibility: visible;
-                                margin-top: 0;
-                                width: 90%;
-                            }
-                        }
-                    }
+				&::-webkit-scrollbar {
+					width: 10px;
+				}
 
-                    &.megamenu {
-                        .dropdown-menu {
-                            padding: 15px 0;
-                            left: 0;
-                            border: none;
-                            top: 0;
-                            border-top: 1px solid #fe4a55;
-                            position: relative;
-                            opacity: 1;
-                            visibility: visible;
-                            margin-top: 0;
-                            width: 100%;
-                            border-left: 1px solid #eee;
-                            border-right: 1px solid #eee;
-                            border-bottom: 1px solid #eee;
+				&::-webkit-scrollbar-track {
+					background: #f1f1f1;
+				}
 
-                            .mobile-none {
-                                display: none;
-                            }
-                        }
-                    }
+				&::-webkit-scrollbar-thumb {
+					background: #888;
+				}
 
-                    .col {
-                        margin-bottom: 10px;
-                        &:last-child {
-                            margin-bottom: 0;
-                        }
-                    }
-                }
-            }
-            .others-option {
-                margin-left: 0;
-                position: absolute;
-                top: 15px;
-                right: 60px;
+				&::-webkit-scrollbar-thumb:hover {
+					background: #555;
+				}
+			}
 
-                .option-item {
-                    margin-left: 20px;
-                    .default-btn {
-                        padding: 8px 12px;
-                        font-size: 11px;
-                        i {
-                            display: none;
-                        }
-                    }
-                }
-            }
-        }
-    }
+			.navbar-nav {
+				.nav-item {
+					a {
+						font-size: 15px;
+						padding-left: 0;
+						padding-right: 0;
+						padding-top: 10px;
+						padding-bottom: 10px;
+						margin-left: 0;
+						margin-right: 0;
 
-    .admin-nav {
-        .navbar {
-            .others-option {
-                .user-dropdown {
-                    .dropdown-menu {
-                        opacity: 1;
-                        visibility: visible;
-                        left: 0;
-                        right: auto;
-                        top: 32px;
-                        width: 210px;
-                        li {
-                            a {
-                                padding: 6px 20px;
-                                font-size: 14px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+						i {
+							display: none;
+						}
+					}
+
+					.dropdown-menu {
+						border: none;
+						top: 0;
+						border-top: 1px solid #fe4a55;
+						position: relative;
+						opacity: 1;
+						visibility: visible;
+						margin-top: 0;
+						width: 100%;
+						border-left: 1px solid #eee;
+						border-right: 1px solid #eee;
+						border-bottom: 1px solid #eee;
+
+						li {
+							a {
+								padding: 6px 20px;
+								font-size: 14px;
+							}
+
+							.dropdown-menu {
+								left: 20px;
+								border: none;
+								top: 0;
+								border-top: 1px solid #fe4a55;
+								position: relative;
+								opacity: 1;
+								visibility: visible;
+								margin-top: 0;
+								width: 90%;
+							}
+						}
+					}
+
+					&.megamenu {
+						.dropdown-menu {
+							padding: 15px 0;
+							left: 0;
+							border: none;
+							top: 0;
+							border-top: 1px solid #fe4a55;
+							position: relative;
+							opacity: 1;
+							visibility: visible;
+							margin-top: 0;
+							width: 100%;
+							border-left: 1px solid #eee;
+							border-right: 1px solid #eee;
+							border-bottom: 1px solid #eee;
+
+							.mobile-none {
+								display: none;
+							}
+						}
+					}
+
+					.col {
+						margin-bottom: 10px;
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+
+			.others-option {
+				margin-left: 0;
+				position: absolute;
+				top: 15px;
+				right: 60px;
+
+				.option-item {
+					margin-left: 20px;
+
+					.default-btn {
+						padding: 8px 12px;
+						font-size: 11px;
+
+						i {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.admin-nav {
+		.navbar {
+			.others-option {
+				.user-dropdown {
+					.dropdown-menu {
+						opacity: 1;
+						visibility: visible;
+						left: 0;
+						right: auto;
+						top: 32px;
+						width: 210px;
+
+						li {
+							a {
+								padding: 6px 20px;
+								font-size: 14px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
-

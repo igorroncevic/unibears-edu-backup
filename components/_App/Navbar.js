@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
-import { useAnchorWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 
-import { shortenAddress } from "@/utils/blockchain";
 import { authSuccess, setUnibearsCount } from "@/redux/actions/auth.actions.js";
 import { toastSuccess } from "@/utils/toasts";
 import { PathNames } from "@/utils/routing";
@@ -13,6 +12,7 @@ import solanaService from "@/services/solana.service";
 
 import Image from "@/components/Common/CustomImage";
 import Language from "./Language";
+import WalletButton from "../Common/WalletButton";
 
 const Navbar = () => {
 	const [t] = useTranslation(["common", "toasts"]);
@@ -20,22 +20,28 @@ const Navbar = () => {
 	const { address } = useSelector(state => state.auth);
 
 	const [menu, setMenu] = useState(true);
-	const wallet = useAnchorWallet();
+	const { wallet, connected } = useWallet();
+	const [walletLoading, setWalletLoading] = useState(false);
 
 	// TODO: This is triggered very often, check if it can be optimized.
 	useEffect(() => {
-		if (wallet) {
+		if (wallet?.adapter) {
 			(async function () {
-				const walletAddress = wallet.publicKey.toBase58();
+				setWalletLoading(true);
+				const walletAddress = wallet.adapter.publicKey?.toBase58();
 
 				const count = await solanaService.getUnibearsCount(walletAddress)
 
-				dispatch(setUnibearsCount({ count: count }));
-				dispatch(authSuccess({ address: walletAddress }));
-				toastSuccess(t("success.login", { ns: "toasts" }), { id: "login" });
+				// Sometimes address isn't immediately found
+				if (walletAddress) {
+					dispatch(setUnibearsCount({ count: count }));
+					dispatch(authSuccess({ address: walletAddress }));
+					toastSuccess(t("success.login", { ns: "toasts" }), { id: "login" });
+					setWalletLoading(false);
+				}
 			})()
 		}
-	}, [wallet, dispatch]);
+	}, [wallet, connected]);
 
 	useEffect(() => {
 		const elementId = document.getElementById("navbar");
@@ -53,10 +59,6 @@ const Navbar = () => {
 
 		return () => document.removeEventListener("scroll", addSticky);
 	}, [])
-
-	const displayWalletAddress = () => {
-		return <p>{shortenAddress(address || "")}</p>
-	}
 
 	const toggleNavbar = () => {
 		setMenu(!menu)
@@ -120,11 +122,12 @@ const Navbar = () => {
 										<div className="user-dropdown">
 											<Link href={PathNames.Index}>
 												<a onClick={e => e.preventDefault()} className="default-btn">
-													<i className="flaticon-user"></i> {displayWalletAddress()} <span></span>
+													<WalletButton wallet={wallet} address={address} walletLoading={walletLoading} />
 												</a>
 											</Link>
 
-											<ul className="dropdown-menu">
+											{/* Removing for now since disconnecting wallet and account change is unsupported. */}
+											{/* <ul className="dropdown-menu">
 												<li className="nav-item">
 													<Link href={PathNames.Index}>
 														<a className="nav-link" onClick={e => { e.preventDefault() }}>
@@ -132,7 +135,7 @@ const Navbar = () => {
 														</a>
 													</Link>
 												</li>
-											</ul>
+											</ul> */}
 										</div>
 									) : (
 										<WalletDialogButton>
