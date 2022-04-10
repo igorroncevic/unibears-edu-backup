@@ -13,6 +13,15 @@ body {
 	margin: 0;
 	font-size: 16px;
 	font-family: "Nunito", sans-serif;
+	--font-family: "Nunito", sans-serif;
+	--font-family2: "Playfair Display", serif;
+	--main-color: #fe4a55;
+	--main-color2: #6ba292;
+	--optional-color: #606060;
+	--white-color: #ffffff;
+	--black-color: #221638;
+	--font-size: 16px;
+	--transition: 0.5s;
 }
 
 img {
@@ -21,7 +30,7 @@ img {
 }
 
 p {
-	color: #606060;
+	color: var(--optional-color);
 	margin-bottom: 15px;
 	line-height: 1.6;
 	font-size: 16px;
@@ -39,7 +48,7 @@ hr {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	border: 0;
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(var(--black-color), 0.1);
 }
 
 .h1,
@@ -54,7 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #221638;
+	color: var(--black-color);
 	font-family: "Nunito", sans-serif;
 }
 
@@ -132,8 +141,8 @@ h6 {
 
 .topic {
 	text-align: center;
-	background-color: #fe4a55;
-	color: white;
+	background-color: var(--main-color);
+	color: var(--white-color);
 	padding: 10px;
 	margin: 0;
 }
@@ -143,14 +152,14 @@ h6 {
 }
 
 a {
-	color: #221638;
+	color: var(--black-color);
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #fe4a55;
+	color: var(--main-color);
 	text-decoration: none;
 }
 
@@ -201,7 +210,7 @@ a:hover {
 }
 
 .lecture-name-duration:hover {
-	color: #fe4a55;
+	color: var(--main-color);
 	font-weight: 800;
 }
 
@@ -275,8 +284,8 @@ a:hover {
 	text-align: center;
 	overflow: hidden;
 	z-index: 1;
-	color: #ffffff;
-	background-color: #fe4a55;
+	color: var(--white-color);
+	background-color: var(--main-color);
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	border-radius: 5px;
@@ -294,7 +303,7 @@ a:hover {
 	width: 0;
 	height: 0;
 	border-radius: 50%;
-	background-color: #221638;
+	background-color: var(--black-color);
 	-webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 	transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 	-webkit-transform: translate(-50%, -50%);
@@ -311,7 +320,7 @@ a:hover {
 }
 
 .default-btn:hover {
-	color: #ffffff;
+	color: var(--white-color);
 }
 
 .default-btn:hover span {
@@ -326,12 +335,12 @@ a:hover {
 	text-align: center;
 	overflow: hidden;
 	z-index: 1;
-	color: #ffffff;
+	color: var(--white-color);
 	background-color: transparent;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	border-radius: 30px;
-	border: 1px dashed #fe4a55;
+	border: 1px dashed var(--main-color);
 	font-weight: 700;
 	font-size: 16px;
 	padding-left: 60px;
@@ -353,7 +362,7 @@ a:hover {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	background-color: #fe4a55;
+	background-color: var(--main-color);
 	z-index: -1;
 	border-radius: 30px;
 	margin: 4px;
@@ -362,7 +371,7 @@ a:hover {
 }
 
 .default-btn-style-two:hover {
-	color: #ffffff;
+	color: var(--white-color);
 }
 
 .default-btn-style-two:hover::before {
@@ -410,7 +419,7 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item a {
-	color: #221638;
+	color: var(--black-color);
 	font-size: 16.5px;
 	font-weight: 700;
 	padding-left: 0;
@@ -433,7 +442,7 @@ Navbar Area CSS
 .edemy-nav .navbar .navbar-nav .nav-item a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item:last-child a {
@@ -446,7 +455,7 @@ Navbar Area CSS
 
 .edemy-nav .navbar .navbar-nav .nav-item:hover a,
 .edemy-nav .navbar .navbar-nav .nav-item.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu {
@@ -462,10 +471,10 @@ Navbar Area CSS
 	margin-top: 15px;
 	position: absolute;
 	visibility: hidden;
-	background: #ffffff;
+	background: var(--white-color);
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
-	border-top: 3px solid #fe4a55;
+	border-top: 3px solid var(--main-color);
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
@@ -475,7 +484,7 @@ Navbar Area CSS
 	margin: 0;
 	position: relative;
 	display: block;
-	color: #221638;
+	color: var(--black-color);
 	font-size: 16px;
 	font-weight: 700;
 }
@@ -493,7 +502,7 @@ Navbar Area CSS
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu {
@@ -505,13 +514,13 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -522,13 +531,13 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -539,13 +548,13 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -558,13 +567,13 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -577,13 +586,13 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
@@ -594,17 +603,17 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -613,7 +622,7 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -622,7 +631,7 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -631,7 +640,7 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -640,7 +649,7 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
@@ -649,7 +658,7 @@ Navbar Area CSS
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li.active a {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li:hover .dropdown-menu {
@@ -721,10 +730,10 @@ Navbar Area CSS
 	margin-top: 15px;
 	position: absolute;
 	visibility: hidden;
-	background: #ffffff;
+	background: var(--white-color);
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
-	border-top: 3px solid #fe4a55;
+	border-top: 3px solid var(--main-color);
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
@@ -734,7 +743,7 @@ Navbar Area CSS
 	margin: 0;
 	position: relative;
 	display: block;
-	color: #221638;
+	color: var(--black-color);
 	font-size: 16px;
 	font-weight: 700;
 }
@@ -752,7 +761,7 @@ Navbar Area CSS
 .edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:hover,
 .edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:focus,
 .edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a.active {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .edemy-nav .navbar .others-option .user-dropdown:hover .dropdown-menu {
@@ -763,7 +772,7 @@ Navbar Area CSS
 
 .navbar-area {
 	position: relative;
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
@@ -776,7 +785,7 @@ Navbar Area CSS
 	z-index: 999;
 	-webkit-box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
 	box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
-	background-color: #ffffff !important;
+	background-color: var(--white-color) !important;
 	-webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 	animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
@@ -801,7 +810,7 @@ Navbar Area CSS
 	width: 35px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
-	background: #221638;
+	background: var(--black-color);
 	height: 4px;
 	display: block;
 	border-radius: 3px;
@@ -953,7 +962,7 @@ Main Banner Area CSS
 }
 
 .banner-content h1 {
-	color: #ffffff;
+	color: var(--white-color);
 	margin-bottom: 20px;
 	font-size: 48px;
 	font-weight: 800;
@@ -971,11 +980,11 @@ Main Banner Area CSS
 }
 
 .banner-content .default-btn span {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 }
 
 .banner-content .default-btn:hover {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .banner-image {
@@ -987,7 +996,7 @@ Main Banner Area CSS
 	height: 1000px;
 	position: relative;
 	z-index: 1;
-	background-color: #221638;
+	background-color: var(--black-color);
 	background-position: top center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1334,7 +1343,7 @@ Main Banner Area CSS
 	height: 30px;
 	text-align: center;
 	line-height: 30px;
-	color: #ffffff;
+	color: var(--white-color);
 	background-color: #a3c5bb;
 	z-index: 1;
 	border-radius: 50%;
@@ -1350,7 +1359,7 @@ Main Banner Area CSS
 	right: 0;
 	top: 0;
 	bottom: 0;
-	background-color: #6ba292;
+	background-color: var(--main-color2);
 	border-radius: 50%;
 	z-index: -1;
 	margin: 2px 1px 1px 2px;
@@ -1359,12 +1368,12 @@ Main Banner Area CSS
 }
 
 .about-content .about-list li span:hover i {
-	background-color: #fe4a55;
-	color: #fe4a55;
+	background-color: var(--main-color);
+	color: var(--main-color);
 }
 
 .about-content .about-list li span:hover i::after {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 }
 
 .about-content .default-btn-style-two {
@@ -1383,7 +1392,7 @@ Courses Area CSS
 	margin-bottom: 30px;
 	position: relative;
 	border-radius: 5px;
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	-webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 	box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 }
@@ -1407,19 +1416,19 @@ Courses Area CSS
 	position: absolute;
 	right: 20px;
 	top: 20px;
-	color: #ffffff;
+	color: var(--white-color);
 	font-size: 30px;
 	line-height: 1;
 }
 
 .single-courses-box .courses-image .fav:hover {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .single-courses-box .courses-image .price {
 	display: inline-block;
-	background-color: #fe4a55;
-	color: #ffffff;
+	background-color: var(--main-color);
+	color: var(--white-color);
 	width: 65px;
 	height: 65px;
 	border-radius: 50%;
@@ -1447,7 +1456,7 @@ Courses Area CSS
 }
 
 .single-courses-box .courses-content .course-author span {
-	color: #fe4a55;
+	color: var(--main-color);
 	font-weight: 600;
 	font-size: 15px;
 }
@@ -1477,7 +1486,7 @@ Courses Area CSS
 }
 
 .single-courses-box .courses-content .courses-box-footer li {
-	color: #606060;
+	color: var(--optional-color);
 	font-size: 15px;
 	position: relative;
 	padding-left: 25px;
@@ -1485,7 +1494,7 @@ Courses Area CSS
 }
 
 .single-courses-box .courses-content .courses-box-footer li i {
-	color: #fe4a55;
+	color: var(--main-color);
 	position: absolute;
 	left: 7px;
 	top: 0;
@@ -1509,13 +1518,13 @@ Courses Area CSS
 }
 
 .single-courses-box.bg-color:hover {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	-webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 	box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 }
 
 .single-courses-box.without-boxshadow {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	-webkit-box-shadow: unset;
 	box-shadow: unset;
 	-webkit-transition: 0.5s;
@@ -1538,7 +1547,7 @@ Courses Area CSS
 
 .edemy-grid-sorting .result-count p .count {
 	font-weight: 700;
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-grid-sorting .ordering {
@@ -1559,7 +1568,7 @@ Courses Area CSS
 	width: 215px;
 	background: #f8f8f8;
 	border-color: #eeeeee;
-	color: #221638;
+	color: var(--black-color);
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	padding: 0 0 0 12px;
@@ -1570,7 +1579,7 @@ Courses Area CSS
 }
 
 .edemy-grid-sorting .ordering .nice-select .list {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	border-radius: 5px;
 	-webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -1587,7 +1596,7 @@ Courses Area CSS
 .edemy-grid-sorting .ordering .nice-select .list .option {
 	line-height: 38px;
 	min-height: 38px;
-	color: #221638;
+	color: var(--black-color);
 	position: relative;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
@@ -1598,18 +1607,18 @@ Courses Area CSS
 }
 
 .edemy-grid-sorting .ordering .nice-select .list .option:hover {
-	background-color: #fe4a55 !important;
-	color: #ffffff;
+	background-color: var(--main-color) !important;
+	color: var(--white-color);
 }
 
 .edemy-grid-sorting .ordering .nice-select .list .option:hover::before {
-	color: #ffffff;
+	color: var(--white-color);
 }
 
 .edemy-grid-sorting .ordering .nice-select .list .option.focus,
 .edemy-grid-sorting .ordering .nice-select .list .option.selected.focus {
 	background-color: transparent !important;
-	color: #221638;
+	color: var(--black-color);
 }
 
 .edemy-grid-sorting .ordering .nice-select .list .option::before {
@@ -1621,7 +1630,7 @@ Courses Area CSS
 	visibility: hidden;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
-	color: #fe4a55;
+	color: var(--main-color);
 	font-family: Flaticon;
 	font-size: 11px;
 }
@@ -1632,23 +1641,23 @@ Courses Area CSS
 }
 
 .edemy-grid-sorting .ordering .nice-select .list .option.selected:hover {
-	background-color: #fe4a55 !important;
-	color: #ffffff;
+	background-color: var(--main-color) !important;
+	color: var(--white-color);
 }
 
 .edemy-grid-sorting .ordering .nice-select .list .option.selected:hover::before {
-	color: #ffffff;
+	color: var(--white-color);
 }
 
 .edemy-grid-sorting .ordering .nice-select:after {
-	border-color: #221638;
+	border-color: var(--black-color);
 	height: 8px;
 	width: 8px;
 	margin-top: -5px;
 }
 
 .edemy-grid-sorting .ordering .nice-select:hover {
-	border-color: #fe4a55;
+	border-color: var(--main-color);
 	background-color: transparent;
 }
 
@@ -1664,7 +1673,7 @@ Courses Area CSS
 	border: 1px solid #eeeeee;
 	padding: 13px 65px 13px 40px;
 	border-radius: 5px;
-	color: #fe4a55;
+	color: var(--main-color);
 	position: relative;
 	font-size: 16px;
 	font-weight: 700;
@@ -1680,9 +1689,9 @@ Courses Area CSS
 }
 
 .load-more-btn .load-more:hover {
-	color: #ffffff;
-	border-color: #ffffff;
-	background-color: #fe4a55;
+	color: var(--white-color);
+	border-color: var(--white-color);
+	background-color: var(--main-color);
 }
 
 .courses-items {
@@ -1691,7 +1700,7 @@ Courses Area CSS
 }
 
 .single-courses-box .courses-image .price.bg-45a393 {
-	background-color: #6ba292;
+	background-color: var(--main-color2);
 }
 
 .courses-area.bg-image {
@@ -1748,7 +1757,7 @@ Courses Details Area CSS - Keep
 	content: "";
 	bottom: 1px;
 	height: 2px;
-	background-color: #fe4a55;
+	background-color: var(--main-color);
 	position: absolute;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
@@ -1760,7 +1769,7 @@ Courses Details Area CSS - Keep
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover,
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover::before,
@@ -1819,7 +1828,7 @@ Courses Details Area CSS - Keep
 
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a {
 	background-color: #f8f9f8;
-	color: #221638;
+	color: var(--black-color);
 	position: relative;
 	padding-left: 55px;
 	padding-right: 30px;
@@ -1833,7 +1842,7 @@ Courses Details Area CSS - Keep
 	content: "\f104";
 	position: absolute;
 	left: 30px;
-	color: #fe4a55;
+	color: var(--main-color);
 	top: 14px;
 	font-size: 18px;
 	font-family: Flaticon;
@@ -1863,7 +1872,7 @@ Courses Details Area CSS - Keep
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .duration {
 	display: inline-block;
 	background: #f7e7e8;
-	color: #fe4a55;
+	color: var(--main-color);
 	text-transform: lowercase;
 	border-radius: 3px;
 	padding: 2px 10px 1.5px;
@@ -1873,8 +1882,8 @@ Courses Details Area CSS - Keep
 
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status {
 	display: inline-block;
-	background: #221638;
-	color: #ffffff;
+	background: var(--black-color);
+	color: var(--white-color);
 	border-radius: 3px;
 	margin-left: 6px;
 	padding: 2px 10px 1.5px;
@@ -1883,7 +1892,7 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status.locked {
-	color: #221638;
+	color: var(--black-color);
 	background-color: transparent;
 	padding: 0;
 	margin-left: 8px;
@@ -1895,7 +1904,7 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a:hover {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(2) a,
@@ -1948,7 +1957,7 @@ Courses Details Area CSS - Keep
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(96) a,
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(98) a,
 .courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(100) a {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 }
 
 .courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box {
@@ -1996,7 +2005,7 @@ Courses Details Area CSS - Keep
 .courses-details-desc .react-tabs__tab-panel .courses-reviews .rating-count span {
 	display: block;
 	font-size: 16px;
-	color: #606060;
+	color: var(--optional-color);
 }
 
 .courses-details-desc .react-tabs__tab-panel .courses-reviews .row {
@@ -2030,7 +2039,7 @@ Courses Details Area CSS - Keep
 	width: 100%;
 	background-color: #f1f1f1;
 	text-align: center;
-	color: #ffffff;
+	color: var(--white-color);
 	border-radius: 5px;
 }
 
@@ -2108,8 +2117,8 @@ Courses Details Area CSS - Keep
 	display: block;
 	width: 60px;
 	height: 60px;
-	background-color: #fe4a55;
-	color: #ffffff;
+	background-color: var(--main-color);
+	color: var(--white-color);
 	border-radius: 50%;
 	line-height: 60px;
 	font-size: 25px;
@@ -2120,10 +2129,10 @@ Courses Details Area CSS - Keep
 
 .courses-details-info .image .content span {
 	display: inline-block;
-	color: #ffffff;
+	color: var(--white-color);
 	border-radius: 5px;
 	padding: 4px 20px;
-	background-color: #221638;
+	background-color: var(--black-color);
 	font-size: 17px;
 	font-weight: 700;
 }
@@ -2136,7 +2145,7 @@ Courses Details Area CSS - Keep
 	right: 0;
 	bottom: 0;
 	z-index: 1;
-	background-color: #221638;
+	background-color: var(--black-color);
 	opacity: 0.25;
 }
 
@@ -2150,7 +2159,7 @@ Courses Details Area CSS - Keep
 
 .courses-details-info .info li {
 	border-bottom: 1px solid #e5e5e7;
-	color: #606060;
+	color: var(--optional-color);
 	font-size: 17px;
 	font-weight: 600;
 	padding-top: 15px;
@@ -2159,13 +2168,13 @@ Courses Details Area CSS - Keep
 
 .courses-details-info .info li span {
 	font-weight: 800;
-	color: #221638;
+	color: var(--black-color);
 	position: relative;
 	padding-left: 28px;
 }
 
 .courses-details-info .info li span i {
-	color: #fe4a55;
+	color: var(--main-color);
 	position: absolute;
 	left: 0;
 	font-weight: normal;
@@ -2175,13 +2184,13 @@ Courses Details Area CSS - Keep
 
 .courses-details-info .info li.price {
 	padding-bottom: 10px;
-	color: #fe4a55;
+	color: var(--main-color);
 	font-size: 28px;
 	font-weight: 800;
 }
 
 .courses-details-info .info li.price span {
-	color: #221638;
+	color: var(--black-color);
 	font-size: 17px;
 	font-weight: 800;
 }
@@ -2219,13 +2228,13 @@ Courses Details Area CSS - Keep
 .courses-details-info .btn-box .default-btn:not(:first-child) {
 	margin-top: 15px;
 	background-color: transparent;
-	color: #221638;
-	border: 1px solid #221638;
+	color: var(--black-color);
+	border: 1px solid var(--black-color);
 }
 
 .courses-details-info .btn-box .default-btn:not(:first-child):hover {
-	color: #ffffff;
-	border-color: #221638;
+	color: var(--white-color);
+	border-color: var(--black-color);
 }
 
 .courses-details-info .courses-share {
@@ -2243,14 +2252,14 @@ Courses Details Area CSS - Keep
 
 .courses-details-info .courses-share .share-info span {
 	display: inline-block;
-	color: #fe4a55;
+	color: var(--main-color);
 	line-height: 1;
 	font-size: 16px;
 	font-weight: 700;
 }
 
 .courses-details-info .courses-share .share-info span i {
-	color: #221638;
+	color: var(--black-color);
 }
 
 .courses-details-info .courses-share .share-info .social-link {
@@ -2282,7 +2291,7 @@ Courses Details Area CSS - Keep
 	text-align: center;
 	background-color: #e1e1e1;
 	font-size: 18px;
-	color: #221638;
+	color: var(--black-color);
 	position: relative;
 	border-radius: 2px;
 }
@@ -2297,8 +2306,8 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-info .courses-share .share-info .social-link li a:hover {
-	background-color: #fe4a55;
-	color: #ffffff;
+	background-color: var(--main-color);
+	color: var(--white-color);
 }
 
 .courses-details-info .courses-share .share-info:hover .social-link {
@@ -2311,7 +2320,7 @@ Courses Details Area CSS - Keep
 Advisor Area CSS - Keep
 =================================================*/
 .single-advisor-box {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	margin-bottom: 30px;
 }
 
@@ -2350,7 +2359,7 @@ Advisor Area CSS - Keep
 
 .single-advisor-box .advisor-content .sub-title {
 	display: block;
-	color: #fe4a55;
+	color: var(--main-color);
 	margin-top: 7px;
 	font-size: 15px;
 	font-weight: 600;
@@ -2383,7 +2392,7 @@ Advisor Area CSS - Keep
 	text-align: center;
 	background-color: #e1e1e1;
 	font-size: 18px;
-	color: #221638;
+	color: var(--black-color);
 	position: relative;
 	border-radius: 2px;
 }
@@ -2398,8 +2407,8 @@ Advisor Area CSS - Keep
 }
 
 .single-advisor-box .advisor-content .social-link li a:hover {
-	background-color: #fe4a55;
-	color: #ffffff;
+	background-color: var(--main-color);
+	color: var(--white-color);
 }
 
 @-webkit-keyframes ripple {
@@ -2529,7 +2538,7 @@ Privacy Policy Area CSS - Keep
 .privacy-policy-content ol li,
 .privacy-policy-content ul li {
 	margin-bottom: 10px;
-	color: #606060;
+	color: var(--optional-color);
 	font-size: 16px;
 	line-height: 1.8;
 }
@@ -2585,7 +2594,7 @@ Terms of Service Area CSS - Keep
 .terms-of-service-content ol li,
 .terms-of-service-content ul li {
 	margin-bottom: 10px;
-	color: #606060;
+	color: var(--optional-color);
 	font-size: 16px;
 	line-height: 1.8;
 }
@@ -2603,7 +2612,7 @@ Terms of Service Area CSS - Keep
 }
 
 .error-content h3 {
-	color: #ffffff;
+	color: var(--white-color);
 	margin-bottom: 20px;
 	margin-top: 45px;
 	font-size: 40px;
@@ -2628,11 +2637,11 @@ Terms of Service Area CSS - Keep
 }
 
 .error-content .btn-box .default-btn span {
-	background-color: #ffffff;
+	background-color: var(--white-color);
 }
 
 .error-content .btn-box .default-btn:hover {
-	color: #221638;
+	color: var(--black-color);
 }
 
 /*================================================
@@ -2662,12 +2671,12 @@ Footer Area CSS - Keep
 }
 
 .footer-bottom-area p a {
-	color: #fe4a55;
+	color: var(--main-color);
 	font-weight: 600;
 }
 
 .footer-bottom-area p a:hover {
-	color: #ffffff;
+	color: var(--white-color);
 }
 
 .footer-bottom-area ul {
@@ -2708,7 +2717,7 @@ Footer Area CSS - Keep
 }
 
 .footer-bottom-area ul li a:hover {
-	color: #fe4a55;
+	color: var(--main-color);
 }
 
 @-webkit-keyframes run {
@@ -2862,7 +2871,7 @@ Main Banner Area CSS - Keep
 .categories-filter .dropdown-button-custom>* {
 	border: none !important;
 	font-size: 16px !important;
-	color: #221638 !important;
+	color: var(--black-color) !important;
 	min-width: 150px;
 }
 
@@ -2871,7 +2880,7 @@ Main Banner Area CSS - Keep
 }
 
 .categories-filter .dropdown-button-custom>* {
-	background-color: white !important;
+	background-color: var(--white-color) !important;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.04) !important;
 }
 
@@ -2892,11 +2901,11 @@ Main Banner Area CSS - Keep
 
 .dropdown-menu {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
-	background-color: white !important;
+	background-color: var(--white-color) !important;
 }
 
 .dropdown-item {
-	background-color: white !important;
+	background-color: var(--white-color) !important;
 }
 
 /* Languages */
