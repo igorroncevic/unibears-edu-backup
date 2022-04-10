@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 
 const CoursesCurriculum = ({ course }) => {
 	const [t] = useTranslation("courses");
-	const { langCode } = useSelector((state) => state.user)
+	console.log(course)
+	const { langCode } = useSelector((state) => state.user);
+	const { unibersCount } = useSelector((state) => state.auth);
 
 	return (
 		<div className="courses-curriculum">
@@ -25,7 +27,9 @@ const CoursesCurriculum = ({ course }) => {
 									>
 										<span className="courses-name">{lecture.title[langCode]}</span>
 										<div className="courses-meta">
-											<span className="status locked"><i className="flaticon-password"></i></span>
+											{unibersCount < course.requiredUnibearsCount &&
+											<span className="status locked"> <i className="flaticon-password"></i></span>
+											}
 										</div>
 									</a>
 								</Link>

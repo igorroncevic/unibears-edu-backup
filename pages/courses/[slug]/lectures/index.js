@@ -94,7 +94,7 @@ export async function getStaticProps({ params }) {
 		requiredUnibearsCount: course.requiredUnibearsCount,
 	};
 
-	return { props: { course, auth } };
+	return { props: { course, auth }, revalidate: 10*60 };
 }
 
 export default Lectures;
