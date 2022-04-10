@@ -2857,22 +2857,40 @@ Main Banner Area CSS - Keep
   border: none !important;
   font-size: 16px !important;
   color: #221638 !important;
-  background-color: white;
-  box-shadow: none !important;
   min-width: 150px;
+}
+
+.btn-primary.dropdown-toggle {
+    padding: 4px 16px;
+}
+
+.categories-filter .dropdown-button-custom>* {
+  background-color: white !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+.categories-filter .dropdown-button-custom>*:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09) !important;
 }
 
 .dropdown-button-custom button {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* TODO: Add line when hovering (like in Tab section on Course Index) */
-.dropdown-button-custom button:hover,
-.dropdown-button-custom button:active {
+.dropdown-item:hover {
   background-color: #ffdadc !important;
+}
+
+.dropdown-menu {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  background-color: white !important;
+}
+
+.dropdown-item {
+  background-color: white !important;
 }
 
 /* Languages */
