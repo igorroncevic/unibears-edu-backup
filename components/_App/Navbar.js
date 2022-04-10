@@ -78,7 +78,7 @@ const Navbar = () => {
 					<div className="navbar navbar-expand-lg navbar-light">
 
 						<Link href={PathNames.Index}>
-							<a onClick={toggleNavbar} className="navbar-brand">
+							<a className="navbar-brand">
 								<Image src="/images/logo.png" alt="logo" />
 							</a>
 						</Link>
