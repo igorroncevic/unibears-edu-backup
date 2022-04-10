@@ -22,8 +22,7 @@ const Details = ({ course }) => {
 	const router = useRouter();
 	const [t] = useTranslation(["courses", "toasts"]);
 	const { langCode } = useSelector(state => state.user);
-
-	const [metadata, setMetadata] = useState(defaultMetadata);
+	const [metadata, setMetadata] = useState(defaultMetadata)
 
 	// TODO: Perhaps do redirects like this: https://stackoverflow.com/questions/65709378/how-to-redirect-using-getstaticprops
 	useEffect(() => {
@@ -80,8 +79,7 @@ const Details = ({ course }) => {
 								</TabPanel>
 
 								<TabPanel>
-									{/* TODO: Now model uses topics, that have lectures combined. Fix this. */}
-									<CoursesCurriculum courseSlug={course.slug} lectures={course.topics} />
+									<CoursesCurriculum course={course} />
 								</TabPanel>
 
 								{/* TODO: Extract Instructor info to a separate component */}

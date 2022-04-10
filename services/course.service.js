@@ -32,6 +32,10 @@ export const findAllCourses = async () => {
 export const findCourseBySlug = async (slug) => {
 	const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
         ${courseFields},
+        topics[] | order(_createdAt desc) {
+            ${topicFields},
+            lectures[] | order(_createdAt desc) {${lectureFields}}
+        },
         author -> {${authorFields}, title, bio},
         categories[] -> { name }
     }`;
