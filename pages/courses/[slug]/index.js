@@ -18,6 +18,7 @@ import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
 import { getCoursePaths, findCourseBySlug, courseNotFound } from "@/services/course.service";
 import { toastErrorImportant } from "@/utils/toasts";
 import { changeLastVisitedCourse } from "@/redux/actions/course.actions";
+import Instructor from "@/components/Courses/Instructor";
 
 const Details = ({ course }) => {
 	const dispatch = useDispatch();
@@ -84,31 +85,8 @@ const Details = ({ course }) => {
 									<CoursesCurriculum course={course} />
 								</TabPanel>
 
-								{/* TODO: Extract Instructor info to a separate component */}
 								<TabPanel>
-									<div className="courses-instructor">
-										<div className="single-advisor-box">
-											<div className="row align-items-center">
-												<div className="col-lg-4 col-md-4">
-													<div className="advisor-image">
-														<Image src={`${course.author.profilePhoto ? course.author.profilePhoto : "/images/advisor/advisor2.jpg"}`} alt={course.author.name} />
-													</div>
-												</div>
-
-												<div className="col-lg-8 col-md-8">
-													<div className="advisor-content">
-														<h3>{course.author.name}</h3>
-														<span className="sub-title">{course.author.title || ""}</span>
-														<PortableText
-															content={course.author.bio[langCode]}
-														/>
-
-														{/* <AuthorSocials/> */}
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+									<Instructor author={course.author}/>
 								</TabPanel>
 							</Tabs>
 						</div>
