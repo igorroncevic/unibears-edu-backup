@@ -1708,6 +1708,10 @@ Courses Details Area CSS - Keep
   width: 100%;
 }
 
+.course-details-banner-img {
+  z-index: -1;
+}
+
 .courses-details-desc {
   margin-top: 60px;
   padding-right: 15px;

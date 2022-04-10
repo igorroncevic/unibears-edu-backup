@@ -59,7 +59,7 @@ const Details = ({ course }) => {
 
 			{/* TODO: Maybe reduce required photo height from 500px to 400px? To make more info on the page visible. */}
 			<div className="course-details-banner">
-				<Image src={course.bannerPhoto ? course.bannerPhoto : ""} alt={course.title[langCode]} />
+				<Image src={course.bannerPhoto ? course.bannerPhoto : ""} alt={course.title[langCode]} className="course-details-banner-img" />
 			</div>
 
 			<div className="container">
