@@ -2903,9 +2903,9 @@ Main Banner Area CSS - Keep
 .language_wrapper {
 	position: relative;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	height: 80px;
+  height: 40px;
 	width: 50px;
 }
 
@@ -2929,10 +2929,9 @@ Main Banner Area CSS - Keep
 
 .language_wrapper .languages {
 	position: absolute;
-	top: 50px;
-	right: 6px;
+  top: 30px;
 	background-color: rgba(#fff, 0.3);
-	padding: 3px;
+  padding: 2px;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 	z-index: 10;

@@ -1212,6 +1212,17 @@
 	.accordion-grid-item {
 		max-width: 300px;
 	}
+
+	.language_wrapper .languages {
+		top: 35px;
+		right: 6px;
+		padding: 3px;
+	}
+
+	.language_wrapper {
+		justify-content: center;
+		height: 100%;
+	}
 }
 
 /* Min width 1200px Max width 1355px */
@@ -1276,6 +1287,16 @@
 	.accordion-grid-item {
 		max-width: 300px;
 	}
+
+	.language_wrapper .languages {
+		top: 50px;
+		right: 6px;
+		padding: 3px;
+	}
+	.language_wrapper {
+		justify-content: center;
+		height: 100%;
+	}
 }
 
 /* Min width 1550px */
@@ -1301,8 +1322,14 @@
 	}
 
 	/* Languages */
+	.language_wrapper {
+		height: 75px;
+	}
+
 	.language_wrapper .languages {
-		right: 0px;
+		top: 50px;
+		right: 6px;
+		padding: 3px;
 	}
 
 	.language_wrapper .languages ul {
@@ -1335,7 +1362,7 @@
 
 	.edemy-nav .navbar .navbar-collapse {
 		max-height: 70vh;
-		overflow-y: scroll;
+		/* overflow-y: scroll; */
 		margin-top: 20px;
 		padding-right: 15px;
 	}

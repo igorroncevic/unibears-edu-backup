@@ -96,23 +96,21 @@ const Navbar = () => {
 
 							<ul className="navbar-nav">
 								<li className="nav-item">
-									<Language />
-								</li>
-
-								<li className="nav-item">
 									<Link href={PathNames.Index}>
 										<a onClick={e => e.preventDefault()} className="nav-link">
 											{t("navbar.buyUnibear")}
 										</a>
 									</Link>
 								</li>
-
 								<li className="nav-item megamenu">
 									<Link href={PathNames.CoursesIndex}>
 										<a className="nav-link">
 											{t("navbar.courses")}
 										</a>
 									</Link>
+								</li>
+								<li className="nav-item">
+									<Language />
 								</li>
 							</ul>
 

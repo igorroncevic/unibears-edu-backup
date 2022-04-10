@@ -37,7 +37,6 @@ const Language = () => {
 	}, [i18n.language])
 
 	const changeLanguage = (language) => {
-		localStorage.setItem("i18nextLng", language.shortName); // TODO: Maybe remove?
 		dispatch(languageChange({ language: language.shortName }));
 		i18n.changeLanguage(language.shortName);
 		setLanguage(language.shortName);
@@ -54,12 +53,9 @@ const Language = () => {
 
 	const getLanguageHTML = (language) => {
 		return (
-			<>
-				<img
-					src={language.src}
-					alt={`language_${language.shortName}`}></img>
-				{/* <span className={styles.languageName}> {t(`language.${language.shortName}`)}</span> */}
-			</>
+			// eslint-disable-next-line @next/next/no-img-element
+			<img src={language.src} alt={`language_${language.shortName}`}/>
+				
 		);
 	};
 
