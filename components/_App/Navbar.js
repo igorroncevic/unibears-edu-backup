@@ -14,6 +14,8 @@ import Image from "@/components/Common/CustomImage";
 import Language from "./Language";
 import WalletButton from "../Common/WalletButton";
 
+const mobileDevices = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+
 const Navbar = () => {
 	const [t] = useTranslation(["common", "toasts"]);
 	const dispatch = useDispatch();
@@ -44,20 +46,22 @@ const Navbar = () => {
 	}, [wallet, connected]);
 
 	useEffect(() => {
-		const elementId = document.getElementById("navbar");
+		if(!mobileDevices.test(navigator.userAgent)) {
+			const elementId = document.getElementById("navbar");
 
-		const addSticky = () => {
-			if (window.scrollY > 70) {
-				elementId.classList.add("is-sticky");
-			} else {
-				elementId.classList.remove("is-sticky");
+			const addSticky = () => {
+				if (window.scrollY > 70) {
+					elementId.classList.add("is-sticky");
+				} else {
+					elementId.classList.remove("is-sticky");
+				}
 			}
+
+			document.addEventListener("scroll", addSticky);
+			window.scrollTo(0, 0);
+
+			return () => document.removeEventListener("scroll", addSticky);
 		}
-
-		document.addEventListener("scroll", addSticky);
-		window.scrollTo(0, 0);
-
-		return () => document.removeEventListener("scroll", addSticky);
 	}, [])
 
 	const toggleNavbar = () => {
@@ -153,3 +157,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
