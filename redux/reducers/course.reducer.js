@@ -1,11 +1,13 @@
 import {
 	LECTURE_CHANGE,
 	UPDATE_PREVIOUS_AND_NEXT_LECTURE,
+	LAST_VISITED_COURSE
 } from "../constants/constants";
 
 const initialState = {
 	active: undefined,
 	activeLecture: undefined,
+	lastVisitedCourse: undefined,
 };
 
 export const courseReducer = (state = initialState, action) => {
@@ -25,6 +27,12 @@ export const courseReducer = (state = initialState, action) => {
 					next,
 				},
 			};
+		case LAST_VISITED_COURSE:
+			const { slug } = action.payload;
+			return {
+				...state,
+				lastVisitedCourse: slug,
+			}
 		default:
 			return state;
 	}

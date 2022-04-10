@@ -10,7 +10,7 @@ import Preloader from "./Preloader"
 
 import { defaultMetadata, getMetadata } from "@/utils/routing";
 
-const Layout = ({ children, componentMetadata }) => {
+const Layout = ({ children }) => {
 	const router = useRouter();
 
 	const { langCode } = useSelector(state => state.user);
@@ -20,13 +20,13 @@ const Layout = ({ children, componentMetadata }) => {
 	const [loader, setLoader] = useState(true)
 
 	useEffect(() => {
-		const { title, description } = getMetadata(router.pathname, componentMetadata, langCode);
+		const { title, description } = getMetadata(router.pathname, {}, langCode);
 		setMetadata({ title, description });
 
 		setTimeout(() => {
 			setLoader(false)
 		}, 1000);
-	}, [componentMetadata, router, langCode])
+	}, [router, langCode])
 
 	Router.events.on("routeChangeStart", () => {
 		setLoader(true)
@@ -37,7 +37,7 @@ const Layout = ({ children, componentMetadata }) => {
 			description: metadata.description
 		})
 
-		const { title, description } = getMetadata(router.pathname, componentMetadata);
+		const { title, description } = getMetadata(router.pathname, {}, langCode);
 		setMetadata({ title, description });
 
 		setLoader(false)

@@ -3,22 +3,23 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 
-import { toastError } from "@/utils/toasts";
+import { toastErrorImportant } from "@/utils/toasts";
 import { PathNames } from "@/utils/routing";
 
 const Auth = ({ children, auth }) => {
 	const [t] = useTranslation("toasts");
 	const router = useRouter()
-	const { address, unibearsCount } = useSelector(state => state.auth);
+	const { unibearsCount } = useSelector(state => state.auth);
+	const { lastVisitedCourse } = useSelector(state => state.course);
 
 	useEffect(() => {
-		/* if (!address) {
-			toastError("You are not authorized to view this page. Please connect your wallet.");
-			router.back();
-		} */
 		if (unibearsCount < auth.requiredUnibearsCount) {
-			toastError(t("error.notEnoughUnibears"), { id: "notEnough" });
-			router.push(PathNames.CoursesIndex);
+			toastErrorImportant(t("error.notEnoughUnibears"));
+			if (lastVisitedCourse) {
+				router.push(PathNames.CoursesId, PathNames.CoursesIdFilled(lastVisitedCourse));
+			} else {
+				router.push(PathNames.CoursesIndex);
+			}
 		}
 	}, [])
 

@@ -93,7 +93,7 @@ const MyApp = ({ Component, pageProps }) => {
 				<WalletProvider wallets={wallets} autoConnect={true}>
 					<WalletDialogProvider>
 						<Provider store={store}>
-							<Layout {...pageProps} componentMetadata={Component.metadata}>
+							<Layout {...pageProps}>
 								{
 									// If component requires auth, check it.
 									pageProps.auth ? (

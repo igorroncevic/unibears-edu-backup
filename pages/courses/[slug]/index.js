@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { useRouter } from "next/router";
 resetIdCounter();
 
 import Head from "@/components/_App/CustomHead";
@@ -16,15 +17,15 @@ import { blockContentToPlainText } from "react-portable-text";
 import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
 import { getCoursePaths, findCourseBySlug, courseNotFound } from "@/services/course.service";
 import { toastErrorImportant } from "@/utils/toasts";
-import { useRouter } from "next/router";
+import { changeLastVisitedCourse } from "@/redux/actions/course.actions";
 
 const Details = ({ course }) => {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const [t] = useTranslation(["courses", "toasts"]);
 	const { langCode } = useSelector(state => state.user);
 	const [metadata, setMetadata] = useState(defaultMetadata)
 
-	// TODO: Perhaps do redirects like this: https://stackoverflow.com/questions/65709378/how-to-redirect-using-getstaticprops
 	useEffect(() => {
 		if (course) {
 			if (course.title === courseNotFound.title) {
@@ -40,6 +41,7 @@ const Details = ({ course }) => {
 
 				const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
 				setMetadata({ title, description });
+				dispatch(changeLastVisitedCourse({ slug: course.slug }));
 			}
 		}
 	}, [course, langCode, router])
