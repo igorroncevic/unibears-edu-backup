@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 import { toastErrorImportant } from "@/utils/toasts";
 import { PathNames } from "@/utils/routing";
+import Preloader from "./Preloader";
 
 const Auth = ({ children, auth }) => {
 	const [t] = useTranslation("toasts");
@@ -13,7 +14,7 @@ const Auth = ({ children, auth }) => {
 	const { lastVisitedCourse } = useSelector(state => state.course);
 
 	useEffect(() => {
-		if (unibearsCount < auth.requiredUnibearsCount) {
+		if (router.isReady && unibearsCount < auth.requiredUnibearsCount) {
 			toastErrorImportant(t("error.notEnoughUnibears"));
 			if (lastVisitedCourse) {
 				router.push(PathNames.CoursesId, PathNames.CoursesIdFilled(lastVisitedCourse));
@@ -21,7 +22,11 @@ const Auth = ({ children, auth }) => {
 				router.push(PathNames.CoursesIndex);
 			}
 		}
-	}, [])
+	}, [router.isReady])
+
+	if (!router.isReady) {
+		return <Preloader />
+	}
 
 	return children
 }

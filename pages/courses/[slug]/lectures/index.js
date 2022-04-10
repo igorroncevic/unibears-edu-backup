@@ -19,25 +19,23 @@ const Lectures = ({ course }) => {
 	const { langCode } = useSelector(state => state.user);
 
 	const [show, setShow] = useState(true);
-	const [metadata, setMetadata] = useState(defaultMetadata)
+	const [metadata, setMetadata] = useState(defaultMetadata);
 
 	// TODO: Perhaps set title to be current lecture title? A bit complicated because active lecture is set in a component.
 	useEffect(() => {
-		if (course) {
-			if (course.title === courseNotFound.title) {
-				if (router.isReady) {
-					toastErrorImportant(t("error.courseUnavailable", { ns: "toasts" }));
-					router.push(PathNames.CoursesIndex);
-				}
-			} else {
-				const componentMetadata = {
-					title: course.title[langCode],
-					description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
-				};
-
-				const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
-				setMetadata({ title, description });
+		if (course?.title === courseNotFound.title) {
+			if (router.isReady) {
+				toastErrorImportant(t("error.courseUnavailable", { ns: "toasts" }));
+				router.push(PathNames.CoursesIndex);
 			}
+		} else {
+			const componentMetadata = {
+				title: course.title[langCode],
+				description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
+			};
+
+			const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
+			setMetadata({ title, description });
 		}
 	}, [course, langCode, router])
 
