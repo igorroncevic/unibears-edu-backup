@@ -45,6 +45,7 @@ const Details = ({ course }) => {
 				dispatch(changeLastVisitedCourse({ slug: course.slug }));
 			}
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [course, langCode, router])
 
 	if (!course || (course && course.title === courseNotFound.title)) {

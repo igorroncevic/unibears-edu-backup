@@ -3,7 +3,7 @@ import Spinner from "./Spinner";
 import { shortenAddress } from "@/utils/blockchain";
 
 const WalletButton = ({ wallet, address, walletLoading }) => {
-	if (walletLoading || !address) {
+	if (walletLoading) {
 		// If wallet is still connecting, display a loader.
 		return (
 			<div className="wallet-button">

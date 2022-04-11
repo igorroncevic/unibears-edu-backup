@@ -8,15 +8,15 @@
 }
 
 .MuiDialogContent-root .MuiListItem-root .MuiButton-root {
-	color: #fff !important;
+	color: var(--light-grey-color) !important;
 	text-transform: capitalize;
 }
 
 .MuiDialogTitle-root {
-	color: #fff !important;
-	background-color: #fe4a55 !important;
+	color: var(--light-grey-color) !important;
+	background-color: var(--main-color) !important;
 }
 
 .MuiSvgIcon-root {
-	fill: #fff !important;
+	fill: var(--light-grey-color) !important;
 }

@@ -364,11 +364,6 @@
 		margin-top: 5px;
 	}
 
-	.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .questions {
-		font-size: 13.5px;
-		margin-top: 7px;
-	}
-
 	.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .duration {
 		font-size: 13.5px;
 		margin-top: 7px;
@@ -389,30 +384,6 @@
 
 	.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
 		padding: 25px 0 0 0;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews h3 {
-		font-size: 18px;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews .rating {
-		top: 2px;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews .rating span {
-		font-size: 17px;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews .side {
-		width: 20%;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews .side div {
-		font-size: 15px;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews .middle {
-		width: 60%;
 	}
 
 	.courses-details-info {
@@ -575,7 +546,7 @@
 
 	/*new-css*/
 	.main-banner-area {
-		border-top: 1px solid #eeeeee;
+		border-top: 1px solid var(--light-grey-color);
 		padding-top: 60px;
 		padding-bottom: 60px;
 	}
@@ -913,9 +884,9 @@
 		padding-bottom: 20px !important;
 	}
 
-	/*new-css*/
+	new-css
 	.main-banner-area {
-		border-top: 1px solid #eeeeee;
+		border-top: 1px solid var(--light-grey-color);
 		padding-top: 80px;
 		padding-bottom: 80px;
 	}
@@ -1103,10 +1074,6 @@
 
 	.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
 		padding: 0 0 0 20px;
-	}
-
-	.courses-details-desc .react-tabs__tab-panel .courses-reviews h3 {
-		font-size: 20px;
 	}
 
 	.courses-details-info {
@@ -1385,21 +1352,6 @@
 		padding-right: 15px;
 	}
 
-	.edemy-nav .navbar .navbar-collapse::-webkit-scrollbar {
-		width: 10px;
-	}
-
-	.edemy-nav .navbar .navbar-collapse::-webkit-scrollbar-track {
-		background: #f1f1f1;
-	}
-
-	.edemy-nav .navbar .navbar-collapse::-webkit-scrollbar-thumb {
-		background: #888;
-	}
-
-	.edemy-nav .navbar .navbar-collapse::-webkit-scrollbar-thumb:hover {
-		background: #555;
-	}
 
 	.edemy-nav .navbar .navbar-nav .nav-item a {
 		font-size: 15px;
@@ -1418,15 +1370,15 @@
 	.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu {
 		border: none;
 		top: 0;
-		border-top: 1px solid #fe4a55;
+		border-top: 1px solid var(--main-color);
 		position: relative;
 		opacity: 1;
 		visibility: visible;
 		margin-top: 0;
 		width: 100%;
-		border-left: 1px solid #eee;
-		border-right: 1px solid #eee;
-		border-bottom: 1px solid #eee;
+		border-left: 1px solid var(--light-grey-color);
+		border-right: 1px solid var(--light-grey-color);
+		border-bottom: 1px solid var(--light-grey-color);
 	}
 
 	.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a {
@@ -1438,7 +1390,7 @@
 		left: 20px;
 		border: none;
 		top: 0;
-		border-top: 1px solid #fe4a55;
+		border-top: 1px solid var(--main-color);
 		position: relative;
 		opacity: 1;
 		visibility: visible;
@@ -1451,15 +1403,15 @@
 		left: 0;
 		border: none;
 		top: 0;
-		border-top: 1px solid #fe4a55;
+		border-top: 1px solid var(--main-color);
 		position: relative;
 		opacity: 1;
 		visibility: visible;
 		margin-top: 0;
 		width: 100%;
-		border-left: 1px solid #eee;
-		border-right: 1px solid #eee;
-		border-bottom: 1px solid #eee;
+		border-left: 1px solid var(--light-grey-color);
+		border-right: 1px solid var(--light-grey-color);
+		border-bottom: 1px solid var(--light-grey-color);
 	}
 
 	.edemy-nav .navbar .navbar-nav .nav-item.megamenu .dropdown-menu .mobile-none {

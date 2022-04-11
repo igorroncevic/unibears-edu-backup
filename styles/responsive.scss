@@ -11,6 +11,9 @@ $value_seven: 1200px;
 $value_eight: 1355px;
 $value_nine: 1550px;
 
+$main-color: #fe4a55;
+$light-grey-color: #f8f9f8;
+
 /* Max width 767px */
 @media only #{$media} and ($feature_max : $value_two) {
 	body {
@@ -505,11 +508,6 @@ $value_nine: 1550px;
 								text-align: left;
 								margin-top: 5px;
 
-								.questions {
-									font-size: 13.5px;
-									margin-top: 7px;
-								}
-
 								.duration {
 									font-size: 13.5px;
 									margin-top: 7px;
@@ -538,32 +536,6 @@ $value_nine: 1550px;
 					.advisor-content {
 						padding: 25px 0 0 0;
 					}
-				}
-			}
-
-			.courses-reviews {
-				h3 {
-					font-size: 18px;
-				}
-
-				.rating {
-					top: 2px;
-
-					span {
-						font-size: 17px;
-					}
-				}
-
-				.side {
-					width: 20%;
-
-					div {
-						font-size: 15px;
-					}
-				}
-
-				.middle {
-					width: 60%;
 				}
 			}
 		}
@@ -778,7 +750,7 @@ $value_nine: 1550px;
 
 	/*new-css*/
 	.main-banner-area {
-		border-top: 1px solid #eeeeee;
+		border-top: 1px solid $light-grey-color;
 
 		padding: {
 			top: 60px;
@@ -1232,7 +1204,7 @@ $value_nine: 1550px;
 
 	/*new-css*/
 	.main-banner-area {
-		border-top: 1px solid #eeeeee;
+		border-top: 1px solid $light-grey-color;
 
 		padding: {
 			top: 80px;
@@ -1485,12 +1457,6 @@ $value_nine: 1550px;
 					.advisor-content {
 						padding: 0 0 0 20px;
 					}
-				}
-			}
-
-			.courses-reviews {
-				h3 {
-					font-size: 20px;
 				}
 			}
 		}
@@ -1754,21 +1720,6 @@ $value_nine: 1550px;
 				margin-top: 20px;
 				padding-right: 15px;
 
-				&::-webkit-scrollbar {
-					width: 10px;
-				}
-
-				&::-webkit-scrollbar-track {
-					background: #f1f1f1;
-				}
-
-				&::-webkit-scrollbar-thumb {
-					background: #888;
-				}
-
-				&::-webkit-scrollbar-thumb:hover {
-					background: #555;
-				}
 			}
 
 			.navbar-nav {
@@ -1790,15 +1741,15 @@ $value_nine: 1550px;
 					.dropdown-menu {
 						border: none;
 						top: 0;
-						border-top: 1px solid #fe4a55;
+						border-top: 1px solid $main-color;
 						position: relative;
 						opacity: 1;
 						visibility: visible;
 						margin-top: 0;
 						width: 100%;
-						border-left: 1px solid #eee;
-						border-right: 1px solid #eee;
-						border-bottom: 1px solid #eee;
+						border-left: 1px solid $light-grey-color;
+						border-right: 1px solid $light-grey-color;
+						border-bottom: 1px solid $light-grey-color;
 
 						li {
 							a {
@@ -1810,7 +1761,7 @@ $value_nine: 1550px;
 								left: 20px;
 								border: none;
 								top: 0;
-								border-top: 1px solid #fe4a55;
+								border-top: 1px solid $main-color;
 								position: relative;
 								opacity: 1;
 								visibility: visible;
@@ -1826,15 +1777,15 @@ $value_nine: 1550px;
 							left: 0;
 							border: none;
 							top: 0;
-							border-top: 1px solid #fe4a55;
+							border-top: 1px solid $main-color;
 							position: relative;
 							opacity: 1;
 							visibility: visible;
 							margin-top: 0;
 							width: 100%;
-							border-left: 1px solid #eee;
-							border-right: 1px solid #eee;
-							border-bottom: 1px solid #eee;
+							border-left: 1px solid $light-grey-color;
+							border-right: 1px solid $light-grey-color;
+							border-bottom: 1px solid $light-grey-color;
 
 							.mobile-none {
 								display: none;

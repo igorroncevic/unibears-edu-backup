@@ -39,10 +39,11 @@ const Navbar = () => {
 					dispatch(setUnibearsCount({ count: count }));
 					dispatch(authSuccess({ address: walletAddress }));
 					toastSuccess(t("success.login", { ns: "toasts" }), { id: "login" });
-					setWalletLoading(false);
 				}
+				setWalletLoading(false);
 			})()
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [wallet, connected]);
 
 	useEffect(() => {
@@ -120,7 +121,7 @@ const Navbar = () => {
 
 							<div className="others-option d-flex align-items-center">
 								<div className="option-item">
-									{wallet ? (
+									{address ? (
 										<div className="user-dropdown">
 											<Link href={PathNames.Index}>
 												<a onClick={e => e.preventDefault()} className="default-btn">

@@ -19,7 +19,6 @@ import { wrapper, store } from "./../redux/store";
 import { Provider } from "react-redux";
 
 // Solana
-import { createTheme, ThemeProvider } from "@material-ui/core";
 import { clusterApiUrl } from "@solana/web3.js";
 import {
 	PhantomWalletAdapter,
@@ -43,30 +42,6 @@ import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
 */
 const network = process.env.REACT_APP_SOLANA_NETWORK || "devnet";
 
-// TODO: Remove?
-const theme = createTheme({
-	overrides: {
-		MuiButtonBase: {
-			root: {
-				justifyContent: "flex-start",
-			},
-		},
-		MuiButton: {
-			root: {
-				textTransform: undefined,
-				padding: 0,
-				color: "#fff",
-			},
-			startIcon: {
-				marginRight: 8,
-			},
-			endIcon: {
-				marginLeft: 8,
-			},
-		},
-	},
-});
-
 const MyApp = ({ Component, pageProps }) => {
 	const endpoint = useMemo(() => clusterApiUrl(network), []);
 
@@ -88,28 +63,26 @@ const MyApp = ({ Component, pageProps }) => {
 	);
 
 	return (
-		<ThemeProvider theme={theme}>
-			<ConnectionProvider endpoint={endpoint}>
-				<WalletProvider wallets={wallets} autoConnect={true}>
-					<WalletDialogProvider>
-						<Provider store={store}>
-							<Layout {...pageProps}>
-								{
-									// If component requires auth, check it.
-									pageProps.auth ? (
-										<Auth {...pageProps}>
-											<Component {...pageProps} />
-										</Auth>
-									) : (
+		<ConnectionProvider endpoint={endpoint}>
+			<WalletProvider wallets={wallets} autoConnect={true}>
+				<WalletDialogProvider>
+					<Provider store={store}>
+						<Layout {...pageProps}>
+							{
+								// If component requires auth, check it.
+								pageProps.auth ? (
+									<Auth {...pageProps}>
 										<Component {...pageProps} />
-									)
-								}
-							</Layout>
-						</Provider>
-					</WalletDialogProvider>
-				</WalletProvider>
-			</ConnectionProvider>
-		</ThemeProvider>
+									</Auth>
+								) : (
+									<Component {...pageProps} />
+								)
+							}
+						</Layout>
+					</Provider>
+				</WalletDialogProvider>
+			</WalletProvider>
+		</ConnectionProvider>
 	);
 };
 
