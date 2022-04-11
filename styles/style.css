@@ -173,8 +173,8 @@ a:hover {
 }
 
 .accordion-button {
-	background-color: var(--light-main-color) !important;
-	color: var(--black-color) !important;
+	background-color: var(--main-color) !important;
+	color: var(--white-color) !important;
 }
 
 .btn:focus {
@@ -214,14 +214,9 @@ a:hover {
 	min-width: 300px;
 }
 
-.lecture-name-duration:hover {
-	color: var(--main-color);
-	font-weight: 800;
-}
-
 .active-lecture,
 .active-lecture:hover {
-	background-color: var(--light-grey-color);
+	background-color: var(--light-main-color);
 	color: var(--black-color);
 	font-weight: unset;
 }
@@ -2364,8 +2359,11 @@ Terms of Service Area CSS - Keep
 404 Error Area CSS - Keep
 =================================================*/
 .error-area {
-	background-color: var(--black-color);
-	height: 100vh;
+	background-color: var(--darker-black-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
 }
 
 .error-content {
@@ -2381,7 +2379,7 @@ Terms of Service Area CSS - Keep
 }
 
 .error-content p {
-	color: rgba(var(--white-color), 0.7);
+	color: var(--white-color);
 	max-width: 550px;
 	margin-left: auto;
 	margin-right: auto;

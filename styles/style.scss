@@ -2013,7 +2013,7 @@ Page Title Area CSS
         right: -10px;
         top: 5px;
         transform: rotate(10deg);
-        background-color: $optional-color:;
+        background-color: $optional-color;
         height: 15px;
         width: 1px;
       }
@@ -2202,7 +2202,6 @@ Pagination CSS
 =================================================*/
 .error-area {
   background-color: $darker-black-color;
-  height: 100vh;
 }
 .error-content {
   text-align: center;
@@ -2219,7 +2218,7 @@ Pagination CSS
     }
   }
   p {
-    color: rgba(255, 255, 255, 0.7);
+    color: $white-color;
     max-width: 550px;
     margin: {
       left: auto;

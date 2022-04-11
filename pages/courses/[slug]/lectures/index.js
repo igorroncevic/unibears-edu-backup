@@ -37,6 +37,7 @@ const Lectures = ({ course }) => {
 			const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
 			setMetadata({ title, description });
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [course, langCode, router])
 
 	if (!course || (course && course.title === courseNotFound.title)) {

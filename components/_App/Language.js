@@ -73,7 +73,7 @@ const Language = () => {
 								chosenLanguage.shortName && (
 									<li
 										onClick={() => changeLanguage(language)}
-										key={language.code}>
+										key={language.shortName}>
 										{getLanguageHTML(language)}
 									</li>
 								)

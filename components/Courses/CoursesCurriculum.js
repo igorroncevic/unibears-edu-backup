@@ -13,7 +13,8 @@ const CoursesCurriculum = ({ course }) => {
 	return (
 		<div className="courses-curriculum">
 			{course?.topics?.map(topic => {
-				return <><h3>{topic.title[langCode]}</h3>
+				return <React.Fragment key={topic.id}>
+					<h3>{topic.title[langCode]}</h3>
 					<ul>
 						{topic.lectures?.map(lecture => (
 							<li key={lecture.id}>
@@ -35,7 +36,7 @@ const CoursesCurriculum = ({ course }) => {
 							</li>
 						))}
 					</ul>
-				</>
+				</React.Fragment>
 			})
 			}
 			{!course?.topics && <h3>{t("noLectures")}</h3>}
