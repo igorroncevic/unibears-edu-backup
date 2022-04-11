@@ -35,7 +35,7 @@ const Navbar = () => {
 				const count = await solanaService.getUnibearsCount(walletAddress)
 
 				// Sometimes address isn't immediately found
-				if (walletAddress) {
+				if (walletAddress && !address) {
 					dispatch(setUnibearsCount({ count: count }));
 					dispatch(authSuccess({ address: walletAddress }));
 					toastSuccess(t("success.login", { ns: "toasts" }), { id: "login" });
@@ -43,11 +43,11 @@ const Navbar = () => {
 				setWalletLoading(false);
 			})()
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [wallet, connected]);
 
 	useEffect(() => {
-		if(!mobileDevices.test(navigator.userAgent)) {
+		if (!mobileDevices.test(navigator.userAgent)) {
 			const elementId = document.getElementById("navbar");
 
 			const addSticky = () => {
