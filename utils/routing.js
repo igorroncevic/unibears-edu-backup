@@ -9,6 +9,7 @@ export const PathNames = {
 	LectureCoursesIdFilled: (slug) => `/courses/${slug}/lectures`,
 	PrivacyPolicy: "/privacy-policy",
 	TermsOfService: "/terms-of-service",
+	MintPage: "https://mint.unibears.io"
 };
 
 export const PageMetadata = {
