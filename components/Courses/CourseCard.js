@@ -28,6 +28,7 @@ const CourseCard = ({ course }) => {
 				</div>
 				<div className="courses-content">
 					<div className="course-author d-flex align-items-center">
+						{/* TODO: Add default user image. */}
 						<Image
 							src={course.author && course.author.profilePhoto ? course.author.profilePhoto : "/images/user1.jpg"}
 							className="rounded-circle"
@@ -50,7 +51,7 @@ const CourseCard = ({ course }) => {
 						</li>
 						<li>
 							{/* TODO: Add some more data to make design look nicer */}
-							<i className='flaticon-agenda'></i> {t("requiredUnibears")}: {course.requiredUnibearsCount}
+							<i className='flaticon-web'></i> {t("requiredUnibears")}: {course.requiredUnibearsCount}
 						</li>
 					</ul>
 				</div>

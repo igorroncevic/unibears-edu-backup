@@ -91,7 +91,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
 								{/* TODO: Add a proper icon for categories */}
-								<i className="flaticon-distance-learning"></i> {t("categories")}
+								<i className="flaticon-agenda"></i> {t("categories")}
 							</span>
 							{displayCategories(course.categories, langCode)}
 						</div>
@@ -100,7 +100,7 @@ const CoursesDetailsSidebar = ({ course }) => {
 						<div className="d-flex justify-content-between align-items-center">
 							<span>
 								{/* TODO: Add a proper icon for Unibears count */}
-								<i className="flaticon-distance-learning"></i> {t("requiredUnibears")}
+								<i className="flaticon-web"></i> {t("requiredUnibears")}
 							</span>
 							{course.requiredUnibearsCount}
 						</div>

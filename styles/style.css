@@ -2,8 +2,9 @@
 Default CSS
 =================================================*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+ */
 :root {
 	scroll-behavior: initial;
 }
@@ -14,9 +15,9 @@ body {
 	font-size: 16px;
 	font-family: "Nunito", sans-serif;
 	--font-family: "Nunito", sans-serif;
-	--font-family2: "Playfair Display", serif;
-	--main-color: #fe4a55;
-	--light-main-color: #ffc7ca;
+	/* --font-family2: "Playfair Display", serif; */
+	--main-color: #48b4ff;
+	--light-main-color: #b1dfff;
 	--optional-color: #606060;
 	--light-grey-color: #f8f9f8;
 	--lighter-grey-color: #f5f5f5;
@@ -78,11 +79,6 @@ h6 {
 
 .lectures-container {
 	max-width: 100%;
-}
-
-.d-table {
-	width: 100%;
-	height: 100%;
 }
 
 .d-table-cell {
@@ -257,6 +253,9 @@ a:hover {
 .d-table {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .d-table-cell {
@@ -312,8 +311,7 @@ a:hover {
 	border-radius: 5px;
 }
 
-.default-btn i,
-.default-btn img {
+.default-btn i {
 	position: absolute;
 	left: 30px;
 	top: 10px;
@@ -402,6 +400,7 @@ Navbar Area CSS
 	padding-bottom: 0;
 	padding-left: 0;
 	padding-right: 0;
+	max-width: 160px;
 }
 
 .edemy-nav .navbar ul {
@@ -859,447 +858,6 @@ Navbar Area CSS
 	.navbar-area {
 		padding-top: 20px;
 		padding-bottom: 20px;
-	}
-}
-
-/*================================================
-Main Banner Area CSS
-=================================================*/
-.main-banner {
-	position: relative;
-	z-index: 1;
-	background-image: url(/images/gray-bg.jpg);
-	background-position: bottom right;
-	background-size: cover;
-	background-repeat: no-repeat;
-	padding-top: 100px;
-}
-
-.main-banner .container-fluid {
-	max-width: 1395px;
-}
-
-.main-banner .container-fluid .row {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.main-banner .container-fluid .row .col-lg-6 {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.main-banner-content {
-	max-width: 595px;
-	position: relative;
-	top: -60px;
-	padding-right: 30px;
-}
-
-.main-banner-content h1 {
-	margin-bottom: 25px;
-	font-size: 48px;
-	font-weight: 800;
-}
-
-.main-banner-content p {
-	max-width: 450px;
-	line-height: 1.8;
-	font-weight: 600;
-	font-size: 17px;
-}
-
-.main-banner-content .default-btn {
-	margin-top: 10px;
-}
-
-.banner-shape1 {
-	position: absolute;
-	left: 0;
-	bottom: 30px;
-	z-index: -1;
-	text-align: center;
-	right: 0;
-}
-
-.banner-shape1 img {
-	-webkit-animation: moveleftbounce 4s linear infinite;
-	animation: moveleftbounce 4s linear infinite;
-}
-
-.banner-shape2 {
-	position: absolute;
-	left: -85px;
-	top: 17px;
-	z-index: -1;
-	right: 0;
-	text-align: center;
-}
-
-.banner-shape2 img {
-	-webkit-animation: movebounce 5s linear infinite;
-	animation: movebounce 5s linear infinite;
-}
-
-.banner-shape3 {
-	position: absolute;
-	left: -40px;
-	top: -35px;
-	z-index: -2;
-	right: 0;
-	text-align: center;
-}
-
-.banner-shape3 img {
-	-webkit-animation-name: rotateme;
-	animation-name: rotateme;
-	-webkit-animation-duration: 50s;
-	animation-duration: 50s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-}
-
-.banner-content h1 {
-	color: var(--white-color);
-	margin-bottom: 20px;
-	font-size: 48px;
-	font-weight: 800;
-}
-
-.banner-content p {
-	max-width: 450px;
-	color: var(--grey-93-color);
-	font-weight: 600;
-	font-size: 17px;
-}
-
-.banner-content .default-btn {
-	margin-top: 15px;
-}
-
-.banner-content .default-btn span {
-	background-color: var(--white-color);
-}
-
-.banner-content .default-btn:hover {
-	color: var(--black-color);
-}
-
-.banner-image {
-	position: relative;
-	z-index: 1;
-}
-
-.banner-wrapper {
-	height: 1000px;
-	position: relative;
-	z-index: 1;
-	background-color: var(--black-color);
-	background-position: top center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-image: url(/images/main-banner1.jpg);
-}
-
-.banner-wrapper::before {
-	height: 512px;
-	width: 100%;
-	position: absolute;
-	content: "";
-	left: 0;
-	bottom: 0;
-	z-index: 1;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-image: url(/images/banner-shape11.png);
-}
-
-/* KEEP SHAPE */
-.shape1 {
-	position: absolute;
-	left: 12%;
-	top: 0;
-	z-index: -1;
-}
-
-.shape1 img {
-	-webkit-animation: moveleftbounce 4s linear infinite;
-	animation: moveleftbounce 4s linear infinite;
-}
-
-.shape2 {
-	position: absolute;
-	left: 5%;
-	bottom: 8%;
-	z-index: -1;
-}
-
-.shape2 img {
-	-webkit-animation: movebounce 5s linear infinite;
-	animation: movebounce 5s linear infinite;
-}
-
-.shape3 {
-	position: absolute;
-	right: 9%;
-	bottom: 12%;
-	z-index: -1;
-}
-
-.shape3 img {
-	-webkit-animation-name: rotateme;
-	animation-name: rotateme;
-	-webkit-animation-duration: 100s;
-	animation-duration: 100s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-}
-
-.shape4 {
-	position: absolute;
-	right: 5%;
-	bottom: 40%;
-	z-index: -1;
-}
-
-.shape4 img {
-	-webkit-animation: movescale 4s linear infinite;
-	animation: movescale 4s linear infinite;
-}
-
-.shape17 {
-	position: absolute;
-	z-index: -1;
-	top: -45px;
-	left: 160px;
-	right: 0;
-	text-align: center;
-}
-
-.shape17 img {
-	-webkit-animation: moveleftbounce 4s linear infinite;
-	animation: moveleftbounce 4s linear infinite;
-}
-
-.shape18 {
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: -150px;
-	right: 0;
-	text-align: center;
-}
-
-.shape18 img {
-	-webkit-animation-name: rotateme;
-	animation-name: rotateme;
-	-webkit-animation-duration: 100s;
-	animation-duration: 100s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-}
-
-.shape19 {
-	position: absolute;
-	right: -15px;
-	top: 40%;
-}
-
-.shape19 img {
-	-webkit-animation: movescale 4s linear infinite;
-	animation: movescale 4s linear infinite;
-}
-
-.shape20 {
-	position: absolute;
-	z-index: -1;
-	left: 7%;
-	top: 57%;
-}
-
-.shape20 img {
-	-webkit-animation: movescale 4s linear infinite;
-	animation: movescale 4s linear infinite;
-}
-
-.shape21 {
-	position: absolute;
-	z-index: -1;
-	left: 11%;
-	bottom: 15%;
-}
-
-.shape21 img {
-	-webkit-animation: movebounce 5s linear infinite;
-	animation: movebounce 5s linear infinite;
-}
-
-.shape22 {
-	position: absolute;
-	z-index: -1;
-	left: 55%;
-	bottom: 10px;
-}
-
-.shape22 img {
-	-webkit-animation-name: rotateme;
-	animation-name: rotateme;
-	-webkit-animation-duration: 50s;
-	animation-duration: 50s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-}
-
-.shape23 {
-	position: absolute;
-	z-index: -1;
-	right: 5%;
-	bottom: 5%;
-}
-
-.shape23 img {
-	-webkit-animation-name: rotateme;
-	animation-name: rotateme;
-	-webkit-animation-duration: 100s;
-	animation-duration: 100s;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-}
-
-@-webkit-keyframes movebounce {
-	0% {
-		-webkit-transform: translateY(0px);
-		transform: translateY(0px);
-	}
-
-	50% {
-		-webkit-transform: translateY(20px);
-		transform: translateY(20px);
-	}
-
-	100% {
-		-webkit-transform: translateY(0px);
-		transform: translateY(0px);
-	}
-}
-
-@keyframes movebounce {
-	0% {
-		-webkit-transform: translateY(0px);
-		transform: translateY(0px);
-	}
-
-	50% {
-		-webkit-transform: translateY(20px);
-		transform: translateY(20px);
-	}
-
-	100% {
-		-webkit-transform: translateY(0px);
-		transform: translateY(0px);
-	}
-}
-
-@-webkit-keyframes moveleftbounce {
-	0% {
-		-webkit-transform: translateX(0px);
-		transform: translateX(0px);
-	}
-
-	50% {
-		-webkit-transform: translateX(20px);
-		transform: translateX(20px);
-	}
-
-	100% {
-		-webkit-transform: translateX(0px);
-		transform: translateX(0px);
-	}
-}
-
-@keyframes moveleftbounce {
-	0% {
-		-webkit-transform: translateX(0px);
-		transform: translateX(0px);
-	}
-
-	50% {
-		-webkit-transform: translateX(20px);
-		transform: translateX(20px);
-	}
-
-	100% {
-		-webkit-transform: translateX(0px);
-		transform: translateX(0px);
-	}
-}
-
-@-webkit-keyframes rotateme {
-	from {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-
-	to {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes rotateme {
-	from {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-
-	to {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-
-@-webkit-keyframes movescale {
-	0% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
-	}
-
-	50% {
-		-webkit-transform: scale(0.8);
-		transform: scale(0.8);
-	}
-
-	100% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
-	}
-}
-
-@keyframes movescale {
-	0% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
-	}
-
-	50% {
-		-webkit-transform: scale(0.8);
-		transform: scale(0.8);
-	}
-
-	100% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
 	}
 }
 
@@ -1990,8 +1548,7 @@ Courses Details Area CSS - Keep
 	padding-bottom: 12px;
 }
 
-.courses-details-info .btn-box .default-btn i,
-.courses-details-info .btn-box .default-btn img {
+.courses-details-info .btn-box .default-btn i {
 	position: relative;
 	left: 0;
 	top: 2px;
@@ -2359,15 +1916,21 @@ Terms of Service Area CSS - Keep
 404 Error Area CSS - Keep
 =================================================*/
 .error-area {
-	background-color: var(--darker-black-color);
 	display: flex;
+	flex: 1;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	flex: 1;
+	align-items: center;
+	background-color: var(--darker-black-color);
 }
 
 .error-content {
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .error-content h3 {
@@ -2380,7 +1943,6 @@ Terms of Service Area CSS - Keep
 
 .error-content p {
 	color: var(--white-color);
-	max-width: 550px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 0;
@@ -2401,6 +1963,10 @@ Terms of Service Area CSS - Keep
 
 .error-content .btn-box .default-btn:hover {
 	color: var(--black-color);
+}
+
+.error-content .error-logo {
+	max-width: 400px;
 }
 
 /*================================================
@@ -2509,34 +2075,20 @@ Footer Area CSS - Keep
 Main Banner Area CSS - Keep
 =================================================*/
 .main-banner-area {
+	display: flex;
+	flex: 1;
 	z-index: 1;
 	position: relative;
-	padding-top: 80px;
-	padding-bottom: 100px;
+	padding-top: 190px;
+	background-image: url("/images/background.jpeg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .main-banner-area .container-fluid {
 	max-width: 1395px;
-}
-
-.main-banner-area .banner-shape1 {
-	left: auto;
-	bottom: 10%;
-	right: 17%;
-	width: 190px;
-}
-
-.main-banner-area .banner-shape2 {
-	width: 50px;
-	left: 29%;
-	top: 9%;
-}
-
-.main-banner-area .banner-shape3 {
-	right: auto;
-	width: 50px;
-	left: 30%;
-	top: 5%;
 }
 
 .main-banner-content-style-two h1 {
@@ -2550,6 +2102,7 @@ Main Banner Area CSS - Keep
 	line-height: 1.8;
 	font-weight: 600;
 	font-size: 16px;
+	color: var(--white-color);
 }
 
 .main-banner-content-style-two .default-btn {
@@ -2664,18 +2217,18 @@ Main Banner Area CSS - Keep
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-  	height: 40px;
+	height: 40px;
 	width: 50px;
+	padding-top: 2px;
 }
 
 .language_wrapper .box {
-	margin-left: 2px;
-  	padding-top: 2px;
 	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border: 1px solid var(--bottom-border);
 }
 
 .language_wrapper .box .languageName {
@@ -2690,8 +2243,8 @@ Main Banner Area CSS - Keep
 
 .language_wrapper .languages {
 	position: absolute;
-  	top: 30px;
-  	padding: 2px;
+	top: 30px;
+	padding: 2px;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 	z-index: 10;
@@ -2729,14 +2282,25 @@ Main Banner Area CSS - Keep
 /* Wallet Button */
 .wallet-button {
 	display: flex;
-	justify-items: center;
 	align-items: center;
-	align-content: center;
-	justify-content: space-between;
+	justify-content: center;
+	padding-left: 0;
+	padding-right: 0;
+	width: 175px;
 }
 
 .wallet-button .wallet-button-icon {
 	width: 24px !important;
+	margin-right: 5px;
+}
+
+.wallet-spinner {
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

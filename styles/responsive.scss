@@ -11,7 +11,7 @@ $value_seven: 1200px;
 $value_eight: 1355px;
 $value_nine: 1550px;
 
-$main-color: #fe4a55;
+$main-color: #48b4ff;
 $light-grey-color: #f8f9f8;
 
 /* Max width 767px */
@@ -84,89 +84,8 @@ $light-grey-color: #f8f9f8;
 		;
 	}
 
-	.main-banner {
-		padding-top: 70px;
-
-		.container-fluid {
-			max-width: 100%;
-		}
-	}
-
-	.main-banner-content {
-		max-width: 100%;
-		text-align: center;
-		top: 0;
-		padding-right: 0;
-
-		p {
-			max-width: 100%;
-
-			font: {
-				weight: 500;
-				size: 15px;
-			}
-
-			;
-		}
-
-		h1 {
-			margin-bottom: 15px;
-			font-size: 28px;
-		}
-
-		.default-btn {
-			margin-top: 5px;
-		}
-	}
-
-	.banner-content {
-		text-align: center;
-
-		p {
-			max-width: 100%;
-
-			font: {
-				weight: 500;
-				size: 15px;
-			}
-
-			;
-		}
-
-		h1 {
-			margin-bottom: 12px;
-			font-size: 28px;
-			line-height: 1.4;
-		}
-
-		.default-btn {
-			margin-top: 5px;
-		}
-	}
-
 	.banner-image {
 		margin-top: 30px;
-	}
-
-	.banner-shape1,
-	.banner-shape2,
-	.banner-shape3 {
-		display: none;
-	}
-
-	.banner-wrapper {
-		height: auto;
-
-		padding: {
-			top: 120px;
-			bottom: 100px;
-		}
-
-		;
-
-		&::before {
-			display: none;
-		}
 	}
 
 	.single-box-item {
@@ -867,12 +786,6 @@ $light-grey-color: #f8f9f8;
 		}
 	}
 
-	.main-banner {
-		.container-fluid {
-			max-width: 540px;
-		}
-	}
-
 	/*new-css*/
 	.main-banner-area {
 		.container-fluid {
@@ -948,63 +861,8 @@ $light-grey-color: #f8f9f8;
 		;
 	}
 
-	.main-banner {
-		.container-fluid {
-			max-width: 720px;
-		}
-	}
-
-	.main-banner-content {
-		max-width: 595px;
-		top: 0;
-		padding-right: 0;
-		text-align: center;
-		margin: 0 auto;
-
-		h1 {
-			margin-bottom: 15px;
-			font-size: 35px;
-		}
-
-		p {
-			max-width: 515px;
-			font-size: 15px;
-			margin: 0 auto 10px;
-		}
-	}
-
-	.banner-shape1,
-	.banner-shape2,
-	.banner-shape3 {
-		display: none;
-	}
-
-	.banner-content {
-		text-align: center;
-
-		h1 {
-			font-size: 35px;
-		}
-
-		p {
-			font-size: 16px;
-			max-width: 535px;
-
-			margin: {
-				left: auto;
-				right: auto;
-			}
-
-			;
-		}
-	}
-
 	.banner-image {
 		margin-top: 30px;
-	}
-
-	.banner-wrapper {
-		height: 920px;
 	}
 
 	.partner-area {
@@ -1348,30 +1206,6 @@ $light-grey-color: #f8f9f8;
 		;
 	}
 
-	.main-banner {
-		padding-top: 170px;
-
-		.container-fluid {
-			max-width: 850px;
-		}
-
-		.col-lg-6 {
-			flex: 0 0 100%;
-			max-width: 100%;
-		}
-	}
-
-	.main-banner-content {
-		top: 0;
-		padding-right: 0;
-		margin-bottom: 60px;
-		max-width: 605px;
-
-		p {
-			max-width: 565px;
-		}
-	}
-
 	.single-courses-box {
 		.courses-content {
 			h3 {
@@ -1659,12 +1493,6 @@ $light-grey-color: #f8f9f8;
 		}
 	}
 
-	.main-banner {
-		.container-fluid {
-			max-width: 1165px;
-		}
-	}
-
 	.admin-nav {
 		.navbar {
 			.others-option {
@@ -1685,12 +1513,6 @@ $light-grey-color: #f8f9f8;
 			}
 
 			;
-		}
-	}
-
-	.main-banner {
-		.container-fluid {
-			max-width: 1480px;
 		}
 	}
 

@@ -20,23 +20,21 @@ const Custom404 = () => {
 
 	return (
 		<div className="error-area">
-			<div className="d-table">
-				<div className="d-table-cell">
-					<div className="container">
-						<div className="error-content">
-							{/* <Image src="/images/error.png" alt="image" /> */}
-							<h3>{t("404.title")}</h3>
-							<p>{t("404.description.paragraph1")}</p>
-							<p>{t("404.description.paragraph2")}</p>
+			<div className="container">
+				<div className="error-content">
+					<div className="error-logo">
+						<Image src="/images/logo-white.svg" alt="image" />
+					</div>
+					<h3>{t("404.title")}</h3>
+					<p>{t("404.description.paragraph1")}</p>
+					<p>{t("404.description.paragraph2")}</p>
 
-							<div className="btn-box">
-								<Link href={PathNames.CoursesIndex}>
-									<a className="default-btn">
-										<i className="flaticon-home"></i> {t("homePage")} <span></span>
-									</a>
-								</Link>
-							</div>
-						</div>
+					<div className="btn-box">
+						<Link href={PathNames.CoursesIndex}>
+							<a className="default-btn">
+								<i className="flaticon-home"></i> {t("homePage")} <span></span>
+							</a>
+						</Link>
 					</div>
 				</div>
 			</div>

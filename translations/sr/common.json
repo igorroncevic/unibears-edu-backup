@@ -19,8 +19,8 @@
 		"sr": "Srpski"
 	},
 	"404": {
-		"title": "Greška 404 : Stranica nije pronađena",
-		"description": { 
+		"title": "Stranica nije pronađena",
+		"description": {
 			"paragraph1": "Stranica koju tražite je uklonjena, ime joj je promenjeno ili je trenutno nedostupna.",
 			"paragraph2": "Uskoro ćete biti preusmereni na početnu stranicu."
 		}

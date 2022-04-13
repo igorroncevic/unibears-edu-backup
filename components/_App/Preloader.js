@@ -48,7 +48,7 @@ const Preloader = () => {
                     height: 75px;
                     border: 5px solid;
                     border-radius: 50%;
-                    border-color: transparent #fe4a55 #fe4a55 #fe4a55;
+                    border-color: transparent #48b4ff #48b4ff #48b4ff;
                     -webkit-box-sizing: border-box;
                             box-sizing: border-box;
                     position: absolute;
@@ -72,7 +72,7 @@ const Preloader = () => {
                     width: 0;
                     height: 0;
                     border: 12px solid;
-                    border-color: transparent transparent transparent #fe4a55;
+                    border-color: transparent transparent transparent #48b4ff;
                     -webkit-transform: translate(50px, 6.5px);
                             transform: translate(50px, 6.5px);
                 }

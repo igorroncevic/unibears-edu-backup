@@ -9,7 +9,7 @@ const Image = ({ src, alt, width, maxWidth, height, className, ...rest }) => {
 
 	return (
 		<div className="customImageContainer">
-			<NextImage className={`image ${className}`} layout="fill" src={src} alt={alt} {...rest} />
+			<NextImage className={`image ${className ? className : ""}`} layout="fill" src={src} alt={alt} {...rest} />
 		</div>
 	)
 }
