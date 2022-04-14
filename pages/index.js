@@ -1,6 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import Image from "@/components/Common/CustomImage";
+
 const Index = () => {
 	const [t] = useTranslation("common");
 
@@ -12,12 +14,12 @@ const Index = () => {
 						<div className="main-banner-content-style-two">
 							<h1>{t("home.title")}</h1>
 							<p>{t("home.subtitle")}</p>
-							<a onClick={e => e.preventDefault()} className="default-btn">
-								<i className="flaticon-user"></i>{t("home.joinForFree")}<span></span>
-							</a>
 						</div>
 					</div>
 					<div className="col-lg-6 col-md-12">
+						<div className="main-banner-image-style-two">
+							<Image src="/images/unibear.png" alt="image" />
+						</div>
 					</div>
 				</div>
 			</div>

@@ -37,7 +37,7 @@ const Lectures = ({ course }) => {
 			const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
 			setMetadata({ title, description });
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [course, langCode, router])
 
 	if (!course || (course && course.title === courseNotFound.title)) {
@@ -50,7 +50,7 @@ const Lectures = ({ course }) => {
 				title={metadata.title}
 				description={metadata.description}
 			/>
-			<div className="lectures-grid shadow min-vh-100 nomargin nopadding bg-light">
+			<div className="lectures-grid shadow min-vh-100 nomargin pb-5 bg-light">
 				{show && (
 					<div className="accordion-grid-item min-w-400">
 						<Accordion course={course} />
@@ -95,7 +95,7 @@ export async function getStaticProps({ params }) {
 		requiredUnibearsCount: course.requiredUnibearsCount,
 	};
 
-	return { props: { course, auth }, revalidate: 10*60 };
+	return { props: { course, auth }, revalidate: 10 * 60 };
 }
 
 export default Lectures;

@@ -3,8 +3,6 @@ Default CSS
 =================================================*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
-/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
- */
 :root {
 	scroll-behavior: initial;
 }
@@ -15,7 +13,6 @@ body {
 	font-size: 16px;
 	font-family: "Nunito", sans-serif;
 	--font-family: "Nunito", sans-serif;
-	/* --font-family2: "Playfair Display", serif; */
 	--main-color: #48b4ff;
 	--light-main-color: #b1dfff;
 	--optional-color: #606060;
@@ -2079,8 +2076,8 @@ Main Banner Area CSS - Keep
 	flex: 1;
 	z-index: 1;
 	position: relative;
-	padding-top: 190px;
-	background-image: url("/images/background.jpeg");
+	padding-top: 50px;
+	background-image: url("/images/bg.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

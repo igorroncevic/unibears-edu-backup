@@ -15,8 +15,8 @@ function Lecture({ topics }) {
 			<div className="p-4">
 				<PortableText content={lecture.overview ? lecture.overview[langCode] : ""} />
 			</div>
-			<h3> Additional docs </h3>
-			<div> File </div>
+			{/* <h3> Additional docs </h3>
+			<div> File </div> */}
 			<hr />
 			<Navigation topics={topics} />
 		</div>

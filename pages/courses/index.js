@@ -47,9 +47,7 @@ const Index = ({ courses, categories }) => {
 
 	return (
 		<React.Fragment>
-			<PageBanner
-				pageTitle={t("coursesTitle")}
-			/>
+			<PageBanner pageTitle={t("coursesTitle")} />
 
 			<div className="courses-area courses-section pt-100 pb-70">
 				<div className="container">
