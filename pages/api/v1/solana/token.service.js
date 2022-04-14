@@ -38,6 +38,7 @@ const tokenService = {
 		} catch (error) {
 			// console.log("Could not find account: ", token.mint)
 			// console.log(error); // TODO: Simplify or remove. Always return error for non-NFT tokens.
+			return null;
 		}
 	},
 	getMetaData: async (tokenData) => {

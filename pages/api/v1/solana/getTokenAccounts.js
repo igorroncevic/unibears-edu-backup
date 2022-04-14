@@ -1,5 +1,5 @@
-import Cors from "cors"
-import initMiddleware from "@/utils/init-middleware"
+import Cors from "cors";
+import initMiddleware from "@/utils/init-middleware";
 
 import { Connection } from "@solana/web3.js";
 import tokenService from "./token.service";
@@ -34,7 +34,7 @@ const getTokenMetadata = async (req, res) => {
 		//get token data
 		const ownedTokenData = [];
 		for (const token of ownedTokens) {
-			const tokenData = await tokenService.getTokenData(connection, token)
+			const tokenData = await tokenService.getTokenData(connection, token);
 			if (tokenData) {
 				ownedTokenData.push(tokenData);
 			}
@@ -53,7 +53,12 @@ const getTokenMetadata = async (req, res) => {
 
 		const metadataMinimized = metaDataList
 			.filter(metadata => {
-				const creator = metadata.properties?.creators[0]?.address;
+				const creators = metadata.properties?.creators;
+				if (!Array.isArray(creators)) {
+					return false;
+				}
+
+				const creator = creators[0]?.address;
 				return metadata.symbol === "UB" && creator === "92uUbmitkgazPpMR5XRD5ZErfoh7MrkiyEt1jqgCB4XJ"
 			})
 			.map(metadata => {
