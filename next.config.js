@@ -21,7 +21,7 @@ module.exports = withPWA({
 	env: {
 		JWT_SECRET: "djhfghbdsgrasklkajsdgf",
 		REACT_APP_SOLANA_NETWORK: "mainnet-beta",
-		SOLANA_RPC_HOST: "https://api.mainnet-beta.solana.com", //"https://blue-withered-frog.solana-mainnet.quiknode.pro/f543142ee13d636789d3639441b873fd7332acd8/", //"https://solana-api.projectserum.com",
+		SOLANA_RPC_HOST: /* "https://api.mainnet-beta.solana.com", */ "https://blue-withered-frog.solana-mainnet.quiknode.pro/f543142ee13d636789d3639441b873fd7332acd8/", //"https://solana-api.projectserum.com",
 	},
 	images: {
 		domains: ["res.cloudinary.com", "cdn.sanity.io", "localhost"],
