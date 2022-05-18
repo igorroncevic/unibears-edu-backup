@@ -18,7 +18,7 @@ const Index = () => {
 					</div>
 					<div className="col-lg-6 col-md-12">
 						<div className="main-banner-image-style-two">
-							<Image src="/images/unibear.png" alt="image" />
+							<Image src="/images/unibear-edu.png" alt="image" />
 						</div>
 					</div>
 				</div>
