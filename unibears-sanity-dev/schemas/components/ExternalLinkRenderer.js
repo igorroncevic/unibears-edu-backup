@@ -1,16 +1,15 @@
-// ExternalLinkRenderer.js
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 
 const ExternalLinkRenderer = props => (
-  <span>
-    {props.children} <FaExternalLinkAlt />
-  </span>
+	<span>
+		{props.children} <span style={{ "marginLeft": "2px" }}> <FaExternalLinkAlt /></span>
+	</span>
 )
 
 ExternalLinkRenderer.propTypes = {
-  children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired
 }
 
 export default ExternalLinkRenderer

@@ -8,7 +8,7 @@ import Accordion from "@/components/Accordion/Accordion";
 import Lecture from "@/components/Lectures/Lecture";
 import Preloader from "@/components/_App/Preloader";
 
-import { blockContentToPlainText } from "react-portable-text";
+import { toPlainText } from "@portabletext/react";
 import { getCoursePaths, getCourseLectures, courseNotFound } from "@/services/course.service";
 import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
 import { toastErrorImportant } from "@/utils/toasts";
@@ -31,7 +31,7 @@ const Lectures = ({ course }) => {
 		} else {
 			const componentMetadata = {
 				title: course.title[langCode],
-				description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
+				description: course.overview ? toPlainText(course.overview[langCode]) : defaultMetadata.description
 			};
 
 			const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);

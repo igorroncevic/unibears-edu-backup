@@ -13,7 +13,7 @@ import CoursesCurriculum from "@/components/Courses/CoursesCurriculum";
 import Preloader from "@/components/_App/Preloader";
 import AuthorSocials from "@/components/Courses/AuthorSocials";
 
-import { blockContentToPlainText } from "react-portable-text";
+import { toPlainText } from "@portabletext/react";
 import { defaultMetadata, getMetadata, PathNames } from "@/utils/routing";
 import { getCoursePaths, findCourseBySlug, courseNotFound } from "@/services/course.service";
 import { toastErrorImportant } from "@/utils/toasts";
@@ -37,7 +37,7 @@ const Details = ({ course }) => {
 			} else {
 				const componentMetadata = {
 					title: course.title[langCode],
-					description: course.overview ? blockContentToPlainText(course.overview[langCode]) : defaultMetadata.description
+					description: course.overview ? toPlainText(course.overview[langCode]) : defaultMetadata.description
 				};
 
 				const { title, description } = getMetadata(PathNames.CoursesId, componentMetadata);
@@ -45,7 +45,7 @@ const Details = ({ course }) => {
 				dispatch(changeLastVisitedCourse({ slug: course.slug }));
 			}
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [course, langCode, router])
 
 	if (!course || (course && course.title === courseNotFound.title)) {
@@ -87,7 +87,7 @@ const Details = ({ course }) => {
 								</TabPanel>
 
 								<TabPanel>
-									<Instructor author={course.author}/>
+									<Instructor author={course.author} />
 								</TabPanel>
 							</Tabs>
 						</div>

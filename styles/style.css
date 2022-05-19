@@ -2300,4 +2300,16 @@ Main Banner Area CSS - Keep
 	padding-right: 0;
 }
 
+.external-link-underline {
+	color: var(--main-color);
+	text-decoration: underline;
+	text-decoration-color: var(--main-color);
+}
+
+.external-link-underline:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--main-color);
+	text-decoration-thickness: 2px;
+}
+
 /*# sourceMappingURL=style.css.map */
