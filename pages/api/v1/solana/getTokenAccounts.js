@@ -70,7 +70,7 @@ const getTokenMetadata = async (req, res) => {
 		// console.log(pubKey + " owns " + metadataMinimized.length + " Unibears.")
 		res.status(200).send(metadataMinimized);
 	} else {
-		console.log("Found no accounts for " + pubKey + ".")
+		console.error("Found no accounts for " + pubKey + ".")
 		res.status(200).send([]);
 	}
 }

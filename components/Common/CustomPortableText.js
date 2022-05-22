@@ -26,8 +26,6 @@ const PortableText = ({ content, plain, shortenTo }) => {
 		}
 	};
 
-	console.log(contentFormatted);
-
 	return (
 		<ReactPortableText
 			dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}

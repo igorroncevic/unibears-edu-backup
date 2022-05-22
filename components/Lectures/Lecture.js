@@ -17,8 +17,9 @@ function Lecture({ topics }) {
 			</div>
 			{/* <h3> Additional docs </h3>
 			<div> File </div> */}
-			<hr />
-			<Navigation topics={topics} />
+			{/* <hr /> */}
+			{/* Currently bugged, but it isn't used often anyways. */}
+			{/* <Navigation topics={topics} /> */}
 		</div>
 	) : (
 		<>Loading...</>
