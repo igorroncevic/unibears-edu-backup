@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "unibears-edu-dev"
+    "name": "snow-anteater"
   },
   "api": {
-    "projectId": "vmb4n5ky",
+    "projectId": "6rxc1jnf",
     "dataset": "production"
   },
   "plugins": [
@@ -24,6 +24,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/base/root",
+      "path": "plugins/sanity-plugin-tutorial/CustomDefaultLayout"
     }
   ]
 }
