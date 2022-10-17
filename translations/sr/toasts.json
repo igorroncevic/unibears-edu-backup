@@ -1,7 +1,7 @@
 {
 	"error": {
 		"courseUnavailable": "Ovaj kurs trenutno nije dostupan.",
-		"notEnoughUnibears": "Nemaš dovoljno Unibearsa da pristupiš ovom kursu."
+		"notEnoughCollectionItems": "Nemaš dovoljno [collection name] da pristupiš ovom kursu."
 	},
 	"success": {
 		"login": "Uspešno povezivanje novčanika."
