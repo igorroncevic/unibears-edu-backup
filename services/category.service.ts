@@ -12,7 +12,7 @@ export const findAllCategories = async () => {
 
 	const categories = await sanityClient.fetch(query);
 
-	return categories.map((category: Category) => category.name);
+	return categories.map((category: Category) => category);
 };
 
 export const displayCategories = (categories: Category[], langCode: Lang) => {

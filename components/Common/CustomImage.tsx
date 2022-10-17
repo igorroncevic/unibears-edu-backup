@@ -19,10 +19,10 @@ const Image = ({
 	className,
 	...rest
 }: ImageProps) => {
-	// const additionalStyle: any = {};
-	// width ? (additionalStyle["width"] = width) : "100%";
-	// maxWidth ? (additionalStyle["maxWidth"] = maxWidth) : "100%";
-	// height ? (additionalStyle["height"] = height) : "100%";
+	const additionalStyle: any = {};
+	width ? (additionalStyle["width"] = width) : "100%";
+	maxWidth ? (additionalStyle["maxWidth"] = maxWidth) : "100%";
+	height ? (additionalStyle["height"] = height) : "100%";
 
 	return (
 		<div className="customImageContainer">
@@ -32,6 +32,7 @@ const Image = ({
 				src={src}
 				alt={alt}
 				{...rest}
+				{...additionalStyle}
 			/>
 		</div>
 	);

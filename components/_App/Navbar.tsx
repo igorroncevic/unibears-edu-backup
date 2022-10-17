@@ -5,7 +5,7 @@ import Link from "next/link";
 import Language from "./Language";
 import WalletButton from "../Common/WalletButton";
 import { PATH_NAMES } from "../../utils/routing";
-import Image from "next/image";
+import Image from "../Common/CustomImage";
 
 const mobileDevices =
 	/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
