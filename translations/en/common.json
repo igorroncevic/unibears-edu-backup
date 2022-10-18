@@ -1,11 +1,11 @@
 {
 	"home": {
-		"title": "Welcome to the Unibears world of knowledge",
-		"subtitle": "Unibears EDU project is the first educational web3 platform with courses on NFTs and NFT technology. You can learn how to profit from trading NFTs, how you create your own collection, how can you make smart contract or how to use NFT in developing your bussiness.",
+		"title": "Welcome to the [proj] world of knowledge",
+		"subtitle": "[proj] EDU project is the first educational web3 platform with courses on NFTs and NFT technology. You can learn how to profit from trading NFTs, how you create your own collection, how can you make smart contract or how to use NFT in developing your bussiness.",
 		"joinForFree": "Join For Free"
 	},
 	"navbar": {
-		"buyUnibear": "Buy Unibear",
+		"buyUnibear": "Buy [nft collection name]",
 		"courses": "Courses",
 		"connect": "Connect",
 		"wallet": "Wallet"

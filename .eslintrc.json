@@ -14,6 +14,7 @@
 			"tab",
 			{
 				"SwitchCase": 1
+				// "ignoredNodes": ["ConditionalExpression"]
 			}
 		]
 	}

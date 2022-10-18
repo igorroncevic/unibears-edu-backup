@@ -1,14 +1,14 @@
 {
 	"manifest_package": "org.chromium.webapk.test",
-	"name": "Unibears EDU",
-	"short_name": "Unibears EDU",
+	"name": "Learning platform",
+	"short_name": "Learning platform",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#48b4ff",
 	"background_color": "#48b4ff",
 	"intent_filters": {
 		"scope_url_scheme": "https",
-		"scope_url_host": "edu.unibears.io",
+		"scope_url_host": "learning-platform-url",
 		"scope_url_path": "/"
 	},
 	"scope": "/",
