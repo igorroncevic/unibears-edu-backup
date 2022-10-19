@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Topic } from "../../redux/reducers/course.reducer";
 import { AppState } from "../../redux/reducers/reducers";

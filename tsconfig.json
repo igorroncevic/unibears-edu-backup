@@ -102,4 +102,3 @@
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
-, "learning-platform-dev/schemas/components/ExternalLinkRenderer.js"

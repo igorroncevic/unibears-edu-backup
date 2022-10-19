@@ -1,6 +1,7 @@
 import { withRouter } from "next/router";
 import Link from "next/link";
-import React, { Children } from "react";
+import { Children } from "react";
+import { cloneElement } from "react";
 
 const ActiveLink = ({ router, children, ...props }: any) => {
 	const child = Children.only(children);
@@ -12,7 +13,7 @@ const ActiveLink = ({ router, children, ...props }: any) => {
 
 	delete props.activeClassName;
 
-	return <Link {...props}>{React.cloneElement(child, { className })}</Link>;
+	return <Link {...props}>{cloneElement(child, { className })}</Link>;
 };
 
 export default withRouter(ActiveLink);

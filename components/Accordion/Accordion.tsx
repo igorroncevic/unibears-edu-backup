@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Accordion } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";

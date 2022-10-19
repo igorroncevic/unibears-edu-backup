@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import PortableText from "../components/Common/CustomPortableText";
@@ -25,7 +25,7 @@ const PrivacyPolicy = ({ document }: DocumentProps) => {
 	}
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<PageBanner pageTitle={t("footer.privacyPolicy")} />
 
 			<div className="privacy-policy-area ptb-100">
@@ -44,7 +44,7 @@ const PrivacyPolicy = ({ document }: DocumentProps) => {
 					</div>
 				</div>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

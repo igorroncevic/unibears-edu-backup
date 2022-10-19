@@ -1,10 +1,10 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { CourseProps } from "./CourseCard";
 import { AppState } from "../../redux/reducers/reducers";
 import { PATH_NAMES } from "../../utils/routing";
+import { Fragment } from "react";
 
 const CoursesCurriculum = ({ course }: CourseProps) => {
 	const [t] = useTranslation("courses");
@@ -15,7 +15,7 @@ const CoursesCurriculum = ({ course }: CourseProps) => {
 		<div className="courses-curriculum">
 			{course?.topics?.map((topic) => {
 				return (
-					<React.Fragment key={topic.id}>
+					<Fragment key={topic.id}>
 						<h3>{topic.title[langCode]}</h3>
 						<ul>
 							{topic.lectures?.map((lecture) => (
@@ -44,7 +44,7 @@ const CoursesCurriculum = ({ course }: CourseProps) => {
 								</li>
 							))}
 						</ul>
-					</React.Fragment>
+					</Fragment>
 				);
 			})}
 			{!course?.topics && <h3>{t("noLectures")}</h3>}

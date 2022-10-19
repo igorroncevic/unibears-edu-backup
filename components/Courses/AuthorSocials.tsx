@@ -1,6 +1,3 @@
-import React from "react";
-import { Author } from "../../redux/reducers/course.reducer";
-
 interface AuthorSocials {
 	fb_url: string;
 	tw_url: string;

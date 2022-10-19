@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { PATH_NAMES } from "../../utils/routing";

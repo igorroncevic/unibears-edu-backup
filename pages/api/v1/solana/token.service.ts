@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Metadata } from "@metaplex-foundation/mpl-token-metadata";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
@@ -43,12 +42,17 @@ const tokenService = {
 		if (tokenData) {
 			const metaDataUri = tokenData.data?.data?.uri;
 
-			const response = await axios
-				.get(metaDataUri)
-				.then((res) => res.data)
-				.catch((err) => {
-					console.log(err);
-				});
+			// const response = await axios
+			// 	.get(metaDataUri)
+			// 	.then((res) => res.data)
+			// 	.catch((err) => {
+			// 		console.log(err);
+			// 	});
+
+			let response: any = await fetch(metaDataUri);
+			response.json().then((data: any) => {
+				response = data;
+			});
 
 			if (response && response.image) {
 				metaData = response;

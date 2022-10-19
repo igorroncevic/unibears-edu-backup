@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
@@ -11,6 +10,7 @@ import {
 	findLegalDocumentByType,
 	LEGAL_TYPES,
 } from "../services/legalDocuments.service";
+import { Fragment } from "react";
 
 const TermsOfService = ({ document }: DocumentProps) => {
 	const { langCode } = useSelector((state: AppState) => state.user);
@@ -21,7 +21,7 @@ const TermsOfService = ({ document }: DocumentProps) => {
 	}
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<PageBanner pageTitle={t("footer.tos")} />
 
 			<div className="terms-of-service-area ptb-100">
@@ -40,7 +40,7 @@ const TermsOfService = ({ document }: DocumentProps) => {
 					</div>
 				</div>
 			</div>
-		</React.Fragment>
+		</Fragment>
 	);
 };
 

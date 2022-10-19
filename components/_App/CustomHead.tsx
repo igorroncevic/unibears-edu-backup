@@ -1,4 +1,3 @@
-import React from "react";
 import NextHead from "next/head";
 import { APP_NAME, ComponentMetadata, PATH_NAMES } from "../../utils/routing";
 

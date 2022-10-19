@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Path {
 	active: boolean;
 	name: string;
