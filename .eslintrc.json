@@ -1,21 +1,14 @@
 {
-	"extends": "next/core-web-vitals",
-	"rules": {
-		"quotes": [
-			"error",
-			"double",
-			{
-				"allowTemplateLiterals": true
-			}
-		],
-		"prefer-const": "error",
-		"indent": [
-			"error",
-			"tab",
-			{
-				"SwitchCase": 1
-				// "ignoredNodes": ["ConditionalExpression"]
-			}
-		]
-	}
+    "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+    "rules": {
+        "quotes": [
+            "error",
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "prefer-const": "error",
+        "indent": ["error", 4]
+    }
 }

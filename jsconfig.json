@@ -2,24 +2,12 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/components/*": [
-                "components/*"
-            ],
-            "@/utils/*": [
-                "utils/*"
-            ],
-            "@/models/*": [
-                "models/*"
-            ],
-            "@/lib/*": [
-                "lib/*"
-            ],
-            "@/redux/*": [
-                "redux/*"
-            ],
-            "@/services/*": [
-                "services/*"
-            ]
+            "@/components/*": ["components/*"],
+            "@/utils/*": ["utils/*"],
+            "@/models/*": ["models/*"],
+            "@/lib/*": ["lib/*"],
+            "@/redux/*": ["redux/*"],
+            "@/services/*": ["services/*"]
         }
     }
 }

@@ -1,9 +1,9 @@
 {
-	"error": {
-		"courseUnavailable": "This course is unavailable right now.",
-		"notEnoughCollectionItems": "You do not have enough [collection name] to access this course."
-	},
-	"success": {
-		"login": "Successfully connected your wallet."
-	}
+    "error": {
+        "courseUnavailable": "This course is unavailable right now.",
+        "notEnoughCollectionItems": "You do not have enough [collection name] to access this course."
+    },
+    "success": {
+        "login": "Successfully connected your wallet."
+    }
 }

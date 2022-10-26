@@ -1,1 +1,1 @@
-declare module "react-tabs";
+declare module 'react-tabs';

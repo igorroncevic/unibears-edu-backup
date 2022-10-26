@@ -1,9 +1,9 @@
 {
-	"error": {
-		"courseUnavailable": "Ovaj kurs trenutno nije dostupan.",
-		"notEnoughCollectionItems": "Nemaš dovoljno [collection name] da pristupiš ovom kursu."
-	},
-	"success": {
-		"login": "Uspešno povezivanje novčanika."
-	}
+    "error": {
+        "courseUnavailable": "Ovaj kurs trenutno nije dostupan.",
+        "notEnoughCollectionItems": "Nemaš dovoljno [collection name] da pristupiš ovom kursu."
+    },
+    "success": {
+        "login": "Uspešno povezivanje novčanika."
+    }
 }
