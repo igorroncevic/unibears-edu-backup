@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { LANGUAGE_CODES } from "../../redux/constants/constants";
 import { Lang, languageChange } from "../../redux/actions/user.actions";
+import { useState } from "react";
+import { useEffect } from "react";
 
 interface LanguageData {
 	name: string;
@@ -28,7 +29,7 @@ const Language = () => {
 	const { t, i18n } = useTranslation("common");
 
 	const [showLanguages, setShowLanguages] = useState(false);
-	const [chosenLanguage, setChosenLanguage] = useState<LanguageData>();
+	const [chosenLanguage, setChosenLanguage] = useState();
 
 	useEffect(() => {
 		setLanguage(
@@ -40,7 +41,7 @@ const Language = () => {
 		if (Object.keys(LANGUAGE_CODES).includes(i18n.language)) {
 			dispatch(languageChange({ langCode: i18n.language as Lang }));
 		}
-	}, [i18n.language]);
+	}, [i18n.language, dispatch]);
 
 	const changeLanguage = (language: LanguageData) => {
 		dispatch(languageChange({ langCode: language.shortName }));
@@ -54,7 +55,7 @@ const Language = () => {
 	};
 
 	const showLanguagesHandler = () => {
-		setShowLanguages((prevState) => !prevState);
+		setShowLanguages((prevState: any) => !prevState);
 	};
 
 	const getLanguageHTML = (language: LanguageData) => {

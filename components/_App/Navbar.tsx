@@ -48,7 +48,7 @@ const Navbar = () => {
 
 	return (
 		<div id="navbar" className="navbar-area">
-			<div className="edemy-nav">
+			<div className="learning-platform-nav">
 				<div className="container-fluid">
 					<div className="navbar navbar-expand-lg navbar-light">
 						<Link href={PATH_NAMES.Index}>

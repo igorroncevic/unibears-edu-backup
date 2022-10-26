@@ -376,13 +376,13 @@ a:hover {
 /*================================================
 Navbar Area CSS
 =================================================*/
-.edemy-nav .container-fluid,
+.learning-platform-nav .container-fluid,
 .breadcrumb .container-fluid {
 	padding-left: 40px;
 	padding-right: 40px;
 }
 
-.edemy-nav .navbar {
+.learning-platform-nav .navbar {
 	position: inherit;
 	padding-left: 0;
 	padding-right: 0;
@@ -390,7 +390,7 @@ Navbar Area CSS
 	padding-bottom: 0;
 }
 
-.edemy-nav .navbar .navbar-brand {
+.learning-platform-nav .navbar .navbar-brand {
 	font-size: inherit;
 	line-height: 1;
 	padding-top: 0;
@@ -400,21 +400,21 @@ Navbar Area CSS
 	max-width: 160px;
 }
 
-.edemy-nav .navbar ul {
+.learning-platform-nav .navbar ul {
 	padding-left: 0;
 	list-style-type: none;
 	margin-bottom: 0;
 }
 
-.edemy-nav .navbar .navbar-nav {
+.learning-platform-nav .navbar .navbar-nav {
 	margin-left: auto;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item {
+.learning-platform-nav .navbar .navbar-nav .nav-item {
 	position: relative;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item a {
+.learning-platform-nav .navbar .navbar-nav .nav-item a {
 	color: var(--black-color);
 	font-size: 16.5px;
 	font-weight: 700;
@@ -426,7 +426,7 @@ Navbar Area CSS
 	margin-right: 13px;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item a i {
+.learning-platform-nav .navbar .navbar-nav .nav-item a i {
 	font-size: 18px;
 	position: relative;
 	top: 2px;
@@ -435,26 +435,26 @@ Navbar Area CSS
 	margin-right: -3px;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item a.active {
+.learning-platform-nav .navbar .navbar-nav .nav-item a:hover,
+.learning-platform-nav .navbar .navbar-nav .nav-item a:focus,
+.learning-platform-nav .navbar .navbar-nav .nav-item a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item:last-child a {
+.learning-platform-nav .navbar .navbar-nav .nav-item:last-child a {
 	margin-right: 0;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item:first-child a {
+.learning-platform-nav .navbar .navbar-nav .nav-item:first-child a {
 	margin-left: 0;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item:hover a,
-.edemy-nav .navbar .navbar-nav .nav-item.active a {
+.learning-platform-nav .navbar .navbar-nav .nav-item:hover a,
+.learning-platform-nav .navbar .navbar-nav .nav-item.active a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu {
+.learning-platform-nav .navbar .navbar-nav .nav-item .dropdown-menu {
 	border: none;
 	top: 70px;
 	left: 0;
@@ -475,7 +475,7 @@ Navbar Area CSS
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a {
+.learning-platform-nav .navbar .navbar-nav .nav-item .dropdown-menu li a {
 	padding: 8px 20px;
 	margin: 0;
 	position: relative;
@@ -485,7 +485,7 @@ Navbar Area CSS
 	font-weight: 700;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a i {
+.learning-platform-nav .navbar .navbar-nav .nav-item .dropdown-menu li a i {
 	margin: 0;
 	position: absolute;
 	top: 50%;
@@ -495,13 +495,25 @@ Navbar Area CSS
 	right: 15px;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li a.active {
+.learning-platform-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:hover,
+.learning-platform-nav .navbar .navbar-nav .nav-item .dropdown-menu li a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu {
 	top: 0;
 	opacity: 0;
 	left: -100%;
@@ -509,51 +521,201 @@ Navbar Area CSS
 	visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a {
 	color: var(--black-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu {
 	top: 0;
 	opacity: 0;
 	left: 100%;
 	visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a {
 	color: var(--black-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu {
 	top: 0;
 	opacity: 0;
 	left: -100%;
 	visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a {
 	color: var(--black-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu {
 	top: 0;
 	opacity: 0;
 	left: 100%;
@@ -562,17 +724,87 @@ Navbar Area CSS
 	transform: scaleY(0);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a {
 	color: var(--black-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu {
 	top: 0;
 	opacity: 0;
 	left: -100%;
@@ -581,99 +813,383 @@ Navbar Area CSS
 	transform: scaleY(0);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a {
 	color: var(--black-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu {
 	top: 0;
 	opacity: 0;
 	left: 100%;
 	visibility: hidden;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a {
 	color: var(--black-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:hover,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a:focus,
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li.active
+	a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li.active
+	a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li.active
+	a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li.active a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li.active
+	a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li.active a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li.active
+	a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li
+	.dropdown-menu
+	li:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li.active a {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li.active
+	a {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item .dropdown-menu li:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.navbar-nav
+	.nav-item
+	.dropdown-menu
+	li:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 	margin-top: 0;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item:hover .dropdown-menu {
+.learning-platform-nav .navbar .navbar-nav .nav-item:hover .dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 	margin-top: 9px;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item.megamenu {
+.learning-platform-nav .navbar .navbar-nav .nav-item.megamenu {
 	position: inherit;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item.megamenu .container {
+.learning-platform-nav .navbar .navbar-nav .nav-item.megamenu .container {
 	display: block;
 	-ms-flex-wrap: unset;
 	flex-wrap: unset;
@@ -685,7 +1201,7 @@ Navbar Area CSS
 	justify-content: unset;
 }
 
-.edemy-nav .navbar .navbar-nav .nav-item.megamenu .dropdown-menu {
+.learning-platform-nav .navbar .navbar-nav .nav-item.megamenu .dropdown-menu {
 	width: 100% !important;
 	top: auto;
 	left: 0;
@@ -696,23 +1212,23 @@ Navbar Area CSS
 	transform: unset !important;
 }
 
-.edemy-nav .navbar .others-option {
+.learning-platform-nav .navbar .others-option {
 	margin-left: 25px;
 }
 
-.edemy-nav .navbar .others-option .option-item {
+.learning-platform-nav .navbar .others-option .option-item {
 	margin-left: 30px;
 }
 
-.edemy-nav .navbar .others-option .option-item:first-child {
+.learning-platform-nav .navbar .others-option .option-item:first-child {
 	margin-left: 0;
 }
 
-.edemy-nav .navbar .others-option .user-dropdown {
+.learning-platform-nav .navbar .others-option .user-dropdown {
 	position: relative;
 }
 
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu {
+.learning-platform-nav .navbar .others-option .user-dropdown .dropdown-menu {
 	border: none;
 	top: 58px;
 	left: auto;
@@ -734,7 +1250,13 @@ Navbar Area CSS
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a {
+.learning-platform-nav
+	.navbar
+	.others-option
+	.user-dropdown
+	.dropdown-menu
+	li
+	a {
 	padding: 8px 20px;
 	margin: 0;
 	position: relative;
@@ -744,7 +1266,14 @@ Navbar Area CSS
 	font-weight: 700;
 }
 
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a i {
+.learning-platform-nav
+	.navbar
+	.others-option
+	.user-dropdown
+	.dropdown-menu
+	li
+	a
+	i {
 	margin: 0;
 	position: absolute;
 	top: 50%;
@@ -754,13 +1283,35 @@ Navbar Area CSS
 	right: 15px;
 }
 
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:hover,
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a:focus,
-.edemy-nav .navbar .others-option .user-dropdown .dropdown-menu li a.active {
+.learning-platform-nav
+	.navbar
+	.others-option
+	.user-dropdown
+	.dropdown-menu
+	li
+	a:hover,
+.learning-platform-nav
+	.navbar
+	.others-option
+	.user-dropdown
+	.dropdown-menu
+	li
+	a:focus,
+.learning-platform-nav
+	.navbar
+	.others-option
+	.user-dropdown
+	.dropdown-menu
+	li
+	a.active {
 	color: var(--main-color);
 }
 
-.edemy-nav .navbar .others-option .user-dropdown:hover .dropdown-menu {
+.learning-platform-nav
+	.navbar
+	.others-option
+	.user-dropdown:hover
+	.dropdown-menu {
 	opacity: 1;
 	visibility: visible;
 	margin-top: 9px;
@@ -1001,20 +1552,20 @@ Courses Area CSS
 	box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
 }
 
-.edemy-grid-sorting {
+.learning-platform-grid-sorting {
 	margin-bottom: 40px;
 }
 
-.edemy-grid-sorting .result-count p .count {
+.learning-platform-grid-sorting .result-count p .count {
 	font-weight: 700;
 	color: var(--black-color);
 }
 
-.edemy-grid-sorting .ordering {
+.learning-platform-grid-sorting .ordering {
 	text-align: right;
 }
 
-.edemy-grid-sorting .ordering label {
+.learning-platform-grid-sorting .ordering label {
 	display: inline-block;
 	margin-bottom: 0;
 	color: var(--grey-93-color);
@@ -1023,7 +1574,7 @@ Courses Area CSS
 	font-weight: 700;
 }
 
-.edemy-grid-sorting .ordering .nice-select {
+.learning-platform-grid-sorting .ordering .nice-select {
 	display: inline-block;
 	width: 215px;
 	background: var(--light-grey-color);
@@ -1038,7 +1589,7 @@ Courses Area CSS
 	font-weight: 700;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list {
+.learning-platform-grid-sorting .ordering .nice-select .list {
 	background-color: var(--white-color);
 	border-radius: 5px;
 	-webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -1053,7 +1604,7 @@ Courses Area CSS
 	padding-bottom: 10px;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option {
+.learning-platform-grid-sorting .ordering .nice-select .list .option {
 	line-height: 38px;
 	min-height: 38px;
 	color: var(--black-color);
@@ -1066,22 +1617,30 @@ Courses Area CSS
 	font-weight: 700;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option:hover {
+.learning-platform-grid-sorting .ordering .nice-select .list .option:hover {
 	background-color: var(--main-color) !important;
 	color: var(--white-color);
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option:hover::before {
+.learning-platform-grid-sorting
+	.ordering
+	.nice-select
+	.list
+	.option:hover::before {
 	color: var(--white-color);
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option.focus,
-.edemy-grid-sorting .ordering .nice-select .list .option.selected.focus {
+.learning-platform-grid-sorting .ordering .nice-select .list .option.focus,
+.learning-platform-grid-sorting
+	.ordering
+	.nice-select
+	.list
+	.option.selected.focus {
 	background-color: transparent !important;
 	color: var(--black-color);
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option::before {
+.learning-platform-grid-sorting .ordering .nice-select .list .option::before {
 	content: "\f11f";
 	position: absolute;
 	left: 10px;
@@ -1095,28 +1654,40 @@ Courses Area CSS
 	font-size: 11px;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option.selected::before {
+.learning-platform-grid-sorting
+	.ordering
+	.nice-select
+	.list
+	.option.selected::before {
 	opacity: 1;
 	visibility: visible;
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option.selected:hover {
+.learning-platform-grid-sorting
+	.ordering
+	.nice-select
+	.list
+	.option.selected:hover {
 	background-color: var(--main-color) !important;
 	color: var(--white-color);
 }
 
-.edemy-grid-sorting .ordering .nice-select .list .option.selected:hover::before {
+.learning-platform-grid-sorting
+	.ordering
+	.nice-select
+	.list
+	.option.selected:hover::before {
 	color: var(--white-color);
 }
 
-.edemy-grid-sorting .ordering .nice-select:after {
+.learning-platform-grid-sorting .ordering .nice-select:after {
 	border-color: var(--black-color);
 	height: 8px;
 	width: 8px;
 	margin-top: -5px;
 }
 
-.edemy-grid-sorting .ordering .nice-select:hover {
+.learning-platform-grid-sorting .ordering .nice-select:hover {
 	border-color: var(--main-color);
 	background-color: transparent;
 }
@@ -1216,12 +1787,16 @@ Courses Details Area CSS - Keep
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover,
-.courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected {
+.courses-details-desc
+	.react-tabs__tab-list
+	.react-tabs__tab.react-tabs__tab--selected {
 	color: var(--black-color);
 }
 
 .courses-details-desc .react-tabs__tab-list .react-tabs__tab:hover::before,
-.courses-details-desc .react-tabs__tab-list .react-tabs__tab.react-tabs__tab--selected::before {
+.courses-details-desc
+	.react-tabs__tab-list
+	.react-tabs__tab.react-tabs__tab--selected::before {
 	-webkit-transform: scaleX(1);
 	transform: scaleX(1);
 }
@@ -1242,7 +1817,10 @@ Courses Details Area CSS - Keep
 	font-weight: 800;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-overview h3:not(:first-child) {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-overview
+	h3:not(:first-child) {
 	margin-top: 30px;
 }
 
@@ -1260,7 +1838,10 @@ Courses Details Area CSS - Keep
 	font-weight: 800;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum h3:not(:first-child) {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	h3:not(:first-child) {
 	margin-top: 30px;
 }
 
@@ -1286,7 +1867,12 @@ Courses Details Area CSS - Keep
 	margin-right: -30px;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a::before {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li
+	a::before {
 	content: "\f104";
 	position: absolute;
 	left: 30px;
@@ -1296,16 +1882,35 @@ Courses Details Area CSS - Keep
 	font-family: Flaticon;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-name {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li
+	a
+	.courses-name {
 	font-size: 14.5px;
 	font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li
+	a
+	.courses-meta {
 	text-align: right;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .duration {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li
+	a
+	.courses-meta
+	.duration {
 	display: inline-block;
 	background: var(--light-main-color);
 	color: var(--main-color);
@@ -1316,7 +1921,14 @@ Courses Details Area CSS - Keep
 	font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li
+	a
+	.courses-meta
+	.status {
 	display: inline-block;
 	background: var(--black-color);
 	color: var(--white-color);
@@ -1327,7 +1939,14 @@ Courses Details Area CSS - Keep
 	font-weight: 700;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li a .courses-meta .status.locked {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li
+	a
+	.courses-meta
+	.status.locked {
 	color: var(--black-color);
 	background-color: transparent;
 	padding: 0;
@@ -1343,72 +1962,332 @@ Courses Details Area CSS - Keep
 	color: var(--main-color);
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(2) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(4) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(6) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(8) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(10) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(12) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(14) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(16) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(18) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(20) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(22) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(24) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(26) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(28) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(30) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(32) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(34) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(36) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(38) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(40) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(42) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(44) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(46) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(48) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(50) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(52) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(54) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(56) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(58) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(60) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(62) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(64) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(66) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(68) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(70) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(72) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(74) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(76) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(78) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(80) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(82) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(84) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(86) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(88) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(90) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(92) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(94) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(96) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(98) a,
-.courses-details-desc .react-tabs__tab-panel .courses-curriculum ul li:nth-child(100) a {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(2)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(4)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(6)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(8)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(10)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(12)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(14)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(16)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(18)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(20)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(22)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(24)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(26)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(28)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(30)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(32)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(34)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(36)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(38)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(40)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(42)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(44)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(46)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(48)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(50)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(52)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(54)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(56)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(58)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(60)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(62)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(64)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(66)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(68)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(70)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(72)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(74)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(76)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(78)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(80)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(82)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(84)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(86)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(88)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(90)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(92)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(94)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(96)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(98)
+	a,
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-curriculum
+	ul
+	li:nth-child(100)
+	a {
 	background-color: var(--white-color);
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-instructor
+	.single-advisor-box {
 	margin-bottom: 0;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-image {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-instructor
+	.single-advisor-box
+	.advisor-image {
 	top: 0;
 	margin-bottom: 0;
 }
 
-.courses-details-desc .react-tabs__tab-panel .courses-instructor .single-advisor-box .advisor-content {
+.courses-details-desc
+	.react-tabs__tab-panel
+	.courses-instructor
+	.single-advisor-box
+	.advisor-content {
 	padding: 0 0 0 20px;
 }
-
 
 .courses-details-info {
 	background-color: var(--light-grey-color);
@@ -2147,7 +3026,7 @@ Main Banner Area CSS - Keep
 	height: auto;
 }
 
-.customImageContainer>span {
+.customImageContainer > span {
 	position: unset !important;
 	overflow: inherit !important;
 }
@@ -2168,7 +3047,7 @@ Main Banner Area CSS - Keep
 	align-items: center;
 }
 
-.categories-filter .dropdown-button-custom>* {
+.categories-filter .dropdown-button-custom > * {
 	border: none !important;
 	font-size: 16px !important;
 	color: var(--black-color) !important;
@@ -2179,12 +3058,12 @@ Main Banner Area CSS - Keep
 	padding: 4px 16px;
 }
 
-.categories-filter .dropdown-button-custom>* {
+.categories-filter .dropdown-button-custom > * {
 	background-color: var(--white-color) !important;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 20px 0 rgba(0, 0, 0, 0.04) !important;
 }
 
-.categories-filter .dropdown-button-custom>*:hover {
+.categories-filter .dropdown-button-custom > *:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09) !important;
 }
 

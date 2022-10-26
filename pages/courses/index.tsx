@@ -70,7 +70,7 @@ const Index = ({ courses, categories }: IndexProps) => {
 
 			<div className="courses-area courses-section pt-100 pb-70">
 				<div className="container">
-					<div className="edemy-grid-sorting row align-items-center">
+					<div className="learning-platform-grid-sorting row align-items-center">
 						<div className="col-lg-8 col-md-6 result-count">
 							<p>
 								{t("weFound")}{" "}

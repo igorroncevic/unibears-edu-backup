@@ -1,4 +1,3 @@
-import moment from "moment";
 import { Course } from "../redux/reducers/course.reducer";
 import { sanityClient, urlFor } from "../sanity.config";
 
@@ -90,7 +89,9 @@ const _transformCourse = (course: Course) => {
 
 	// TODO: Standardize this format.
 	if (course.publishedAt) {
-		course.publishedAt = moment(course.publishedAt).format("Do MMM YYYY");
+		course.publishedAt = new Date(course.publishedAt)
+			.toDateString()
+			.substring(4);
 	}
 
 	// if (course.categories && Array.isArray(course.categories)) {
