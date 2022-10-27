@@ -1,17 +1,17 @@
 /* eslint-disable indent */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Dropdown } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Dropdown } from 'react-bootstrap';
+import PageBanner from '../../components/Common/PageBanner';
+import CourseCard from '../../components/Courses/CourseCard';
 import { Category, Course } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/reducers/reducers';
+import { AppState } from '../../redux/store';
 import {
     allCategoriesFilterTranslated,
     categoriesFilterTranslated,
     findAllCategories,
 } from '../../services/category.service';
-import PageBanner from '../../components/Common/PageBanner';
-import CourseCard from '../../components/Courses/CourseCard';
 import { findAllCourses } from '../../services/course.service';
 
 interface IndexProps {
@@ -22,15 +22,13 @@ interface IndexProps {
 const Index = ({ courses, categories }: IndexProps) => {
     const [t] = useTranslation('courses');
     const { langCode } = useSelector((state: AppState) => state.user);
-
-    const [allCourses, setAllCourses] = useState(courses);
     const [displayCourses, setDisplayCourses] = useState(courses);
 
-    const [allCategories, setAllCategories] = useState<string[]>([
+    const [allCategories, setAllCategories] = useState([
         t('all'),
         ...categoriesFilterTranslated(categories, langCode),
     ]);
-    const [categoryFilter, setCategoryFilter] = useState<string>(t('all'));
+    const [categoryFilter, setCategoryFilter] = useState(t('all'));
 
     useEffect(() => {
         const allCategoriesFilterTemp = allCategoriesFilterTranslated(langCode);
@@ -44,21 +42,25 @@ const Index = ({ courses, categories }: IndexProps) => {
         setCategoryFilter(allCategoriesFilterTemp);
     }, [categories, langCode]);
 
+    const filterCourses = () =>
+        courses.filter((course: Course) =>
+            course.categories.some(
+                (category: Category) =>
+                    category.name[langCode] == categoryFilter
+            )
+        );
+
     useEffect(() => {
         switch (categoryFilter) {
             case allCategoriesFilterTranslated(langCode):
-                setDisplayCourses(allCourses);
+                setDisplayCourses(courses);
                 break;
             default:
-                const filtered = allCourses.filter((course) =>
-                    course.categories.some(
-                        (category) => category.name[langCode] == categoryFilter
-                    )
-                );
-                setDisplayCourses(filtered);
+                setDisplayCourses(filterCourses());
                 break;
         }
-    }, [allCourses, langCode, categoryFilter]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [langCode, categoryFilter]);
 
     const handleCategorySelect = (e: any) => {
         setCategoryFilter(e);
@@ -92,7 +94,7 @@ const Index = ({ courses, categories }: IndexProps) => {
                                     {categoryFilter}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                    {allCategories.map((category) => (
+                                    {allCategories.map((category: Category) => (
                                         <Dropdown.Item
                                             key={category}
                                             eventKey={category}
@@ -107,7 +109,7 @@ const Index = ({ courses, categories }: IndexProps) => {
 
                     <div className="row">
                         {displayCourses.length ? (
-                            displayCourses.map((course) => (
+                            displayCourses.map((course: Course) => (
                                 <CourseCard course={course} key={course.id} />
                             ))
                         ) : (

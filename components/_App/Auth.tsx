@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
-import Preloader from './Preloader';
-import { toastErrorImportant } from '../../utils/toasts';
-import { AppState } from '../../redux/reducers/reducers';
+import { AppState } from '../../redux/store';
 import { PATH_NAMES } from '../../utils/routing';
+import { toastErrorImportant } from '../../utils/toasts';
+import Preloader from './Preloader';
 
 interface AuthProp {
     requiredCollectionItems: number;

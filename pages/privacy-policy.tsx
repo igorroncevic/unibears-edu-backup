@@ -6,7 +6,7 @@ import PortableText from '../components/Common/CustomPortableText';
 import PageBanner from '../components/Common/PageBanner';
 import Preloader from '../components/_App/Preloader';
 import { Translation } from '../redux/reducers/course.reducer';
-import { AppState } from '../redux/reducers/reducers';
+import { AppState } from '../redux/store';
 import {
     findLegalDocumentByType,
     LEGAL_TYPES,

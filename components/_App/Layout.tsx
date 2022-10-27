@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Toaster } from 'react-hot-toast';
 import Router, { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 
-import Navbar from './Navbar';
-import Footer from './Footer';
-import Preloader from './Preloader';
-import { AppState } from '../../redux/reducers/reducers';
+import { AppState } from '../../redux/store';
 import { defaultMetadata, getMetadata, Route } from '../../utils/routing';
 import Head from './CustomHead';
+import Footer from './Footer';
+import Navbar from './Navbar';
+import Preloader from './Preloader';
 
 interface LayoutProps {
     children: JSX.Element;
@@ -19,7 +19,6 @@ const Layout = ({ children }: LayoutProps) => {
     const { langCode } = useSelector((state: AppState) => state.user);
 
     const [metadata, setMetadata] = useState(defaultMetadata);
-    const [previousMetadata, setPreviousMetadata] = useState(defaultMetadata);
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {

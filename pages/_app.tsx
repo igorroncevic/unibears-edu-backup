@@ -6,6 +6,7 @@ import '../styles/boxicons.min.css';
 import '../styles/flaticon.css';
 import '../styles/meanmenu.min.css';
 import '../styles/overrides.css';
+import '../styles/preloader.css';
 import '../styles/responsive.css';
 import '../styles/style.css';
 
@@ -13,7 +14,7 @@ import '../translations/config.js'; // init translation
 
 import { useEffect, useMemo } from 'react';
 import Layout from '../components/_App/Layout';
-import { store, wrapper } from '../redux/store';
+import { wrapper } from '../redux/store';
 
 // Solana
 import {
@@ -31,8 +32,9 @@ import {
     WalletProvider,
 } from '@solana/wallet-adapter-react';
 
+import { SSRProvider } from '@react-aria/ssr';
 import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui';
-import { Provider } from 'react-redux';
+import { AppProps } from 'next/app';
 import Auth from '../components/_App/Auth';
 
 /*
@@ -42,7 +44,13 @@ import Auth from '../components/_App/Auth';
 */
 const network = process.env.REACT_APP_SOLANA_NETWORK || 'devnet';
 
-const MyApp = ({ Component, pageProps }: any) => {
+interface CustomPageProps {
+    auth: {
+        requiredCollectionItems: number;
+    };
+}
+
+const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
     const endpoint = useMemo(() => clusterApiUrl(network as Cluster), []);
 
     useEffect(() => {
@@ -69,9 +77,9 @@ const MyApp = ({ Component, pageProps }: any) => {
 
     return (
         <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} autoConnect={true}>
-                <WalletDialogProvider>
-                    <Provider store={store}>
+            <SSRProvider>
+                <WalletProvider wallets={wallets} autoConnect={true}>
+                    <WalletDialogProvider>
                         <Layout {...pageProps}>
                             {
                                 // If component requires auth, check it.
@@ -84,9 +92,9 @@ const MyApp = ({ Component, pageProps }: any) => {
                                 )
                             }
                         </Layout>
-                    </Provider>
-                </WalletDialogProvider>
-            </WalletProvider>
+                    </WalletDialogProvider>
+                </WalletProvider>
+            </SSRProvider>
         </ConnectionProvider>
     );
 };

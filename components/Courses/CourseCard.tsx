@@ -1,12 +1,12 @@
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { Course } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/reducers/reducers';
+import { AppState } from '../../redux/store';
+import { displayCategories } from '../../services/category.service';
 import { PATH_NAMES } from '../../utils/routing';
 import Image from '../Common/CustomImage';
 import PortableText from '../Common/CustomPortableText';
-import { displayCategories } from '../../services/category.service';
 
 export interface CourseProps {
     course: Course;

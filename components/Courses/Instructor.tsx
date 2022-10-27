@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Author } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/reducers/reducers';
+import { AppState } from '../../redux/store';
 import Image from '../Common/CustomImage';
 import PortableText from '../Common/CustomPortableText';
 

@@ -1,17 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { Lecture, Topic } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/reducers/reducers';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    Lecture,
+    lectureChange,
+    Topic,
+    updatePreviousAndNextLecture,
+} from '../../redux/reducers/course.reducer';
+import { AppState } from '../../redux/store';
 import {
     findTopicAndLectureIndex,
     setNextAndPreviousLecture,
 } from '../../utils/common';
-import {
-    lectureChange,
-    updatePreviousAndNextLecture,
-    UpdatePreviousAndNextLecturePayload,
-} from '../../redux/actions/course.actions';
 import { PATH_NAMES } from '../../utils/routing';
 
 interface NavigationProps {
@@ -40,8 +40,11 @@ function Navigation({ topics }: NavigationProps) {
                     activeLecture: topics[topicIndex].lectures[lectureIndex],
                 })
             );
-            const data: UpdatePreviousAndNextLecturePayload =
-                setNextAndPreviousLecture(topics, topicIndex, lectureIndex);
+            const data = setNextAndPreviousLecture(
+                topics,
+                topicIndex,
+                lectureIndex
+            );
             dispatch(updatePreviousAndNextLecture(data));
         }
     };

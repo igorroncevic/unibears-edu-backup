@@ -1,13 +1,5 @@
-import {
-    AuthAction,
-    AuthSucessPayload,
-    CollectionItemCountPayload,
-} from '../actions/auth.actions';
-import {
-    WEB3_AUTH_SUCCESS,
-    WEB3_AUTH_FAIL,
-    SET_COLLECTION_ITEMS_COUNT,
-} from '../constants/constants';
+import { createSlice } from '@reduxjs/toolkit';
+import { HYDRATE } from 'next-redux-wrapper';
 
 export interface AuthState {
     address: string;
@@ -21,31 +13,46 @@ export const initialState: AuthState = {
     errorMessage: '',
 };
 
-export const authReducer = (
-    state: AuthState = initialState,
-    action: AuthAction
-): AuthState => {
-    switch (action.type) {
-        case WEB3_AUTH_SUCCESS:
-            const { address } = action.payload as AuthSucessPayload;
+export interface AuthSucessPayload {
+    address: string;
+}
+
+export interface CollectionItemCountPayload {
+    collectionItemsCount: number;
+}
+
+export const authSlice = createSlice({
+    name: 'auth',
+    initialState,
+    reducers: {
+        web3AuthSuccess: (
+            state: AuthState,
+            action: { payload: AuthSucessPayload }
+        ) => {
+            state.address = action.payload.address;
+        },
+        web3AuthFail: (state: AuthState) => {
+            state.errorMessage =
+                'Could not authenticate user. Please try again.';
+        },
+        setCollectionItemCount: (
+            state: AuthState,
+            action: { payload: CollectionItemCountPayload }
+        ) => {
+            state.collectionItemsCount = action.payload.collectionItemsCount;
+        },
+    },
+    extraReducers: {
+        [HYDRATE]: (state, action) => {
             return {
                 ...state,
-                address,
+                ...action.payload.auth,
             };
-        case WEB3_AUTH_FAIL:
-            return {
-                ...state,
-                errorMessage: 'Could not authenticate user. Please try again.',
-            };
-        case SET_COLLECTION_ITEMS_COUNT: {
-            const { collectionItemsCount } =
-                action.payload as CollectionItemCountPayload;
-            return {
-                ...state,
-                collectionItemsCount,
-            };
-        }
-        default:
-            return state;
-    }
-};
+        },
+    },
+});
+
+export const { web3AuthSuccess, web3AuthFail, setCollectionItemCount } =
+    authSlice.actions;
+
+export default authSlice.reducer;

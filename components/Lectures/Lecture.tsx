@@ -1,15 +1,9 @@
 import { useSelector } from 'react-redux';
-import { Topic } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/reducers/reducers';
+import { AppState } from '../../redux/store';
 import PortableText from '../Common/CustomPortableText';
-import Navigation from './Navigation';
 import Video from './Video';
 
-interface LectureProps {
-    topics: Topic[];
-}
-
-function Lecture({ topics }: LectureProps) {
+function Lecture() {
     const lecture = useSelector(
         (state: AppState) => state.course.activeLecture?.active
     );
@@ -18,7 +12,6 @@ function Lecture({ topics }: LectureProps) {
     return lecture ? (
         <div className="container">
             <h2 className="font-weight-light py-3">
-                {' '}
                 {lecture.title[langCode]}{' '}
             </h2>
             <Video source={lecture.source} />
