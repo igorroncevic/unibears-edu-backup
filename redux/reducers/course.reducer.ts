@@ -1,14 +1,5 @@
-import {
-    ChangeLastVisitedCoursePayload,
-    CourseAction,
-    LectureChangePayload,
-    UpdatePreviousAndNextLecturePayload,
-} from '../actions/course.actions';
-import {
-    LECTURE_CHANGE,
-    UPDATE_PREVIOUS_AND_NEXT_LECTURE,
-    LAST_VISITED_COURSE,
-} from '../constants/constants';
+import { createSlice } from '@reduxjs/toolkit';
+import { HYDRATE } from 'next-redux-wrapper';
 
 export interface Translation {
     en: string;
@@ -77,37 +68,63 @@ export const initialState: CourseState = {
     lastVisitedCourse: undefined,
 };
 
-export const courseReducer = (
-    state: CourseState = initialState,
-    action: CourseAction
-): CourseState => {
-    switch (action.type) {
-        case LECTURE_CHANGE:
-            const { activeLecture } = action.payload as LectureChangePayload;
+export interface LectureChangePayload {
+    activeLecture: Lecture | undefined;
+}
+
+export interface ChangeLastVisitedCoursePayload {
+    slug: string;
+}
+
+export interface UpdatePreviousAndNextLecturePayload {
+    previous: Lecture | undefined;
+    next: Lecture | undefined;
+}
+
+export const courseSlice = createSlice({
+    name: 'course',
+    initialState,
+    reducers: {
+        lectureChange: (
+            state: CourseState,
+            action: { payload: LectureChangePayload }
+        ) => {
+            state.activeLecture = {
+                active: action.payload.activeLecture,
+            };
+        },
+        updatePreviousAndNextLecture: (
+            state: CourseState,
+            action: { payload: UpdatePreviousAndNextLecturePayload }
+        ) => {
+            const { previous, next } = action.payload;
+            state.activeLecture = {
+                active: state.activeLecture?.active,
+                previous,
+                next,
+            };
+        },
+        changeLastVisitedCourse: (
+            state: CourseState,
+            action: { payload: ChangeLastVisitedCoursePayload }
+        ) => {
+            state.lastVisitedCourse = action.payload.slug;
+        },
+    },
+    extraReducers: {
+        [HYDRATE]: (state, action) => {
             return {
                 ...state,
-                activeLecture: {
-                    active: activeLecture,
-                },
+                ...action.payload.course,
             };
-        case UPDATE_PREVIOUS_AND_NEXT_LECTURE:
-            const { previous, next } =
-                action.payload as UpdatePreviousAndNextLecturePayload;
-            return {
-                ...state,
-                activeLecture: {
-                    active: state.activeLecture?.active,
-                    previous,
-                    next,
-                },
-            };
-        case LAST_VISITED_COURSE:
-            const { slug } = action.payload as ChangeLastVisitedCoursePayload;
-            return {
-                ...state,
-                lastVisitedCourse: slug,
-            };
-        default:
-            return state;
-    }
-};
+        },
+    },
+});
+
+export const {
+    lectureChange,
+    updatePreviousAndNextLecture,
+    changeLastVisitedCourse,
+} = courseSlice.actions;
+
+export default courseSlice.reducer;

@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import dynamic from 'next/dynamic';
-const ModalVideo = dynamic(import('react-modal-video'));
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+const ModalVideo = dynamic(import('react-modal-video'));
 
-import { CourseProps } from './CourseCard';
-import { AppState } from '../../redux/reducers/reducers';
-import Image from '../Common/CustomImage';
+import { AppState } from '../../redux/store';
 import { displayCategories } from '../../services/category.service';
 import { PATH_NAMES } from '../../utils/routing';
+import Image from '../Common/CustomImage';
+import { CourseProps } from './CourseCard';
 
 const CoursesDetailsSidebar = ({ course }: CourseProps) => {
     const [t] = useTranslation('courses');

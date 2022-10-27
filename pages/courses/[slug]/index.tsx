@@ -14,8 +14,8 @@ import CoursesDetailsSidebar from '../../../components/Courses/CoursesDetailsSid
 import Instructor from '../../../components/Courses/Instructor';
 import Head from '../../../components/_App/CustomHead';
 import Preloader from '../../../components/_App/Preloader';
-import { changeLastVisitedCourse } from '../../../redux/actions/course.actions';
-import { AppState } from '../../../redux/reducers/reducers';
+import { changeLastVisitedCourse } from '../../../redux/reducers/course.reducer';
+import { AppState } from '../../../redux/store';
 import {
     courseNotFound,
     findCourseBySlug,

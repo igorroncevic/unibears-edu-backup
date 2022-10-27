@@ -1,45 +1,27 @@
-import { createWrapper, HYDRATE } from 'next-redux-wrapper';
-import { applyMiddleware, createStore } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import authReducer, { authSlice } from './reducers/auth.reducer';
+import courseReducer, { courseSlice } from './reducers/course.reducer';
+import userReducer, { userSlice } from './reducers/user.reducer';
 
-import { initialState as authInitialState } from './reducers/auth.reducer';
-import { initialState as courseInitialState } from './reducers/course.reducer';
-import reducers, { AppState } from './reducers/reducers';
-import { initialState as userInitialState } from './reducers/user.reducer';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
 
-const bindMiddleware = (middleware: any) => {
-    if (process.env.NODE_ENV !== 'production') {
-        const { composeWithDevTools } = require('redux-devtools-extension');
-        return composeWithDevTools(applyMiddleware(...middleware));
-    }
-
-    return applyMiddleware(...middleware);
-};
-
-const reducer = (state: AppState | undefined, action: any) => {
-    if (action.type === HYDRATE) {
-        const nextState = {
-            ...state, // previous state
-            ...action.payload,
-        };
-        return nextState;
-    } else {
-        // Call other reducers
-        return reducers(state, action);
-    }
-};
-
-const initStore = () => {
-    return createStore(
-        reducer,
-        {
-            auth: authInitialState,
-            course: courseInitialState,
-            user: userInitialState,
+const makeStore = () =>
+    configureStore({
+        reducer: {
+            [authSlice.name]: authReducer,
+            [userSlice.name]: userReducer,
+            [courseSlice.name]: courseReducer,
         },
-        bindMiddleware([thunkMiddleware])
-    );
-};
+        devTools: true,
+    });
 
-export const wrapper = createWrapper(initStore);
-export const store = initStore();
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppState = ReturnType<AppStore['getState']>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    AppState,
+    unknown,
+    Action
+>;
+
+export const wrapper = createWrapper<AppStore>(makeStore, { debug: false });

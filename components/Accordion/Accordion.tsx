@@ -1,20 +1,22 @@
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import Link from 'next/link';
 
 import {
+    Course,
+    Lecture,
     lectureChange,
+    Topic,
     updatePreviousAndNextLecture,
-} from '../../redux/actions/course.actions';
-import { AppState } from '../../redux/reducers/reducers';
-import { PATH_NAMES } from '../../utils/routing';
+} from '../../redux/reducers/course.reducer';
+import { AppState } from '../../redux/store';
 import {
     findTopicAndLectureIndex,
     setNextAndPreviousLecture,
 } from '../../utils/common';
-import { Course, Lecture } from '../../redux/reducers/course.reducer';
+import { PATH_NAMES } from '../../utils/routing';
 
 interface AccordionProps {
     course: Course;
@@ -26,8 +28,8 @@ function AccordionComponent({ course }: AccordionProps) {
     const dispatch = useDispatch();
 
     const [topics, setTopics] = useState(course.topics);
-    const [openTopics, setOpenTopics] = useState<string[]>([]);
-    const [activeLecture, setActiveLecture] = useState<Lecture>();
+    const [openTopics, setOpenTopics] = useState([]);
+    const [activeLecture, setActiveLecture] = useState();
 
     useEffect(() => {
         setTopics(course.topics);
@@ -79,7 +81,7 @@ function AccordionComponent({ course }: AccordionProps) {
     const handleTopicClick = (id: string) => {
         if (openTopics.includes(id)) {
             const topicsFiltered = openTopics.filter(
-                (topicId) => topicId !== id
+                (topicId: string) => topicId !== id
             );
             setOpenTopics(topicsFiltered);
         } else {
@@ -120,7 +122,7 @@ function AccordionComponent({ course }: AccordionProps) {
         <div className="accordion-wrapper">
             {topics.length > 0 && activeLecture && (
                 <Accordion defaultActiveKey={openTopics} alwaysOpen>
-                    {topics.map((topic, topicIndex) => (
+                    {topics.map((topic: Topic, topicIndex: number) => (
                         <Accordion.Item eventKey={topic.id} key={topic.id}>
                             <Accordion.Header
                                 onClick={() => handleTopicClick(topic.id)}

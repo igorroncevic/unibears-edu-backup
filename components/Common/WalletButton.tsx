@@ -1,19 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect } from 'react';
 import { WalletDialogButton } from '@solana/wallet-adapter-material-ui';
 import { useWallet, Wallet } from '@solana/wallet-adapter-react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Spinner from './Spinner';
-import { AppState } from '../../redux/reducers/reducers';
 import {
-    authSuccess,
     setCollectionItemCount,
-} from '../../redux/actions/auth.actions';
-import { toastSuccess } from '../../utils/toasts';
+    web3AuthSuccess,
+} from '../../redux/reducers/auth.reducer';
+import { AppState } from '../../redux/store';
 import solanaService from '../../services/solana.service';
 import { shortenAddress } from '../../utils/blockchain';
+import { toastSuccess } from '../../utils/toasts';
+import Spinner from './Spinner';
 
 const WalletButton = () => {
     const [t] = useTranslation(['common', 'toasts']);
@@ -41,11 +41,11 @@ const WalletButton = () => {
                                 collectionItemsCount: count,
                             })
                         );
-                        dispatch(authSuccess({ address: walletAddress }));
+                        dispatch(web3AuthSuccess({ address: walletAddress }));
                         toastSuccess(t('success.login'));
                         setWalletLoading(false);
                     })
-                    .catch((err) => {
+                    .catch(() => {
                         setWalletLoading(false);
                     });
             } else {

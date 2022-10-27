@@ -1,27 +1,26 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import { toPlainText } from '@portabletext/react';
+import AccordionComponent from '../../../../components/Accordion/Accordion';
 import { CourseProps } from '../../../../components/Courses/CourseCard';
-import { AppState } from '../../../../redux/reducers/reducers';
+import Lecture from '../../../../components/Lectures/Lecture';
+import Head from '../../../../components/_App/CustomHead';
+import Preloader from '../../../../components/_App/Preloader';
+import { AppState } from '../../../../redux/store';
+import {
+    courseNotFound,
+    getCourseLectures,
+    getCoursePaths,
+} from '../../../../services/course.service';
 import {
     defaultMetadata,
     getMetadata,
     PATH_NAMES,
     Route,
 } from '../../../../utils/routing';
-import Preloader from '../../../../components/_App/Preloader';
-import {
-    courseNotFound,
-    getCourseLectures,
-    getCoursePaths,
-} from '../../../../services/course.service';
-import Head from '../../../../components/_App/CustomHead';
-import Lecture from '../../../../components/Lectures/Lecture';
-import { Course } from '../../../../redux/reducers/course.reducer';
-import AccordionComponent from '../../../../components/Accordion/Accordion';
 import { toastErrorImportant } from '../../../../utils/toasts';
 
 export interface StaticParams {
@@ -86,7 +85,9 @@ const Lectures = ({ course }: CourseProps) => {
                         }}
                     >
                         <button
-                            onClick={() => setShow((prevState) => !prevState)}
+                            onClick={() =>
+                                setShow((prevState: boolean) => !prevState)
+                            }
                             className="btn btn-light"
                             type="button"
                         >
@@ -95,7 +96,7 @@ const Lectures = ({ course }: CourseProps) => {
                     </div>
                 </div>
                 <div className="lecture-grid-item">
-                    <Lecture topics={course.topics} />
+                    <Lecture />
                 </div>
             </div>
         </>

@@ -1,16 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import PageBanner from '../components/Common/PageBanner';
-import { DocumentProps } from './privacy-policy';
-import { AppState } from '../redux/reducers/reducers';
-import Preloader from '../components/_App/Preloader';
+import { Fragment } from 'react';
 import PortableText from '../components/Common/CustomPortableText';
+import PageBanner from '../components/Common/PageBanner';
+import Preloader from '../components/_App/Preloader';
+import { AppState } from '../redux/store';
 import {
     findLegalDocumentByType,
     LEGAL_TYPES,
 } from '../services/legalDocuments.service';
-import { Fragment } from 'react';
+import { DocumentProps } from './privacy-policy';
 
 const TermsOfService = ({ document }: DocumentProps) => {
     const { langCode } = useSelector((state: AppState) => state.user);

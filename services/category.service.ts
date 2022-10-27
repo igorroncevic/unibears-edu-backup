@@ -1,6 +1,5 @@
-import { Lang } from '../redux/actions/user.actions';
-import { LANGUAGE_CODES } from '../redux/constants/constants';
 import { Category } from '../redux/reducers/course.reducer';
+import { Lang, LANGUAGE_CODES } from '../redux/reducers/user.reducer';
 import { sanityClient } from '../sanity.config';
 
 export const categoriesFields = `'id': _id, name`;

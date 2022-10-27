@@ -1,4 +1,4 @@
-interface AuthorSocials {
+interface AuthorSocialURLs {
     fb_url: string;
     tw_url: string;
     insta_url: string;
@@ -6,7 +6,7 @@ interface AuthorSocials {
 }
 
 interface AuthorProps {
-    author: AuthorSocials;
+    author: AuthorSocialURLs;
 }
 
 const AuthorSocials = ({ author }: AuthorProps) => {

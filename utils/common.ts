@@ -1,4 +1,4 @@
-import { Lecture, Topic } from '../redux/reducers/course.reducer';
+import { Topic } from '../redux/reducers/course.reducer';
 
 export const findTopicAndLectureIndex = (
     topics: Topic[],

@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import { CourseProps } from './CourseCard';
-import { AppState } from '../../redux/reducers/reducers';
-import { PATH_NAMES } from '../../utils/routing';
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../redux/store';
+import { PATH_NAMES } from '../../utils/routing';
+import { CourseProps } from './CourseCard';
 
 const CoursesCurriculum = ({ course }: CourseProps) => {
     const [t] = useTranslation('courses');

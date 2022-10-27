@@ -1,9 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LANGUAGE_CODES } from '../../redux/constants/constants';
-import { Lang, languageChange } from '../../redux/actions/user.actions';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+    Lang,
+    languageChange,
+    LANGUAGE_CODES,
+} from '../../redux/reducers/user.reducer';
 
 interface LanguageData {
     name: string;
@@ -26,7 +28,7 @@ const languages: LanguageData[] = [
 
 const Language = () => {
     const dispatch = useDispatch();
-    const { t, i18n } = useTranslation('common');
+    const { i18n } = useTranslation('common');
 
     const [showLanguages, setShowLanguages] = useState(false);
     const [chosenLanguage, setChosenLanguage] = useState();
