@@ -1,3 +1,3 @@
-declare module "react";
-declare module "prop-types";
-declare module "react-icons/fa";
+declare module 'react';
+declare module 'prop-types';
+declare module 'react-icons/fa';

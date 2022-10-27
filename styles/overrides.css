@@ -1,22 +1,22 @@
 .MuiButton-root {
-	background: none;
-	box-shadow: none;
+    background: none;
+    box-shadow: none;
 }
 
 .MuiButton-contained {
-	padding: 0 !important;
+    padding: 0 !important;
 }
 
 .MuiDialogContent-root .MuiListItem-root .MuiButton-root {
-	color: var(--light-grey-color) !important;
-	text-transform: capitalize;
+    color: var(--light-grey-color) !important;
+    text-transform: capitalize;
 }
 
 .MuiDialogTitle-root {
-	color: var(--light-grey-color) !important;
-	background-color: var(--main-color) !important;
+    color: var(--light-grey-color) !important;
+    background-color: var(--main-color) !important;
 }
 
 .MuiSvgIcon-root {
-	fill: var(--light-grey-color) !important;
+    fill: var(--light-grey-color) !important;
 }

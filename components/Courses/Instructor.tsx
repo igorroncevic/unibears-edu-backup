@@ -1,47 +1,48 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Author } from "../../redux/reducers/course.reducer";
-import { AppState } from "../../redux/reducers/reducers";
-import Image from "../Common/CustomImage";
-import PortableText from "../Common/CustomPortableText";
+import { useSelector } from 'react-redux';
+import { Author } from '../../redux/reducers/course.reducer';
+import { AppState } from '../../redux/reducers/reducers';
+import Image from '../Common/CustomImage';
+import PortableText from '../Common/CustomPortableText';
 
 interface AuthorProps {
-	author: Author;
+    author: Author;
 }
 
 const Instructor = ({ author }: AuthorProps) => {
-	const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector((state: AppState) => state.user);
 
-	return (
-		<div className="courses-instructor">
-			<div className="single-advisor-box">
-				<div className="row align-items-center">
-					<div className="col-lg-4 col-md-4">
-						<div className="advisor-image">
-							<Image
-								src={`${
-									author.profilePhoto
-										? author.profilePhoto
-										: "/images/advisor/advisor2.jpg"
-								}`}
-								alt={author.name}
-							/>
-						</div>
-					</div>
+    return (
+        <div className="courses-instructor">
+            <div className="single-advisor-box">
+                <div className="row align-items-center">
+                    <div className="col-lg-4 col-md-4">
+                        <div className="advisor-image">
+                            <Image
+                                src={`${
+                                    author.profilePhoto
+                                        ? author.profilePhoto
+                                        : '/images/advisor/advisor2.jpg'
+                                }`}
+                                alt={author.name}
+                            />
+                        </div>
+                    </div>
 
-					<div className="col-lg-8 col-md-8">
-						<div className="advisor-content">
-							<h3>{author.name}</h3>
-							<span className="sub-title">{author.title || ""}</span>
-							<PortableText content={author.bio[langCode]} />
+                    <div className="col-lg-8 col-md-8">
+                        <div className="advisor-content">
+                            <h3>{author.name}</h3>
+                            <span className="sub-title">
+                                {author.title || ''}
+                            </span>
+                            <PortableText content={author.bio[langCode]} />
 
-							{/* <AuthorSocials/> */}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+                            {/* <AuthorSocials/> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Instructor;
