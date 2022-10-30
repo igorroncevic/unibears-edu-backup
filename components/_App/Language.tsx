@@ -26,12 +26,16 @@ const languages: LanguageData[] = [
     },
 ];
 
-const Language = () => {
+function Language() {
     const dispatch = useDispatch();
     const { i18n } = useTranslation('common');
 
     const [showLanguages, setShowLanguages] = useState(false);
     const [chosenLanguage, setChosenLanguage] = useState();
+
+    const setLanguage = (lang: Lang) => {
+        setChosenLanguage(languages.find((l) => l.shortName === lang));
+    };
 
     useEffect(() => {
         setLanguage(
@@ -45,19 +49,15 @@ const Language = () => {
         }
     }, [i18n.language, dispatch]);
 
+    const showLanguagesHandler = () => {
+        setShowLanguages((prevState: any) => !prevState);
+    };
+
     const changeLanguage = (language: LanguageData) => {
         dispatch(languageChange({ langCode: language.shortName }));
         i18n.changeLanguage(language.shortName);
         setLanguage(language.shortName);
         showLanguagesHandler();
-    };
-
-    const setLanguage = (lang: Lang) => {
-        setChosenLanguage(languages.find((l) => l.shortName === lang));
-    };
-
-    const showLanguagesHandler = () => {
-        setShowLanguages((prevState: any) => !prevState);
     };
 
     const getLanguageHTML = (language: LanguageData) => {
@@ -93,6 +93,6 @@ const Language = () => {
             )}
         </div>
     );
-};
+}
 
 export default Language;

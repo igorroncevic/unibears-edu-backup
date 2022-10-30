@@ -1,13 +1,11 @@
 import { useSelector } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { getActiveLecture, getUser } from '../../redux/selectors';
 import PortableText from '../Common/CustomPortableText';
 import Video from './Video';
 
 function Lecture() {
-    const lecture = useSelector(
-        (state: AppState) => state.course.activeLecture?.active
-    );
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const lecture = useSelector(getActiveLecture);
+    const { langCode } = useSelector(getUser);
 
     return lecture ? (
         <div className="container">

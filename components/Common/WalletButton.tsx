@@ -9,17 +9,17 @@ import {
     setCollectionItemCount,
     web3AuthSuccess,
 } from '../../redux/reducers/auth.reducer';
-import { AppState } from '../../redux/store';
-import solanaService from '../../services/solana.service';
+import { getAuth } from '../../redux/selectors';
+import { getCollectionItemsCount } from '../../services/solana.service';
 import { shortenAddress } from '../../utils/blockchain';
 import { toastSuccess } from '../../utils/toasts';
 import Spinner from './Spinner';
 
-const WalletButton = () => {
+function WalletButton() {
     const [t] = useTranslation(['common', 'toasts']);
 
     const dispatch = useDispatch();
-    const { address } = useSelector((state: AppState) => state.auth);
+    const { address } = useSelector(getAuth);
 
     const { wallet, connected }: { wallet: Wallet | null; connected: boolean } =
         useWallet();
@@ -33,42 +33,43 @@ const WalletButton = () => {
 
             // Sometimes address isn't immediately found
             if (walletAddress && !address) {
-                solanaService
-                    .getCollectionItemsCount(walletAddress)
-                    .then((count) => {
-                        dispatch(
-                            setCollectionItemCount({
-                                collectionItemsCount: count,
-                            })
-                        );
-                        dispatch(web3AuthSuccess({ address: walletAddress }));
-                        toastSuccess(t('success.login'));
+                getCollectionItemsCount(walletAddress).then((count) => {
+                    if (count < 0) {
                         setWalletLoading(false);
-                    })
-                    .catch(() => {
-                        setWalletLoading(false);
-                    });
+                    }
+                    dispatch(
+                        setCollectionItemCount({
+                            collectionItemsCount: count,
+                        })
+                    );
+                    dispatch(web3AuthSuccess({ address: walletAddress }));
+                    toastSuccess(t('success.login'));
+                    setWalletLoading(false);
+                });
             } else {
                 setWalletLoading(false);
             }
+        } else {
+            setWalletLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [wallet, connected]);
 
-    return walletLoading ? (
-        <a
-            onClick={(e) => e.preventDefault()}
-            className="default-btn wallet-spinner"
-        >
-            <div className="wallet-button">
-                <Spinner />
+    if (walletLoading)
+        return (
+            <div className="default-btn wallet-spinner">
+                <div className="wallet-button">
+                    <Spinner />
+                </div>
             </div>
-        </a>
-    ) : address ? (
+        );
+
+    return !walletLoading && address ? (
         <div className="user-dropdown">
-            <a
+            <button
                 onClick={(e) => e.preventDefault()}
                 className="default-btn wallet-button"
+                type="button"
             >
                 {/* Needs to be img since styling is very poor with next/image */}
                 <img
@@ -77,7 +78,7 @@ const WalletButton = () => {
                     alt={wallet?.adapter.name}
                 />
                 {shortenAddress(address || '')}
-            </a>
+            </button>
 
             {/* Removing for now since disconnecting wallet and account change is unsupported. */}
             {/* <ul className="dropdown-menu">
@@ -93,11 +94,11 @@ const WalletButton = () => {
     ) : (
         <WalletDialogButton onClick={() => setWalletLoading(true)}>
             <div className="default-btn">
-                <i className="flaticon-user"></i>{' '}
+                <i className="flaticon-user" />{' '}
                 {`${t('navbar.connect')} ${t('navbar.wallet')}`}
             </div>
         </WalletDialogButton>
     );
-};
+}
 
 export default WalletButton;

@@ -9,49 +9,50 @@ interface PortableTextProps {
     shortenTo?: number;
 }
 
-const PortableText = ({ content, plain, shortenTo }: PortableTextProps) => {
+const getLink = ({ children, value }: any) =>
+    value.blank ? (
+        <a
+            className="external-link-underline"
+            href={value.href}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            {children}
+        </a>
+    ) : (
+        <a className="external-link-underline" href={value.href}>
+            {children}
+        </a>
+    );
+
+function PortableText({ content, plain, shortenTo }: PortableTextProps) {
     if (!content) {
-        return <></>;
+        return null;
     }
 
     let contentFormatted = content;
     if (plain) {
         contentFormatted = toPlainText(content);
         if (shortenTo && shortenTo > 0 && shortenTo < contentFormatted.length) {
-            contentFormatted =
-                contentFormatted.slice(0, shortenTo).trim() + '...';
+            contentFormatted = `${contentFormatted
+                .slice(0, shortenTo)
+                .trim()}...`;
         }
     }
 
     const serializers = {
         marks: {
-            link: ({ children, value }: any) =>
-                value.blank ? (
-                    <a
-                        className="external-link-underline"
-                        href={value.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {children}
-                    </a>
-                ) : (
-                    <a className="external-link-underline" href={value.href}>
-                        {children}
-                    </a>
-                ),
+            link: getLink,
         },
     };
 
     return (
         <ReactPortableText
-            // dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-            // projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
             value={contentFormatted}
             components={serializers}
             /* Possibly add serializers */
         />
     );
-};
+}
 
 export default PortableText;

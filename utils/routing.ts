@@ -60,17 +60,15 @@ const coursesPageData: PageMetadata = {
 const coursePageData: PageMetadataFunction = {
     title: (name: string) => (name ? `${name} | ${APP_NAME}` : APP_NAME),
     description: (description: string) =>
-        description
-            ? description
-            : 'Learn about all about NFTs and their use cases in the real world!',
+        description ||
+        'Learn about all about NFTs and their use cases in the real world!',
 };
 
 const lecturesPageData: PageMetadataFunction = {
     title: (name: string) => (name ? `${name} | ${APP_NAME}` : APP_NAME),
     description: (description: string) =>
-        description
-            ? description
-            : 'Learn about all about NFTs and their use cases in the real world!',
+        description ||
+        'Learn about all about NFTs and their use cases in the real world!',
 };
 
 const privacyPolicyPageData: PageMetadata = {
@@ -110,9 +108,8 @@ const getPageMetadata = (route: Route): PageMetadata | PageMetadataFunction => {
         case TERMS_OF_SERVICE_ROUTE:
             return termsOfServicePageData;
         default:
-            landingPageData;
+            return landingPageData;
     }
-    return landingPageData;
 };
 
 export const PATH_NAMES = {

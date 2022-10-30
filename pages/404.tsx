@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Image from '../components/Common/CustomImage';
 import { PATH_NAMES } from '../utils/routing';
 
-const Custom404 = () => {
+function Custom404() {
     const router = useRouter();
     const [t] = useTranslation('common');
 
@@ -30,16 +30,16 @@ const Custom404 = () => {
 
                     <div className="btn-box">
                         <Link href={PATH_NAMES.CoursesIndex}>
-                            <a className="default-btn">
-                                <i className="flaticon-home"></i>{' '}
-                                {t('homePage')} <span></span>
-                            </a>
+                            <button className="default-btn" type="button">
+                                <i className="flaticon-home" /> {t('homePage')}{' '}
+                                <span />
+                            </button>
                         </Link>
                     </div>
                 </div>
             </div>
         </div>
     );
-};
+}
 
 export default Custom404;

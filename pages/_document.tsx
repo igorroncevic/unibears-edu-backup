@@ -10,7 +10,7 @@ class MyDocument extends Document {
                         rel="icon"
                         type="image/png"
                         href="/images/favicon.png"
-                    ></link>
+                    />
                     <meta name="application-name" content={APP_NAME} />
                     <meta name="apple-mobile-web-app-capable" content="yes" />
                     <meta

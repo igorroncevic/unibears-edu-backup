@@ -3,8 +3,14 @@
         "airbnb",
         "airbnb-typescript",
         "airbnb/hooks",
+        "next",
+        "next/core-web-vitals",
         "plugin:prettier/recommended"
     ],
+    "parserOptions": {
+        "project": ["./tsconfig.json"]
+    },
+    "plugins": ["react-hooks"],
     "rules": {
         "quotes": [
             "error",
@@ -14,7 +20,16 @@
             }
         ],
         "prefer-const": "error",
-        "indent": ["error", 4]
+        "indent": [1, 4, { "SwitchCase": 1 }],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "consistent-return": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off",
+        "import/prefer-default-export": "off"
     },
     "globals": {
         "JSX": "readonly"

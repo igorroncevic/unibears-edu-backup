@@ -4,7 +4,7 @@ import { PATH_NAMES } from '../../utils/routing';
 
 const currentYear = new Date().getFullYear();
 
-const Footer = () => {
+function Footer() {
     const [t] = useTranslation('common');
 
     return (
@@ -14,7 +14,7 @@ const Footer = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-6">
                             <p>
-                                <i className="bx bx-copyright"></i>
+                                <i className="bx bx-copyright" />
                                 {currentYear} Project EDU
                             </p>
                         </div>
@@ -23,12 +23,12 @@ const Footer = () => {
                             <ul>
                                 <li>
                                     <Link href={PATH_NAMES.PrivacyPolicy}>
-                                        <a>{t('footer.privacyPolicy')}</a>
+                                        {t('footer.privacyPolicy')}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href={PATH_NAMES.TermsOfService}>
-                                        <a>{t('footer.tos')}</a>
+                                        {t('footer.tos')}
                                     </Link>
                                 </li>
                             </ul>
@@ -38,6 +38,6 @@ const Footer = () => {
             </div>
         </footer>
     );
-};
+}
 
 export default Footer;

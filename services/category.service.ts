@@ -18,15 +18,14 @@ export const displayCategories = (categories: Category[], langCode: Lang) => {
     if (!categories) return '';
 
     let stringified = '';
-    for (let i = 0; i < categories.length; i++) {
-        const categoryName = categories[i].name[langCode];
-        if (i == 0) {
+    categories.forEach((category, i) => {
+        const categoryName = category.name[langCode];
+        if (i === 0) {
             stringified = categoryName;
-            continue;
+        } else {
+            stringified += `, ${categoryName}`;
         }
-        stringified += `, ${categoryName}`;
-    }
-
+    });
     return stringified;
 };
 

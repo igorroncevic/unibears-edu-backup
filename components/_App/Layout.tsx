@@ -2,8 +2,8 @@ import Router, { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
+import { getUser } from '../../redux/selectors';
 
-import { AppState } from '../../redux/store';
 import { defaultMetadata, getMetadata, Route } from '../../utils/routing';
 import Head from './CustomHead';
 import Footer from './Footer';
@@ -14,9 +14,9 @@ interface LayoutProps {
     children: JSX.Element;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+function Layout({ children }: LayoutProps) {
     const router = useRouter();
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
 
     const [metadata, setMetadata] = useState(defaultMetadata);
     const [loader, setLoader] = useState(true);
@@ -79,6 +79,6 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
         </>
     );
-};
+}
 
 export default Layout;

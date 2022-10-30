@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { Course } from '../redux/reducers/course.reducer';
 import { sanityClient, urlFor } from '../sanity.config';
 
@@ -16,60 +17,7 @@ export const courseNotFound = {
     requiredCollectionItems: 0,
 };
 
-export const findAllCourses = async () => {
-    const query = `*[_type == "course" && dateTime(now()) > dateTime(publishedAt)] | order(_createdAt desc) {
-        ${coursePreviewFields},
-        author -> {${authorFields}},
-        categories[] -> { name }
-      }`;
-
-    const courses: Course[] = await sanityClient.fetch(query);
-
-    return courses.map((course) => _transformCourse(course));
-};
-
-export const findCourseBySlug = async (slug: string) => {
-    const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
-        ${courseFields},
-        topics[] | order(_createdAt desc) {
-            ${topicFields},
-            lectures[] | order(_createdAt desc) {${lectureFields}}
-        },
-        author -> {${authorFields}, title, bio},
-        categories[] -> { name }
-    }`;
-
-    const course = await sanityClient.fetch(query, { slug });
-
-    return _transformCourse(course);
-};
-
-export const getCoursePaths = async () => {
-    const query = `*[_type == "course" && dateTime(now()) > dateTime(publishedAt)]{
-        'slug': slug.current
-    }`;
-
-    const paths = await sanityClient.fetch(query);
-
-    return paths.map((slug: any) => slug.slug);
-};
-
-export const getCourseLectures = async (slug: string) => {
-    const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
-        ${courseLecturesFields}, 
-        topics[] | order(_createdAt desc) {
-            ${topicFields},
-            lectures[] | order(_createdAt desc) {${lectureFields}}
-        },
-        author -> {${authorFields}}
-     }`;
-
-    const course = await sanityClient.fetch(query, { slug });
-
-    return _transformCourse(course);
-};
-
-const _transformCourse = (course: Course) => {
+const transformCourse = (course: Course) => {
     // Course was not found
     if (!course) {
         return courseNotFound;
@@ -110,13 +58,68 @@ const _transformCourse = (course: Course) => {
         }
 
         if (hours > 0) {
-            hours === 1
-                ? (duration = `${hours}hr ${duration}`)
-                : (duration = `${hours}hrs ${duration}`);
+            if (hours === 1) {
+                duration = `${hours}hr ${duration}`;
+            } else {
+                duration = `${hours}hrs ${duration}`;
+            }
         }
 
         course.duration = duration;
     }
 
     return course;
+};
+
+export const findAllCourses = async () => {
+    const query = `*[_type == "course" && dateTime(now()) > dateTime(publishedAt)] | order(_createdAt desc) {
+        ${coursePreviewFields},
+        author -> {${authorFields}},
+        categories[] -> { name }
+      }`;
+
+    const courses: Course[] = await sanityClient.fetch(query);
+
+    return courses.map((course) => transformCourse(course));
+};
+
+export const findCourseBySlug = async (slug: string) => {
+    const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
+        ${courseFields},
+        topics[] | order(_createdAt desc) {
+            ${topicFields},
+            lectures[] | order(_createdAt desc) {${lectureFields}}
+        },
+        author -> {${authorFields}, title, bio},
+        categories[] -> { name }
+    }`;
+
+    const course = await sanityClient.fetch(query, { slug });
+
+    return transformCourse(course);
+};
+
+export const getCoursePaths = async () => {
+    const query = `*[_type == "course" && dateTime(now()) > dateTime(publishedAt)]{
+        'slug': slug.current
+    }`;
+
+    const paths = await sanityClient.fetch(query);
+
+    return paths.map((slug: any) => slug.slug);
+};
+
+export const getCourseLectures = async (slug: string) => {
+    const query = `*[_type == "course" && slug.current == $slug && dateTime(now()) > dateTime(publishedAt)][0]{
+        ${courseLecturesFields}, 
+        topics[] | order(_createdAt desc) {
+            ${topicFields},
+            lectures[] | order(_createdAt desc) {${lectureFields}}
+        },
+        author -> {${authorFields}}
+     }`;
+
+    const course = await sanityClient.fetch(query, { slug });
+
+    return transformCourse(course);
 };

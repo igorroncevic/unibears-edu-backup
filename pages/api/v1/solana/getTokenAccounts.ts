@@ -19,31 +19,31 @@ const getTokenMetadata = async (req: any, res: any) => {
     const { pubKey } = req.body;
     const endpoint: string | undefined = process.env.SOLANA_RPC_HOST;
 
-    //connect
+    // connect
     if (endpoint) {
         const connection = new Connection(endpoint, {
             commitment: 'confirmed',
             disableRetryOnRateLimit: true,
         });
 
-        //get accounts
+        // get accounts
         const accounts: AccountInfo<any>[] =
             await tokenService.getTokenAccounts(connection, pubKey);
 
         if (accounts?.length > 0) {
-            //reformat the account with only token information.
+            // reformat the account with only token information.
             const tokenList = accounts.map(
-                //(accountInfo) => accountInfo?.account?.data?.parsed?.info
+                // (accountInfo) => accountInfo?.account?.data?.parsed?.info
                 (accountInfo) => accountInfo?.data?.parsed?.info
             );
-            //filter out tokens owned previously but no longer in wallet.
+            // filter out tokens owned previously but no longer in wallet.
             const ownedTokens = tokenList.filter(
                 (token) =>
                     token.owner === pubKey &&
                     parseInt(token.tokenAmount?.amount) > 0
             );
 
-            //get token data
+            // get token data
             const ownedTokenData = [];
             for (const token of ownedTokens) {
                 const tokenData = await tokenService.getTokenData(
@@ -56,7 +56,7 @@ const getTokenMetadata = async (req: any, res: any) => {
             }
             // console.log(`Found ${ownedTokens?.length} tokenData for pubKey ${pubKey}.`);
 
-            //get meta data
+            // get meta data
             const metaDataList = [];
             for (const tokenData of ownedTokenData) {
                 const metaData: any = await tokenService.getMetaData(tokenData);
@@ -89,7 +89,7 @@ const getTokenMetadata = async (req: any, res: any) => {
             // console.log(pubKey + " owns " + metadataMinimized.length + " collection items.")
             res.status(200).send(metadataMinimized);
         } else {
-            console.error('Found no accounts for ' + pubKey + '.');
+            console.error(`Found no accounts for ${pubKey}.`);
             res.status(200).send([]);
         }
     }

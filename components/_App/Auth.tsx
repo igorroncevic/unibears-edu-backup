@@ -2,8 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
-import { AppState } from '../../redux/store';
+import { getAuth, getCourse } from '../../redux/selectors';
 import { PATH_NAMES } from '../../utils/routing';
 import { toastErrorImportant } from '../../utils/toasts';
 import Preloader from './Preloader';
@@ -17,20 +16,19 @@ interface AuthProps {
     children: JSX.Element;
 }
 
-const Auth = ({ children, auth }: AuthProps) => {
+function Auth({ children, auth }: AuthProps) {
     const [t] = useTranslation('toasts');
     const router = useRouter();
     const { isReady } = router;
-    const { collectionItemsCount } = useSelector(
-        (state: AppState) => state.auth
-    );
-    const { lastVisitedCourse } = useSelector(
-        (state: AppState) => state.course
-    );
+    const { collectionItemsCount } = useSelector(getAuth);
+    const { lastVisitedCourse } = useSelector(getCourse);
     const { requiredCollectionItems } = auth;
 
+    const doesNotHaveEnoughCollectionItems =
+        collectionItemsCount < requiredCollectionItems;
+
     useEffect(() => {
-        if (isReady && collectionItemsCount < requiredCollectionItems) {
+        if (isReady && doesNotHaveEnoughCollectionItems) {
             toastErrorImportant(t('error.notEnoughCollectionItems'));
             if (lastVisitedCourse) {
                 router.push(
@@ -41,20 +39,14 @@ const Auth = ({ children, auth }: AuthProps) => {
                 router.push(PATH_NAMES.CoursesIndex);
             }
         }
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [
-        isReady,
-        collectionItemsCount,
-        requiredCollectionItems,
-        lastVisitedCourse,
-    ]);
+    }, [isReady, router]);
 
     if (!router.isReady) {
         return <Preloader />;
     }
 
     return children;
-};
+}
 
 export default Auth;

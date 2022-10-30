@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import PortableText from '../components/Common/CustomPortableText';
@@ -6,7 +5,7 @@ import PortableText from '../components/Common/CustomPortableText';
 import PageBanner from '../components/Common/PageBanner';
 import Preloader from '../components/_App/Preloader';
 import { Translation } from '../redux/reducers/course.reducer';
-import { AppState } from '../redux/store';
+import { getUser } from '../redux/selectors';
 import {
     findLegalDocumentByType,
     LEGAL_TYPES,
@@ -16,8 +15,8 @@ export interface DocumentProps {
     document: { content: Translation };
 }
 
-const PrivacyPolicy = ({ document }: DocumentProps) => {
-    const { langCode } = useSelector((state: AppState) => state.user);
+function PrivacyPolicy({ document }: DocumentProps) {
+    const { langCode } = useSelector(getUser);
     const [t] = useTranslation('common');
 
     if (!document) {
@@ -25,7 +24,7 @@ const PrivacyPolicy = ({ document }: DocumentProps) => {
     }
 
     return (
-        <Fragment>
+        <>
             <PageBanner pageTitle={t('footer.privacyPolicy')} />
 
             <div className="privacy-policy-area ptb-100">
@@ -46,9 +45,9 @@ const PrivacyPolicy = ({ document }: DocumentProps) => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </>
     );
-};
+}
 
 export async function getStaticProps() {
     const document = await findLegalDocumentByType(LEGAL_TYPES.PP);

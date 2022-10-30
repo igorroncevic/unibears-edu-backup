@@ -2,7 +2,7 @@ interface PageBannerProps {
     pageTitle: string;
 }
 
-const PageBanner = ({ pageTitle }: PageBannerProps) => {
+function PageBanner({ pageTitle }: PageBannerProps) {
     return (
         <div className="page-title-area">
             <div className="page-title-content">
@@ -10,6 +10,6 @@ const PageBanner = ({ pageTitle }: PageBannerProps) => {
             </div>
         </div>
     );
-};
+}
 
 export default PageBanner;

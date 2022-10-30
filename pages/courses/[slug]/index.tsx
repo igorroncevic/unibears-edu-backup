@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-resetIdCounter();
 
 import { toPlainText } from '@portabletext/react';
 import Image from '../../../components/Common/CustomImage';
@@ -15,7 +14,7 @@ import Instructor from '../../../components/Courses/Instructor';
 import Head from '../../../components/_App/CustomHead';
 import Preloader from '../../../components/_App/Preloader';
 import { changeLastVisitedCourse } from '../../../redux/reducers/course.reducer';
-import { AppState } from '../../../redux/store';
+import { getUser } from '../../../redux/selectors';
 import {
     courseNotFound,
     findCourseBySlug,
@@ -30,11 +29,13 @@ import {
 import { toastErrorImportant } from '../../../utils/toasts';
 import { StaticParams } from './lectures';
 
-const Details = ({ course }: CourseProps) => {
+resetIdCounter();
+
+function Details({ course }: CourseProps) {
     const dispatch = useDispatch();
     const router = useRouter();
     const [t] = useTranslation(['courses', 'toasts']);
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
     const [metadata, setMetadata] = useState(defaultMetadata);
 
     useEffect(() => {
@@ -128,7 +129,7 @@ const Details = ({ course }: CourseProps) => {
             </div>
         </div>
     );
-};
+}
 
 export async function getStaticPaths() {
     const slugs = await getCoursePaths();

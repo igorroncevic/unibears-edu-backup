@@ -1322,6 +1322,7 @@ Navbar Area CSS
     background-color: var(--white-color);
     padding-top: 5px;
     padding-bottom: 5px;
+    height: 75px;
 }
 
 .navbar-area.is-sticky {
@@ -1430,6 +1431,7 @@ Courses Area CSS
     border-radius: 5px 5px 0 0;
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
 .single-courses-box .courses-image .image {

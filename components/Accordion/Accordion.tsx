@@ -11,7 +11,7 @@ import {
     Topic,
     updatePreviousAndNextLecture,
 } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/store';
+import { getUser } from '../../redux/selectors';
 import {
     findTopicAndLectureIndex,
     setNextAndPreviousLecture,
@@ -23,7 +23,7 @@ interface AccordionProps {
 }
 
 function AccordionComponent({ course }: AccordionProps) {
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
     const router = useRouter();
     const dispatch = useDispatch();
 
@@ -45,6 +45,18 @@ function AccordionComponent({ course }: AccordionProps) {
                 query: { active: lecture.id },
             });
         }
+    };
+
+    const setPreviousAndNextLecture = (
+        topicIndex: number,
+        lectureIndex: number
+    ) => {
+        const data = setNextAndPreviousLecture(
+            topics,
+            topicIndex,
+            lectureIndex
+        );
+        dispatch(updatePreviousAndNextLecture(data));
     };
 
     useEffect(() => {
@@ -97,18 +109,6 @@ function AccordionComponent({ course }: AccordionProps) {
         }`;
     };
 
-    const setPreviousAndNextLecture = (
-        topicIndex: number,
-        lectureIndex: number
-    ) => {
-        const data = setNextAndPreviousLecture(
-            topics,
-            topicIndex,
-            lectureIndex
-        );
-        dispatch(updatePreviousAndNextLecture(data));
-    };
-
     const onLectureClick = (
         lecture: Lecture,
         topicIndex: number,
@@ -143,7 +143,7 @@ function AccordionComponent({ course }: AccordionProps) {
                                             }}
                                             replace
                                         >
-                                            <a
+                                            <div
                                                 className={getLectureClassname(
                                                     lecture
                                                 )}
@@ -159,7 +159,7 @@ function AccordionComponent({ course }: AccordionProps) {
                                                     {lecture.title[langCode]}
                                                 </span>
                                                 <span>{lecture.duration}</span>
-                                            </a>
+                                            </div>
                                         </Link>
                                     );
                                 })}

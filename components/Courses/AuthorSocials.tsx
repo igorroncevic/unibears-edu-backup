@@ -9,7 +9,7 @@ interface AuthorProps {
     author: AuthorSocialURLs;
 }
 
-const AuthorSocials = ({ author }: AuthorProps) => {
+function AuthorSocials({ author }: AuthorProps) {
     return (
         <ul className="social-link">
             <li>
@@ -19,7 +19,7 @@ const AuthorSocials = ({ author }: AuthorProps) => {
                     rel="noreferrer"
                     target="_blank"
                 >
-                    <i className="bx bxl-facebook"></i>
+                    <i className="bx bxl-facebook" />
                 </a>
             </li>
             <li>
@@ -29,7 +29,7 @@ const AuthorSocials = ({ author }: AuthorProps) => {
                     rel="noreferrer"
                     target="_blank"
                 >
-                    <i className="bx bxl-twitter"></i>
+                    <i className="bx bxl-twitter" />
                 </a>
             </li>
             <li>
@@ -39,7 +39,7 @@ const AuthorSocials = ({ author }: AuthorProps) => {
                     rel="noreferrer"
                     target="_blank"
                 >
-                    <i className="bx bxl-instagram"></i>
+                    <i className="bx bxl-instagram" />
                 </a>
             </li>
             <li>
@@ -49,11 +49,11 @@ const AuthorSocials = ({ author }: AuthorProps) => {
                     rel="noreferrer"
                     target="_blank"
                 >
-                    <i className="bx bxl-linkedin"></i>
+                    <i className="bx bxl-linkedin" />
                 </a>
             </li>
         </ul>
     );
-};
+}
 
 export default AuthorSocials;

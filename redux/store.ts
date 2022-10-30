@@ -1,9 +1,8 @@
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
 import authReducer, { authSlice } from './reducers/auth.reducer';
 import courseReducer, { courseSlice } from './reducers/course.reducer';
 import userReducer, { userSlice } from './reducers/user.reducer';
-
-import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { createWrapper } from 'next-redux-wrapper';
 
 const makeStore = () =>
     configureStore({

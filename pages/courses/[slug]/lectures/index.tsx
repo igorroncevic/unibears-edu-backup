@@ -9,7 +9,7 @@ import { CourseProps } from '../../../../components/Courses/CourseCard';
 import Lecture from '../../../../components/Lectures/Lecture';
 import Head from '../../../../components/_App/CustomHead';
 import Preloader from '../../../../components/_App/Preloader';
-import { AppState } from '../../../../redux/store';
+import { getUser } from '../../../../redux/selectors';
 import {
     courseNotFound,
     getCourseLectures,
@@ -27,10 +27,10 @@ export interface StaticParams {
     params: { slug: string };
 }
 
-const Lectures = ({ course }: CourseProps) => {
+function Lectures({ course }: CourseProps) {
     const router = useRouter();
     const [t] = useTranslation('toasts');
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
 
     const [show, setShow] = useState(true);
     const [metadata, setMetadata] = useState(defaultMetadata);
@@ -91,7 +91,7 @@ const Lectures = ({ course }: CourseProps) => {
                             className="btn btn-light"
                             type="button"
                         >
-                            <i className="flaticon-right-chevron"></i>
+                            <i className="flaticon-right-chevron" />
                         </button>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ const Lectures = ({ course }: CourseProps) => {
             </div>
         </>
     );
-};
+}
 
 export async function getStaticPaths() {
     const slugs = await getCoursePaths();

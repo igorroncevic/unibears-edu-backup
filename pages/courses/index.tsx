@@ -1,12 +1,12 @@
 /* eslint-disable indent */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import PageBanner from '../../components/Common/PageBanner';
 import CourseCard from '../../components/Courses/CourseCard';
 import { Category, Course } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/store';
+import { getUser } from '../../redux/selectors';
 import {
     allCategoriesFilterTranslated,
     categoriesFilterTranslated,
@@ -19,9 +19,9 @@ interface IndexProps {
     categories: Category[];
 }
 
-const Index = ({ courses, categories }: IndexProps) => {
+function Index({ courses, categories }: IndexProps) {
     const [t] = useTranslation('courses');
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
     const [displayCourses, setDisplayCourses] = useState(courses);
 
     const [allCategories, setAllCategories] = useState([
@@ -46,7 +46,7 @@ const Index = ({ courses, categories }: IndexProps) => {
         courses.filter((course: Course) =>
             course.categories.some(
                 (category: Category) =>
-                    category.name[langCode] == categoryFilter
+                    category.name[langCode] === categoryFilter
             )
         );
 
@@ -67,7 +67,7 @@ const Index = ({ courses, categories }: IndexProps) => {
     };
 
     return (
-        <React.Fragment>
+        <>
             <PageBanner pageTitle={t('coursesTitle')} />
 
             <div className="courses-area courses-section pt-100 pb-70">
@@ -118,9 +118,9 @@ const Index = ({ courses, categories }: IndexProps) => {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </>
     );
-};
+}
 
 export async function getStaticProps() {
     const courses = await findAllCourses();
