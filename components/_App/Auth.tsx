@@ -7,7 +7,7 @@ import { PATH_NAMES } from '../../utils/routing';
 import { toastErrorImportant } from '../../utils/toasts';
 import Preloader from './Preloader';
 
-interface AuthProp {
+export interface AuthProp {
     requiredCollectionItems: number;
 }
 

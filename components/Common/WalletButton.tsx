@@ -1,73 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import {
-    useWalletDialog,
-    WalletDialogButton,
-} from '@solana/wallet-adapter-material-ui';
-import { useWallet, Wallet } from '@solana/wallet-adapter-react';
-import { useEffect, useState } from 'react';
+import { WalletDialogButton } from '@solana/wallet-adapter-material-ui';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import useWalletAdapter from '../../customHooks/useWalletAdapter';
 
-import {
-    setCollectionItemCount,
-    web3AuthSuccess,
-} from '../../redux/reducers/auth.reducer';
 import { getAuth } from '../../redux/selectors';
-import { getCollectionItemsCount } from '../../services/solana.service';
 import { shortenAddress } from '../../utils/blockchain';
-import { toastSuccess } from '../../utils/toasts';
 import Spinner from './Spinner';
 
 function WalletButton() {
     const [t] = useTranslation(['common', 'toasts']);
 
-    const dispatch = useDispatch();
     const { address } = useSelector(getAuth);
+    const [loading, setWalletLoading, wallet] = useWalletAdapter();
 
-    const { wallet, connected }: { wallet: Wallet | null; connected: boolean } =
-        useWallet();
-    // used to stop loading
-    const { open } = useWalletDialog();
-
-    const [walletLoading, setWalletLoading] = useState(false);
-
-    useEffect(() => {
-        if (walletLoading && !open) {
-            setWalletLoading(false);
-        }
-    }, [open, walletLoading]);
-
-    // TODO: This is triggered very often, check if it can be optimized.
-    useEffect(() => {
-        if (wallet?.adapter) {
-            setWalletLoading(true);
-            const walletAddress = wallet.adapter.publicKey?.toBase58();
-
-            // Sometimes address isn't immediately found
-            if (walletAddress && !address) {
-                getCollectionItemsCount(walletAddress).then((count) => {
-                    if (count < 0) {
-                        setWalletLoading(false);
-                    }
-                    dispatch(
-                        setCollectionItemCount({
-                            collectionItemsCount: count,
-                        })
-                    );
-                    dispatch(web3AuthSuccess({ address: walletAddress }));
-                    toastSuccess(t('success.login'));
-                    setWalletLoading(false);
-                });
-            } else {
-                setWalletLoading(false);
-            }
-        } else {
-            setWalletLoading(false);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [wallet, connected]);
-
-    if (walletLoading)
+    if (loading)
         return (
             <div className="default-btn wallet-spinner">
                 <div className="wallet-button">
@@ -76,7 +23,7 @@ function WalletButton() {
             </div>
         );
 
-    return !walletLoading && address ? (
+    return !loading && address ? (
         <div className="user-dropdown">
             <button
                 onClick={(e) => e.preventDefault()}
