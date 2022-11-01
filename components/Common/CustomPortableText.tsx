@@ -25,11 +25,11 @@ const getLink = ({ children, value }: any) =>
         </a>
     );
 
-function PortableText({ content, plain, shortenTo }: PortableTextProps) {
-    if (!content) {
-        return null;
-    }
-
+const getFormattedContent = ({
+    content,
+    plain,
+    shortenTo,
+}: PortableTextProps) => {
     let contentFormatted = content;
     if (plain) {
         contentFormatted = toPlainText(content);
@@ -39,7 +39,15 @@ function PortableText({ content, plain, shortenTo }: PortableTextProps) {
                 .trim()}...`;
         }
     }
+    return contentFormatted;
+};
 
+function PortableText({ content, plain, shortenTo }: PortableTextProps) {
+    if (!content) {
+        return null;
+    }
+
+    const formattedContent = getFormattedContent({ content, plain, shortenTo });
     const serializers = {
         marks: {
             link: getLink,
@@ -48,7 +56,7 @@ function PortableText({ content, plain, shortenTo }: PortableTextProps) {
 
     return (
         <ReactPortableText
-            value={contentFormatted}
+            value={formattedContent}
             components={serializers}
             /* Possibly add serializers */
         />

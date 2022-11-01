@@ -60,7 +60,6 @@ function CourseCard({ course }: CourseProps) {
                             {course.title[langCode]}
                         </Link>
                     </h3>
-
                     <PortableText
                         content={
                             course.overview ? course.overview[langCode] : ''

@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { PATH_NAMES } from '../../utils/routing';
-import Image from '../Common/CustomImage';
 import WalletButton from '../Common/WalletButton';
 import Language from './Language';
 
@@ -51,7 +51,12 @@ function Navbar() {
                 <div className="container-fluid">
                     <div className="navbar navbar-expand-lg navbar-light">
                         <a className="navbar-brand" href={PATH_NAMES.Index}>
-                            <Image src="/images/logo-black.svg" alt="logo" />
+                            <Image
+                                src="/images/logo-black.svg"
+                                alt="logo"
+                                width="150px"
+                                height="75px"
+                            />
                         </a>
 
                         <button

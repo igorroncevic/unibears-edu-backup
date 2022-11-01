@@ -1,71 +1,25 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
-import { toPlainText } from '@portabletext/react';
 import AccordionComponent from '../../../../components/Accordion/Accordion';
 import { CourseProps } from '../../../../components/Courses/CourseCard';
 import Lecture from '../../../../components/Lectures/Lecture';
 import Head from '../../../../components/_App/CustomHead';
 import Preloader from '../../../../components/_App/Preloader';
-import { getUser } from '../../../../redux/selectors';
+import useCourse from '../../../../customHooks/useCourse';
 import {
-    courseNotFound,
     getCourseLectures,
     getCoursePaths,
 } from '../../../../services/course.service';
-import {
-    defaultMetadata,
-    getMetadata,
-    PATH_NAMES,
-    Route,
-} from '../../../../utils/routing';
-import { toastErrorImportant } from '../../../../utils/toasts';
 
 export interface StaticParams {
     params: { slug: string };
 }
 
 function Lectures({ course }: CourseProps) {
-    const router = useRouter();
-    const [t] = useTranslation('toasts');
-    const { langCode } = useSelector(getUser);
-
     const [show, setShow] = useState(true);
-    const [metadata, setMetadata] = useState(defaultMetadata);
+    const [metadata] = useCourse(course);
 
-    // TODO: Perhaps set title to be current lecture title? A bit complicated because active lecture is set in a component.
-    useEffect(() => {
-        if (course?.title[langCode] === courseNotFound.title) {
-            if (router.isReady) {
-                toastErrorImportant(
-                    t('error.courseUnavailable', { ns: 'toasts' })
-                );
-                router.push(PATH_NAMES.CoursesIndex);
-            }
-        } else {
-            const componentMetadata = {
-                title: course.title[langCode],
-                description: course.overview
-                    ? toPlainText(course.overview[langCode])
-                    : defaultMetadata.description,
-            };
-
-            const { title, description } = getMetadata(
-                PATH_NAMES.CoursesId as Route,
-                componentMetadata,
-                langCode
-            );
-            setMetadata({ title, description });
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [course, langCode, router]);
-
-    if (
-        !course ||
-        (course && course.title[langCode] === courseNotFound.title)
-    ) {
+    if (!course) {
         return <Preloader />;
     }
 
@@ -105,7 +59,6 @@ function Lectures({ course }: CourseProps) {
 
 export async function getStaticPaths() {
     const slugs = await getCoursePaths();
-
     const paths = slugs.map((slug: string) => ({
         params: { slug },
     }));
@@ -118,7 +71,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: StaticParams) {
     const course: any = await getCourseLectures(params.slug);
-
     const auth = {
         requiredCollectionItems: course.requiredCollectionItems,
     };

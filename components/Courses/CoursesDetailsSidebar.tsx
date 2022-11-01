@@ -17,12 +17,12 @@ function CoursesDetailsSidebar({ course }: CourseProps) {
     const { langCode } = useSelector(getUser);
 
     const [display, setDisplay] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => {
         setDisplay(true);
     }, []);
 
-    const [isOpen, setIsOpen] = useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
     };

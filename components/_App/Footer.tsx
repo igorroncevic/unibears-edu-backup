@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { PATH_NAMES } from '../../utils/routing';
 
+// this needs to be date when project started; not current year
 const currentYear = new Date().getFullYear();
 
 function Footer() {

@@ -412,6 +412,9 @@ Navbar Area CSS
 
 .learning-platform-nav .navbar .navbar-nav .nav-item {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .learning-platform-nav .navbar .navbar-nav .nav-item a {
@@ -3094,7 +3097,7 @@ Main Banner Area CSS - Keep
 .language_wrapper {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     height: 40px;
     width: 50px;
@@ -3141,8 +3144,6 @@ Main Banner Area CSS - Keep
 
 .language_wrapper .languages ul li img {
     object-fit: cover;
-    width: 30px;
-    height: 20px;
 }
 
 .language_wrapper .languages ul li .languageName {

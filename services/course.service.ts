@@ -20,7 +20,7 @@ export const courseNotFound = {
 const transformCourse = (course: Course) => {
     // Course was not found
     if (!course) {
-        return courseNotFound;
+        return undefined;
     }
 
     if (course.thumbnail) {

@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { WalletDialogButton } from '@solana/wallet-adapter-material-ui';
+import {
+    useWalletDialog,
+    WalletDialogButton,
+} from '@solana/wallet-adapter-material-ui';
 import { useWallet, Wallet } from '@solana/wallet-adapter-react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +26,16 @@ function WalletButton() {
 
     const { wallet, connected }: { wallet: Wallet | null; connected: boolean } =
         useWallet();
+    // used to stop loading
+    const { open } = useWalletDialog();
+
     const [walletLoading, setWalletLoading] = useState(false);
+
+    useEffect(() => {
+        if (walletLoading && !open) {
+            setWalletLoading(false);
+        }
+    }, [open, walletLoading]);
 
     // TODO: This is triggered very often, check if it can be optimized.
     useEffect(() => {
