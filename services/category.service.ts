@@ -1,5 +1,5 @@
 import { Category } from '../redux/reducers/course.reducer';
-import { Lang, LANGUAGE_CODES } from '../redux/reducers/user.reducer';
+import { Lang } from '../redux/reducers/user.reducer';
 import { sanityClient } from '../sanity.config';
 
 export const categoriesFields = `'id': _id, name`;
@@ -18,15 +18,14 @@ export const displayCategories = (categories: Category[], langCode: Lang) => {
     if (!categories) return '';
 
     let stringified = '';
-    for (let i = 0; i < categories.length; i++) {
-        const categoryName = categories[i].name[langCode];
-        if (i == 0) {
+    categories.forEach((category, i) => {
+        const categoryName = category.name[langCode];
+        if (i === 0) {
             stringified = categoryName;
-            continue;
+        } else {
+            stringified += `, ${categoryName}`;
         }
-        stringified += `, ${categoryName}`;
-    }
-
+    });
     return stringified;
 };
 
@@ -37,13 +36,13 @@ export const categoriesFilterTranslated = (
     return categories.map((category) => category.name[langCode]); // Retain this for filtering purposes.
 };
 
-export const allCategoriesFilterTranslated = (langCode: Lang) => {
-    switch (langCode) {
-        case LANGUAGE_CODES.en:
-            return 'All';
-        case LANGUAGE_CODES.sr:
-            return 'Svi';
-        default:
-            return 'All';
-    }
+export const getAllCategoryFilter = (
+    categories: Category[],
+    allCategory: string,
+    langCode: Lang
+) => {
+    return [
+        allCategory,
+        ...(categories ? categoriesFilterTranslated(categories, langCode) : []),
+    ];
 };

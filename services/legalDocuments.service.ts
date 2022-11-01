@@ -7,10 +7,10 @@ export const LEGAL_TYPES = {
     TOS: 'TOS',
 };
 
-export const findLegalDocumentByType = async (legalType: string) => {
+export const findLegalDocumentByType = (legalType: string) => {
     const query = `*[_type == "legalDocument" && legalType == $legalType][0] {
         ${legalDocumentFields},
       }`;
 
-    return await sanityClient.fetch(query, { legalType });
+    return sanityClient.fetch(query, { legalType });
 };

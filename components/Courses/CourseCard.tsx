@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Course } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/store';
+import { getUser } from '../../redux/selectors';
 import { displayCategories } from '../../services/category.service';
 import { PATH_NAMES } from '../../utils/routing';
 import Image from '../Common/CustomImage';
@@ -12,9 +12,9 @@ export interface CourseProps {
     course: Course;
 }
 
-const CourseCard = ({ course }: CourseProps) => {
+function CourseCard({ course }: CourseProps) {
     const [t] = useTranslation('courses');
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
 
     return (
         <div className="col-lg-6 col-md-12">
@@ -23,13 +23,12 @@ const CourseCard = ({ course }: CourseProps) => {
                     <Link
                         href={PATH_NAMES.CoursesId}
                         as={PATH_NAMES.CoursesIdFilled(course.slug)}
+                        className="d-block image"
                     >
-                        <a className="d-block image">
-                            <Image
-                                src={course.thumbnail ? course.thumbnail : ''}
-                                alt={course.title[langCode]}
-                            />
-                        </a>
+                        <Image
+                            src={course.thumbnail ? course.thumbnail : ''}
+                            alt={course.title[langCode]}
+                        />
                     </Link>
                 </div>
                 <div className="courses-content">
@@ -58,10 +57,9 @@ const CourseCard = ({ course }: CourseProps) => {
                             href={PATH_NAMES.CoursesId}
                             as={PATH_NAMES.CoursesIdFilled(course.slug)}
                         >
-                            <a>{course.title[langCode]}</a>
+                            {course.title[langCode]}
                         </Link>
                     </h3>
-
                     <PortableText
                         content={
                             course.overview ? course.overview[langCode] : ''
@@ -70,14 +68,14 @@ const CourseCard = ({ course }: CourseProps) => {
                     <ul className="courses-box-footer d-flex justify-content-between align-items-center">
                         <li>
                             {/* TODO: Add appropriate icon */}
-                            <i className="flaticon-agenda"></i>{' '}
+                            <i className="flaticon-agenda" />{' '}
                             {course.categories
                                 ? displayCategories(course.categories, langCode)
                                 : ''}
                         </li>
                         <li>
                             {/* TODO: Add some more data to make design look nicer */}
-                            <i className="flaticon-web"></i>{' '}
+                            <i className="flaticon-web" />{' '}
                             {t('requiredCollectionItems')}:{' '}
                             {course.requiredCollectionItems}
                         </li>
@@ -86,6 +84,6 @@ const CourseCard = ({ course }: CourseProps) => {
             </div>
         </div>
     );
-};
+}
 
 export default CourseCard;

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Author } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/store';
+import { getUser } from '../../redux/selectors';
 import Image from '../Common/CustomImage';
 import PortableText from '../Common/CustomPortableText';
 
@@ -8,8 +8,8 @@ interface AuthorProps {
     author: Author;
 }
 
-const Instructor = ({ author }: AuthorProps) => {
-    const { langCode } = useSelector((state: AppState) => state.user);
+function Instructor({ author }: AuthorProps) {
+    const { langCode } = useSelector(getUser);
 
     return (
         <div className="courses-instructor">
@@ -43,6 +43,6 @@ const Instructor = ({ author }: AuthorProps) => {
             </div>
         </div>
     );
-};
+}
 
 export default Instructor;

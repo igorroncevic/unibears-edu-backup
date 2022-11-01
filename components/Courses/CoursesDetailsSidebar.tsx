@@ -3,25 +3,26 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-const ModalVideo = dynamic(import('react-modal-video'));
+import { getUser } from '../../redux/selectors';
 
-import { AppState } from '../../redux/store';
 import { displayCategories } from '../../services/category.service';
 import { PATH_NAMES } from '../../utils/routing';
 import Image from '../Common/CustomImage';
 import { CourseProps } from './CourseCard';
 
-const CoursesDetailsSidebar = ({ course }: CourseProps) => {
+const ModalVideo = dynamic(import('react-modal-video'));
+
+function CoursesDetailsSidebar({ course }: CourseProps) {
     const [t] = useTranslation('courses');
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
 
     const [display, setDisplay] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => {
         setDisplay(true);
     }, []);
 
-    const [isOpen, setIsOpen] = useState(true);
     const openModal = () => {
         setIsOpen(!isOpen);
     };
@@ -40,7 +41,7 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                     }
                     onClose={() => setIsOpen(!isOpen)}
                     allowFullScreen
-                    ratio={'1:1'}
+                    ratio="1:1"
                     animationSpeed={1}
                     classNames={{
                         modalVideoEffect: 'modal-video-effect',
@@ -71,10 +72,10 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                             openModal();
                         }}
                         className="link-btn popup-youtube"
-                    ></div>
+                    />
 
                     <div className="content">
-                        <i className="flaticon-play"></i>
+                        <i className="flaticon-play" />
                         <span>{t('coursePreview')}</span>
                     </div>
                 </div>
@@ -87,7 +88,7 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                     <li>
                         <div className="d-flex justify-content-between align-items-center">
                             <span>
-                                <i className="flaticon-teacher"></i>{' '}
+                                <i className="flaticon-teacher" />{' '}
                                 {t('instructor')}
                             </span>
                             {course.author.name}
@@ -96,8 +97,7 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                     <li>
                         <div className="d-flex justify-content-between align-items-center">
                             <span>
-                                <i className="flaticon-time"></i>{' '}
-                                {t('duration')}
+                                <i className="flaticon-time" /> {t('duration')}
                             </span>
                             {course.duration}
                         </div>
@@ -106,7 +106,7 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                         <div className="d-flex justify-content-between align-items-center">
                             <span>
                                 {/* TODO: Maybe change the icon to fit in with others */}
-                                <i className="flaticon-calendar"></i>{' '}
+                                <i className="flaticon-calendar" />{' '}
                                 {t('published')}
                             </span>
                             {course.publishedAt}
@@ -116,7 +116,7 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                         <div className="d-flex justify-content-between align-items-center">
                             <span>
                                 {/* TODO: Add a proper icon for categories */}
-                                <i className="flaticon-agenda"></i>{' '}
+                                <i className="flaticon-agenda" />{' '}
                                 {t('categories')}
                             </span>
                             {displayCategories(course.categories, langCode)}
@@ -126,7 +126,7 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                         <div className="d-flex justify-content-between align-items-center">
                             <span>
                                 {/* TODO: Add a proper icon for collection items count */}
-                                <i className="flaticon-web"></i>{' '}
+                                <i className="flaticon-web" />{' '}
                                 {t('requiredCollectionItems')}
                             </span>
                             {course.requiredCollectionItems}
@@ -139,9 +139,9 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
                         href={PATH_NAMES.LectureCoursesIdFilled(course.slug)}
                         passHref
                     >
-                        <button className="default-btn">
+                        <button className="default-btn" type="button">
                             {/* TODO: Use this button to navigate to first lesson if user has enough collection items? */}
-                            <i className="flaticon-tag"></i>
+                            <i className="flaticon-tag" />
                             {t('startCourse')}
                         </button>
                     </Link>
@@ -149,6 +149,6 @@ const CoursesDetailsSidebar = ({ course }: CourseProps) => {
             </div>
         </>
     );
-};
+}
 
 export default CoursesDetailsSidebar;

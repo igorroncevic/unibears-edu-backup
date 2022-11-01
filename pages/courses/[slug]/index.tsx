@@ -1,11 +1,7 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-resetIdCounter();
 
-import { toPlainText } from '@portabletext/react';
 import Image from '../../../components/Common/CustomImage';
 import PortableText from '../../../components/Common/CustomPortableText';
 import { CourseProps } from '../../../components/Courses/CourseCard';
@@ -14,62 +10,22 @@ import CoursesDetailsSidebar from '../../../components/Courses/CoursesDetailsSid
 import Instructor from '../../../components/Courses/Instructor';
 import Head from '../../../components/_App/CustomHead';
 import Preloader from '../../../components/_App/Preloader';
-import { changeLastVisitedCourse } from '../../../redux/reducers/course.reducer';
-import { AppState } from '../../../redux/store';
+import useCourse from '../../../customHooks/useCourse';
+import { getUser } from '../../../redux/selectors';
 import {
-    courseNotFound,
     findCourseBySlug,
     getCoursePaths,
 } from '../../../services/course.service';
-import {
-    defaultMetadata,
-    getMetadata,
-    PATH_NAMES,
-    Route,
-} from '../../../utils/routing';
-import { toastErrorImportant } from '../../../utils/toasts';
 import { StaticParams } from './lectures';
 
-const Details = ({ course }: CourseProps) => {
-    const dispatch = useDispatch();
-    const router = useRouter();
+resetIdCounter();
+
+function Details({ course }: CourseProps) {
     const [t] = useTranslation(['courses', 'toasts']);
-    const { langCode } = useSelector((state: AppState) => state.user);
-    const [metadata, setMetadata] = useState(defaultMetadata);
+    const { langCode } = useSelector(getUser);
+    const [metadata] = useCourse(course);
 
-    useEffect(() => {
-        if (course) {
-            if (course.title[langCode] === courseNotFound.title) {
-                if (router.isReady) {
-                    toastErrorImportant(
-                        t('error.courseUnavailable', { ns: 'toasts' })
-                    );
-                    router.push(PATH_NAMES.CoursesIndex);
-                }
-            } else {
-                const componentMetadata = {
-                    title: course.title[langCode],
-                    description: course.overview
-                        ? toPlainText(course.overview[langCode])
-                        : defaultMetadata.description,
-                };
-
-                const { title, description } = getMetadata(
-                    PATH_NAMES.CoursesId as Route,
-                    componentMetadata,
-                    langCode
-                );
-                setMetadata({ title, description });
-                dispatch(changeLastVisitedCourse({ slug: course.slug }));
-            }
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [course, langCode, router]);
-
-    if (
-        !course ||
-        (course && course.title[langCode] === courseNotFound.title)
-    ) {
+    if (!course) {
         return <Preloader />;
     }
 
@@ -128,11 +84,10 @@ const Details = ({ course }: CourseProps) => {
             </div>
         </div>
     );
-};
+}
 
 export async function getStaticPaths() {
     const slugs = await getCoursePaths();
-
     const paths = slugs.map((slug: string) => ({
         params: { slug },
     }));

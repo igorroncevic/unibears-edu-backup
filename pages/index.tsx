@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Image from '../components/Common/CustomImage';
 
-const Index = () => {
+function Index() {
     const [t] = useTranslation('common');
 
     return (
@@ -23,6 +23,6 @@ const Index = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Index;

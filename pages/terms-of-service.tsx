@@ -1,19 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { Fragment } from 'react';
 import PortableText from '../components/Common/CustomPortableText';
 import PageBanner from '../components/Common/PageBanner';
 import Preloader from '../components/_App/Preloader';
-import { AppState } from '../redux/store';
+import { getUser } from '../redux/selectors';
 import {
     findLegalDocumentByType,
     LEGAL_TYPES,
 } from '../services/legalDocuments.service';
 import { DocumentProps } from './privacy-policy';
 
-const TermsOfService = ({ document }: DocumentProps) => {
-    const { langCode } = useSelector((state: AppState) => state.user);
+function TermsOfService({ document }: DocumentProps) {
+    const { langCode } = useSelector(getUser);
     const [t] = useTranslation('common');
 
     if (!document) {
@@ -21,7 +20,7 @@ const TermsOfService = ({ document }: DocumentProps) => {
     }
 
     return (
-        <Fragment>
+        <>
             <PageBanner pageTitle={t('footer.tos')} />
 
             <div className="terms-of-service-area ptb-100">
@@ -42,9 +41,9 @@ const TermsOfService = ({ document }: DocumentProps) => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </>
     );
-};
+}
 
 export async function getStaticProps() {
     const document = await findLegalDocumentByType(LEGAL_TYPES.TOS);

@@ -4,7 +4,8 @@ export const findTopicAndLectureIndex = (
     topics: Topic[],
     lectureId: string | string[] | undefined
 ) => {
-    let topicIndex, lectureIndex;
+    let topicIndex;
+    let lectureIndex;
     topics.find((topic, topicInd) => {
         topicIndex = topicInd;
         return topic.lectures.find((lecture, lectureInd) => {
@@ -21,7 +22,10 @@ export const setNextAndPreviousLecture = (
     topicIndex: number,
     lectureIndex: number
 ) => {
-    let previousTopic, previousLecture, nextTopic, nextLecture;
+    let previousTopic;
+    let previousLecture;
+    let nextTopic;
+    let nextLecture;
 
     // current one
     let chosenTopic = topics[topicIndex];
@@ -30,7 +34,7 @@ export const setNextAndPreviousLecture = (
     if (chosenTopic.lectures[lectureIndex - 1]) {
         previousLecture = chosenTopic.lectures[lectureIndex - 1];
     }
-    //check if lecture after exists
+    // check if lecture after exists
     if (chosenTopic.lectures[lectureIndex + 1]) {
         nextLecture = chosenTopic.lectures[lectureIndex + 1];
     }
@@ -51,7 +55,7 @@ export const setNextAndPreviousLecture = (
         chosenTopic &&
         chosenTopic.lectures.length > 0
     ) {
-        nextLecture = chosenTopic.lectures[0];
+        [nextLecture] = chosenTopic.lectures;
     }
 
     return {

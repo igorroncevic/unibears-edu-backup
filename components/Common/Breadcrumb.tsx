@@ -20,7 +20,7 @@ function Breadcrumb({ paths }: BreadcrumbProps) {
                                     className={`breadcrumb-item py-2 ${
                                         path.active ? 'active' : ''
                                     }`}
-                                    key={index}
+                                    key={`${path.name + index}`}
                                     aria-current={
                                         path.active ? 'page' : 'false'
                                     }

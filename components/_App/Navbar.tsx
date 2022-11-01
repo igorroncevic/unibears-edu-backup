@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Link from 'next/link';
 
-import Language from './Language';
-import WalletButton from '../Common/WalletButton';
 import { PATH_NAMES } from '../../utils/routing';
-import Image from '../Common/CustomImage';
+import WalletButton from '../Common/WalletButton';
+import Language from './Language';
 
 const mobileDevices =
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
 
-const Navbar = () => {
+function Navbar() {
     const [t] = useTranslation(['common', 'toasts']);
     const [menu, setMenu] = useState(true);
 
@@ -51,14 +50,14 @@ const Navbar = () => {
             <div className="learning-platform-nav">
                 <div className="container-fluid">
                     <div className="navbar navbar-expand-lg navbar-light">
-                        <Link href={PATH_NAMES.Index}>
-                            <a className="navbar-brand">
-                                <Image
-                                    src="/images/logo-black.svg"
-                                    alt="logo"
-                                />
-                            </a>
-                        </Link>
+                        <a className="navbar-brand" href={PATH_NAMES.Index}>
+                            <Image
+                                src="/images/logo-black.svg"
+                                alt="logo"
+                                width="150px"
+                                height="75px"
+                            />
+                        </a>
 
                         <button
                             onClick={toggleNavbar}
@@ -68,9 +67,9 @@ const Navbar = () => {
                             aria-expanded="false"
                             aria-label="Toggle navigation"
                         >
-                            <span className="icon-bar top-bar"></span>
-                            <span className="icon-bar middle-bar"></span>
-                            <span className="icon-bar bottom-bar"></span>
+                            <span className="icon-bar top-bar" />
+                            <span className="icon-bar middle-bar" />
+                            <span className="icon-bar bottom-bar" />
                         </button>
 
                         <div className={classOne} id="navbarSupportedContent">
@@ -86,11 +85,12 @@ const Navbar = () => {
                                     </a>
                                 </li>
                                 <li className="nav-item megamenu">
-                                    <Link href={PATH_NAMES.CoursesIndex}>
-                                        <a className="nav-link">
-                                            {t('navbar.courses')}
-                                        </a>
-                                    </Link>
+                                    <a
+                                        className="nav-link"
+                                        href={PATH_NAMES.CoursesIndex}
+                                    >
+                                        {t('navbar.courses')}
+                                    </a>
                                 </li>
                                 <li className="nav-item">
                                     <Language />
@@ -108,6 +108,6 @@ const Navbar = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Navbar;

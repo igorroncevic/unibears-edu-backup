@@ -7,7 +7,7 @@ import {
     Topic,
     updatePreviousAndNextLecture,
 } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/store';
+import { getNextLecture, getPreviousLecture } from '../../redux/selectors';
 import {
     findTopicAndLectureIndex,
     setNextAndPreviousLecture,
@@ -20,12 +20,8 @@ interface NavigationProps {
 
 function Navigation({ topics }: NavigationProps) {
     const [t] = useTranslation('courses');
-    const previous: Lecture | undefined = useSelector(
-        (state: AppState) => state.course.activeLecture?.previous
-    );
-    const next: Lecture | undefined = useSelector(
-        (state: AppState) => state.course.activeLecture?.next
-    );
+    const previous: Lecture | undefined = useSelector(getPreviousLecture);
+    const next: Lecture | undefined = useSelector(getNextLecture);
 
     const dispatch = useDispatch();
 
@@ -65,7 +61,7 @@ function Navigation({ topics }: NavigationProps) {
                             paddingLeft: '5px',
                         }}
                     >
-                        <i className="flaticon-right-chevron"></i>
+                        <i className="flaticon-right-chevron" />
                     </div>
                     <Link
                         href={{
@@ -76,9 +72,12 @@ function Navigation({ topics }: NavigationProps) {
                             query: { active: previous?.id },
                         }}
                     >
-                        <a onClick={() => onNavigationClick(previous)}>
+                        <button
+                            onClick={() => onNavigationClick(previous)}
+                            type="button"
+                        >
                             {t('previous')}
-                        </a>
+                        </button>
                     </Link>
                 </button>
                 <button
@@ -96,12 +95,15 @@ function Navigation({ topics }: NavigationProps) {
                             query: { active: next && next.id },
                         }}
                     >
-                        <a onClick={() => onNavigationClick(next)}>
+                        <button
+                            onClick={() => onNavigationClick(next)}
+                            type="button"
+                        >
                             {t('next')}
-                        </a>
+                        </button>
                     </Link>
                     <div style={{ paddingLeft: '5px' }}>
-                        <i className="flaticon-right-chevron"></i>
+                        <i className="flaticon-right-chevron" />
                     </div>
                 </button>
             </div>

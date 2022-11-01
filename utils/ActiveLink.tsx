@@ -1,9 +1,8 @@
-import { withRouter } from 'next/router';
 import Link from 'next/link';
-import { Children } from 'react';
-import { cloneElement } from 'react';
+import { withRouter } from 'next/router';
+import { Children, cloneElement } from 'react';
 
-const ActiveLink = ({ router, children, ...props }: any) => {
+function ActiveLink({ router, children, ...props }: any) {
     const child = Children.only(children);
 
     let className = child.props.className || '';
@@ -11,9 +10,10 @@ const ActiveLink = ({ router, children, ...props }: any) => {
         className = `${className} ${props.activeClassName}`.trim();
     }
 
+    // eslint-disable-next-line no-param-reassign
     delete props.activeClassName;
 
     return <Link {...props}>{cloneElement(child, { className })}</Link>;
-};
+}
 
 export default withRouter(ActiveLink);

@@ -14,8 +14,6 @@
     "author": "ironside.web3",
     "license": "ISC",
     "dependencies": {
-        "@emotion/react": "^11.10.4",
-        "@emotion/styled": "^11.10.4",
         "@metaplex-foundation/mpl-token-metadata": "^2.3.3",
         "@portabletext/react": "^1.0.6",
         "@react-aria/ssr": "^3.3.0",
@@ -56,7 +54,11 @@
         "@types/react": "^18.0.23",
         "@types/react-modal-video": "^1.2.0",
         "eslint": "^8.26.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^17.0.0",
         "eslint-config-next": "^13.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.7.1",
         "typescript": "^4.8.4"
     }

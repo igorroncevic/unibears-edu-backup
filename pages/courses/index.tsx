@@ -1,75 +1,61 @@
 /* eslint-disable indent */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import PageBanner from '../../components/Common/PageBanner';
 import CourseCard from '../../components/Courses/CourseCard';
 import { Category, Course } from '../../redux/reducers/course.reducer';
-import { AppState } from '../../redux/store';
+import { getUser } from '../../redux/selectors';
 import {
-    allCategoriesFilterTranslated,
-    categoriesFilterTranslated,
     findAllCategories,
+    getAllCategoryFilter,
 } from '../../services/category.service';
 import { findAllCourses } from '../../services/course.service';
 
 interface IndexProps {
     courses: Course[];
-    categories: Category[];
+    allCategories: Category[];
 }
 
-const Index = ({ courses, categories }: IndexProps) => {
+function Index({ courses, allCategories }: IndexProps) {
     const [t] = useTranslation('courses');
-    const { langCode } = useSelector((state: AppState) => state.user);
+    const { langCode } = useSelector(getUser);
     const [displayCourses, setDisplayCourses] = useState(courses);
+    const allCategory = t('all');
 
-    const [allCategories, setAllCategories] = useState([
-        t('all'),
-        ...categoriesFilterTranslated(categories, langCode),
-    ]);
-    const [categoryFilter, setCategoryFilter] = useState(t('all'));
+    const [categories, setCategories] = useState(
+        getAllCategoryFilter(allCategories, allCategory, langCode)
+    );
+    const [categoryFilter, setCategoryFilter] = useState(allCategory);
 
-    useEffect(() => {
-        const allCategoriesFilterTemp = allCategoriesFilterTranslated(langCode);
-
-        const allCategoriesTemp = [
-            allCategoriesFilterTemp,
-            ...categoriesFilterTranslated(categories, langCode),
-        ];
-
-        setAllCategories([...allCategoriesTemp]);
-        setCategoryFilter(allCategoriesFilterTemp);
-    }, [categories, langCode]);
-
-    const filterCourses = () =>
+    const filterCourses = (chosen: string) =>
         courses.filter((course: Course) =>
             course.categories.some(
-                (category: Category) =>
-                    category.name[langCode] == categoryFilter
+                (category: Category) => category.name[langCode] === chosen
             )
         );
 
     useEffect(() => {
-        switch (categoryFilter) {
-            case allCategoriesFilterTranslated(langCode):
-                setDisplayCourses(courses);
-                break;
-            default:
-                setDisplayCourses(filterCourses());
-                break;
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [langCode, categoryFilter]);
+        setCategories(
+            getAllCategoryFilter(allCategories, allCategory, langCode)
+        );
+        setCategoryFilter(allCategory);
+    }, [allCategories, allCategory, langCode]);
 
-    const handleCategorySelect = (e: any) => {
-        setCategoryFilter(e);
+    const handleCategorySelect = (category: string) => {
+        setCategoryFilter(category);
+
+        if (category === allCategory) {
+            setDisplayCourses(courses);
+        } else {
+            setDisplayCourses(filterCourses(category));
+        }
     };
 
     return (
-        <React.Fragment>
+        <>
             <PageBanner pageTitle={t('coursesTitle')} />
-
             <div className="courses-area courses-section pt-100 pb-70">
                 <div className="container">
                     <div className="learning-platform-grid-sorting row align-items-center">
@@ -94,7 +80,7 @@ const Index = ({ courses, categories }: IndexProps) => {
                                     {categoryFilter}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                    {allCategories.map((category: Category) => (
+                                    {categories.map((category: Category) => (
                                         <Dropdown.Item
                                             key={category}
                                             eventKey={category}
@@ -118,16 +104,16 @@ const Index = ({ courses, categories }: IndexProps) => {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </>
     );
-};
+}
 
 export async function getStaticProps() {
     const courses = await findAllCourses();
-    const categories = await findAllCategories();
+    const allCategories = await findAllCategories();
 
     return {
-        props: { courses, categories },
+        props: { courses, allCategories },
         revalidate: 10 * 60, // Regenerate page every 10 minutes, since it won't update that often.
     };
 }

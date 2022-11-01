@@ -1,17 +1,14 @@
-import Link from 'next/link';
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../redux/store';
+import { getAuth, getUser } from '../../redux/selectors';
 import { PATH_NAMES } from '../../utils/routing';
 import { CourseProps } from './CourseCard';
 
-const CoursesCurriculum = ({ course }: CourseProps) => {
+function CoursesCurriculum({ course }: CourseProps) {
     const [t] = useTranslation('courses');
-    const { langCode } = useSelector((state: AppState) => state.user);
-    const { collectionItemsCount } = useSelector(
-        (state: AppState) => state.auth
-    );
+    const { langCode } = useSelector(getUser);
+    const { collectionItemsCount } = useSelector(getAuth);
 
     return (
         <div className="courses-curriculum">
@@ -22,30 +19,25 @@ const CoursesCurriculum = ({ course }: CourseProps) => {
                         <ul>
                             {topic.lectures?.map((lecture) => (
                                 <li key={lecture.id}>
-                                    <Link
-                                        href={{
-                                            pathname:
-                                                PATH_NAMES.LectureCoursesIdFilled(
-                                                    course.slug
-                                                ),
-                                            query: { active: lecture.id },
-                                        }}
+                                    <a
+                                        href={PATH_NAMES.LectureCoursesIdFilled(
+                                            course.slug
+                                        )}
+                                        className="d-flex justify-content-between align-items-center"
                                     >
-                                        <a className="d-flex justify-content-between align-items-center">
-                                            <span className="courses-name">
-                                                {lecture.title[langCode]}
-                                            </span>
-                                            <div className="courses-meta">
-                                                {collectionItemsCount <
-                                                    course.requiredCollectionItems && (
-                                                    <span className="status locked">
-                                                        {' '}
-                                                        <i className="flaticon-password"></i>
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </a>
-                                    </Link>
+                                        <span className="courses-name">
+                                            {lecture.title[langCode]}
+                                        </span>
+                                        <div className="courses-meta">
+                                            {collectionItemsCount <
+                                                course.requiredCollectionItems && (
+                                                <span className="status locked">
+                                                    {' '}
+                                                    <i className="flaticon-password" />
+                                                </span>
+                                            )}
+                                        </div>
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -55,6 +47,6 @@ const CoursesCurriculum = ({ course }: CourseProps) => {
             {!course?.topics && <h3>{t('noLectures')}</h3>}
         </div>
     );
-};
+}
 
 export default CoursesCurriculum;
