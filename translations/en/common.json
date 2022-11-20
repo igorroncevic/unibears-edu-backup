@@ -5,7 +5,7 @@
         "joinForFree": "Join For Free"
     },
     "navbar": {
-        "buyUnibear": "Buy [nft collection name]",
+        "buyNFT": "Buy [nft collection name]",
         "courses": "Courses",
         "connect": "Connect",
         "wallet": "Wallet"

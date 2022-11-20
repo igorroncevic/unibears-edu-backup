@@ -27,11 +27,6 @@ body {
     --transition: 0.5s;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 p {
     color: var(--optional-color);
     margin-bottom: 15px;
@@ -1729,9 +1724,7 @@ Courses Details Area CSS - Keep
 =================================================*/
 .course-details-banner {
     width: 100%;
-}
-
-.course-details-banner-img {
+    position: relative;
     z-index: -1;
 }
 

@@ -129,7 +129,7 @@ export default {
             name: 'requiredCollectionItems',
             title: 'Required amount of collection items',
             description:
-                'Amount of colelction NFTs user needs to own in order to access this course.',
+                'Amount of collection NFTs user needs to own in order to access this course.',
             type: 'number',
             validation: (Rule) =>
                 Rule.required()
