@@ -14,7 +14,7 @@ export const config: any = {
      * BUT: next.config.json - env variables are only accessible by Nextjs
      * Since Sanity data is not sensitive, we can put it in .env.local
      *
-     **/
+     * */
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     apiVersion: '2022-03-27', // or today's date for latest
@@ -22,7 +22,7 @@ export const config: any = {
      * Set useCdn to `false` if your application require the freshest possible
      * data always (potentially slightly slower and a bit more expensive).
      * Authenticated request (like preview) will always bypass the CDN
-     **/
+     * */
     useCdn: process.env.NODE_ENV === 'production',
 };
 
@@ -32,7 +32,7 @@ export const sanityClient = createClient(config);
  * Set up a helper function for generating Image URLs with only the asset
  * reference data in your document.
  * Read more: https://www.sanity.io/docs/image-url
- **/
+ * */
 export const urlFor = (source: string) =>
     createImageUrlBuilder(sanityClient).image(source);
 

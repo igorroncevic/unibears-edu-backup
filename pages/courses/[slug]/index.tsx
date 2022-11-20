@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
-import Image from '../../../components/Common/CustomImage';
 import PortableText from '../../../components/Common/CustomPortableText';
 import { CourseProps } from '../../../components/Courses/CourseCard';
 import CoursesCurriculum from '../../../components/Courses/CoursesCurriculum';
@@ -37,8 +37,9 @@ function Details({ course }: CourseProps) {
             <div className="course-details-banner">
                 <Image
                     src={course.bannerPhoto ? course.bannerPhoto : ''}
+                    layout="fill"
+                    objectFit="cover"
                     alt={course.title[langCode]}
-                    className="course-details-banner-img"
                 />
             </div>
 

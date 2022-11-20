@@ -46,6 +46,8 @@ function CourseCard({ course }: CourseProps) {
                                     ? course.author.name
                                     : 'Author Profile Picture'
                             }
+                            width="35px"
+                            height="35px"
                         />
                         <span className="course-author-name">
                             {course.author.name}

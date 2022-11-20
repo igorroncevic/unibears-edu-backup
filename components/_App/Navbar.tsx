@@ -81,7 +81,7 @@ function Navbar() {
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        {t('navbar.buyUnibear')}
+                                        {t('navbar.buyNFT')}
                                     </a>
                                 </li>
                                 <li className="nav-item megamenu">

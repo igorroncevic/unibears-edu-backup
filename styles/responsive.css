@@ -198,6 +198,9 @@
         right: 30px;
         font-size: 16px;
     }
+    .course-details-banner {
+        height: 150px;
+    }
     .courses-details-desc .react-tabs__tab-list {
         padding-left: 15px;
         padding-right: 15px;
@@ -707,6 +710,9 @@
     .features-box h3 {
         font-size: 19px;
     }
+    .course-details-banner {
+        height: 250px;
+    }
 }
 /* Min width 992px Max width 1199px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -815,6 +821,9 @@
     }
     .terms-of-service-content h3 {
         font-size: 20px;
+    }
+    .course-details-banner {
+        height: 300px;
     }
     .courses-details-desc .react-tabs__tab-list .react-tabs__tab {
         padding: 12px 0;
@@ -1041,6 +1050,15 @@
     .admin-nav .navbar .others-option {
         display: flex !important;
     }
+    .course-details-banner {
+        height: 350px;
+    }
+}
+
+@media only screen and (min-width: 1355px) and (max-width: 1550px) {
+    .course-details-banner {
+        height: 400px;
+    }
 }
 /* Min width 1550px */
 @media only screen and (min-width: 1550px) {
@@ -1054,6 +1072,9 @@
     }
     .bulb {
         left: 20%;
+    }
+    .course-details-banner {
+        height: 400px;
     }
 }
 @media only screen and (max-width: 991px) {

@@ -27,11 +27,6 @@ body {
     --transition: 0.5s;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 p {
     color: var(--optional-color);
     margin-bottom: 15px;
@@ -68,10 +63,6 @@ h5,
 h6 {
     color: var(--black-color);
     font-family: 'Nunito', sans-serif;
-}
-
-.container {
-    max-width: 1230px;
 }
 
 .lectures-container {
@@ -1406,13 +1397,6 @@ Navbar Area CSS
     left: 0;
 }
 
-@media only screen and (max-width: 1199px) {
-    .navbar-area {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
-
 /*================================================
 Courses Area CSS
 =================================================*/
@@ -1740,9 +1724,7 @@ Courses Details Area CSS - Keep
 =================================================*/
 .course-details-banner {
     width: 100%;
-}
-
-.course-details-banner-img {
+    position: relative;
     z-index: -1;
 }
 
@@ -2960,16 +2942,13 @@ Main Banner Area CSS - Keep
     flex: 1;
     z-index: 1;
     position: relative;
-    padding-top: 50px;
+    align-items: center;
+    justify-content: center;
     background-image: url('/images/bg.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-.main-banner-area .container-fluid {
-    max-width: 1395px;
 }
 
 .main-banner-content-style-two h1 {

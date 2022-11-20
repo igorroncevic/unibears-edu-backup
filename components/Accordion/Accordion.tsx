@@ -26,6 +26,7 @@ function AccordionComponent({ course }: AccordionProps) {
     const [topics, setTopics] = useState(course.topics);
     const [openTopics, setOpenTopics] = useState([]);
     const [activeLecture, setActiveLecture] = useState();
+
     const [{ topicIndex, lectureIndex }, setPreviousAndNextLecture] =
         useLecture(course);
 

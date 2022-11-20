@@ -122,8 +122,8 @@ export const PATH_NAMES = {
     PrivacyPolicy: '/privacy-policy',
     TermsOfService: '/terms-of-service',
     // change to new url
-    MintPage: 'https://mint.unibears.io',
-    AppDomain: 'https://unibears.edu',
+    MintPage: 'https://mint.learning.io',
+    AppDomain: 'https://learning.edu',
 };
 
 export const defaultMetadata = {
